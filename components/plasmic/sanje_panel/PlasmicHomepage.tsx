@@ -725,6 +725,7 @@ function PlasmicHomepage__RenderFunc(props: {
             plasmic_fragment_design_system_css.plasmic_tokens,
             sty.root
           )}
+          dir={"RTL"}
         >
           <SideEffect
             data-plasmic-name={"sideEffect"}
@@ -738,7 +739,13 @@ function PlasmicHomepage__RenderFunc(props: {
                     const actionArgs = {
                       args: [
                         undefined,
-                        "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-search-document"
+                        "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-search-document",
+                        undefined,
+                        undefined,
+                        {
+                          withCredentials: true,
+                          headers: { "Content-Type": "application/json" }
+                        }
                       ]
                     };
                     return $globalActions["Fragment.apiRequest"]?.apply(null, [
