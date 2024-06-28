@@ -92,6 +92,7 @@ export type PlasmicHomepage__OverridesType = {
   sideEffect?: Flex__<typeof SideEffect>;
   button?: Flex__<typeof Button>;
   section?: Flex__<"section">;
+  h3?: Flex__<"h3">;
   main?: Flex__<"main">;
   groupExpertiseOnlineVisitsPricingStats?: Flex__<typeof DataFetcher>;
 };
@@ -446,13 +447,27 @@ function PlasmicHomepage__RenderFunc(props: {
             data-plasmic-override={overrides.section}
             className={classNames(projectcss.all, sty.section)}
           >
+            <h3
+              data-plasmic-name={"h3"}
+              data-plasmic-override={overrides.h3}
+              className={classNames(
+                projectcss.all,
+                projectcss.h3,
+                projectcss.__wab_text,
+                sty.h3
+              )}
+            >
+              {
+                "\u0634\u0627\u062e\u0635 \u0647\u0627\u06cc \u0639\u0645\u0644\u06a9\u0631\u062f \u0634\u0645\u0627 \u062f\u0631 \u067e\u0644\u062a\u0641\u0631\u0645 \u067e\u0630\u06cc\u0631\u063424"
+              }
+            </h3>
             <div className={classNames(projectcss.all, sty.freeBox___6T4Ji)}>
               <h4
                 className={classNames(
                   projectcss.all,
                   projectcss.h4,
                   projectcss.__wab_text,
-                  sty.h4__i3VWd
+                  sty.h4__l69DR
                 )}
               >
                 {
@@ -843,12 +858,14 @@ const PlasmicDescendants = {
     "sideEffect",
     "button",
     "section",
+    "h3",
     "main",
     "groupExpertiseOnlineVisitsPricingStats"
   ],
   sideEffect: ["sideEffect"],
   button: ["button"],
-  section: ["section", "main", "groupExpertiseOnlineVisitsPricingStats"],
+  section: ["section", "h3", "main", "groupExpertiseOnlineVisitsPricingStats"],
+  h3: ["h3"],
   main: ["main"],
   groupExpertiseOnlineVisitsPricingStats: [
     "groupExpertiseOnlineVisitsPricingStats"
@@ -862,6 +879,7 @@ type NodeDefaultElementType = {
   sideEffect: typeof SideEffect;
   button: typeof Button;
   section: "section";
+  h3: "h3";
   main: "main";
   groupExpertiseOnlineVisitsPricingStats: typeof DataFetcher;
 };
@@ -929,6 +947,7 @@ export const PlasmicHomepage = Object.assign(
     sideEffect: makeNodeComponent("sideEffect"),
     button: makeNodeComponent("button"),
     section: makeNodeComponent("section"),
+    h3: makeNodeComponent("h3"),
     main: makeNodeComponent("main"),
     groupExpertiseOnlineVisitsPricingStats: makeNodeComponent(
       "groupExpertiseOnlineVisitsPricingStats"

@@ -90,6 +90,13 @@
     grid-column: 4;
   }
 }
+.h3 {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  min-width: 0;
+}
 .freeBox___6T4Ji {
   display: flex;
   position: relative;
@@ -100,9 +107,12 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
+  border-radius: var(--token-fhaz6q6bl-fW);
   padding: 8px;
+  border-width: 1px;
+  border-style: solid;
 }
-.h4__i3VWd {
+.h4__l69DR {
   width: 100%;
   height: auto;
   max-width: 100%;
