@@ -60,6 +60,7 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
+import Button from "../../Button"; // plasmic-import: oVzoHzMf1TLl/component
 import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 import LinearScaleCustomChart from "../../LinearScaleCustomChart"; // plasmic-import: 15G81XIekDs9/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
@@ -71,6 +72,9 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_fragment_design_system_css from "../fragment_design_system/plasmic.module.css"; // plasmic-import: h9Dbk9ygddw7UVEq1NNhKi/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectcss
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: qMyNx4KEh22M/css
+
+import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
+import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
 
 createPlasmicElementProxy;
 
@@ -86,9 +90,10 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 export type PlasmicHomepage__OverridesType = {
   root?: Flex__<"div">;
   sideEffect?: Flex__<typeof SideEffect>;
+  button?: Flex__<typeof Button>;
   section?: Flex__<"section">;
   main?: Flex__<"main">;
-  httpRestApiFetcher?: Flex__<typeof DataFetcher>;
+  groupExpertiseOnlineVisitsPricingStats?: Flex__<typeof DataFetcher>;
 };
 
 export interface DefaultHomepageProps {}
@@ -133,542 +138,7 @@ function PlasmicHomepage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return {
-                statusType: "SUCCESS",
-                details: null,
-                entity: {
-                  expertises: [
-                    {
-                      alias_title: "مدیریت محصول",
-                      degree: {
-                        id: 2,
-                        name: "کارشناس"
-                      },
-                      expertise: {
-                        name: "کتابداری در شاخه پزشکی"
-                      },
-                      expertise_groups: [
-                        {
-                          name: "سایر"
-                        }
-                      ]
-                    }
-                  ],
-
-                  presence_freeturn: 1719639000,
-                  prefix: "دکتر",
-                  prescription_waiting_time_wilson_score: null,
-                  online_visit_waiting_time_wilson_score: 1.1,
-                  expertise: ["کتابداری در شاخه پزشکی"],
-
-                  experience: 1,
-                  consult_services: [
-                    {
-                      free_price: 1310000,
-                      id: "9b7bc270-5aa4-404f-81b9-2f6fdc641d4c"
-                    }
-                  ],
-
-                  doctor_id: "e727f905-7998-11ea-8314-005056b09c11",
-                  work_hour_list: [9, 33, 10, 34, 11, 35, 12],
-
-                  number_of_visits: 1371,
-                  centers: [
-                    {
-                      id: "5a446c87-799a-11ea-8314-005056b09c11",
-                      server_id: 1,
-                      name: "اتاق دیزاین محصول 543 -قانع",
-                      address: "تهران، توحید، پرچم، بین خردنیا و سوسن",
-                      user_center_id: "5cd6fc45-799a-11ea-8314-005056b09c11",
-                      city_name: "یزد",
-                      province_name: "یزد",
-                      city_id: 426,
-                      province_id: 31,
-                      map: {
-                        lat: "31.901529325428",
-                        lon: "54.315177798271"
-                      },
-                      center_type: 1,
-                      status: 1,
-                      tell: null,
-                      display_number: null,
-                      active_booking: true,
-                      is_master: 1
-                    },
-                    {
-                      id: "5532",
-                      server_id: 1,
-                      name: "ویزیت آنلاین پذیرش24",
-                      address: "مرکز ویزیت آنلاین پذیرش24",
-                      user_center_id: "9b7bc270-54ae-4034-b3db-a6586e072218",
-                      city_name: "تهران",
-                      province_name: "تهران",
-                      city_id: 117,
-                      province_id: 8,
-                      map: {
-                        lat: "35.730224",
-                        lon: "51.358404"
-                      },
-                      center_type: 3,
-                      status: 1,
-                      tell: "02125015555",
-                      display_number: null,
-                      active_booking: true,
-                      is_master: 0
-                    }
-                  ],
-
-                  slug: "دکتر-محمد-قانع-17",
-                  image: "c02b2ef59b78187aa669ff409d6fd57a.jpg",
-                  insurances: [],
-                  group_expertise: ["سایر"],
-
-                  available_time_status: 0,
-                  display_name: "ابراهیم قانع",
-                  server_id: 1,
-                  hospital_affiliation: [],
-                  additional_search_clauses: [
-                    "کتابداری در شاخه پزشکی اقا مطب اتاق دیزاین محصول 543 -قانع در یزد",
-                    "مدیریت محصول اقا مطب اتاق دیزاین محصول 543 -قانع در یزد",
-                    "کارشناس کتابداری در شاخه پزشکی",
-                    "اقا دکتر ابراهیم قانع متخصص کارشناس کتابداری در شاخه پزشکی مطب اتاق دیزاین محصول 543 -قانع در یزد",
-                    "دکتر کارشناس کتابداری در شاخه پزشکی خوب در یزد",
-                    "دکتر مدیریت محصول خوب در یزد"
-                  ],
-
-                  center_id: ["5a446c87-799a-11ea-8314-005056b09c11", "5532"],
-
-                  freeturn: 1719639000,
-                  user_id: 5050715,
-                  consult_freeturn: 1719725400,
-                  name: "ابراهیم",
-                  expertise_id: [36],
-
-                  city_id: [426],
-
-                  related_symptomes: [],
-                  gender: 1,
-                  city: ["یزد"],
-
-                  presence_active_booking: true,
-                  rate_info: {
-                    waiting_time: 0,
-                    waiting_time_count: 4,
-                    doctor_encounter: 4.3,
-                    quality_of_treatment: 4.3,
-                    rate: 4.25,
-                    comments_count: 5,
-                    rates_count: 5,
-                    count_dislike: 0,
-                    explanation_of_issue: 4.3
-                  },
-                  freeturns_info: [
-                    {
-                      center_id: "5532",
-                      available_time: "1719520200",
-                      freeturn: "1719725400"
-                    },
-                    {
-                      center_id: "5a446c87-799a-11ea-8314-005056b09c11",
-                      available_time: "1719433800",
-                      freeturn: "1719639000"
-                    }
-                  ],
-
-                  wilson_star: 2.6708296419161606,
-                  waiting_time_info: null,
-                  has_perscription: false,
-                  rates_count: 5,
-                  graduation_date: null,
-                  popular_doctor: false,
-                  less_waiting_time_doctor: false,
-                  result_type: ["فقط پزشکان", "پزشکان مطبی", "پزشکان مشاوره"],
-
-                  star: 4.25,
-                  good_behave_doctor: false,
-                  services: [
-                    {
-                      id: "a53a33cd-300f-11ee-ae54-005056ad7d06",
-                      center_id: "5a446c87-799a-11ea-8314-005056b09c11",
-                      workhours: [
-                        {
-                          types: [
-                            {
-                              name: "Website"
-                            },
-                            {
-                              name: "Tell"
-                            },
-                            {
-                              name: "Calendar"
-                            },
-                            {
-                              name: "APP"
-                            },
-                            {
-                              name: "Telegram"
-                            },
-                            {
-                              name: "Kiosk"
-                            },
-                            {
-                              name: "Clinic WEB"
-                            },
-                            {
-                              name: "Clinic APP"
-                            },
-                            {
-                              name: "Clinic TELEGRAM"
-                            },
-                            {
-                              name: "Clinic TELL"
-                            }
-                          ]
-                        },
-                        {
-                          types: [
-                            {
-                              name: "Website"
-                            },
-                            {
-                              name: "Tell"
-                            },
-                            {
-                              name: "Calendar"
-                            },
-                            {
-                              name: "APP"
-                            },
-                            {
-                              name: "Telegram"
-                            },
-                            {
-                              name: "Kiosk"
-                            },
-                            {
-                              name: "Clinic WEB"
-                            },
-                            {
-                              name: "Clinic APP"
-                            },
-                            {
-                              name: "Clinic TELEGRAM"
-                            },
-                            {
-                              name: "Clinic TELL"
-                            }
-                          ]
-                        },
-                        {
-                          types: [
-                            {
-                              name: "Website"
-                            },
-                            {
-                              name: "Tell"
-                            },
-                            {
-                              name: "Calendar"
-                            },
-                            {
-                              name: "APP"
-                            },
-                            {
-                              name: "Telegram"
-                            },
-                            {
-                              name: "Kiosk"
-                            },
-                            {
-                              name: "Clinic WEB"
-                            },
-                            {
-                              name: "Clinic APP"
-                            },
-                            {
-                              name: "Clinic TELEGRAM"
-                            },
-                            {
-                              name: "Clinic TELL"
-                            }
-                          ]
-                        },
-                        {
-                          types: [
-                            {
-                              name: "Website"
-                            },
-                            {
-                              name: "Tell"
-                            },
-                            {
-                              name: "Calendar"
-                            },
-                            {
-                              name: "APP"
-                            },
-                            {
-                              name: "Telegram"
-                            },
-                            {
-                              name: "Kiosk"
-                            },
-                            {
-                              name: "Clinic WEB"
-                            },
-                            {
-                              name: "Clinic APP"
-                            },
-                            {
-                              name: "Clinic TELEGRAM"
-                            },
-                            {
-                              name: "Clinic TELL"
-                            }
-                          ]
-                        },
-                        {
-                          types: [
-                            {
-                              name: "Website"
-                            },
-                            {
-                              name: "Tell"
-                            },
-                            {
-                              name: "Calendar"
-                            },
-                            {
-                              name: "APP"
-                            },
-                            {
-                              name: "Telegram"
-                            },
-                            {
-                              name: "Kiosk"
-                            },
-                            {
-                              name: "Clinic WEB"
-                            },
-                            {
-                              name: "Clinic APP"
-                            },
-                            {
-                              name: "Clinic TELEGRAM"
-                            },
-                            {
-                              name: "Clinic TELL"
-                            }
-                          ]
-                        },
-                        {
-                          types: [
-                            {
-                              name: "Website"
-                            },
-                            {
-                              name: "Tell"
-                            },
-                            {
-                              name: "Calendar"
-                            },
-                            {
-                              name: "APP"
-                            },
-                            {
-                              name: "Telegram"
-                            },
-                            {
-                              name: "Kiosk"
-                            },
-                            {
-                              name: "Clinic WEB"
-                            },
-                            {
-                              name: "Clinic APP"
-                            },
-                            {
-                              name: "Clinic TELEGRAM"
-                            },
-                            {
-                              name: "Clinic TELL"
-                            }
-                          ]
-                        },
-                        {
-                          types: [
-                            {
-                              name: "Website"
-                            },
-                            {
-                              name: "Tell"
-                            },
-                            {
-                              name: "Calendar"
-                            },
-                            {
-                              name: "APP"
-                            },
-                            {
-                              name: "Telegram"
-                            },
-                            {
-                              name: "Kiosk"
-                            },
-                            {
-                              name: "Clinic APP"
-                            },
-                            {
-                              name: "Clinic TELEGRAM"
-                            },
-                            {
-                              name: "Clinic TELL"
-                            },
-                            {
-                              name: "Clinic WEB"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      id: "9b7bc270-5aa4-404f-81b9-2f6fdc641d4c",
-                      center_id: "5532",
-                      workhours: [
-                        {
-                          types: [
-                            {
-                              name: "Website"
-                            },
-                            {
-                              name: "Tell"
-                            },
-                            {
-                              name: "Calendar"
-                            },
-                            {
-                              name: "APP"
-                            },
-                            {
-                              name: "Telegram"
-                            },
-                            {
-                              name: "Kiosk"
-                            },
-                            {
-                              name: "Clinic WEB"
-                            },
-                            {
-                              name: "Clinic APP"
-                            },
-                            {
-                              name: "Clinic TELEGRAM"
-                            },
-                            {
-                              name: "Clinic TELL"
-                            }
-                          ]
-                        },
-                        {
-                          types: [
-                            {
-                              name: "Website"
-                            },
-                            {
-                              name: "Tell"
-                            },
-                            {
-                              name: "Calendar"
-                            },
-                            {
-                              name: "APP"
-                            },
-                            {
-                              name: "Telegram"
-                            },
-                            {
-                              name: "Kiosk"
-                            },
-                            {
-                              name: "Clinic WEB"
-                            },
-                            {
-                              name: "Clinic APP"
-                            },
-                            {
-                              name: "Clinic TELEGRAM"
-                            },
-                            {
-                              name: "Clinic TELL"
-                            }
-                          ]
-                        },
-                        {
-                          types: [
-                            {
-                              name: "Website"
-                            },
-                            {
-                              name: "Tell"
-                            },
-                            {
-                              name: "Calendar"
-                            },
-                            {
-                              name: "APP"
-                            },
-                            {
-                              name: "Telegram"
-                            },
-                            {
-                              name: "Kiosk"
-                            },
-                            {
-                              name: "Clinic WEB"
-                            },
-                            {
-                              name: "Clinic APP"
-                            },
-                            {
-                              name: "Clinic TELEGRAM"
-                            },
-                            {
-                              name: "Clinic TELL"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ],
-
-                  university_name: [],
-                  biography:
-                    "سلام\nاینجا با هم برای گفتگو هم وعده می شویم.\n \n\n_\n\nتفکر نمایی\nتفکر طراحی\nتفکر مستقل",
-                  satisfaction: 85,
-                  consult_active_booking: true,
-                  search_clauses: [
-                    "مدیریت محصول یزد",
-                    "کتابداری در شاخه پزشکی یزد",
-                    "سایر یزد",
-                    "ویزیت آنلاین",
-                    "ویزیت انلاین",
-                    "مشاوره انلاین",
-                    "مشاوره آنلاین"
-                  ],
-
-                  record_type: "doctor",
-                  group_expertise_id: [23, 21],
-                  is_consult: 1,
-                  province_id: [31],
-
-                  number_of_visit: 1371,
-                  medical_code: "ع1234",
-                  calculated_rate: 85,
-                  _click: 12,
-                  _cart: 0
-                },
-                path: "/api/index/slim_clinic/doc/doctor_e727f905-7998-11ea-8314-005056b09c11_1"
-              };
+              return {};
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -734,7 +204,41 @@ function PlasmicHomepage__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
-              $steps["getMySearchDocument"] = true
+              $steps["updateCurrentDoctorData2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          return fetch(
+                            "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-search-document",
+                            {
+                              method: "GET",
+                              credentials: "include"
+                            }
+                          )
+                            .then(response => response.json())
+                            .then(data => {
+                              $state.currentDoctorData = data;
+                            });
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateCurrentDoctorData2"] != null &&
+                typeof $steps["updateCurrentDoctorData2"] === "object" &&
+                typeof $steps["updateCurrentDoctorData2"].then === "function"
+              ) {
+                $steps["updateCurrentDoctorData2"] = await $steps[
+                  "updateCurrentDoctorData2"
+                ];
+              }
+
+              $steps["getMySearchDocument"] = false
                 ? (() => {
                     const actionArgs = {
                       args: [
@@ -763,7 +267,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 ];
               }
 
-              $steps["updateCurrentDoctorData"] = true
+              $steps["updateCurrentDoctorData"] = false
                 ? (() => {
                     const actionArgs = {
                       variable: {
@@ -793,79 +297,150 @@ function PlasmicHomepage__RenderFunc(props: {
                   "updateCurrentDoctorData"
                 ];
               }
-
-              $steps["groupExpertiseOnlineVisitsPricingStatsApi"] = true
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        undefined,
-                        `https://apigw.paziresh24.com/v1/n8n-search/webhook/GroupExpertiseOnlineVisitsPricingStats?group_expertise_id=21&forcecache${
-                          "https://apigw.paziresh24.com/v1/n8n-search/webhook/GroupExpertiseOnlineVisitsPricingStats?group_expertise_id=" +
-                          $state.currentDoctorData.entity.group_expertise_id
-                        }`
-                      ]
-                    };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-              if (
-                $steps["groupExpertiseOnlineVisitsPricingStatsApi"] != null &&
-                typeof $steps["groupExpertiseOnlineVisitsPricingStatsApi"] ===
-                  "object" &&
-                typeof $steps["groupExpertiseOnlineVisitsPricingStatsApi"]
-                  .then === "function"
-              ) {
-                $steps["groupExpertiseOnlineVisitsPricingStatsApi"] =
-                  await $steps["groupExpertiseOnlineVisitsPricingStatsApi"];
-              }
-
-              $steps[
-                "updateCurrentDoctorGroupExpertiseOnlineVisitsPricingStats"
-              ] = !window.location.hostname.includes("plasmic.app")
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: [
-                          "currentDoctorGroupExpertiseOnlineVisitsPricingStats"
-                        ]
-                      },
-                      operation: 0,
-                      value: $steps.groupExpertiseOnlineVisitsPricingStatsApi
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps[
-                  "updateCurrentDoctorGroupExpertiseOnlineVisitsPricingStats"
-                ] != null &&
-                typeof $steps[
-                  "updateCurrentDoctorGroupExpertiseOnlineVisitsPricingStats"
-                ] === "object" &&
-                typeof $steps[
-                  "updateCurrentDoctorGroupExpertiseOnlineVisitsPricingStats"
-                ].then === "function"
-              ) {
-                $steps[
-                  "updateCurrentDoctorGroupExpertiseOnlineVisitsPricingStats"
-                ] = await $steps[
-                  "updateCurrentDoctorGroupExpertiseOnlineVisitsPricingStats"
-                ];
-              }
             }}
           />
 
+          {false ? (
+            <Button
+              data-plasmic-name={"button"}
+              data-plasmic-override={overrides.button}
+              className={classNames("__wab_instance", sty.button)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            return fetch(
+                              "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-search-document",
+                              {
+                                method: "GET",
+                                credentials: "include"
+                              }
+                            )
+                              .then(response => response.json())
+                              .then(data => {
+                                $state.currentDoctorData = data;
+                              });
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+
+                $steps["updateCurrentDoctorData4"] = false
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (async () => {
+                            async function fetchWithCookies(url) {
+                              try {
+                                const response = await fetch(url, {
+                                  method: "GET",
+                                  credentials: "include",
+                                  headers: {
+                                    "Content-Type": "application/json"
+                                  }
+                                });
+                                if (!response.ok) {
+                                  throw new Error(
+                                    `HTTP error! Status: ${response.status}`
+                                  );
+                                }
+                                const data = await response.json();
+                                console.log(data);
+                              } catch (error) {
+                                console.error("Error:", error);
+                              }
+                            }
+                            const url =
+                              "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-search-document";
+                            return ($state.currentDoctorData =
+                              fetchWithCookies(url));
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateCurrentDoctorData4"] != null &&
+                  typeof $steps["updateCurrentDoctorData4"] === "object" &&
+                  typeof $steps["updateCurrentDoctorData4"].then === "function"
+                ) {
+                  $steps["updateCurrentDoctorData4"] = await $steps[
+                    "updateCurrentDoctorData4"
+                  ];
+                }
+              }}
+            />
+          ) : null}
+          {false ? (
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__fsagY
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return JSON.stringify(
+                      $state.currentDoctorGroupExpertiseOnlineVisitsPricingStats
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            </div>
+          ) : null}
+          {false ? (
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__leMv8
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return JSON.stringify($state.currentDoctorData);
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            </div>
+          ) : null}
           <section
             data-plasmic-name={"section"}
             data-plasmic-override={overrides.section}
@@ -916,11 +491,13 @@ function PlasmicHomepage__RenderFunc(props: {
                 const currentIndex = __plasmic_idx_0;
                 return (
                   <DataFetcher
-                    data-plasmic-name={"httpRestApiFetcher"}
-                    data-plasmic-override={overrides.httpRestApiFetcher}
+                    data-plasmic-name={"groupExpertiseOnlineVisitsPricingStats"}
+                    data-plasmic-override={
+                      overrides.groupExpertiseOnlineVisitsPricingStats
+                    }
                     className={classNames(
                       "__wab_instance",
-                      sty.httpRestApiFetcher
+                      sty.groupExpertiseOnlineVisitsPricingStats
                     )}
                     dataName={"fetchedData"}
                     errorDisplay={
@@ -1261,11 +838,21 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "sideEffect", "section", "main", "httpRestApiFetcher"],
+  root: [
+    "root",
+    "sideEffect",
+    "button",
+    "section",
+    "main",
+    "groupExpertiseOnlineVisitsPricingStats"
+  ],
   sideEffect: ["sideEffect"],
-  section: ["section", "main", "httpRestApiFetcher"],
+  button: ["button"],
+  section: ["section", "main", "groupExpertiseOnlineVisitsPricingStats"],
   main: ["main"],
-  httpRestApiFetcher: ["httpRestApiFetcher"]
+  groupExpertiseOnlineVisitsPricingStats: [
+    "groupExpertiseOnlineVisitsPricingStats"
+  ]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1273,9 +860,10 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   sideEffect: typeof SideEffect;
+  button: typeof Button;
   section: "section";
   main: "main";
-  httpRestApiFetcher: typeof DataFetcher;
+  groupExpertiseOnlineVisitsPricingStats: typeof DataFetcher;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1339,9 +927,12 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     sideEffect: makeNodeComponent("sideEffect"),
+    button: makeNodeComponent("button"),
     section: makeNodeComponent("section"),
     main: makeNodeComponent("main"),
-    httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
+    groupExpertiseOnlineVisitsPricingStats: makeNodeComponent(
+      "groupExpertiseOnlineVisitsPricingStats"
+    ),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
