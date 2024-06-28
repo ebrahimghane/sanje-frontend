@@ -60,7 +60,6 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import LinearScaleCustomChart from "../../LinearScaleCustomChart"; // plasmic-import: 15G81XIekDs9/component
-import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
@@ -87,8 +86,8 @@ export type PlasmicHomepage__OverridesType = {
   root?: Flex__<"div">;
   section?: Flex__<"section">;
   linearScaleCustomChart?: Flex__<typeof LinearScaleCustomChart>;
-  httpRestApiFetcher?: Flex__<typeof DataFetcher>;
   sideEffect?: Flex__<typeof SideEffect>;
+  text?: Flex__<"div">;
 };
 
 export interface DefaultHomepageProps {}
@@ -121,6 +120,8 @@ function PlasmicHomepage__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const $globalActions = useGlobalActions?.();
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -162,7 +163,7 @@ function PlasmicHomepage__RenderFunc(props: {
                   experience: 1,
                   consult_services: [
                     {
-                      free_price: 100000,
+                      free_price: 36000,
                       id: "9b7bc270-5aa4-404f-81b9-2f6fdc641d4c"
                     }
                   ],
@@ -677,6 +678,12 @@ function PlasmicHomepage__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "currentDoctorGroupExpertiseOnlineVisitsPricingStats",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -805,29 +812,6 @@ function PlasmicHomepage__RenderFunc(props: {
               }
             />
           </section>
-          <DataFetcher
-            data-plasmic-name={"httpRestApiFetcher"}
-            data-plasmic-override={overrides.httpRestApiFetcher}
-            className={classNames("__wab_instance", sty.httpRestApiFetcher)}
-            dataName={"fetchedData"}
-            errorDisplay={
-              <DataCtxReader__>{$ctx => "Error fetching data"}</DataCtxReader__>
-            }
-            errorName={"fetchError"}
-            headers={{
-              "Content-Type": "application/json",
-              Accept: "application/json"
-            }}
-            loadingDisplay={
-              <DataCtxReader__>{$ctx => "Loading..."}</DataCtxReader__>
-            }
-            method={"GET"}
-            noLayout={false}
-            url={
-              "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-search-document"
-            }
-          />
-
           <SideEffect
             data-plasmic-name={"sideEffect"}
             data-plasmic-override={overrides.sideEffect}
@@ -839,7 +823,30 @@ function PlasmicHomepage__RenderFunc(props: {
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
-                        return undefined;
+                        return fetch(
+                          "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-search-document",
+                          {
+                            method: "GET",
+                            headers: { "Content-Type": "application/json" },
+                            credentials: "include"
+                          }
+                        )
+                          .then(response => {
+                            if (!response.ok) {
+                              throw new Error(
+                                "Network response was not ok " +
+                                  response.statusText
+                              );
+                            }
+                            return response.json();
+                          })
+                          .then(data => ($state.currentDoctorData = data))
+                          .catch(error =>
+                            console.error(
+                              "There has been a problem with your fetch operation:",
+                              error
+                            )
+                          );
                       }
                     };
                     return (({ customFunction }) => {
@@ -854,8 +861,107 @@ function PlasmicHomepage__RenderFunc(props: {
               ) {
                 $steps["runCode"] = await $steps["runCode"];
               }
+
+              $steps["groupExpertiseOnlineVisitsPricingStatsApi"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        "https://apigw.paziresh24.com/v1/n8n-search/webhook/GroupExpertiseOnlineVisitsPricingStats?group_expertise_id=21&forcecache"
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["groupExpertiseOnlineVisitsPricingStatsApi"] != null &&
+                typeof $steps["groupExpertiseOnlineVisitsPricingStatsApi"] ===
+                  "object" &&
+                typeof $steps["groupExpertiseOnlineVisitsPricingStatsApi"]
+                  .then === "function"
+              ) {
+                $steps["groupExpertiseOnlineVisitsPricingStatsApi"] =
+                  await $steps["groupExpertiseOnlineVisitsPricingStatsApi"];
+              }
+
+              $steps[
+                "updateCurrentDoctorGroupExpertiseOnlineVisitsPricingStats"
+              ] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: [
+                          "currentDoctorGroupExpertiseOnlineVisitsPricingStats"
+                        ]
+                      },
+                      operation: 0,
+                      value: $steps.groupExpertiseOnlineVisitsPricingStatsApi
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps[
+                  "updateCurrentDoctorGroupExpertiseOnlineVisitsPricingStats"
+                ] != null &&
+                typeof $steps[
+                  "updateCurrentDoctorGroupExpertiseOnlineVisitsPricingStats"
+                ] === "object" &&
+                typeof $steps[
+                  "updateCurrentDoctorGroupExpertiseOnlineVisitsPricingStats"
+                ].then === "function"
+              ) {
+                $steps[
+                  "updateCurrentDoctorGroupExpertiseOnlineVisitsPricingStats"
+                ] = await $steps[
+                  "updateCurrentDoctorGroupExpertiseOnlineVisitsPricingStats"
+                ];
+              }
             }}
           />
+
+          <div
+            data-plasmic-name={"text"}
+            data-plasmic-override={overrides.text}
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return (
+                    JSON.stringify(
+                      $state.currentDoctorGroupExpertiseOnlineVisitsPricingStats
+                    ) +
+                    "\r\n" +
+                    JSON.stringify($state.currentDoctorData)
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </div>
         </div>
       </div>
     </React.Fragment>
@@ -863,17 +969,11 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "section",
-    "linearScaleCustomChart",
-    "httpRestApiFetcher",
-    "sideEffect"
-  ],
+  root: ["root", "section", "linearScaleCustomChart", "sideEffect", "text"],
   section: ["section", "linearScaleCustomChart"],
   linearScaleCustomChart: ["linearScaleCustomChart"],
-  httpRestApiFetcher: ["httpRestApiFetcher"],
-  sideEffect: ["sideEffect"]
+  sideEffect: ["sideEffect"],
+  text: ["text"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -882,8 +982,8 @@ type NodeDefaultElementType = {
   root: "div";
   section: "section";
   linearScaleCustomChart: typeof LinearScaleCustomChart;
-  httpRestApiFetcher: typeof DataFetcher;
   sideEffect: typeof SideEffect;
+  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -948,8 +1048,8 @@ export const PlasmicHomepage = Object.assign(
     // Helper components rendering sub-elements
     section: makeNodeComponent("section"),
     linearScaleCustomChart: makeNodeComponent("linearScaleCustomChart"),
-    httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
     sideEffect: makeNodeComponent("sideEffect"),
+    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
