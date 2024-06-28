@@ -59,8 +59,9 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import LinearScaleCustomChart from "../../LinearScaleCustomChart"; // plasmic-import: 15G81XIekDs9/component
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
+import { DataFetcher } from "@plasmicpkgs/plasmic-query";
+import LinearScaleCustomChart from "../../LinearScaleCustomChart"; // plasmic-import: 15G81XIekDs9/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariantsbr2UhI7UlpvR } from "../fragment_icons/PlasmicGlobalVariant__Screen"; // plasmic-import: BR2UhI7ulpvR/globalVariant
@@ -84,10 +85,10 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHomepage__OverridesType = {
   root?: Flex__<"div">;
-  section?: Flex__<"section">;
-  linearScaleCustomChart?: Flex__<typeof LinearScaleCustomChart>;
   sideEffect?: Flex__<typeof SideEffect>;
-  text?: Flex__<"div">;
+  section?: Flex__<"section">;
+  main?: Flex__<"main">;
+  httpRestApiFetcher?: Flex__<typeof DataFetcher>;
 };
 
 export interface DefaultHomepageProps {}
@@ -163,7 +164,7 @@ function PlasmicHomepage__RenderFunc(props: {
                   experience: 1,
                   consult_services: [
                     {
-                      free_price: 36000,
+                      free_price: 1310000,
                       id: "9b7bc270-5aa4-404f-81b9-2f6fdc641d4c"
                     }
                   ],
@@ -656,7 +657,7 @@ function PlasmicHomepage__RenderFunc(props: {
                   ],
 
                   record_type: "doctor",
-                  group_expertise_id: [],
+                  group_expertise_id: [23, 21],
                   is_consult: 1,
                   province_id: [31],
 
@@ -725,93 +726,6 @@ function PlasmicHomepage__RenderFunc(props: {
             sty.root
           )}
         >
-          <section
-            data-plasmic-name={"section"}
-            data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section)}
-          >
-            <LinearScaleCustomChart
-              data-plasmic-name={"linearScaleCustomChart"}
-              data-plasmic-override={overrides.linearScaleCustomChart}
-              className={classNames(
-                "__wab_instance",
-                sty.linearScaleCustomChart
-              )}
-              colorrange={{
-                range: [
-                  {
-                    minvalue: "27",
-                    "minvalue-lable":
-                      "27 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
-                    maxvalue: "72",
-                    label:
-                      "\u062e\u0648\u0634 \u0642\u06cc\u0645\u062a\n \u06a9\u0645\u062a\u0631 \u0627\u0632 \u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
-                    code: "#62B58F"
-                  },
-                  {
-                    minvalue: "72",
-                    "minvalue-lable":
-                      "72 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
-                    maxvalue: "116",
-                    label: "\u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
-                    code: "#FFC533"
-                  },
-                  {
-                    minvalue: "116",
-                    "minvalue-lable":
-                      "116 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
-                    maxvalue: "300",
-                    "maxvalue-lable":
-                      "300 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
-                    label:
-                      "\u06af\u0631\u0627\u0646\n \u0628\u06cc\u0634 \u0627\u0632 \u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
-                    code: "#F2726F"
-                  }
-                ]
-              }}
-              label={(() => {
-                try {
-                  return (
-                    "ویزیت شما " +
-                    $state.currentDoctorData.entity.consult_services[0]
-                      .free_price /
-                      10000 +
-                    " هزارتومان"
-                  );
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-              range={
-                hasVariant(globalVariants, "screen", "mobileOnly")
-                  ? 80
-                  : (() => {
-                      try {
-                        return (
-                          ($state.currentDoctorData.entity.consult_services[0]
-                            .free_price /
-                            1400000) *
-                          50
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return 10;
-                        }
-                        throw e;
-                      }
-                    })()
-              }
-            />
-          </section>
           <SideEffect
             data-plasmic-name={"sideEffect"}
             data-plasmic-override={overrides.sideEffect}
@@ -819,47 +733,58 @@ function PlasmicHomepage__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
-              $steps["runCode"] = true
+              $steps["getMySearchDocument"] = true
                 ? (() => {
                     const actionArgs = {
-                      customFunction: async () => {
-                        return fetch(
-                          "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-search-document",
-                          {
-                            method: "GET",
-                            headers: { "Content-Type": "application/json" },
-                            credentials: "include"
-                          }
-                        )
-                          .then(response => {
-                            if (!response.ok) {
-                              throw new Error(
-                                "Network response was not ok " +
-                                  response.statusText
-                              );
-                            }
-                            return response.json();
-                          })
-                          .then(data => ($state.currentDoctorData = data))
-                          .catch(error =>
-                            console.error(
-                              "There has been a problem with your fetch operation:",
-                              error
-                            )
-                          );
-                      }
+                      args: [
+                        undefined,
+                        "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-search-document"
+                      ]
                     };
-                    return (({ customFunction }) => {
-                      return customFunction();
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["getMySearchDocument"] != null &&
+                typeof $steps["getMySearchDocument"] === "object" &&
+                typeof $steps["getMySearchDocument"].then === "function"
+              ) {
+                $steps["getMySearchDocument"] = await $steps[
+                  "getMySearchDocument"
+                ];
+              }
+
+              $steps["updateCurrentDoctorData"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["currentDoctorData"]
+                      },
+                      operation: 0,
+                      value: $steps.getMySearchDocument
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
                     })?.apply(null, [actionArgs]);
                   })()
                 : undefined;
               if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
+                $steps["updateCurrentDoctorData"] != null &&
+                typeof $steps["updateCurrentDoctorData"] === "object" &&
+                typeof $steps["updateCurrentDoctorData"].then === "function"
               ) {
-                $steps["runCode"] = await $steps["runCode"];
+                $steps["updateCurrentDoctorData"] = await $steps[
+                  "updateCurrentDoctorData"
+                ];
               }
 
               $steps["groupExpertiseOnlineVisitsPricingStatsApi"] = true
@@ -867,7 +792,10 @@ function PlasmicHomepage__RenderFunc(props: {
                     const actionArgs = {
                       args: [
                         undefined,
-                        "https://apigw.paziresh24.com/v1/n8n-search/webhook/GroupExpertiseOnlineVisitsPricingStats?group_expertise_id=21&forcecache"
+                        `https://apigw.paziresh24.com/v1/n8n-search/webhook/GroupExpertiseOnlineVisitsPricingStats?group_expertise_id=21&forcecache${
+                          "https://apigw.paziresh24.com/v1/n8n-search/webhook/GroupExpertiseOnlineVisitsPricingStats?group_expertise_id=" +
+                          $state.currentDoctorData.entity.group_expertise_id
+                        }`
                       ]
                     };
                     return $globalActions["Fragment.apiRequest"]?.apply(null, [
@@ -888,7 +816,7 @@ function PlasmicHomepage__RenderFunc(props: {
 
               $steps[
                 "updateCurrentDoctorGroupExpertiseOnlineVisitsPricingStats"
-              ] = true
+              ] = !window.location.hostname.includes("plasmic.app")
                 ? (() => {
                     const actionArgs = {
                       variable: {
@@ -931,37 +859,394 @@ function PlasmicHomepage__RenderFunc(props: {
             }}
           />
 
-          <div
-            data-plasmic-name={"text"}
-            data-plasmic-override={overrides.text}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text
-            )}
+          <section
+            data-plasmic-name={"section"}
+            data-plasmic-override={overrides.section}
+            className={classNames(projectcss.all, sty.section)}
           >
-            <React.Fragment>
-              {(() => {
+            <div className={classNames(projectcss.all, sty.freeBox___6T4Ji)}>
+              <h4
+                className={classNames(
+                  projectcss.all,
+                  projectcss.h4,
+                  projectcss.__wab_text,
+                  sty.h4__i3VWd
+                )}
+              >
+                {
+                  "\u0646\u0631\u062e \u0648\u06cc\u0632\u06cc\u062a \u0622\u0646\u0644\u0627\u06cc\u0646"
+                }
+              </h4>
+              <main
+                data-plasmic-name={"main"}
+                data-plasmic-override={overrides.main}
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.main
+                )}
+              >
+                {
+                  "\u0627\u0639\u062f\u0627\u062f \u0628\u0631 \u0627\u0633\u0627\u0633 \u067e\u0631\u062f\u0627\u062e\u062a \u0647\u0627\u06cc \u067e\u0631\u062a\u06a9\u0631\u0627\u0631 \u067e\u0644\u062a\u0641\u0631\u0645 \u0627\u0633\u062a\u062e\u0631\u0627\u062c \u0634\u062f\u0647."
+                }
+              </main>
+              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                (() => {
+                  try {
+                    return $state.currentDoctorData.entity.group_expertise_id;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()
+              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                const currentItem = __plasmic_item_0;
+                const currentIndex = __plasmic_idx_0;
+                return (
+                  <DataFetcher
+                    data-plasmic-name={"httpRestApiFetcher"}
+                    data-plasmic-override={overrides.httpRestApiFetcher}
+                    className={classNames(
+                      "__wab_instance",
+                      sty.httpRestApiFetcher
+                    )}
+                    dataName={"fetchedData"}
+                    errorDisplay={
+                      <DataCtxReader__>
+                        {$ctx => "Error fetching data"}
+                      </DataCtxReader__>
+                    }
+                    errorName={"fetchError"}
+                    headers={{
+                      "Content-Type": "application/json",
+                      Accept: "application/json"
+                    }}
+                    key={currentIndex}
+                    loadingDisplay={
+                      <DataCtxReader__>{$ctx => "Loading..."}</DataCtxReader__>
+                    }
+                    method={"GET"}
+                    noLayout={false}
+                    previewErrorDisplay={false}
+                    previewSpinner={false}
+                    url={(() => {
+                      try {
+                        return (
+                          "https://apigw.paziresh24.com/v1/n8n-search/webhook/GroupExpertiseOnlineVisitsPricingStats?group_expertise_id=" +
+                          currentItem
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                  >
+                    <DataCtxReader__>
+                      {$ctx => (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__otToo
+                          )}
+                        >
+                          <h4
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h4,
+                              projectcss.__wab_text,
+                              sty.h4__u6RgF
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return "گروه " + $ctx.fetchedData.group_name;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "...";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </h4>
+                          <LinearScaleCustomChart
+                            className={classNames(
+                              "__wab_instance",
+                              sty.linearScaleCustomChart___8ZMrv
+                            )}
+                            colorrange={(() => {
+                              try {
+                                return {
+                                  range: [
+                                    {
+                                      minvalue: $ctx.fetchedData.min / 10000,
+                                      "minvalue-lable":
+                                        $ctx.fetchedData.min / 10000 +
+                                        "هزار تومان",
+                                      maxvalue: Math.round(
+                                        ($ctx.fetchedData.avg -
+                                          ($ctx.fetchedData.max -
+                                            $ctx.fetchedData.min) /
+                                            10) /
+                                          10000
+                                      ),
+                                      label: "خوش قیمت\n (کمتر از میانگین)",
+                                      code: "#62B58F"
+                                    },
+                                    {
+                                      minvalue: Math.round(
+                                        ($ctx.fetchedData.avg -
+                                          ($ctx.fetchedData.max -
+                                            $ctx.fetchedData.min) /
+                                            10) /
+                                          10000
+                                      ),
+                                      "minvalue-lable":
+                                        Math.round(
+                                          ($ctx.fetchedData.avg -
+                                            ($ctx.fetchedData.max -
+                                              $ctx.fetchedData.min) /
+                                              10) /
+                                            10000
+                                        ) + "هزار تومان",
+                                      maxvalue: Math.round(
+                                        ($ctx.fetchedData.avg +
+                                          ($ctx.fetchedData.max -
+                                            $ctx.fetchedData.min) /
+                                            10) /
+                                          10000
+                                      ),
+                                      label: "میانگین",
+                                      code: "#FFC533"
+                                    },
+                                    {
+                                      minvalue: Math.round(
+                                        ($ctx.fetchedData.avg +
+                                          ($ctx.fetchedData.max -
+                                            $ctx.fetchedData.min) /
+                                            10) /
+                                          10000
+                                      ),
+                                      "minvalue-lable":
+                                        Math.round(
+                                          ($ctx.fetchedData.avg +
+                                            ($ctx.fetchedData.max -
+                                              $ctx.fetchedData.min) /
+                                              10) /
+                                            10000
+                                        ) + "هزار تومان",
+                                      maxvalue: $ctx.fetchedData.max / 10000,
+                                      "maxvalue-lable":
+                                        $ctx.fetchedData.max / 10000 +
+                                        "هزار تومان",
+                                      label: "گران\n (بیش از میانگین)",
+                                      code: "#F2726F"
+                                    }
+                                  ]
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return {
+                                    range: [
+                                      {
+                                        minvalue: "1",
+                                        "minvalue-lable":
+                                          "1 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
+                                        maxvalue: "1",
+                                        label:
+                                          "\u062e\u0648\u0634 \u0642\u06cc\u0645\u062a\n \u06a9\u0645\u062a\u0631 \u0627\u0632 \u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
+                                        code: "#62B58F"
+                                      },
+                                      {
+                                        minvalue: "1",
+                                        "minvalue-lable":
+                                          "1 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
+                                        maxvalue: "1",
+                                        label:
+                                          "\u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
+                                        code: "#FFC533"
+                                      },
+                                      {
+                                        minvalue: "1",
+                                        "minvalue-lable":
+                                          "1 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
+                                        maxvalue: "1",
+                                        "maxvalue-lable":
+                                          "1 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
+                                        label:
+                                          "\u06af\u0631\u0627\u0646\n \u0628\u06cc\u0634 \u0627\u0632 \u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
+                                        code: "#F2726F"
+                                      }
+                                    ]
+                                  };
+                                }
+                                throw e;
+                              }
+                            })()}
+                            label={(() => {
+                              try {
+                                return (
+                                  "ویزیت شما " +
+                                  $state.currentDoctorData.entity
+                                    .consult_services[0].free_price /
+                                    10000 +
+                                  " هزارتومان"
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
+                            range={(() => {
+                              try {
+                                return (
+                                  ($state.currentDoctorData.entity
+                                    .consult_services[0].free_price /
+                                    $ctx.fetchedData.max) *
+                                  100
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
+                          />
+                        </div>
+                      )}
+                    </DataCtxReader__>
+                  </DataFetcher>
+                );
+              })}
+            </div>
+            {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+              (() => {
                 try {
-                  return (
-                    JSON.stringify(
-                      $state.currentDoctorGroupExpertiseOnlineVisitsPricingStats
-                    ) +
-                    "\r\n" +
-                    JSON.stringify($state.currentDoctorData)
-                  );
+                  return $state.currentDoctorData.entity.group_expertise_id;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
                     e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    return "";
+                    return [];
                   }
                   throw e;
                 }
-              })()}
-            </React.Fragment>
-          </div>
+              })()
+            ).map((__plasmic_item_0, __plasmic_idx_0) => {
+              const currentItem = __plasmic_item_0;
+              const currentIndex = __plasmic_idx_0;
+              return (
+                <LinearScaleCustomChart
+                  className={classNames(
+                    "__wab_instance",
+                    sty.linearScaleCustomChart__oTlK2
+                  )}
+                  colorrange={{
+                    range: [
+                      {
+                        minvalue: "27",
+                        "minvalue-lable":
+                          "27 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
+                        maxvalue: "72",
+                        label:
+                          "\u062e\u0648\u0634 \u0642\u06cc\u0645\u062a\n \u06a9\u0645\u062a\u0631 \u0627\u0632 \u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
+                        code: "#62B58F"
+                      },
+                      {
+                        minvalue: "72",
+                        "minvalue-lable":
+                          "72 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
+                        maxvalue: "116",
+                        label: "\u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
+                        code: "#FFC533"
+                      },
+                      {
+                        minvalue: "116",
+                        "minvalue-lable":
+                          "116 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
+                        maxvalue: "300",
+                        "maxvalue-lable":
+                          "300 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
+                        label:
+                          "\u06af\u0631\u0627\u0646\n \u0628\u06cc\u0634 \u0627\u0632 \u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
+                        code: "#F2726F"
+                      }
+                    ]
+                  }}
+                  key={currentIndex}
+                  label={(() => {
+                    try {
+                      return (
+                        "ویزیت شما " +
+                        $state.currentDoctorData.entity.consult_services[0]
+                          .free_price /
+                          10000 +
+                        " هزارتومان"
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  range={
+                    hasVariant(globalVariants, "screen", "mobileOnly")
+                      ? 80
+                      : (() => {
+                          try {
+                            return (
+                              ($state.currentDoctorData.entity
+                                .consult_services[0].free_price /
+                                1400000) *
+                              50
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return 10;
+                            }
+                            throw e;
+                          }
+                        })()
+                  }
+                />
+              );
+            })}
+          </section>
         </div>
       </div>
     </React.Fragment>
@@ -969,21 +1254,21 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "section", "linearScaleCustomChart", "sideEffect", "text"],
-  section: ["section", "linearScaleCustomChart"],
-  linearScaleCustomChart: ["linearScaleCustomChart"],
+  root: ["root", "sideEffect", "section", "main", "httpRestApiFetcher"],
   sideEffect: ["sideEffect"],
-  text: ["text"]
+  section: ["section", "main", "httpRestApiFetcher"],
+  main: ["main"],
+  httpRestApiFetcher: ["httpRestApiFetcher"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  section: "section";
-  linearScaleCustomChart: typeof LinearScaleCustomChart;
   sideEffect: typeof SideEffect;
-  text: "div";
+  section: "section";
+  main: "main";
+  httpRestApiFetcher: typeof DataFetcher;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1046,10 +1331,10 @@ export const PlasmicHomepage = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    section: makeNodeComponent("section"),
-    linearScaleCustomChart: makeNodeComponent("linearScaleCustomChart"),
     sideEffect: makeNodeComponent("sideEffect"),
-    text: makeNodeComponent("text"),
+    section: makeNodeComponent("section"),
+    main: makeNodeComponent("main"),
+    httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
