@@ -175,16 +175,13 @@
   max-width: 100%;
   background: none;
   flex-direction: column;
-  border-left-width: 2px;
-  border-left-style: solid;
-  border-top-width: 2px;
-  border-top-style: solid;
   align-items: flex-start;
   justify-content: center;
-  border-right-width: 2px;
-  border-right-style: solid;
   min-width: 0;
   padding: 2px;
+  border-top: 2px solid var(--token-8itld8j2DCdr);
+  border-right: 2px solid var(--token-8itld8j2DCdr);
+  border-left: 2px solid var(--token-8itld8j2DCdr);
 }
 .freeBox__gP2Ub {
   display: flex;
@@ -194,12 +191,10 @@
   max-width: 100%;
   background: none;
   flex-direction: column;
-  border-left-width: 2px;
-  border-left-style: solid;
-  border-top-width: 2px;
-  border-top-style: solid;
   min-width: 0;
   padding: 8px;
+  border-top: 2px solid var(--token-8itld8j2DCdr);
+  border-left: 2px solid var(--token-8itld8j2DCdr);
 }
 .freeBox__bqUcl {
   display: flex;
@@ -209,14 +204,11 @@
   max-width: 100%;
   background: none;
   flex-direction: column;
-  border-left-style: solid;
-  border-right-style: solid;
-  border-left-width: 2px;
-  border-right-width: 2px;
-  border-top-width: 2px;
-  border-top-style: solid;
   min-width: 0;
   padding: 8px;
+  border-top: 2px solid var(--token-8itld8j2DCdr);
+  border-right: 2px solid var(--token-8itld8j2DCdr);
+  border-left: 2px solid var(--token-8itld8j2DCdr);
 }
 .freeBox__jvylF {
   display: flex;

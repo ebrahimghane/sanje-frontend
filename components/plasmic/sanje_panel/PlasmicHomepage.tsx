@@ -92,9 +92,11 @@ export type PlasmicHomepage__OverridesType = {
   sideEffect?: Flex__<typeof SideEffect>;
   button?: Flex__<typeof Button>;
   section?: Flex__<"section">;
-  h3?: Flex__<"h3">;
+  h4?: Flex__<"h4">;
+  h5?: Flex__<"h5">;
   main?: Flex__<"main">;
   groupExpertiseOnlineVisitsPricingStats?: Flex__<typeof DataFetcher>;
+  h6?: Flex__<"h6">;
 };
 
 export interface DefaultHomepageProps {}
@@ -447,33 +449,35 @@ function PlasmicHomepage__RenderFunc(props: {
             data-plasmic-override={overrides.section}
             className={classNames(projectcss.all, sty.section)}
           >
-            <h3
-              data-plasmic-name={"h3"}
-              data-plasmic-override={overrides.h3}
+            <h4
+              data-plasmic-name={"h4"}
+              data-plasmic-override={overrides.h4}
               className={classNames(
                 projectcss.all,
-                projectcss.h3,
+                projectcss.h4,
                 projectcss.__wab_text,
-                sty.h3
+                sty.h4
               )}
             >
               {
                 "\u0634\u0627\u062e\u0635 \u0647\u0627\u06cc \u0639\u0645\u0644\u06a9\u0631\u062f \u0634\u0645\u0627 \u062f\u0631 \u067e\u0644\u062a\u0641\u0631\u0645 \u067e\u0630\u06cc\u0631\u063424"
               }
-            </h3>
+            </h4>
             <div className={classNames(projectcss.all, sty.freeBox___6T4Ji)}>
-              <h4
+              <h5
+                data-plasmic-name={"h5"}
+                data-plasmic-override={overrides.h5}
                 className={classNames(
                   projectcss.all,
-                  projectcss.h4,
+                  projectcss.h5,
                   projectcss.__wab_text,
-                  sty.h4__l69DR
+                  sty.h5
                 )}
               >
                 {
                   "\u0646\u0631\u062e \u0648\u06cc\u0632\u06cc\u062a \u0622\u0646\u0644\u0627\u06cc\u0646"
                 }
-              </h4>
+              </h5>
               <main
                 data-plasmic-name={"main"}
                 data-plasmic-override={overrides.main}
@@ -484,7 +488,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 )}
               >
                 {
-                  "\u0627\u0639\u062f\u0627\u062f \u0628\u0631 \u0627\u0633\u0627\u0633 \u067e\u0631\u062f\u0627\u062e\u062a \u0647\u0627\u06cc \u067e\u0631\u062a\u06a9\u0631\u0627\u0631 \u067e\u0644\u062a\u0641\u0631\u0645 \u0627\u0633\u062a\u062e\u0631\u0627\u062c \u0634\u062f\u0647."
+                  "\u0627\u0639\u062f\u0627\u062f \u0628\u0631 \u0627\u0633\u0627\u0633 \u067e\u0631\u062f\u0627\u062e\u062a \u0647\u0627\u06cc \u067e\u0631\u062a\u06a9\u0631\u0627\u0631 \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u0627\u0633\u062a\u062e\u0631\u0627\u062c \u0634\u062f\u0647 \u0627\u0633\u062a."
                 }
               </main>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
@@ -558,18 +562,22 @@ function PlasmicHomepage__RenderFunc(props: {
                             sty.freeBox__otToo
                           )}
                         >
-                          <h4
+                          <h6
+                            data-plasmic-name={"h6"}
+                            data-plasmic-override={overrides.h6}
                             className={classNames(
                               projectcss.all,
-                              projectcss.h4,
+                              projectcss.h6,
                               projectcss.__wab_text,
-                              sty.h4__u6RgF
+                              sty.h6
                             )}
                           >
                             <React.Fragment>
                               {(() => {
                                 try {
-                                  return "گروه " + $ctx.fetchedData.group_name;
+                                  return (
+                                    "گروه " + $ctx.fetchedData.group_name + ":"
+                                  );
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -582,7 +590,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                 }
                               })()}
                             </React.Fragment>
-                          </h4>
+                          </h6>
                           <LinearScaleCustomChart
                             className={classNames(
                               "__wab_instance",
@@ -596,7 +604,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                       minvalue: $ctx.fetchedData.min / 10000,
                                       "minvalue-lable":
                                         $ctx.fetchedData.min / 10000 +
-                                        "هزار تومان",
+                                        " هزار تومان",
                                       maxvalue: Math.round(
                                         ($ctx.fetchedData.avg -
                                           ($ctx.fetchedData.max -
@@ -604,7 +612,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                             10) /
                                           10000
                                       ),
-                                      label: "خوش قیمت\n (کمتر از میانگین)",
+                                      label: "خوش قیمت",
                                       code: "#62B58F"
                                     },
                                     {
@@ -622,7 +630,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                               $ctx.fetchedData.min) /
                                               10) /
                                             10000
-                                        ) + "هزار تومان",
+                                        ) + " هزار تومان",
                                       maxvalue: Math.round(
                                         ($ctx.fetchedData.avg +
                                           ($ctx.fetchedData.max -
@@ -648,12 +656,12 @@ function PlasmicHomepage__RenderFunc(props: {
                                               $ctx.fetchedData.min) /
                                               10) /
                                             10000
-                                        ) + "هزار تومان",
+                                        ) + " هزار تومان",
                                       maxvalue: $ctx.fetchedData.max / 10000,
                                       "maxvalue-lable":
                                         $ctx.fetchedData.max / 10000 +
-                                        "هزار تومان",
-                                      label: "گران\n (بیش از میانگین)",
+                                        " هزار تومان",
+                                      label: "گران",
                                       code: "#F2726F"
                                     }
                                   ]
@@ -858,18 +866,30 @@ const PlasmicDescendants = {
     "sideEffect",
     "button",
     "section",
-    "h3",
+    "h4",
+    "h5",
     "main",
-    "groupExpertiseOnlineVisitsPricingStats"
+    "groupExpertiseOnlineVisitsPricingStats",
+    "h6"
   ],
   sideEffect: ["sideEffect"],
   button: ["button"],
-  section: ["section", "h3", "main", "groupExpertiseOnlineVisitsPricingStats"],
-  h3: ["h3"],
+  section: [
+    "section",
+    "h4",
+    "h5",
+    "main",
+    "groupExpertiseOnlineVisitsPricingStats",
+    "h6"
+  ],
+  h4: ["h4"],
+  h5: ["h5"],
   main: ["main"],
   groupExpertiseOnlineVisitsPricingStats: [
-    "groupExpertiseOnlineVisitsPricingStats"
-  ]
+    "groupExpertiseOnlineVisitsPricingStats",
+    "h6"
+  ],
+  h6: ["h6"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -879,9 +899,11 @@ type NodeDefaultElementType = {
   sideEffect: typeof SideEffect;
   button: typeof Button;
   section: "section";
-  h3: "h3";
+  h4: "h4";
+  h5: "h5";
   main: "main";
   groupExpertiseOnlineVisitsPricingStats: typeof DataFetcher;
+  h6: "h6";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -947,11 +969,13 @@ export const PlasmicHomepage = Object.assign(
     sideEffect: makeNodeComponent("sideEffect"),
     button: makeNodeComponent("button"),
     section: makeNodeComponent("section"),
-    h3: makeNodeComponent("h3"),
+    h4: makeNodeComponent("h4"),
+    h5: makeNodeComponent("h5"),
     main: makeNodeComponent("main"),
     groupExpertiseOnlineVisitsPricingStats: makeNodeComponent(
       "groupExpertiseOnlineVisitsPricingStats"
     ),
+    h6: makeNodeComponent("h6"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
