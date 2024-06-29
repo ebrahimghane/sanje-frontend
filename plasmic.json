@@ -532,7 +532,13 @@
           "componentType": "component"
         }
       ],
-      "icons": [],
+      "icons": [
+        {
+          "id": "8AcWHALIfatm",
+          "name": "IconIcon",
+          "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon.tsx"
+        }
+      ],
       "images": [
         {
           "id": "kIB-2kGROcap",
