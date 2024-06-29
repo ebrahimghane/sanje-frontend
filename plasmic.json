@@ -349,19 +349,6 @@
       "cssFilePath": "plasmic/fragment_design_system/plasmic.module.css",
       "components": [
         {
-          "id": "Rg8wZ0CpGCye",
-          "name": "RtlProvider",
-          "type": "managed",
-          "projectId": "h9Dbk9ygddw7UVEq1NNhKi",
-          "renderModuleFilePath": "plasmic/fragment_design_system/PlasmicRtlProvider.tsx",
-          "importSpec": {
-            "modulePath": "RtlProvider.tsx"
-          },
-          "cssFilePath": "plasmic/fragment_design_system/PlasmicRtlProvider.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "3i84rYjQRrs4",
           "name": "Avatar",
           "type": "managed",
@@ -481,8 +468,7 @@
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "aU6fPsMDSmKqgHWpAbdgs",
@@ -597,6 +583,30 @@
           "name": "Splunk",
           "displayName": "Splunk",
           "componentImportPath": "@/fragment/splunk"
+        },
+        {
+          "id": "Y7OelJAhX1bB",
+          "name": "Select",
+          "displayName": "Select",
+          "componentImportPath": "@/fragment/components/select"
+        },
+        {
+          "id": "zLPWSKiKTX83",
+          "name": "Input",
+          "displayName": "Input",
+          "componentImportPath": "@/fragment/components/input"
+        },
+        {
+          "id": "mu9gE1xeTSNn",
+          "name": "Switch",
+          "displayName": "Switch",
+          "componentImportPath": "@/fragment/components/switch"
+        },
+        {
+          "id": "MhkncRKg2Phv",
+          "name": "ApiRequest",
+          "displayName": "ApiRequest",
+          "componentImportPath": "@/fragment/components/api-request"
         }
       ],
       "customFunctions": []
