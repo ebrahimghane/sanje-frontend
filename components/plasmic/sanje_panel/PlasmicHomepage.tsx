@@ -460,123 +460,286 @@ function PlasmicHomepage__RenderFunc(props: {
               )}
             >
               {
-                "\u0634\u0627\u062e\u0635 \u0647\u0627\u06cc \u0639\u0645\u0644\u06a9\u0631\u062f \u0634\u0645\u0627 \u062f\u0631 \u067e\u0644\u062a\u0641\u0631\u0645 \u067e\u0630\u06cc\u0631\u063424"
+                "\u0634\u0627\u062e\u0635 \u0647\u0627\u06cc \u0639\u0645\u0644\u06a9\u0631\u062f \u0634\u0645\u0627"
               }
             </h4>
-            <div className={classNames(projectcss.all, sty.freeBox___6T4Ji)}>
-              <h5
-                data-plasmic-name={"h5"}
-                data-plasmic-override={overrides.h5}
-                className={classNames(
-                  projectcss.all,
-                  projectcss.h5,
-                  projectcss.__wab_text,
-                  sty.h5
-                )}
-              >
-                {
-                  "\u0646\u0631\u062e \u0648\u06cc\u0632\u06cc\u062a \u0622\u0646\u0644\u0627\u06cc\u0646"
-                }
-              </h5>
-              <main
-                data-plasmic-name={"main"}
-                data-plasmic-override={overrides.main}
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.main
-                )}
-              >
-                {
-                  "\u0627\u0639\u062f\u0627\u062f \u0628\u0631 \u0627\u0633\u0627\u0633 \u067e\u0631\u062f\u0627\u062e\u062a \u0647\u0627\u06cc \u067e\u0631\u062a\u06a9\u0631\u0627\u0631 \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u0627\u0633\u062a\u062e\u0631\u0627\u062c \u0634\u062f\u0647 \u0627\u0633\u062a."
-                }
-              </main>
-              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                (() => {
-                  try {
-                    return $state.currentDoctorData.entity.group_expertise_id;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return [];
-                    }
-                    throw e;
-                  }
-                })()
-              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                const currentItem = __plasmic_item_0;
-                const currentIndex = __plasmic_idx_0;
+            {(() => {
+              try {
                 return (
-                  <DataFetcher
-                    data-plasmic-name={"groupExpertiseOnlineVisitsPricingStats"}
-                    data-plasmic-override={
-                      overrides.groupExpertiseOnlineVisitsPricingStats
-                    }
-                    className={classNames(
-                      "__wab_instance",
-                      sty.groupExpertiseOnlineVisitsPricingStats
-                    )}
-                    dataName={"fetchedData"}
-                    errorDisplay={
-                      <DataCtxReader__>
-                        {$ctx => "Error fetching data"}
-                      </DataCtxReader__>
-                    }
-                    errorName={"fetchError"}
-                    headers={{
-                      "Content-Type": "application/json",
-                      Accept: "application/json"
-                    }}
-                    key={currentIndex}
-                    loadingDisplay={
-                      <DataCtxReader__>{$ctx => "Loading..."}</DataCtxReader__>
-                    }
-                    method={"GET"}
-                    noLayout={false}
-                    previewErrorDisplay={false}
-                    previewSpinner={false}
-                    url={(() => {
-                      try {
-                        return (
-                          "https://apigw.paziresh24.com/v1/n8n-search/webhook/GroupExpertiseOnlineVisitsPricingStats?group_expertise_id=" +
-                          currentItem
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
+                  $state.currentDoctorData.entity.consult_services[0]
+                    .free_price !== undefined &&
+                  $state.currentDoctorData.entity.consult_services[0]
+                    .free_price !== null
+                );
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div className={classNames(projectcss.all, sty.freeBox___6T4Ji)}>
+                <h5
+                  data-plasmic-name={"h5"}
+                  data-plasmic-override={overrides.h5}
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.h5,
+                    projectcss.__wab_text,
+                    sty.h5
+                  )}
+                >
+                  {
+                    "\u0646\u0631\u062e \u0648\u06cc\u0632\u06cc\u062a \u0622\u0646\u0644\u0627\u06cc\u0646"
+                  }
+                </h5>
+                <main
+                  data-plasmic-name={"main"}
+                  data-plasmic-override={overrides.main}
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.main
+                  )}
+                >
+                  {
+                    "\u0627\u0639\u062f\u0627\u062f \u0628\u0631 \u0627\u0633\u0627\u0633 \u067e\u0631\u062f\u0627\u062e\u062a \u0647\u0627\u06cc \u067e\u0631\u062a\u06a9\u0631\u0627\u0631 \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u0627\u0633\u062a\u062e\u0631\u0627\u062c \u0634\u062f\u0647 \u0627\u0633\u062a."
+                  }
+                </main>
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return $state.currentDoctorData.entity.group_expertise_id;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
                       }
-                    })()}
-                  >
-                    <DataCtxReader__>
-                      {$ctx => (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__otToo
-                          )}
-                        >
-                          <h6
-                            data-plasmic-name={"h6"}
-                            data-plasmic-override={overrides.h6}
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <DataFetcher
+                      data-plasmic-name={
+                        "groupExpertiseOnlineVisitsPricingStats"
+                      }
+                      data-plasmic-override={
+                        overrides.groupExpertiseOnlineVisitsPricingStats
+                      }
+                      className={classNames(
+                        "__wab_instance",
+                        sty.groupExpertiseOnlineVisitsPricingStats
+                      )}
+                      dataName={"fetchedData"}
+                      errorDisplay={
+                        <DataCtxReader__>
+                          {$ctx => "Error fetching data"}
+                        </DataCtxReader__>
+                      }
+                      errorName={"fetchError"}
+                      headers={{
+                        "Content-Type": "application/json",
+                        Accept: "application/json"
+                      }}
+                      key={currentIndex}
+                      loadingDisplay={
+                        <DataCtxReader__>
+                          {$ctx => "Loading..."}
+                        </DataCtxReader__>
+                      }
+                      method={"GET"}
+                      noLayout={false}
+                      previewErrorDisplay={false}
+                      previewSpinner={false}
+                      url={(() => {
+                        try {
+                          return (
+                            "https://apigw.paziresh24.com/v1/n8n-search/webhook/GroupExpertiseOnlineVisitsPricingStats?group_expertise_id=" +
+                            currentItem
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    >
+                      <DataCtxReader__>
+                        {$ctx => (
+                          <div
                             className={classNames(
                               projectcss.all,
-                              projectcss.h6,
-                              projectcss.__wab_text,
-                              sty.h6
+                              sty.freeBox__otToo
                             )}
                           >
-                            <React.Fragment>
-                              {(() => {
+                            <h6
+                              data-plasmic-name={"h6"}
+                              data-plasmic-override={overrides.h6}
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h6,
+                                projectcss.__wab_text,
+                                sty.h6
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return $ctx.fetchedData.group_name
+                                      ? "گروه " + $ctx.fetchedData.group_name
+                                      : "";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "...";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </h6>
+                            <LinearScaleCustomChart
+                              className={classNames(
+                                "__wab_instance",
+                                sty.linearScaleCustomChart___8ZMrv
+                              )}
+                              colorrange={(() => {
+                                try {
+                                  return {
+                                    range: [
+                                      {
+                                        minvalue: $ctx.fetchedData.min / 10000,
+                                        "minvalue-lable":
+                                          $ctx.fetchedData.min / 10000 +
+                                          " هزار تومان",
+                                        maxvalue: Math.round(
+                                          ($ctx.fetchedData.avg -
+                                            ($ctx.fetchedData.max -
+                                              $ctx.fetchedData.min) /
+                                              10) /
+                                            10000
+                                        ),
+                                        label: "خوش قیمت",
+                                        code: "#62B58F"
+                                      },
+                                      {
+                                        minvalue: Math.round(
+                                          ($ctx.fetchedData.avg -
+                                            ($ctx.fetchedData.max -
+                                              $ctx.fetchedData.min) /
+                                              10) /
+                                            10000
+                                        ),
+                                        "minvalue-lable":
+                                          Math.round(
+                                            ($ctx.fetchedData.avg -
+                                              ($ctx.fetchedData.max -
+                                                $ctx.fetchedData.min) /
+                                                10) /
+                                              10000
+                                          ) + " هزار تومان",
+                                        maxvalue: Math.round(
+                                          ($ctx.fetchedData.avg +
+                                            ($ctx.fetchedData.max -
+                                              $ctx.fetchedData.min) /
+                                              10) /
+                                            10000
+                                        ),
+                                        label: "میانگین",
+                                        code: "#FFC533"
+                                      },
+                                      {
+                                        minvalue: Math.round(
+                                          ($ctx.fetchedData.avg +
+                                            ($ctx.fetchedData.max -
+                                              $ctx.fetchedData.min) /
+                                              10) /
+                                            10000
+                                        ),
+                                        "minvalue-lable":
+                                          Math.round(
+                                            ($ctx.fetchedData.avg +
+                                              ($ctx.fetchedData.max -
+                                                $ctx.fetchedData.min) /
+                                                10) /
+                                              10000
+                                          ) + " هزار تومان",
+                                        maxvalue: $ctx.fetchedData.max / 10000,
+                                        "maxvalue-lable":
+                                          $ctx.fetchedData.max / 10000 +
+                                          " هزار تومان",
+                                        label: "گران",
+                                        code: "#F2726F"
+                                      }
+                                    ]
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return {
+                                      range: [
+                                        {
+                                          minvalue: "1",
+                                          "minvalue-lable":
+                                            "1 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
+                                          maxvalue: "1",
+                                          label:
+                                            "\u062e\u0648\u0634 \u0642\u06cc\u0645\u062a\n \u06a9\u0645\u062a\u0631 \u0627\u0632 \u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
+                                          code: "#62B58F"
+                                        },
+                                        {
+                                          minvalue: "1",
+                                          "minvalue-lable":
+                                            "1 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
+                                          maxvalue: "1",
+                                          label:
+                                            "\u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
+                                          code: "#FFC533"
+                                        },
+                                        {
+                                          minvalue: "1",
+                                          "minvalue-lable":
+                                            "1 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
+                                          maxvalue: "1",
+                                          "maxvalue-lable":
+                                            "1 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
+                                          label:
+                                            "\u06af\u0631\u0627\u0646\n \u0628\u06cc\u0634 \u0627\u0632 \u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
+                                          code: "#F2726F"
+                                        }
+                                      ]
+                                    };
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                              label={(() => {
                                 try {
                                   return (
-                                    "گروه " + $ctx.fetchedData.group_name + ":"
+                                    "ویزیت شما " +
+                                    Math.round(
+                                      $state.currentDoctorData.entity
+                                        .consult_services[0].free_price / 10000
+                                    ) +
+                                    " هزارتومان"
                                   );
                                 } catch (e) {
                                   if (
@@ -584,175 +747,39 @@ function PlasmicHomepage__RenderFunc(props: {
                                     e?.plasmicType ===
                                       "PlasmicUndefinedDataError"
                                   ) {
-                                    return "...";
+                                    return undefined;
                                   }
                                   throw e;
                                 }
                               })()}
-                            </React.Fragment>
-                          </h6>
-                          <LinearScaleCustomChart
-                            className={classNames(
-                              "__wab_instance",
-                              sty.linearScaleCustomChart___8ZMrv
-                            )}
-                            colorrange={(() => {
-                              try {
-                                return {
-                                  range: [
-                                    {
-                                      minvalue: $ctx.fetchedData.min / 10000,
-                                      "minvalue-lable":
-                                        $ctx.fetchedData.min / 10000 +
-                                        " هزار تومان",
-                                      maxvalue: Math.round(
-                                        ($ctx.fetchedData.avg -
-                                          ($ctx.fetchedData.max -
-                                            $ctx.fetchedData.min) /
-                                            10) /
-                                          10000
-                                      ),
-                                      label: "خوش قیمت",
-                                      code: "#62B58F"
-                                    },
-                                    {
-                                      minvalue: Math.round(
-                                        ($ctx.fetchedData.avg -
-                                          ($ctx.fetchedData.max -
-                                            $ctx.fetchedData.min) /
-                                            10) /
-                                          10000
-                                      ),
-                                      "minvalue-lable":
-                                        Math.round(
-                                          ($ctx.fetchedData.avg -
-                                            ($ctx.fetchedData.max -
-                                              $ctx.fetchedData.min) /
-                                              10) /
-                                            10000
-                                        ) + " هزار تومان",
-                                      maxvalue: Math.round(
-                                        ($ctx.fetchedData.avg +
-                                          ($ctx.fetchedData.max -
-                                            $ctx.fetchedData.min) /
-                                            10) /
-                                          10000
-                                      ),
-                                      label: "میانگین",
-                                      code: "#FFC533"
-                                    },
-                                    {
-                                      minvalue: Math.round(
-                                        ($ctx.fetchedData.avg +
-                                          ($ctx.fetchedData.max -
-                                            $ctx.fetchedData.min) /
-                                            10) /
-                                          10000
-                                      ),
-                                      "minvalue-lable":
-                                        Math.round(
-                                          ($ctx.fetchedData.avg +
-                                            ($ctx.fetchedData.max -
-                                              $ctx.fetchedData.min) /
-                                              10) /
-                                            10000
-                                        ) + " هزار تومان",
-                                      maxvalue: $ctx.fetchedData.max / 10000,
-                                      "maxvalue-lable":
-                                        $ctx.fetchedData.max / 10000 +
-                                        " هزار تومان",
-                                      label: "گران",
-                                      code: "#F2726F"
-                                    }
-                                  ]
-                                };
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return {
-                                    range: [
-                                      {
-                                        minvalue: "1",
-                                        "minvalue-lable":
-                                          "1 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
-                                        maxvalue: "1",
-                                        label:
-                                          "\u062e\u0648\u0634 \u0642\u06cc\u0645\u062a\n \u06a9\u0645\u062a\u0631 \u0627\u0632 \u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
-                                        code: "#62B58F"
-                                      },
-                                      {
-                                        minvalue: "1",
-                                        "minvalue-lable":
-                                          "1 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
-                                        maxvalue: "1",
-                                        label:
-                                          "\u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
-                                        code: "#FFC533"
-                                      },
-                                      {
-                                        minvalue: "1",
-                                        "minvalue-lable":
-                                          "1 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
-                                        maxvalue: "1",
-                                        "maxvalue-lable":
-                                          "1 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
-                                        label:
-                                          "\u06af\u0631\u0627\u0646\n \u0628\u06cc\u0634 \u0627\u0632 \u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
-                                        code: "#F2726F"
-                                      }
-                                    ]
-                                  };
+                              range={(() => {
+                                try {
+                                  return (
+                                    ($state.currentDoctorData.entity
+                                      .consult_services[0].free_price /
+                                      $ctx.fetchedData.max) *
+                                    100
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
                                 }
-                                throw e;
-                              }
-                            })()}
-                            label={(() => {
-                              try {
-                                return (
-                                  "ویزیت شما " +
-                                  $state.currentDoctorData.entity
-                                    .consult_services[0].free_price /
-                                    10000 +
-                                  " هزارتومان"
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}
-                            range={(() => {
-                              try {
-                                return (
-                                  ($state.currentDoctorData.entity
-                                    .consult_services[0].free_price /
-                                    $ctx.fetchedData.max) *
-                                  100
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}
-                          />
-                        </div>
-                      )}
-                    </DataCtxReader__>
-                  </DataFetcher>
-                );
-              })}
-            </div>
+                              })()}
+                            />
+                          </div>
+                        )}
+                      </DataCtxReader__>
+                    </DataFetcher>
+                  );
+                })}
+              </div>
+            ) : null}
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
                 try {
