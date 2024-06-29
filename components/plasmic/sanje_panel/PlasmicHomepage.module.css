@@ -225,7 +225,7 @@
   border-bottom-width: 1px;
   min-width: 0;
 }
-.embedHtml:global(.__wab_instance) {
+.gtm:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
   position: relative;
