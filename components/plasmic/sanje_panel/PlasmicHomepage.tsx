@@ -75,6 +75,7 @@ import sty from "./PlasmicHomepage.module.css"; // plasmic-import: qMyNx4KEh22M/
 
 import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
 import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
+import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: 8AcWHALIfatm/icon
 
 createPlasmicElementProxy;
 
@@ -94,9 +95,10 @@ export type PlasmicHomepage__OverridesType = {
   section?: Flex__<"section">;
   h4?: Flex__<"h4">;
   h5?: Flex__<"h5">;
-  main?: Flex__<"main">;
   groupExpertiseOnlineVisitsPricingStats?: Flex__<typeof DataFetcher>;
   h6?: Flex__<"h6">;
+  svg?: Flex__<"svg">;
+  link?: Flex__<"a"> & Partial<LinkProps>;
 };
 
 export interface DefaultHomepageProps {}
@@ -493,22 +495,9 @@ function PlasmicHomepage__RenderFunc(props: {
                   )}
                 >
                   {
-                    "\u0646\u0631\u062e \u0648\u06cc\u0632\u06cc\u062a \u0622\u0646\u0644\u0627\u06cc\u0646"
+                    "\u0645\u0628\u0644\u063a \u0648\u06cc\u0632\u06cc\u062a \u0622\u0646\u0644\u0627\u06cc\u0646"
                   }
                 </h5>
-                <main
-                  data-plasmic-name={"main"}
-                  data-plasmic-override={overrides.main}
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.main
-                  )}
-                >
-                  {
-                    "\u0627\u0639\u062f\u0627\u062f \u0628\u0631 \u0627\u0633\u0627\u0633 \u067e\u0631\u062f\u0627\u062e\u062a \u0647\u0627\u06cc \u067e\u0631\u062a\u06a9\u0631\u0627\u0631 \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u0627\u0633\u062a\u062e\u0631\u0627\u062c \u0634\u062f\u0647 \u0627\u0633\u062a."
-                  }
-                </main>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -772,12 +761,93 @@ function PlasmicHomepage__RenderFunc(props: {
                                 }
                               })()}
                             />
+
+                            {(() => {
+                              try {
+                                return (
+                                  $state.currentDoctorData.entity
+                                    .consult_services[0].free_price >
+                                  $ctx.fetchedData.avg +
+                                    ($ctx.fetchedData.max -
+                                      $ctx.fetchedData.min) /
+                                      10
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return true;
+                                }
+                                throw e;
+                              }
+                            })() ? (
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__bBhKw
+                                )}
+                              >
+                                <IconIcon
+                                  data-plasmic-name={"svg"}
+                                  data-plasmic-override={overrides.svg}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg
+                                  )}
+                                  role={"img"}
+                                />
+
+                                <main
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.main__tXQkN
+                                  )}
+                                >
+                                  {
+                                    "\u0645\u0628\u0644\u063a \u0648\u06cc\u0632\u06cc\u062a \u0634\u0645\u0627 \u062f\u0631 \u0645\u062d\u062f\u0648\u062f\u0647 \u06af\u0631\u0627\u0646 \u0628\u0648\u062f\u0647 \u0648 \u0627\u062d\u062a\u0645\u0627\u0644\u0627\u064b \u0631\u0648\u06cc \u0631\u062a\u0628\u0647 \u0634\u0645\u0627 \u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u0627\u062b\u0631 \u0645\u0646\u0641\u06cc \u0628\u06af\u0630\u0627\u0631\u062f. "
+                                  }
+                                </main>
+                                <PlasmicLink__
+                                  data-plasmic-name={"link"}
+                                  data-plasmic-override={overrides.link}
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.a,
+                                    projectcss.__wab_text,
+                                    sty.link
+                                  )}
+                                  component={Link}
+                                  href={
+                                    "https://dr.paziresh24.com/setting/payment?center_id=5532"
+                                  }
+                                  platform={"nextjs"}
+                                  target={"_blank"}
+                                >
+                                  {
+                                    "\u0627\u0635\u0644\u0627\u062d \u0645\u0628\u0644\u063a"
+                                  }
+                                </PlasmicLink__>
+                              </div>
+                            ) : null}
                           </div>
                         )}
                       </DataCtxReader__>
                     </DataFetcher>
                   );
                 })}
+                <main
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.main__qrmV
+                  )}
+                >
+                  {
+                    "\u0627\u0639\u062f\u0627\u062f \u062d\u062f\u0627\u0642\u0644 \u0648 \u062d\u062f\u0627\u06a9\u062b\u0631 \u0646\u0631\u062e \u0648\u06cc\u0632\u06cc\u062a \u0628\u0631 \u0627\u0633\u0627\u0633 \u0645\u0628\u0627\u0644\u063a \u067e\u0631\u062f\u0627\u062e\u062a\u06cc \u0646\u0648\u0628\u062a \u0647\u0627 \u062f\u0631 \u0647\u0641\u062a\u0647 \u0647\u0627\u06cc \u0627\u062e\u06cc\u0631 \u0645\u062d\u0627\u0633\u0628\u0647 \u0634\u062f\u0647 \u0627\u0633\u062a."
+                  }
+                </main>
               </div>
             ) : null}
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
@@ -895,9 +965,10 @@ const PlasmicDescendants = {
     "section",
     "h4",
     "h5",
-    "main",
     "groupExpertiseOnlineVisitsPricingStats",
-    "h6"
+    "h6",
+    "svg",
+    "link"
   ],
   sideEffect: ["sideEffect"],
   button: ["button"],
@@ -905,18 +976,22 @@ const PlasmicDescendants = {
     "section",
     "h4",
     "h5",
-    "main",
     "groupExpertiseOnlineVisitsPricingStats",
-    "h6"
+    "h6",
+    "svg",
+    "link"
   ],
   h4: ["h4"],
   h5: ["h5"],
-  main: ["main"],
   groupExpertiseOnlineVisitsPricingStats: [
     "groupExpertiseOnlineVisitsPricingStats",
-    "h6"
+    "h6",
+    "svg",
+    "link"
   ],
-  h6: ["h6"]
+  h6: ["h6"],
+  svg: ["svg"],
+  link: ["link"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -928,9 +1003,10 @@ type NodeDefaultElementType = {
   section: "section";
   h4: "h4";
   h5: "h5";
-  main: "main";
   groupExpertiseOnlineVisitsPricingStats: typeof DataFetcher;
   h6: "h6";
+  svg: "svg";
+  link: "a";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -998,11 +1074,12 @@ export const PlasmicHomepage = Object.assign(
     section: makeNodeComponent("section"),
     h4: makeNodeComponent("h4"),
     h5: makeNodeComponent("h5"),
-    main: makeNodeComponent("main"),
     groupExpertiseOnlineVisitsPricingStats: makeNodeComponent(
       "groupExpertiseOnlineVisitsPricingStats"
     ),
     h6: makeNodeComponent("h6"),
+    svg: makeNodeComponent("svg"),
+    link: makeNodeComponent("link"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
