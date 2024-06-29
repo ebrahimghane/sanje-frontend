@@ -101,7 +101,7 @@ export type PlasmicHomepage__OverridesType = {
   link?: Flex__<"a"> & Partial<LinkProps>;
   sideEffect?: Flex__<typeof SideEffect>;
   button?: Flex__<typeof Button>;
-  embedHtml?: Flex__<typeof Embed>;
+  gtm?: Flex__<typeof Embed>;
 };
 
 export interface DefaultHomepageProps {}
@@ -1051,9 +1051,12 @@ function PlasmicHomepage__RenderFunc(props: {
             </div>
           ) : null}
           <Embed
-            data-plasmic-name={"embedHtml"}
-            data-plasmic-override={overrides.embedHtml}
-            className={classNames("__wab_instance", sty.embedHtml)}
+            data-plasmic-name={"gtm"}
+            data-plasmic-override={overrides.gtm}
+            className={classNames("__wab_instance", sty.gtm)}
+            code={
+              '<!-- Google Tag Manager (noscript) -->\r\n<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5RPLDP"\r\nheight="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>\r\n<!-- End Google Tag Manager (noscript) -->'
+            }
           />
         </div>
       </div>
@@ -1073,7 +1076,7 @@ const PlasmicDescendants = {
     "link",
     "sideEffect",
     "button",
-    "embedHtml"
+    "gtm"
   ],
   fragmentApiRequest: [
     "fragmentApiRequest",
@@ -1097,7 +1100,7 @@ const PlasmicDescendants = {
   link: ["link"],
   sideEffect: ["sideEffect"],
   button: ["button"],
-  embedHtml: ["embedHtml"]
+  gtm: ["gtm"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1113,7 +1116,7 @@ type NodeDefaultElementType = {
   link: "a";
   sideEffect: typeof SideEffect;
   button: typeof Button;
-  embedHtml: typeof Embed;
+  gtm: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1187,7 +1190,7 @@ export const PlasmicHomepage = Object.assign(
     link: makeNodeComponent("link"),
     sideEffect: makeNodeComponent("sideEffect"),
     button: makeNodeComponent("button"),
-    embedHtml: makeNodeComponent("embedHtml"),
+    gtm: makeNodeComponent("gtm"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
