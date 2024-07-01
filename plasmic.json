@@ -485,7 +485,7 @@
           "projectId": "aU6fPsMDSmKqgHWpAbdgs",
           "renderModuleFilePath": "plasmic/sanje_panel/PlasmicHomepage.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/index.tsx"
+            "modulePath": "../src/pages/my-performance.tsx"
           },
           "cssFilePath": "plasmic/sanje_panel/PlasmicHomepage.module.css",
           "scheme": "blackbox",
@@ -515,6 +515,19 @@
             "modulePath": "Card.tsx"
           },
           "cssFilePath": "plasmic/sanje_panel/PlasmicCard.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "0EkZlbx6K2L1",
+          "name": "LinearScaleCustomChart2",
+          "type": "managed",
+          "projectId": "aU6fPsMDSmKqgHWpAbdgs",
+          "renderModuleFilePath": "plasmic/sanje_panel/PlasmicLinearScaleCustomChart2.tsx",
+          "importSpec": {
+            "modulePath": "LinearScaleCustomChart2.tsx"
+          },
+          "cssFilePath": "plasmic/sanje_panel/PlasmicLinearScaleCustomChart2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }
@@ -608,6 +621,28 @@
           "name": "ApiRequest",
           "displayName": "ApiRequest",
           "componentImportPath": "@/fragment/components/api-request"
+        }
+      ],
+      "customFunctions": []
+    },
+    {
+      "projectId": "kS7YGZfVr6mU43XDQjXELc",
+      "projectApiToken": "ByNEUEKB7Hd9g2PkeOVot8RZTanYGn3rlmcjYTbULlTb9TEjfypxJ4uDH0HeEMQazKWvfHB4CFNXVgy8YmEyA",
+      "projectName": "react-chartjs-2",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/react_chartjs_2/plasmic.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "splitsProviderFilePath": "",
+      "codeComponents": [
+        {
+          "id": "0Qywk3bhW-8",
+          "name": "SimpleChart",
+          "displayName": "hostless-react-chartjs-2-simple-chart",
+          "componentImportPath": "@plasmicpkgs/react-chartjs-2"
         }
       ],
       "customFunctions": []
