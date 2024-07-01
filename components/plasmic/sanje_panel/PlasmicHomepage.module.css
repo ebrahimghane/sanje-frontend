@@ -82,6 +82,8 @@
   height: auto;
   max-width: 100%;
   background: #ffffff;
+  margin-top: 15px;
+  margin-bottom: 15px;
   min-width: 0;
   border-radius: var(--token-fhaz6q6bl-fW);
   padding: 8px;
@@ -94,6 +96,13 @@
   max-width: 100%;
   text-align: right;
   margin-bottom: 10px;
+  min-width: 0;
+}
+.text__z2EUv {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
   min-width: 0;
 }
 .groupExpertiseOnlineVisitsPricingStats:global(.__wab_instance) {
@@ -119,15 +128,27 @@
   border-width: 1px;
   border-style: solid;
 }
-.h6 {
+.h6__u6RgF {
   width: 100%;
   height: auto;
   max-width: 100%;
   text-align: right;
   min-width: 0;
 }
-.linearScaleCustomChart___8ZMrv:global(.__wab_instance) {
+.h6__zY36Z {
+  width: 100%;
+  height: auto;
   max-width: 100%;
+  text-align: right;
+  min-width: 0;
+}
+.linearScaleCustomChart2:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.linearScaleCustomChart:global(.__wab_instance) {
+  max-width: 100%;
+  display: none;
 }
 .freeBox__bBhKw {
   display: flex;
@@ -146,7 +167,7 @@
   object-fit: cover;
   max-width: 100%;
   color: #f2d721;
-  height: 1em;
+  height: var(--token-W6cMLA0AZVBO);
   margin: var(--token-fhaz6q6bl-fW);
 }
 .main__tXQkN {
@@ -163,14 +184,10 @@
   min-width: 0;
   margin: 0px 0px 10px;
 }
-.linearScaleCustomChart__oTlK2:global(.__wab_instance) {
-  max-width: 100%;
-  position: relative;
-  display: none;
-}
 .button:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
+  display: none;
 }
 .svg__tbmCv {
   position: relative;

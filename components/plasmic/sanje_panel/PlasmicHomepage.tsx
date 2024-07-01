@@ -62,12 +62,11 @@ import {
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: MhkncRKg2Phv/codeComponent
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { DataFetcher } from "@plasmicpkgs/plasmic-query";
+import LinearScaleCustomChart2 from "../../LinearScaleCustomChart2"; // plasmic-import: 0EkZlbx6K2L1/component
 import LinearScaleCustomChart from "../../LinearScaleCustomChart"; // plasmic-import: 15G81XIekDs9/component
 import Button from "../../Button"; // plasmic-import: oVzoHzMf1TLl/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
-
-import { useScreenVariants as useScreenVariantsbr2UhI7UlpvR } from "../fragment_icons/PlasmicGlobalVariant__Screen"; // plasmic-import: BR2UhI7ulpvR/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -97,7 +96,8 @@ export type PlasmicHomepage__OverridesType = {
   h4?: Flex__<"h4">;
   h5?: Flex__<"h5">;
   groupExpertiseOnlineVisitsPricingStats?: Flex__<typeof DataFetcher>;
-  h6?: Flex__<"h6">;
+  linearScaleCustomChart2?: Flex__<typeof LinearScaleCustomChart2>;
+  linearScaleCustomChart?: Flex__<typeof LinearScaleCustomChart>;
   svg?: Flex__<"svg">;
   link?: Flex__<"a"> & Partial<LinkProps>;
   button?: Flex__<typeof Button>;
@@ -192,13 +192,22 @@ function PlasmicHomepage__RenderFunc(props: {
     $refs
   });
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariantsbr2UhI7UlpvR()
-  });
-
   return (
     <React.Fragment>
-      <Head></Head>
+      <Head>
+        <meta name="twitter:card" content="summary" />
+        <title key="title">{PlasmicHomepage.pageMetadata.title}</title>
+        <meta
+          key="og:title"
+          property="og:title"
+          content={PlasmicHomepage.pageMetadata.title}
+        />
+        <meta
+          key="twitter:title"
+          name="twitter:title"
+          content={PlasmicHomepage.pageMetadata.title}
+        />
+      </Head>
 
       <style>{`
         body {
@@ -423,6 +432,44 @@ function PlasmicHomepage__RenderFunc(props: {
                     "\u0645\u0628\u0644\u063a \u0648\u06cc\u0632\u06cc\u062a \u0622\u0646\u0644\u0627\u06cc\u0646"
                   }
                 </h5>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__z2EUv
+                  )}
+                >
+                  <div
+                    className={projectcss.__wab_expr_html_text}
+                    dangerouslySetInnerHTML={{
+                      __html: (() => {
+                        try {
+                          return (
+                            "قیمت ویزیت شما: " +
+                            Intl.NumberFormat("fa-IR").format(
+                              Math.round(
+                                $state.fragmentApiRequest.data.entity
+                                  .consult_services[0].free_price / 10000
+                              )
+                            ) +
+                            "هزارتومان" +
+                            '<a href="https://dr.paziresh24.com/setting/payment?utm=sanje">' +
+                            " اصلاح مبلغ" +
+                            "</a>"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "...";
+                          }
+                          throw e;
+                        }
+                      })()
+                    }}
+                  />
+                </div>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -500,13 +547,11 @@ function PlasmicHomepage__RenderFunc(props: {
                             )}
                           >
                             <h6
-                              data-plasmic-name={"h6"}
-                              data-plasmic-override={overrides.h6}
                               className={classNames(
                                 projectcss.all,
                                 projectcss.h6,
                                 projectcss.__wab_text,
-                                sty.h6
+                                sty.h6__u6RgF
                               )}
                             >
                               <React.Fragment>
@@ -528,10 +573,58 @@ function PlasmicHomepage__RenderFunc(props: {
                                 })()}
                               </React.Fragment>
                             </h6>
-                            <LinearScaleCustomChart
+                            <h6
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h6,
+                                projectcss.__wab_text,
+                                sty.h6__zY36Z
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return (
+                                      "میانگین قیمت پرداختی ویزیت در دسته " +
+                                      $ctx.fetchedData.group_name +
+                                      " " +
+                                      new Intl.NumberFormat("fa-IR").format(
+                                        Math.round($ctx.fetchedData.avg / 10000)
+                                      ) +
+                                      " هزارتومان می‌باشد"
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "...";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </h6>
+                            <LinearScaleCustomChart2
+                              data-plasmic-name={"linearScaleCustomChart2"}
+                              data-plasmic-override={
+                                overrides.linearScaleCustomChart2
+                              }
                               className={classNames(
                                 "__wab_instance",
-                                sty.linearScaleCustomChart___8ZMrv
+                                sty.linearScaleCustomChart2
+                              )}
+                            />
+
+                            <LinearScaleCustomChart
+                              data-plasmic-name={"linearScaleCustomChart"}
+                              data-plasmic-override={
+                                overrides.linearScaleCustomChart
+                              }
+                              className={classNames(
+                                "__wab_instance",
+                                sty.linearScaleCustomChart
                               )}
                               colorrange={(() => {
                                 try {
@@ -688,26 +781,7 @@ function PlasmicHomepage__RenderFunc(props: {
                               })()}
                             />
 
-                            {(() => {
-                              try {
-                                return (
-                                  $state.currentDoctorData.entity
-                                    .consult_services[0].free_price >
-                                  $ctx.fetchedData.avg +
-                                    ($ctx.fetchedData.max -
-                                      $ctx.fetchedData.min) /
-                                      10
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return true;
-                                }
-                                throw e;
-                              }
-                            })() ? (
+                            {false ? (
                               <div
                                 className={classNames(
                                   projectcss.all,
@@ -734,7 +808,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                   <React.Fragment>
                                     <React.Fragment>
                                       {
-                                        "\u0645\u0628\u0644\u063a \u0648\u06cc\u0632\u06cc\u062a \u0634\u0645\u0627 \u062f\u0631 \u0645\u062d\u062f\u0648\u062f\u0647 \u06af\u0631\u0627\u0646 \u0628\u0648\u062f\u0647 \u0648 \u0627\u062d\u062a\u0645\u0627\u0644\u0627\u064b \u0631\u0648\u06cc \u0631\u062a\u0628\u0647 \u0634\u0645\u0627 \u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u0627\u062b\u0631 \u0645\u0646\u0641\u06cc \u0645\u06cc\u200c\u06af\u0630\u0627\u0631\u062f.  "
+                                        "\u0645\u0628\u0644\u063a \u0648\u06cc\u0632\u06cc\u062a \u0634\u0645\u0627 \u0628\u0627\u0644\u0627\u062a\u0631 \u0627\u0632 \u0645\u06cc\u0627\u0646\u06af\u06cc\u0646 \u0627\u0633\u062a \u0648 \u0631\u0648\u06cc \u0631\u062a\u0628\u0647 \u0634\u0645\u0627 \u062f\u0631 \u0646\u062a\u0627\u06cc\u062c \u062c\u0633\u062a\u062c\u0648 \u0627\u062b\u0631 \u0645\u0646\u0641\u06cc \u0645\u06cc\u200c\u06af\u0630\u0627\u0631\u062f.  "
                                       }
                                     </React.Fragment>
                                     {
@@ -783,196 +857,93 @@ function PlasmicHomepage__RenderFunc(props: {
                 </main>
               </div>
             ) : null}
-            {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-              (() => {
-                try {
-                  return $state.currentDoctorData.entity.group_expertise_id;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return [];
-                  }
-                  throw e;
-                }
-              })()
-            ).map((__plasmic_item_0, __plasmic_idx_0) => {
-              const currentItem = __plasmic_item_0;
-              const currentIndex = __plasmic_idx_0;
-              return (
-                <LinearScaleCustomChart
-                  className={classNames(
-                    "__wab_instance",
-                    sty.linearScaleCustomChart__oTlK2
-                  )}
-                  colorrange={{
-                    range: [
-                      {
-                        minvalue: "27",
-                        "minvalue-lable":
-                          "27 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
-                        maxvalue: "72",
-                        label:
-                          "\u062e\u0648\u0634 \u0642\u06cc\u0645\u062a\n \u06a9\u0645\u062a\u0631 \u0627\u0632 \u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
-                        code: "#62B58F"
-                      },
-                      {
-                        minvalue: "72",
-                        "minvalue-lable":
-                          "72 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
-                        maxvalue: "116",
-                        label: "\u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
-                        code: "#FFC533"
-                      },
-                      {
-                        minvalue: "116",
-                        "minvalue-lable":
-                          "116 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
-                        maxvalue: "300",
-                        "maxvalue-lable":
-                          "300 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
-                        label:
-                          "\u06af\u0631\u0627\u0646\n \u0628\u06cc\u0634 \u0627\u0632 \u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
-                        code: "#F2726F"
-                      }
-                    ]
-                  }}
-                  key={currentIndex}
-                  label={(() => {
-                    try {
-                      return (
-                        "ویزیت شما " +
-                        $state.currentDoctorData.entity.consult_services[0]
-                          .free_price /
-                          10000 +
-                        " هزارتومان"
-                      );
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                  range={
-                    hasVariant(globalVariants, "screen", "mobileOnly")
-                      ? 80
-                      : (() => {
-                          try {
-                            return (
-                              ($state.currentDoctorData.entity
-                                .consult_services[0].free_price /
-                                1400000) *
-                              50
-                            );
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return 10;
-                            }
-                            throw e;
-                          }
-                        })()
-                  }
-                />
-              );
-            })}
           </div>
-          {false ? (
-            <Button
-              data-plasmic-name={"button"}
-              data-plasmic-override={overrides.button}
-              className={classNames("__wab_instance", sty.button)}
-              onClick={async event => {
-                const $steps = {};
+          <Button
+            data-plasmic-name={"button"}
+            data-plasmic-override={overrides.button}
+            className={classNames("__wab_instance", sty.button)}
+            onClick={async event => {
+              const $steps = {};
 
-                $steps["runCode"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            return fetch(
-                              "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-search-document",
-                              {
-                                method: "GET",
-                                credentials: "include"
-                              }
-                            )
-                              .then(response => response.json())
-                              .then(data => {
-                                $state.currentDoctorData = data;
-                              });
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
-                ) {
-                  $steps["runCode"] = await $steps["runCode"];
-                }
-
-                $steps["updateCurrentDoctorData4"] = false
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (async () => {
-                            async function fetchWithCookies(url) {
-                              try {
-                                const response = await fetch(url, {
-                                  method: "GET",
-                                  credentials: "include",
-                                  headers: {
-                                    "Content-Type": "application/json"
-                                  }
-                                });
-                                if (!response.ok) {
-                                  throw new Error(
-                                    `HTTP error! Status: ${response.status}`
-                                  );
-                                }
-                                const data = await response.json();
-                                console.log(data);
-                              } catch (error) {
-                                console.error("Error:", error);
-                              }
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          return fetch(
+                            "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-search-document",
+                            {
+                              method: "GET",
+                              credentials: "include"
                             }
-                            const url =
-                              "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-search-document";
-                            return ($state.currentDoctorData =
-                              fetchWithCookies(url));
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateCurrentDoctorData4"] != null &&
-                  typeof $steps["updateCurrentDoctorData4"] === "object" &&
-                  typeof $steps["updateCurrentDoctorData4"].then === "function"
-                ) {
-                  $steps["updateCurrentDoctorData4"] = await $steps[
-                    "updateCurrentDoctorData4"
-                  ];
-                }
-              }}
-            />
-          ) : null}
+                          )
+                            .then(response => response.json())
+                            .then(data => {
+                              $state.currentDoctorData = data;
+                            });
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+
+              $steps["updateCurrentDoctorData4"] = false
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (async () => {
+                          async function fetchWithCookies(url) {
+                            try {
+                              const response = await fetch(url, {
+                                method: "GET",
+                                credentials: "include",
+                                headers: { "Content-Type": "application/json" }
+                              });
+                              if (!response.ok) {
+                                throw new Error(
+                                  `HTTP error! Status: ${response.status}`
+                                );
+                              }
+                              const data = await response.json();
+                              console.log(data);
+                            } catch (error) {
+                              console.error("Error:", error);
+                            }
+                          }
+                          const url =
+                            "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-search-document";
+                          return ($state.currentDoctorData =
+                            fetchWithCookies(url));
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateCurrentDoctorData4"] != null &&
+                typeof $steps["updateCurrentDoctorData4"] === "object" &&
+                typeof $steps["updateCurrentDoctorData4"].then === "function"
+              ) {
+                $steps["updateCurrentDoctorData4"] = await $steps[
+                  "updateCurrentDoctorData4"
+                ];
+              }
+            }}
+          />
+
           {false ? (
             <div
               className={classNames(
@@ -1047,7 +1018,8 @@ const PlasmicDescendants = {
     "h4",
     "h5",
     "groupExpertiseOnlineVisitsPricingStats",
-    "h6",
+    "linearScaleCustomChart2",
+    "linearScaleCustomChart",
     "svg",
     "link",
     "button",
@@ -1059,11 +1031,13 @@ const PlasmicDescendants = {
   h5: ["h5"],
   groupExpertiseOnlineVisitsPricingStats: [
     "groupExpertiseOnlineVisitsPricingStats",
-    "h6",
+    "linearScaleCustomChart2",
+    "linearScaleCustomChart",
     "svg",
     "link"
   ],
-  h6: ["h6"],
+  linearScaleCustomChart2: ["linearScaleCustomChart2"],
+  linearScaleCustomChart: ["linearScaleCustomChart"],
   svg: ["svg"],
   link: ["link"],
   button: ["button"],
@@ -1079,7 +1053,8 @@ type NodeDefaultElementType = {
   h4: "h4";
   h5: "h5";
   groupExpertiseOnlineVisitsPricingStats: typeof DataFetcher;
-  h6: "h6";
+  linearScaleCustomChart2: typeof LinearScaleCustomChart2;
+  linearScaleCustomChart: typeof LinearScaleCustomChart;
   svg: "svg";
   link: "a";
   button: typeof Button;
@@ -1153,7 +1128,8 @@ export const PlasmicHomepage = Object.assign(
     groupExpertiseOnlineVisitsPricingStats: makeNodeComponent(
       "groupExpertiseOnlineVisitsPricingStats"
     ),
-    h6: makeNodeComponent("h6"),
+    linearScaleCustomChart2: makeNodeComponent("linearScaleCustomChart2"),
+    linearScaleCustomChart: makeNodeComponent("linearScaleCustomChart"),
     svg: makeNodeComponent("svg"),
     link: makeNodeComponent("link"),
     button: makeNodeComponent("button"),
@@ -1165,7 +1141,7 @@ export const PlasmicHomepage = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "",
+      title: "شاخص های عملکردی من",
       description: "",
       ogImageSrc: "",
       canonical: ""
