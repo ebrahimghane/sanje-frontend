@@ -63,6 +63,7 @@ import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-impor
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 import LinearScaleCustomChart2 from "../../LinearScaleCustomChart2"; // plasmic-import: 0EkZlbx6K2L1/component
+import { SimpleChart } from "@plasmicpkgs/react-chartjs-2";
 import LinearScaleCustomChart from "../../LinearScaleCustomChart"; // plasmic-import: 15G81XIekDs9/component
 import Button from "../../Button"; // plasmic-import: oVzoHzMf1TLl/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
@@ -71,6 +72,7 @@ import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_fragment_design_system_css from "../fragment_design_system/plasmic.module.css"; // plasmic-import: h9Dbk9ygddw7UVEq1NNhKi/projectcss
+import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectcss
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: qMyNx4KEh22M/css
 
@@ -97,6 +99,7 @@ export type PlasmicHomepage__OverridesType = {
   h5?: Flex__<"h5">;
   groupExpertiseOnlineVisitsPricingStats?: Flex__<typeof DataFetcher>;
   linearScaleCustomChart2?: Flex__<typeof LinearScaleCustomChart2>;
+  chart?: Flex__<typeof SimpleChart>;
   linearScaleCustomChart?: Flex__<typeof LinearScaleCustomChart>;
   svg?: Flex__<"svg">;
   link?: Flex__<"a"> & Partial<LinkProps>;
@@ -228,6 +231,7 @@ function PlasmicHomepage__RenderFunc(props: {
             projectcss.plasmic_mixins,
             projectcss.plasmic_tokens,
             plasmic_fragment_design_system_css.plasmic_tokens,
+            plasmic_antd_5_hostless_css.plasmic_tokens,
             sty.root
           )}
           dir={"RTL"}
@@ -615,6 +619,77 @@ function PlasmicHomepage__RenderFunc(props: {
                                 "__wab_instance",
                                 sty.linearScaleCustomChart2
                               )}
+                            />
+
+                            <SimpleChart
+                              data-plasmic-name={"chart"}
+                              data-plasmic-override={overrides.chart}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.chart
+                              )}
+                              data={[
+                                {
+                                  factor_cost: "0-25",
+                                  count: 5
+                                },
+                                {
+                                  factor_cost: "25-50",
+                                  count: 39
+                                },
+                                {
+                                  factor_cost: "50-75",
+                                  count: 157
+                                },
+                                {
+                                  factor_cost: "75-100",
+                                  count: 153
+                                },
+                                {
+                                  factor_cost: "100-125",
+                                  count: 190
+                                },
+                                {
+                                  factor_cost: "125-150",
+                                  count: 107
+                                },
+                                {
+                                  factor_cost: "150-175",
+                                  count: 277
+                                },
+                                {
+                                  factor_cost: "175-200",
+                                  count: 34
+                                },
+                                {
+                                  factor_cost: "200-225",
+                                  count: 17
+                                },
+                                {
+                                  factor_cost: "250-275",
+                                  count: 7
+                                },
+                                {
+                                  factor_cost: "275-300",
+                                  count: 3
+                                },
+                                {
+                                  factor_cost: "300-325",
+                                  count: 30
+                                },
+                                {
+                                  factor_cost: "350-375",
+                                  count: 11
+                                }
+                              ]}
+                              direction={"vertical"}
+                              interactive={true}
+                              labelField={"factor_cost"}
+                              stacked={false}
+                              title={
+                                "\u062a\u0648\u0632\u06cc\u0639 \u0641\u0631\u0627\u0648\u0627\u0646\u06cc \u0642\u06cc\u0645\u062a \u0648\u06cc\u0632\u06cc\u062a \u0628\u0631 \u0646\u0648\u0628\u062a \u0647\u0627"
+                              }
+                              type={"bar"}
                             />
 
                             <LinearScaleCustomChart
@@ -1019,6 +1094,7 @@ const PlasmicDescendants = {
     "h5",
     "groupExpertiseOnlineVisitsPricingStats",
     "linearScaleCustomChart2",
+    "chart",
     "linearScaleCustomChart",
     "svg",
     "link",
@@ -1032,11 +1108,13 @@ const PlasmicDescendants = {
   groupExpertiseOnlineVisitsPricingStats: [
     "groupExpertiseOnlineVisitsPricingStats",
     "linearScaleCustomChart2",
+    "chart",
     "linearScaleCustomChart",
     "svg",
     "link"
   ],
   linearScaleCustomChart2: ["linearScaleCustomChart2"],
+  chart: ["chart"],
   linearScaleCustomChart: ["linearScaleCustomChart"],
   svg: ["svg"],
   link: ["link"],
@@ -1054,6 +1132,7 @@ type NodeDefaultElementType = {
   h5: "h5";
   groupExpertiseOnlineVisitsPricingStats: typeof DataFetcher;
   linearScaleCustomChart2: typeof LinearScaleCustomChart2;
+  chart: typeof SimpleChart;
   linearScaleCustomChart: typeof LinearScaleCustomChart;
   svg: "svg";
   link: "a";
@@ -1129,6 +1208,7 @@ export const PlasmicHomepage = Object.assign(
       "groupExpertiseOnlineVisitsPricingStats"
     ),
     linearScaleCustomChart2: makeNodeComponent("linearScaleCustomChart2"),
+    chart: makeNodeComponent("chart"),
     linearScaleCustomChart: makeNodeComponent("linearScaleCustomChart"),
     svg: makeNodeComponent("svg"),
     link: makeNodeComponent("link"),
