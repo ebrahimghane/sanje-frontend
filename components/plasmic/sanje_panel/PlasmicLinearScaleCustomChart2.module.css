@@ -328,11 +328,17 @@
   z-index: 1;
   font-size: var(--token-VrIY9r5RDQZ_);
 }
-.chart:global(.__wab_instance) {
-  width: 100%;
+.tooltip:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
   position: relative;
-  cursor: pointer;
-  min-width: 0;
+}
+.chart:global(.__wab_instance) {
+  position: relative;
+  font-family: "IRANSansXV";
+  pointer-events: auto;
+  mix-blend-mode: normal;
+  filter: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }

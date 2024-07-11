@@ -98,6 +98,7 @@ export type PlasmicHomepage__OverridesType = {
   h4?: Flex__<"h4">;
   h5?: Flex__<"h5">;
   groupExpertiseOnlineVisitsPricingStats?: Flex__<typeof DataFetcher>;
+  h6?: Flex__<"h6">;
   linearScaleCustomChart2?: Flex__<typeof LinearScaleCustomChart2>;
   chart?: Flex__<typeof SimpleChart>;
   linearScaleCustomChart?: Flex__<typeof LinearScaleCustomChart>;
@@ -137,8 +138,6 @@ function PlasmicHomepage__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const $globalActions = useGlobalActions?.();
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -281,113 +280,39 @@ function PlasmicHomepage__RenderFunc(props: {
             }
           />
 
-          {false ? (
-            <SideEffect
-              data-plasmic-name={"sideEffect"}
-              data-plasmic-override={overrides.sideEffect}
-              className={classNames("__wab_instance", sty.sideEffect)}
-              onMount={async () => {
-                const $steps = {};
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
 
-                $steps["updateCurrentDoctorData2"] = false
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            return fetch(
-                              "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-search-document",
-                              {
-                                method: "GET",
-                                credentials: "include"
-                              }
-                            )
-                              .then(response => response.json())
-                              .then(data => {
-                                $state.currentDoctorData = data;
-                              });
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateCurrentDoctorData2"] != null &&
-                  typeof $steps["updateCurrentDoctorData2"] === "object" &&
-                  typeof $steps["updateCurrentDoctorData2"].then === "function"
-                ) {
-                  $steps["updateCurrentDoctorData2"] = await $steps[
-                    "updateCurrentDoctorData2"
-                  ];
-                }
+              $steps["runGtmCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const gtmScript = document.createElement("noscript");
+                          gtmScript.innerHTML = `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5RPLDP" height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
+                          document.body.appendChild(gtmScript);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runGtmCode"] != null &&
+                typeof $steps["runGtmCode"] === "object" &&
+                typeof $steps["runGtmCode"].then === "function"
+              ) {
+                $steps["runGtmCode"] = await $steps["runGtmCode"];
+              }
+            }}
+          />
 
-                $steps["getMySearchDocument"] = false
-                  ? (() => {
-                      const actionArgs = {
-                        args: [
-                          undefined,
-                          "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-search-document",
-                          undefined,
-                          undefined,
-                          {}
-                        ]
-                      };
-                      return $globalActions["Fragment.apiRequest"]?.apply(
-                        null,
-                        [...actionArgs.args]
-                      );
-                    })()
-                  : undefined;
-                if (
-                  $steps["getMySearchDocument"] != null &&
-                  typeof $steps["getMySearchDocument"] === "object" &&
-                  typeof $steps["getMySearchDocument"].then === "function"
-                ) {
-                  $steps["getMySearchDocument"] = await $steps[
-                    "getMySearchDocument"
-                  ];
-                }
-
-                $steps["updateCurrentDoctorData"] = false
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["currentDoctorData"]
-                        },
-                        operation: 0,
-                        value: $steps.getMySearchDocument.data
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateCurrentDoctorData"] != null &&
-                  typeof $steps["updateCurrentDoctorData"] === "object" &&
-                  typeof $steps["updateCurrentDoctorData"].then === "function"
-                ) {
-                  $steps["updateCurrentDoctorData"] = await $steps[
-                    "updateCurrentDoctorData"
-                  ];
-                }
-              }}
-            />
-          ) : null}
           <div className={classNames(projectcss.all, sty.freeBox__hTcro)}>
             <h4
               data-plasmic-name={"h4"}
@@ -450,13 +375,14 @@ function PlasmicHomepage__RenderFunc(props: {
                         try {
                           return (
                             "قیمت ویزیت شما " +
+                            "<b>" +
                             Intl.NumberFormat("fa-IR").format(
                               Math.round(
                                 $state.fragmentApiRequest.data.entity
                                   .consult_services[0].free_price / 10000
                               )
                             ) +
-                            " هزارتومان می‌باشد. " +
+                            " هزارتومان</b> می‌باشد. " +
                             '<a href="https://dr.paziresh24.com/setting/payment?utm=sanje">' +
                             " اصلاح مبلغ" +
                             "</a>"
@@ -551,11 +477,13 @@ function PlasmicHomepage__RenderFunc(props: {
                             )}
                           >
                             <h6
+                              data-plasmic-name={"h6"}
+                              data-plasmic-override={overrides.h6}
                               className={classNames(
                                 projectcss.all,
                                 projectcss.h6,
                                 projectcss.__wab_text,
-                                sty.h6__u6RgF
+                                sty.h6
                               )}
                             >
                               <React.Fragment>
@@ -577,45 +505,52 @@ function PlasmicHomepage__RenderFunc(props: {
                                 })()}
                               </React.Fragment>
                             </h6>
-                            <h6
+                            <div
                               className={classNames(
                                 projectcss.all,
-                                projectcss.h6,
                                 projectcss.__wab_text,
-                                sty.h6__zY36Z
+                                sty.text__zY36Z
                               )}
                             >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return (
-                                      "میانگین قیمت پرداختی ویزیت بیماران در دسته " +
-                                      $ctx.fetchedData[0].group_expertise.name +
-                                      " " +
-                                      new Intl.NumberFormat("fa-IR").format(
-                                        Math.round(
-                                          $ctx.fetchedData[1].averageCost
-                                        )
-                                      ) +
-                                      " هزارتومان می‌باشد"
-                                    );
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "...";
+                              <div
+                                className={projectcss.__wab_expr_html_text}
+                                dangerouslySetInnerHTML={{
+                                  __html: (() => {
+                                    try {
+                                      return (
+                                        "میانگین قیمت پرداختی ویزیت بیماران در دسته " +
+                                        "<b>" +
+                                        $ctx.fetchedData[0].group_expertise
+                                          .name +
+                                        " " +
+                                        new Intl.NumberFormat("fa-IR").format(
+                                          Math.round(
+                                            $ctx.fetchedData[1].averageCost
+                                          )
+                                        ) +
+                                        " هزارتومان</b> است."
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "...";
+                                      }
+                                      throw e;
                                     }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            </h6>
+                                  })()
+                                }}
+                              />
+                            </div>
                             <LinearScaleCustomChart2
                               data-plasmic-name={"linearScaleCustomChart2"}
                               data-plasmic-override={
                                 overrides.linearScaleCustomChart2
+                              }
+                              chartTitle={
+                                "\u0641\u0631\u0627\u0648\u0627\u0646\u06cc \u0647\u0632\u06cc\u0646\u0647 \u0648\u06cc\u0632\u06cc\u062a \u0628\u0631 \u062a\u0639\u062f\u0627\u062f \u0646\u0648\u0628\u062a \u0647\u0627"
                               }
                               className={classNames(
                                 "__wab_instance",
@@ -1114,6 +1049,7 @@ const PlasmicDescendants = {
     "h4",
     "h5",
     "groupExpertiseOnlineVisitsPricingStats",
+    "h6",
     "linearScaleCustomChart2",
     "chart",
     "linearScaleCustomChart",
@@ -1128,12 +1064,14 @@ const PlasmicDescendants = {
   h5: ["h5"],
   groupExpertiseOnlineVisitsPricingStats: [
     "groupExpertiseOnlineVisitsPricingStats",
+    "h6",
     "linearScaleCustomChart2",
     "chart",
     "linearScaleCustomChart",
     "svg",
     "link"
   ],
+  h6: ["h6"],
   linearScaleCustomChart2: ["linearScaleCustomChart2"],
   chart: ["chart"],
   linearScaleCustomChart: ["linearScaleCustomChart"],
@@ -1152,6 +1090,7 @@ type NodeDefaultElementType = {
   h4: "h4";
   h5: "h5";
   groupExpertiseOnlineVisitsPricingStats: typeof DataFetcher;
+  h6: "h6";
   linearScaleCustomChart2: typeof LinearScaleCustomChart2;
   chart: typeof SimpleChart;
   linearScaleCustomChart: typeof LinearScaleCustomChart;
@@ -1228,6 +1167,7 @@ export const PlasmicHomepage = Object.assign(
     groupExpertiseOnlineVisitsPricingStats: makeNodeComponent(
       "groupExpertiseOnlineVisitsPricingStats"
     ),
+    h6: makeNodeComponent("h6"),
     linearScaleCustomChart2: makeNodeComponent("linearScaleCustomChart2"),
     chart: makeNodeComponent("chart"),
     linearScaleCustomChart: makeNodeComponent("linearScaleCustomChart"),

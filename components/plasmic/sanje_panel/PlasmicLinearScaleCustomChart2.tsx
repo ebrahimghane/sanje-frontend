@@ -59,6 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { AntdTooltip } from "@plasmicpkgs/antd5/skinny/registerTooltip";
 import { SimpleChart } from "@plasmicpkgs/react-chartjs-2";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -78,20 +79,24 @@ export const PlasmicLinearScaleCustomChart2__VariantProps =
 
 export type PlasmicLinearScaleCustomChart2__ArgsType = {
   rangeStatsArray?: any;
+  chartTitle?: string;
 };
 type ArgPropType = keyof PlasmicLinearScaleCustomChart2__ArgsType;
 export const PlasmicLinearScaleCustomChart2__ArgProps = new Array<ArgPropType>(
-  "rangeStatsArray"
+  "rangeStatsArray",
+  "chartTitle"
 );
 
 export type PlasmicLinearScaleCustomChart2__OverridesType = {
   root?: Flex__<"div">;
   img?: Flex__<typeof PlasmicImg__>;
+  tooltip?: Flex__<typeof AntdTooltip>;
   chart?: Flex__<typeof SimpleChart>;
 };
 
 export interface DefaultLinearScaleCustomChart2Props {
   rangeStatsArray?: any;
+  chartTitle?: string;
   className?: string;
 }
 
@@ -405,26 +410,44 @@ function PlasmicLinearScaleCustomChart2__RenderFunc(props: {
           </div>
         </div>
       </div>
-      <SimpleChart
-        data-plasmic-name={"chart"}
-        data-plasmic-override={overrides.chart}
-        className={classNames("__wab_instance", sty.chart)}
-        data={$props.rangeStatsArray}
-        direction={"vertical"}
-        interactive={true}
-        stacked={false}
-        title={
-          "\u062a\u0648\u0632\u06cc\u0639 \u0641\u0631\u0627\u0648\u0627\u0646\u06cc \u0642\u06cc\u0645\u062a \u0648\u06cc\u0632\u06cc\u062a \u0628\u0631 \u0646\u0648\u0628\u062a \u0647\u0627"
-        }
-        type={"bar"}
-      />
+      <AntdTooltip
+        data-plasmic-name={"tooltip"}
+        data-plasmic-override={overrides.tooltip}
+        className={classNames("__wab_instance", sty.tooltip)}
+        titleText={"Tooltip contents"}
+      >
+        <SimpleChart
+          data-plasmic-name={"chart"}
+          data-plasmic-override={overrides.chart}
+          className={classNames("__wab_instance", sty.chart)}
+          data={$props.rangeStatsArray}
+          direction={"vertical"}
+          interactive={true}
+          stacked={false}
+          title={(() => {
+            try {
+              return $props.chartTitle;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+          type={"bar"}
+        />
+      </AntdTooltip>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "img", "chart"],
+  root: ["root", "img", "tooltip", "chart"],
   img: ["img"],
+  tooltip: ["tooltip", "chart"],
   chart: ["chart"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -433,6 +456,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   img: typeof PlasmicImg__;
+  tooltip: typeof AntdTooltip;
   chart: typeof SimpleChart;
 };
 
@@ -497,6 +521,7 @@ export const PlasmicLinearScaleCustomChart2 = Object.assign(
   {
     // Helper components rendering sub-elements
     img: makeNodeComponent("img"),
+    tooltip: makeNodeComponent("tooltip"),
     chart: makeNodeComponent("chart"),
 
     // Metadata about props expected for PlasmicLinearScaleCustomChart2
