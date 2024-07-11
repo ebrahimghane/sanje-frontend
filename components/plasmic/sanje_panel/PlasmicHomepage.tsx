@@ -449,14 +449,14 @@ function PlasmicHomepage__RenderFunc(props: {
                       __html: (() => {
                         try {
                           return (
-                            "قیمت ویزیت شما: " +
+                            "قیمت ویزیت شما " +
                             Intl.NumberFormat("fa-IR").format(
                               Math.round(
                                 $state.fragmentApiRequest.data.entity
                                   .consult_services[0].free_price / 10000
                               )
                             ) +
-                            "هزارتومان" +
+                            " هزارتومان می‌باشد. " +
                             '<a href="https://dr.paziresh24.com/setting/payment?utm=sanje">' +
                             " اصلاح مبلغ" +
                             "</a>"
@@ -528,7 +528,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       url={(() => {
                         try {
                           return (
-                            "https://apigw.paziresh24.com/v1/n8n-search/webhook/GroupExpertiseOnlineVisitsPricingStats?group_expertise_id=" +
+                            "https://apigw.paziresh24.com/v1/n8n-search/webhook/GroupExpertiseOnlineVisitsPricingRangeStats?group_expertise_id=" +
                             currentItem
                           );
                         } catch (e) {
@@ -589,11 +589,13 @@ function PlasmicHomepage__RenderFunc(props: {
                                 {(() => {
                                   try {
                                     return (
-                                      "میانگین قیمت پرداختی ویزیت در دسته " +
-                                      $ctx.fetchedData.group_name +
+                                      "میانگین قیمت پرداختی ویزیت بیماران در دسته " +
+                                      $ctx.fetchedData[0].group_expertise.name +
                                       " " +
                                       new Intl.NumberFormat("fa-IR").format(
-                                        Math.round($ctx.fetchedData.avg / 10000)
+                                        Math.round(
+                                          $ctx.fetchedData[1].averageCost
+                                        )
                                       ) +
                                       " هزارتومان می‌باشد"
                                     );
@@ -619,79 +621,102 @@ function PlasmicHomepage__RenderFunc(props: {
                                 "__wab_instance",
                                 sty.linearScaleCustomChart2
                               )}
-                            />
-
-                            <SimpleChart
-                              data-plasmic-name={"chart"}
-                              data-plasmic-override={overrides.chart}
-                              className={classNames(
-                                "__wab_instance",
-                                sty.chart
-                              )}
-                              data={[
-                                {
-                                  factor_cost: "0-25",
-                                  count: 5
-                                },
-                                {
-                                  factor_cost: "25-50",
-                                  count: 39
-                                },
-                                {
-                                  factor_cost: "50-75",
-                                  count: 157
-                                },
-                                {
-                                  factor_cost: "75-100",
-                                  count: 153
-                                },
-                                {
-                                  factor_cost: "100-125",
-                                  count: 190
-                                },
-                                {
-                                  factor_cost: "125-150",
-                                  count: 107
-                                },
-                                {
-                                  factor_cost: "150-175",
-                                  count: 277
-                                },
-                                {
-                                  factor_cost: "175-200",
-                                  count: 34
-                                },
-                                {
-                                  factor_cost: "200-225",
-                                  count: 17
-                                },
-                                {
-                                  factor_cost: "250-275",
-                                  count: 7
-                                },
-                                {
-                                  factor_cost: "275-300",
-                                  count: 3
-                                },
-                                {
-                                  factor_cost: "300-325",
-                                  count: 30
-                                },
-                                {
-                                  factor_cost: "350-375",
-                                  count: 11
+                              rangeStatsArray={(() => {
+                                try {
+                                  return $ctx.fetchedData[1].factorCosts;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [{}];
+                                  }
+                                  throw e;
                                 }
-                              ]}
-                              direction={"vertical"}
-                              interactive={true}
-                              labelField={"factor_cost"}
-                              stacked={false}
-                              title={
-                                "\u062a\u0648\u0632\u06cc\u0639 \u0641\u0631\u0627\u0648\u0627\u0646\u06cc \u0642\u06cc\u0645\u062a \u0648\u06cc\u0632\u06cc\u062a \u0628\u0631 \u0646\u0648\u0628\u062a \u0647\u0627"
-                              }
-                              type={"bar"}
+                              })()}
                             />
 
+                            {false ? (
+                              <SimpleChart
+                                data-plasmic-name={"chart"}
+                                data-plasmic-override={overrides.chart}
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.chart
+                                )}
+                                data={[
+                                  {
+                                    factor_cost: "0-25",
+                                    count: 4
+                                  },
+                                  {
+                                    factor_cost: "25-50",
+                                    count: 28
+                                  },
+                                  {
+                                    factor_cost: "50-75",
+                                    count: 155
+                                  },
+                                  {
+                                    factor_cost: "75-100",
+                                    count: 180
+                                  },
+                                  {
+                                    factor_cost: "100-125",
+                                    count: 215
+                                  },
+                                  {
+                                    factor_cost: "125-150",
+                                    count: 98
+                                  },
+                                  {
+                                    factor_cost: "150-175",
+                                    count: 259
+                                  },
+                                  {
+                                    factor_cost: "175-200",
+                                    count: 51
+                                  },
+                                  {
+                                    factor_cost: "200-225",
+                                    count: 16
+                                  },
+                                  {
+                                    factor_cost: "250-275",
+                                    count: 11
+                                  },
+                                  {
+                                    factor_cost: "275-300",
+                                    count: 1
+                                  },
+                                  {
+                                    factor_cost: "300-325",
+                                    count: 35
+                                  },
+                                  {
+                                    factor_cost: "350-375",
+                                    count: 7
+                                  },
+                                  {
+                                    factor_cost: "375-400",
+                                    count: 1
+                                  },
+                                  {
+                                    factor_cost: "650-675",
+                                    count: 1
+                                  }
+                                ]}
+                                direction={"vertical"}
+                                interactive={true}
+                                labelField={"factor_cost"}
+                                stacked={false}
+                                title={
+                                  "\u062a\u0648\u0632\u06cc\u0639 \u0641\u0631\u0627\u0648\u0627\u0646\u06cc \u0642\u06cc\u0645\u062a \u0648\u06cc\u0632\u06cc\u062a \u0628\u0631 \u0646\u0648\u0628\u062a \u0647\u0627"
+                                }
+                                type={"bar"}
+                              />
+                            ) : null}
                             <LinearScaleCustomChart
                               data-plasmic-name={"linearScaleCustomChart"}
                               data-plasmic-override={
@@ -1019,58 +1044,54 @@ function PlasmicHomepage__RenderFunc(props: {
             }}
           />
 
-          {false ? (
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__fsagY
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return JSON.stringify(
-                      $state.currentDoctorGroupExpertiseOnlineVisitsPricingStats
-                    );
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
-                    }
-                    throw e;
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__fsagY
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return JSON.stringify(
+                    $state.currentDoctorGroupExpertiseOnlineVisitsPricingStats
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "";
                   }
-                })()}
-              </React.Fragment>
-            </div>
-          ) : null}
-          {false ? (
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__leMv8
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return JSON.stringify($state.currentDoctorData);
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
-                    }
-                    throw e;
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__leMv8
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return JSON.stringify($state.currentDoctorData);
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "";
                   }
-                })()}
-              </React.Fragment>
-            </div>
-          ) : null}
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </div>
           <Embed
             data-plasmic-name={"gtm"}
             data-plasmic-override={overrides.gtm}
