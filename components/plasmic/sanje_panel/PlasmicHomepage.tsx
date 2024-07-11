@@ -550,7 +550,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                 overrides.linearScaleCustomChart2
                               }
                               chartTitle={
-                                "\u0641\u0631\u0627\u0648\u0627\u0646\u06cc \u0647\u0632\u06cc\u0646\u0647 \u0648\u06cc\u0632\u06cc\u062a \u0628\u0631 \u062a\u0639\u062f\u0627\u062f \u0646\u0648\u0628\u062a \u0647\u0627"
+                                "\u062a\u0648\u0632\u06cc\u0639 \u0647\u0632\u06cc\u0646\u0647 \u0648\u06cc\u0632\u06cc\u062a \u0628\u0631 \u0641\u0631\u0627\u0648\u0627\u0646\u06cc \u0646\u0648\u0628\u062a\u200c\u0647\u0627\u06cc \u0627\u062e\u06cc\u0631"
                               }
                               className={classNames(
                                 "__wab_instance",
@@ -558,7 +558,12 @@ function PlasmicHomepage__RenderFunc(props: {
                               )}
                               rangeStatsArray={(() => {
                                 try {
-                                  return $ctx.fetchedData[1].factorCosts;
+                                  return $ctx.fetchedData[1].factorCosts.map(
+                                    item => ({
+                                      "تعداد نوبت": item.count,
+                                      range: item.range
+                                    })
+                                  );
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
