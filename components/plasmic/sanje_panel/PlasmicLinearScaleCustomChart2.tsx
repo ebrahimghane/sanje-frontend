@@ -77,15 +77,11 @@ export const PlasmicLinearScaleCustomChart2__VariantProps =
   new Array<VariantPropType>();
 
 export type PlasmicLinearScaleCustomChart2__ArgsType = {
-  colorrange?: any;
-  range?: number;
-  label?: string;
+  rangeStatsArray?: any;
 };
 type ArgPropType = keyof PlasmicLinearScaleCustomChart2__ArgsType;
 export const PlasmicLinearScaleCustomChart2__ArgProps = new Array<ArgPropType>(
-  "colorrange",
-  "range",
-  "label"
+  "rangeStatsArray"
 );
 
 export type PlasmicLinearScaleCustomChart2__OverridesType = {
@@ -95,9 +91,7 @@ export type PlasmicLinearScaleCustomChart2__OverridesType = {
 };
 
 export interface DefaultLinearScaleCustomChart2Props {
-  colorrange?: any;
-  range?: number;
-  label?: string;
+  rangeStatsArray?: any;
   className?: string;
 }
 
@@ -415,43 +409,9 @@ function PlasmicLinearScaleCustomChart2__RenderFunc(props: {
         data-plasmic-name={"chart"}
         data-plasmic-override={overrides.chart}
         className={classNames("__wab_instance", sty.chart)}
-        data={[
-          {
-            factor_cost: 0,
-            count: 44
-          },
-          {
-            factor_cost: 500000,
-            count: 310
-          },
-          {
-            factor_cost: 1000000,
-            count: 298
-          },
-          {
-            factor_cost: 1500000,
-            count: 311
-          },
-          {
-            factor_cost: 2000000,
-            count: 17
-          },
-          {
-            factor_cost: 2500000,
-            count: 10
-          },
-          {
-            factor_cost: 3000000,
-            count: 30
-          },
-          {
-            factor_cost: 3500000,
-            count: 11
-          }
-        ]}
+        data={$props.rangeStatsArray}
         direction={"vertical"}
         interactive={true}
-        labelField={"factor_cost"}
         stacked={false}
         title={
           "\u062a\u0648\u0632\u06cc\u0639 \u0641\u0631\u0627\u0648\u0627\u0646\u06cc \u0642\u06cc\u0645\u062a \u0648\u06cc\u0632\u06cc\u062a \u0628\u0631 \u0646\u0648\u0628\u062a \u0647\u0627"
