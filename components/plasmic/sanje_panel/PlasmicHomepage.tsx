@@ -59,14 +59,14 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: MhkncRKg2Phv/codeComponent
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: MhkncRKg2Phv/codeComponent
 import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 import LinearScaleCustomChart2 from "../../LinearScaleCustomChart2"; // plasmic-import: 0EkZlbx6K2L1/component
 import { SimpleChart } from "@plasmicpkgs/react-chartjs-2";
 import LinearScaleCustomChart from "../../LinearScaleCustomChart"; // plasmic-import: 15G81XIekDs9/component
 import Button from "../../Button"; // plasmic-import: oVzoHzMf1TLl/component
-import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -93,8 +93,9 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHomepage__OverridesType = {
   root?: Flex__<"div">;
-  fragmentApiRequest?: Flex__<typeof ApiRequest>;
+  gtm?: Flex__<typeof Embed>;
   sideEffect?: Flex__<typeof SideEffect>;
+  fragmentApiRequest?: Flex__<typeof ApiRequest>;
   h4?: Flex__<"h4">;
   h5?: Flex__<"h5">;
   groupExpertiseOnlineVisitsPricingStats?: Flex__<typeof DataFetcher>;
@@ -105,7 +106,8 @@ export type PlasmicHomepage__OverridesType = {
   svg?: Flex__<"svg">;
   link?: Flex__<"a"> & Partial<LinkProps>;
   button?: Flex__<typeof Button>;
-  gtm?: Flex__<typeof Embed>;
+  embedHtml?: Flex__<typeof Embed>;
+  blockquote?: Flex__<"blockquote">;
 };
 
 export interface DefaultHomepageProps {}
@@ -235,6 +237,63 @@ function PlasmicHomepage__RenderFunc(props: {
           )}
           dir={"RTL"}
         >
+          <Embed
+            data-plasmic-name={"gtm"}
+            data-plasmic-override={overrides.gtm}
+            className={classNames("__wab_instance", sty.gtm)}
+            code={
+              '<!-- Google Tag Manager (noscript) -->\r\n<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5RPLDP"\r\nheight="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>\r\n<!-- End Google Tag Manager (noscript) -->'
+            }
+          />
+
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["runGtmCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          function loadGTM() {
+                            var gtmScript = document.createElement("script");
+                            gtmScript.innerHTML = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P5RPLDP');`;
+                            document.head.appendChild(gtmScript);
+                            var gtmNoScript =
+                              document.createElement("noscript");
+                            gtmNoScript.innerHTML = `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5RPLDP"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
+                            document.body.insertBefore(
+                              gtmNoScript,
+                              document.body.firstChild
+                            );
+                          }
+                          return loadGTM();
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runGtmCode"] != null &&
+                typeof $steps["runGtmCode"] === "object" &&
+                typeof $steps["runGtmCode"].then === "function"
+              ) {
+                $steps["runGtmCode"] = await $steps["runGtmCode"];
+              }
+            }}
+          />
+
           <ApiRequest
             data-plasmic-name={"fragmentApiRequest"}
             data-plasmic-override={overrides.fragmentApiRequest}
@@ -278,39 +337,6 @@ function PlasmicHomepage__RenderFunc(props: {
             url={
               "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-search-document"
             }
-          />
-
-          <SideEffect
-            data-plasmic-name={"sideEffect"}
-            data-plasmic-override={overrides.sideEffect}
-            className={classNames("__wab_instance", sty.sideEffect)}
-            onMount={async () => {
-              const $steps = {};
-
-              $steps["runGtmCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          const gtmScript = document.createElement("noscript");
-                          gtmScript.innerHTML = `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5RPLDP" height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
-                          document.body.appendChild(gtmScript);
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runGtmCode"] != null &&
-                typeof $steps["runGtmCode"] === "object" &&
-                typeof $steps["runGtmCode"].then === "function"
-              ) {
-                $steps["runGtmCode"] = await $steps["runGtmCode"];
-              }
-            }}
           />
 
           <div className={classNames(projectcss.all, sty.freeBox__hTcro)}>
@@ -1032,14 +1058,79 @@ function PlasmicHomepage__RenderFunc(props: {
               })()}
             </React.Fragment>
           </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text___42KcK
+            )}
+          >
+            {
+              "\u0644\u0637\u0641\u0627\u064b \u0628\u0627 \u062b\u0628\u062a \u0646\u0638\u0631 \u062e\u0648\u062f \u0628\u0647 \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc\u200c\u062a\u0631 \u0634\u062f\u0646 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u06a9\u0645\u06a9 \u06a9\u0646\u06cc\u062f. \ud83d\ude4f"
+            }
+          </div>
           <Embed
-            data-plasmic-name={"gtm"}
-            data-plasmic-override={overrides.gtm}
-            className={classNames("__wab_instance", sty.gtm)}
+            data-plasmic-name={"embedHtml"}
+            data-plasmic-override={overrides.embedHtml}
+            className={classNames("__wab_instance", sty.embedHtml)}
             code={
-              '<!-- Google Tag Manager (noscript) -->\r\n<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5RPLDP"\r\nheight="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>\r\n<!-- End Google Tag Manager (noscript) -->'
+              '<div id="gFH99yr" style="min-height: 480px;">\r\n  <script\r\n    type="text/JavaScript"\r\n    src="https://survey.porsline.ir/embed/eyJ3aWR0aCI6IjEwMCUiLCJoZWlnaHQiOiIxMDAlIiwiYm9yZGVyIjoibm9uZSJ9/gFH99yr?url=xxxx&tid=xxxx&userid=xxxx"\r\n  >\r\n  </script>\r\n</div>\r\n  '
             }
           />
+
+          <div className={classNames(projectcss.all, sty.freeBox__vwZX)} />
+
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__nhZ5
+            )}
+          >
+            <React.Fragment>
+              <React.Fragment>{"\n"}</React.Fragment>
+              {
+                <blockquote
+                  data-plasmic-name={"blockquote"}
+                  data-plasmic-override={overrides.blockquote}
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.blockquote
+                  )}
+                >
+                  {
+                    "\u0627\u0632 \u0647\u0645\u0647 \u0639\u0632\u06cc\u0632\u0627\u0646\u06cc \u06a9\u0647 \u0628\u0627 \u0646\u0642\u062f \u0648 \u0628\u0627\u0632\u062e\u0648\u0631\u062f\u0647\u0627\u06cc \u0645\u0641\u06cc\u062f\u0634\u0627\u0646 \u0632\u0645\u06cc\u0646\u0647 \u0633\u0627\u062e\u062a\u0647 \u0634\u062f\u0646 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0631\u0627 \u0641\u0631\u0627\u0647\u0645 \u06a9\u0631\u062f\u0646\u062f \u0645\u062a\u0634\u06a9\u0631\u06cc\u0645. \ud83e\udd1d"
+                  }
+                </blockquote>
+              }
+              <React.Fragment>{""}</React.Fragment>
+              <span
+                className={"plasmic_default__all plasmic_default__span"}
+                style={{ fontStyle: "italic" }}
+              >
+                {
+                  "\u0646\u06cc\u0645\u0627 \u062f\u0633\u062a\u06af\u06cc\u0631\u060c \u0633\u06cc\u0627\u0645\u06a9 \u0631\u062d\u0645\u0627\u0646\u06cc\u060c \u062a\u0648\u0645\u0627\u062c \u0634\u0627\u0647\u0648\u0631\u062f\u06cc\u060c \u0641\u0631\u062d \u0646\u0627\u0632 \u0631\u0634\u06cc\u062f\u06cc\u060c \u0641\u0627\u0637\u0645\u0647 \u0645\u0631\u0627\u062f\u06cc\u060c \u0645\u062d\u0633\u0646 \u0645\u0634\u06cc\u0631\u06cc\u060c \u0632\u0647\u0631\u0627 \u0639\u0633\u06af\u0631\u06cc \u0648 \u0635\u062f\u0647\u0627 \u0647\u0645\u0631\u0627\u0647 \u062f\u06cc\u06af\u0631..."
+                }
+              </span>
+              <React.Fragment>
+                {
+                  "\n\n\u0633\u0627\u062e\u062a\u0647 \u0634\u062f\u0647 \u0628\u0627 "
+                }
+              </React.Fragment>
+              <span
+                className={"plasmic_default__all plasmic_default__span"}
+                style={{ color: "var(--token-1jTXKEDkeRHC)" }}
+              >
+                {"\u2764"}
+              </span>
+              <React.Fragment>
+                {
+                  " \u0628\u0631\u0627\u06cc \u0647\u0645\u0647 \u0637\u0628\u06cc\u0628\u0627\u0646 \u067e\u0630\u06cc\u0631\u063424.\n"
+                }
+              </React.Fragment>
+            </React.Fragment>
+          </div>
         </div>
       </div>
     </React.Fragment>
@@ -1049,8 +1140,9 @@ function PlasmicHomepage__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "fragmentApiRequest",
+    "gtm",
     "sideEffect",
+    "fragmentApiRequest",
     "h4",
     "h5",
     "groupExpertiseOnlineVisitsPricingStats",
@@ -1061,10 +1153,12 @@ const PlasmicDescendants = {
     "svg",
     "link",
     "button",
-    "gtm"
+    "embedHtml",
+    "blockquote"
   ],
-  fragmentApiRequest: ["fragmentApiRequest"],
+  gtm: ["gtm"],
   sideEffect: ["sideEffect"],
+  fragmentApiRequest: ["fragmentApiRequest"],
   h4: ["h4"],
   h5: ["h5"],
   groupExpertiseOnlineVisitsPricingStats: [
@@ -1083,15 +1177,17 @@ const PlasmicDescendants = {
   svg: ["svg"],
   link: ["link"],
   button: ["button"],
-  gtm: ["gtm"]
+  embedHtml: ["embedHtml"],
+  blockquote: ["blockquote"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  fragmentApiRequest: typeof ApiRequest;
+  gtm: typeof Embed;
   sideEffect: typeof SideEffect;
+  fragmentApiRequest: typeof ApiRequest;
   h4: "h4";
   h5: "h5";
   groupExpertiseOnlineVisitsPricingStats: typeof DataFetcher;
@@ -1102,7 +1198,8 @@ type NodeDefaultElementType = {
   svg: "svg";
   link: "a";
   button: typeof Button;
-  gtm: typeof Embed;
+  embedHtml: typeof Embed;
+  blockquote: "blockquote";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1165,8 +1262,9 @@ export const PlasmicHomepage = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    fragmentApiRequest: makeNodeComponent("fragmentApiRequest"),
+    gtm: makeNodeComponent("gtm"),
     sideEffect: makeNodeComponent("sideEffect"),
+    fragmentApiRequest: makeNodeComponent("fragmentApiRequest"),
     h4: makeNodeComponent("h4"),
     h5: makeNodeComponent("h5"),
     groupExpertiseOnlineVisitsPricingStats: makeNodeComponent(
@@ -1179,7 +1277,8 @@ export const PlasmicHomepage = Object.assign(
     svg: makeNodeComponent("svg"),
     link: makeNodeComponent("link"),
     button: makeNodeComponent("button"),
-    gtm: makeNodeComponent("gtm"),
+    embedHtml: makeNodeComponent("embedHtml"),
+    blockquote: makeNodeComponent("blockquote"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
