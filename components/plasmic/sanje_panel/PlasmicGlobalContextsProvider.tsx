@@ -10,20 +10,22 @@ import { Fragment } from "@/fragment/fragment"; // plasmic-import: aoWuS25X94s0/
 import { GrowthBook } from "@/fragment/growthbook"; // plasmic-import: DbAR2bd9pX5P/codeComponent
 import { Splunk } from "@/fragment/splunk"; // plasmic-import: Iqj9wqmRKfGb/codeComponent
 import { AntdConfigProvider } from "@plasmicpkgs/antd5/skinny/registerConfigProvider";
+import { Hamdast } from "@/hamdast/hamdast"; // plasmic-import: RuE2-zUZLQ_z/codeComponent
 
 export interface GlobalContextsProviderProps {
   children?: React.ReactElement;
   fragmentProps?: Partial<
     Omit<React.ComponentProps<typeof Fragment>, "children">
   >;
-
   growthBookProps?: Partial<
     Omit<React.ComponentProps<typeof GrowthBook>, "children">
   >;
-
   splunkProps?: Partial<Omit<React.ComponentProps<typeof Splunk>, "children">>;
   antdConfigProviderProps?: Partial<
     Omit<React.ComponentProps<typeof AntdConfigProvider>, "children">
+  >;
+  hamdastProps?: Partial<
+    Omit<React.ComponentProps<typeof Hamdast>, "children">
   >;
 }
 
@@ -35,7 +37,8 @@ export default function GlobalContextsProvider(
     fragmentProps,
     growthBookProps,
     splunkProps,
-    antdConfigProviderProps
+    antdConfigProviderProps,
+    hamdastProps
   } = props;
 
   return (
@@ -191,7 +194,16 @@ export default function GlobalContextsProvider(
                 : false
             }
           >
-            {children}
+            <Hamdast
+              {...hamdastProps}
+              clientKey={
+                hamdastProps && "clientKey" in hamdastProps
+                  ? hamdastProps.clientKey!
+                  : "9e5789a2da3a43a8k05636486a07200b"
+              }
+            >
+              {children}
+            </Hamdast>
           </AntdConfigProvider>
         </Splunk>
       </GrowthBook>
