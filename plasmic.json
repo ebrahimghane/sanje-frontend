@@ -621,6 +621,18 @@
           "name": "ApiRequest",
           "displayName": "ApiRequest",
           "componentImportPath": "@/fragment/components/api-request"
+        },
+        {
+          "id": "T7fWVZV1WtSZ",
+          "name": "Slider",
+          "displayName": "Slider",
+          "componentImportPath": "@/fragment/components/slider"
+        },
+        {
+          "id": "RuE2-zUZLQ_z",
+          "name": "Hamdast",
+          "displayName": "Hamdast",
+          "componentImportPath": "@/hamdast/hamdast"
         }
       ],
       "customFunctions": []

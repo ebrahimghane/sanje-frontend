@@ -297,30 +297,7 @@ function PlasmicHomepage__RenderFunc(props: {
           <ApiRequest
             data-plasmic-name={"fragmentApiRequest"}
             data-plasmic-override={overrides.fragmentApiRequest}
-            children={null}
             className={classNames("__wab_instance", sty.fragmentApiRequest)}
-            errorDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__pv0Jf
-                )}
-              >
-                {"Error fetching data"}
-              </div>
-            }
-            loadingDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__kw5X6
-                )}
-              >
-                {"Loading..."}
-              </div>
-            }
             method={"GET"}
             onError={generateStateOnChangeProp($state, [
               "fragmentApiRequest",
@@ -384,7 +361,7 @@ function PlasmicHomepage__RenderFunc(props: {
                   )}
                 >
                   {
-                    "\u0645\u0628\u0644\u063a \u0648\u06cc\u0632\u06cc\u062a \u0622\u0646\u0644\u0627\u06cc\u0646"
+                    "\u0647\u0632\u06cc\u0646\u0647 \u0648\u06cc\u0632\u06cc\u062a \u0622\u0646\u0644\u0627\u06cc\u0646"
                   }
                 </h5>
                 <div
