@@ -247,6 +247,8 @@
   width: 100%;
   justify-self: flex-start;
   min-width: 0;
+  border-radius: var(--token-_c276Gs_1FIE);
+  border: 1px solid var(--token-GEppKCdlxgWK);
 }
 .freeBox__vwZX {
   display: flex;
