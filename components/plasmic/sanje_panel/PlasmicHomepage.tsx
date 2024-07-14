@@ -97,9 +97,7 @@ export type PlasmicHomepage__OverridesType = {
   sideEffect?: Flex__<typeof SideEffect>;
   fragmentApiRequest?: Flex__<typeof ApiRequest>;
   h4?: Flex__<"h4">;
-  h5?: Flex__<"h5">;
   groupExpertiseOnlineVisitsPricingStats?: Flex__<typeof DataFetcher>;
-  h6?: Flex__<"h6">;
   linearScaleCustomChart2?: Flex__<typeof LinearScaleCustomChart2>;
   chart?: Flex__<typeof SimpleChart>;
   linearScaleCustomChart?: Flex__<typeof LinearScaleCustomChart>;
@@ -297,30 +295,7 @@ function PlasmicHomepage__RenderFunc(props: {
           <ApiRequest
             data-plasmic-name={"fragmentApiRequest"}
             data-plasmic-override={overrides.fragmentApiRequest}
-            children={null}
             className={classNames("__wab_instance", sty.fragmentApiRequest)}
-            errorDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__pv0Jf
-                )}
-              >
-                {"Error fetching data"}
-              </div>
-            }
-            loadingDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__kw5X6
-                )}
-              >
-                {"Loading..."}
-              </div>
-            }
             method={"GET"}
             onError={generateStateOnChangeProp($state, [
               "fragmentApiRequest",
@@ -373,20 +348,18 @@ function PlasmicHomepage__RenderFunc(props: {
               }
             })() ? (
               <div className={classNames(projectcss.all, sty.freeBox___6T4Ji)}>
-                <h5
-                  data-plasmic-name={"h5"}
-                  data-plasmic-override={overrides.h5}
+                <h6
                   className={classNames(
                     projectcss.all,
-                    projectcss.h5,
+                    projectcss.h6,
                     projectcss.__wab_text,
-                    sty.h5
+                    sty.h6__l69DR
                   )}
                 >
                   {
-                    "\u0645\u0628\u0644\u063a \u0648\u06cc\u0632\u06cc\u062a \u0622\u0646\u0644\u0627\u06cc\u0646"
+                    "\ud83c\udff7\ufe0f \u0642\u06cc\u0645\u062a\u200c\u06af\u0630\u0627\u0631\u06cc \u0648\u06cc\u0632\u06cc\u062a \u0622\u0646\u0644\u0627\u06cc\u0646"
                   }
-                </h5>
+                </h6>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -408,10 +381,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                   .consult_services[0].free_price / 10000
                               )
                             ) +
-                            " هزارتومان</b> می‌باشد. " +
-                            '<a href="https://yun.ir/0x2b0c">' +
-                            " <span style='font-size: smaller; text-decoration: underline;'>اصلاح مبلغ</span>" +
-                            "</a>"
+                            " هزارتومان</b> می‌باشد. "
                           );
                         } catch (e) {
                           if (
@@ -503,13 +473,11 @@ function PlasmicHomepage__RenderFunc(props: {
                             )}
                           >
                             <h6
-                              data-plasmic-name={"h6"}
-                              data-plasmic-override={overrides.h6}
                               className={classNames(
                                 projectcss.all,
                                 projectcss.h6,
                                 projectcss.__wab_text,
-                                sty.h6
+                                sty.h6__u6RgF
                               )}
                             >
                               <React.Fragment>
@@ -531,52 +499,13 @@ function PlasmicHomepage__RenderFunc(props: {
                                 })()}
                               </React.Fragment>
                             </h6>
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__zY36Z
-                              )}
-                            >
-                              <div
-                                className={projectcss.__wab_expr_html_text}
-                                dangerouslySetInnerHTML={{
-                                  __html: (() => {
-                                    try {
-                                      return (
-                                        "میانگین قیمت پرداختی ویزیت بیماران در دسته " +
-                                        "<b>" +
-                                        $ctx.fetchedData[0].group_expertise
-                                          .name +
-                                        " " +
-                                        new Intl.NumberFormat("fa-IR").format(
-                                          Math.round(
-                                            $ctx.fetchedData[1].averageCost
-                                          )
-                                        ) +
-                                        " هزارتومان</b> است."
-                                      );
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "...";
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                }}
-                              />
-                            </div>
                             <LinearScaleCustomChart2
                               data-plasmic-name={"linearScaleCustomChart2"}
                               data-plasmic-override={
                                 overrides.linearScaleCustomChart2
                               }
                               chartTitle={
-                                "\u062a\u0648\u0632\u06cc\u0639 \u0647\u0632\u06cc\u0646\u0647 \u0648\u06cc\u0632\u06cc\u062a \u0628\u0631 \u0641\u0631\u0627\u0648\u0627\u0646\u06cc \u0646\u0648\u0628\u062a\u200c\u0647\u0627\u06cc \u0627\u062e\u06cc\u0631"
+                                "\u0641\u0631\u0627\u0648\u0627\u0646\u06cc \u0642\u06cc\u0645\u062a \u0628\u0647 \u0646\u0648\u0628\u062a"
                               }
                               className={classNames(
                                 "__wab_instance",
@@ -603,6 +532,45 @@ function PlasmicHomepage__RenderFunc(props: {
                               })()}
                             />
 
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__zY36Z
+                              )}
+                            >
+                              <div
+                                className={projectcss.__wab_expr_html_text}
+                                dangerouslySetInnerHTML={{
+                                  __html: (() => {
+                                    try {
+                                      return (
+                                        "میانگین پرداختی دسته " +
+                                        "<b>" +
+                                        $ctx.fetchedData[0].group_expertise
+                                          .name +
+                                        ": " +
+                                        new Intl.NumberFormat("fa-IR").format(
+                                          Math.round(
+                                            $ctx.fetchedData[1].averageCost
+                                          )
+                                        ) +
+                                        " هزارتومان</b>"
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "...";
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                }}
+                              />
+                            </div>
                             {false ? (
                               <SimpleChart
                                 data-plasmic-name={"chart"}
@@ -918,8 +886,39 @@ function PlasmicHomepage__RenderFunc(props: {
                   )}
                 >
                   {
-                    "\u062f\u0627\u062f\u0647\u200c\u0647\u0627\u06cc \u0641\u0648\u0642 \u0628\u0631 \u0627\u0633\u0627\u0633 \u0645\u0628\u0627\u0644\u063a \u067e\u0631\u062f\u0627\u062e\u062a\u06cc \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u062f\u0631 \u0646\u0648\u0628\u062a \u0647\u0627\u06cc \u0627\u062e\u06cc\u0631 \u0645\u062d\u0627\u0633\u0628\u0647 \u0634\u062f\u0647 \u0627\u0633\u062a.\n\ud83d\udccc \u0627\u0646\u062a\u062e\u0627\u0628 \u0645\u0628\u0644\u063a \u0648\u06cc\u0632\u06cc\u062a \u0628\u0647 \u062a\u0635\u0645\u06cc\u0645 \u0634\u0645\u0627 \u0628\u0633\u062a\u06af\u06cc \u062f\u0627\u0631\u062f. \u0627\u0645\u0627 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0628\u0627 \u0645\u0642\u0627\u06cc\u0633\u0647 \u0645\u0628\u0627\u0644\u063a \u067e\u0631\u062f\u0627\u062e\u062a\u06cc \u0641\u0639\u0644\u06cc\u060c \u062a\u0635\u0645\u06cc\u0645 \u0628\u0647\u062a\u0631\u06cc \u062f\u0631 \u0627\u0646\u062a\u062e\u0627\u0628 \u0645\u0628\u0644\u063a \u0628\u0647\u06cc\u0646\u0647 \u0628\u06af\u06cc\u0631\u06cc\u062f."
+                    "\u062f\u0627\u062f\u0647\u200c\u0647\u0627\u06cc \u0641\u0648\u0642 \u0628\u0631 \u0627\u0633\u0627\u0633 \u0645\u0628\u0627\u0644\u063a \u067e\u0631\u062f\u0627\u062e\u062a\u06cc \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u062f\u0631 \u0646\u0648\u0628\u062a \u0647\u0627\u06cc \u0627\u062e\u06cc\u0631 \u0645\u062d\u0627\u0633\u0628\u0647 \u0634\u062f\u0647."
                   }
+                </main>
+                <main
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.main__uh8Qe
+                  )}
+                >
+                  <div
+                    className={projectcss.__wab_expr_html_text}
+                    dangerouslySetInnerHTML={{
+                      __html: (() => {
+                        try {
+                          return (
+                            "📌 انتخاب مبلغ ویزیت در اختیار شماست. اما می‌توانید با مقایسه توزیع مبالغ پرداختی، تصمیم بهتری در انتخاب مبلغ بهینه بگیرید. " +
+                            '<a href="https://yun.ir/0x2b0c">' +
+                            " <span style='font-size: smaller; text-decoration: underline;'>اصلاح مبلغ</span>" +
+                            "</a>"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "\u062f\u0627\u062f\u0647\u200c\u0647\u0627\u06cc \u0641\u0648\u0642 \u0628\u0631 \u0627\u0633\u0627\u0633 \u0645\u0628\u0627\u0644\u063a \u067e\u0631\u062f\u0627\u062e\u062a\u06cc \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u062f\u0631 \u0646\u0648\u0628\u062a \u0647\u0627\u06cc \u0627\u062e\u06cc\u0631 \u0645\u062d\u0627\u0633\u0628\u0647 \u0634\u062f\u0647 \u0627\u0633\u062a.\n\ud83d\udccc \u0627\u0646\u062a\u062e\u0627\u0628 \u0645\u0628\u0644\u063a \u0648\u06cc\u0632\u06cc\u062a \u0628\u0647 \u062a\u0635\u0645\u06cc\u0645 \u0634\u0645\u0627 \u0628\u0633\u062a\u06af\u06cc \u062f\u0627\u0631\u062f. \u0627\u0645\u0627 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0628\u0627 \u0645\u0642\u0627\u06cc\u0633\u0647 \u0645\u0628\u0627\u0644\u063a \u067e\u0631\u062f\u0627\u062e\u062a\u06cc \u0641\u0639\u0644\u06cc\u060c \u062a\u0635\u0645\u06cc\u0645 \u0628\u0647\u062a\u0631\u06cc \u062f\u0631 \u0627\u0646\u062a\u062e\u0627\u0628 \u0645\u0628\u0644\u063a \u0628\u0647\u06cc\u0646\u0647 \u0628\u06af\u06cc\u0631\u06cc\u062f. \n'<a href=\"https://yun.ir/0x2b0c\">' +\n\" <span style='font-size: smaller; text-decoration: underline;'>\u0627\u0635\u0644\u0627\u062d \u0645\u0628\u0644\u063a</span>\"+\n'</a>'";
+                          }
+                          throw e;
+                        }
+                      })()
+                    }}
+                  />
                 </main>
               </div>
             ) : null}
@@ -1113,9 +1112,31 @@ function PlasmicHomepage__RenderFunc(props: {
                   "\u0627\u0632 \u062c\u0645\u0644\u0647 \u062f\u06a9\u062a\u0631 \u0646\u06cc\u0645\u0627 \u062f\u0633\u062a\u06af\u06cc\u0631\u060c \u0633\u06cc\u0627\u0645\u06a9 \u0631\u062d\u0645\u0627\u0646\u06cc\u060c \u062a\u0648\u0645\u0627\u062c \u0634\u0627\u0647\u0648\u0631\u062f\u06cc\u060c \u0641\u0631\u062d \u0646\u0627\u0632 \u0631\u0634\u06cc\u062f\u06cc\u060c \u0641\u0627\u0637\u0645\u0647 \u0645\u0631\u0627\u062f\u06cc\u060c \u0645\u062d\u0633\u0646 \u0645\u0634\u06cc\u0631\u06cc\u060c \u0632\u0647\u0631\u0627 \u0639\u0633\u06af\u0631\u06cc \u0648 \u0635\u062f\u0647\u0627 \u0647\u0645\u0631\u0627\u0647 \u062f\u06cc\u06af\u0631... ."
                 }
               </span>
+              <React.Fragment>{"\n\n\n"}</React.Fragment>
+            </React.Fragment>
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__xePdf
+            )}
+          >
+            {
+              "\u0634\u0645\u0627 \u062f\u0631 \u062d\u0627\u0644 \u0645\u0634\u0627\u0647\u062f\u0647 \u0646\u0633\u062e\u0647 \u0622\u0632\u0645\u0627\u06cc\u0634\u06cc (\u0631\u0627\u06cc\u06af\u0627\u0646) \u0635\u0641\u062d\u0647 \u0639\u0645\u0644\u06a9\u0631\u062f \u067e\u0632\u0634\u06a9\u0627\u0646 \u0647\u0633\u062a\u06cc\u062f. \u0645\u0645\u06a9\u0646 \u0627\u0633\u062a \u062f\u0631 \u0622\u06cc\u0646\u062f\u0647 \u0646\u06cc\u0627\u0632 \u0628\u0647 \u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 \u0628\u0631\u0627\u06cc \u0645\u0634\u0627\u0647\u062f\u0647 \u0627\u06cc\u0646 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627\u0634\u062f."
+            }
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__syPav
+            )}
+          >
+            <React.Fragment>
               <React.Fragment>
                 {
-                  "\n\n\u0633\u0627\u062e\u062a\u0647 \u0634\u062f\u0647 \u0628\u0627 "
+                  "\u0633\u0627\u062e\u062a\u0647 \u0634\u062f\u0647 \u0628\u0627 "
                 }
               </React.Fragment>
               <span
@@ -1126,7 +1147,7 @@ function PlasmicHomepage__RenderFunc(props: {
               </span>
               <React.Fragment>
                 {
-                  " \u0628\u0631\u0627\u06cc \u0647\u0645\u0647 \u0637\u0628\u06cc\u0628\u0627\u0646 \u067e\u0630\u06cc\u0631\u063424.\n"
+                  " \u0628\u0631\u0627\u06cc \u0647\u0645\u0647 \u0637\u0628\u06cc\u0628\u0627\u0646 \u067e\u0630\u06cc\u0631\u063424\n"
                 }
               </React.Fragment>
             </React.Fragment>
@@ -1144,9 +1165,7 @@ const PlasmicDescendants = {
     "sideEffect",
     "fragmentApiRequest",
     "h4",
-    "h5",
     "groupExpertiseOnlineVisitsPricingStats",
-    "h6",
     "linearScaleCustomChart2",
     "chart",
     "linearScaleCustomChart",
@@ -1160,17 +1179,14 @@ const PlasmicDescendants = {
   sideEffect: ["sideEffect"],
   fragmentApiRequest: ["fragmentApiRequest"],
   h4: ["h4"],
-  h5: ["h5"],
   groupExpertiseOnlineVisitsPricingStats: [
     "groupExpertiseOnlineVisitsPricingStats",
-    "h6",
     "linearScaleCustomChart2",
     "chart",
     "linearScaleCustomChart",
     "svg",
     "link"
   ],
-  h6: ["h6"],
   linearScaleCustomChart2: ["linearScaleCustomChart2"],
   chart: ["chart"],
   linearScaleCustomChart: ["linearScaleCustomChart"],
@@ -1189,9 +1205,7 @@ type NodeDefaultElementType = {
   sideEffect: typeof SideEffect;
   fragmentApiRequest: typeof ApiRequest;
   h4: "h4";
-  h5: "h5";
   groupExpertiseOnlineVisitsPricingStats: typeof DataFetcher;
-  h6: "h6";
   linearScaleCustomChart2: typeof LinearScaleCustomChart2;
   chart: typeof SimpleChart;
   linearScaleCustomChart: typeof LinearScaleCustomChart;
@@ -1266,11 +1280,9 @@ export const PlasmicHomepage = Object.assign(
     sideEffect: makeNodeComponent("sideEffect"),
     fragmentApiRequest: makeNodeComponent("fragmentApiRequest"),
     h4: makeNodeComponent("h4"),
-    h5: makeNodeComponent("h5"),
     groupExpertiseOnlineVisitsPricingStats: makeNodeComponent(
       "groupExpertiseOnlineVisitsPricingStats"
     ),
-    h6: makeNodeComponent("h6"),
     linearScaleCustomChart2: makeNodeComponent("linearScaleCustomChart2"),
     chart: makeNodeComponent("chart"),
     linearScaleCustomChart: makeNodeComponent("linearScaleCustomChart"),

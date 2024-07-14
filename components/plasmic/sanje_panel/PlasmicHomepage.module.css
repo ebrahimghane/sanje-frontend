@@ -43,20 +43,6 @@
   object-fit: cover;
   position: relative;
 }
-.text__kw5X6 {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
-.text__pv0Jf {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
 .freeBox__hTcro {
   display: flex;
   position: relative;
@@ -68,7 +54,7 @@
   max-width: 100%;
   align-content: flex-start;
   min-width: 0;
-  padding: 96px 0px;
+  padding: 19px 0px 96px;
 }
 .h4 {
   width: 100%;
@@ -94,7 +80,7 @@
   padding: 8px;
   border: 1px solid var(--token-GEppKCdlxgWK);
 }
-.h5 {
+.h6__l69DR {
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -127,20 +113,14 @@
   height: auto;
   max-width: 100%;
   margin-bottom: 10px;
+  margin-top: 12px;
   min-width: 0;
   border-radius: var(--token-_c276Gs_1FIE);
   padding: 8px;
-  border-width: 1px;
+  border-width: 5px;
   border-style: solid;
 }
-.h6 {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  text-align: right;
-  min-width: 0;
-}
-.text__zY36Z {
+.h6__u6RgF {
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -150,6 +130,13 @@
 .linearScaleCustomChart2:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
+}
+.text__zY36Z {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  min-width: 0;
 }
 .chart:global(.__wab_instance) {
   width: 100%;
@@ -190,6 +177,15 @@
   text-align: right;
 }
 .main__qrmV {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  font-size: var(--token-VrIY9r5RDQZ_);
+  min-width: 0;
+  margin: 0px 0px 10px;
+}
+.main__uh8Qe {
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -268,6 +264,28 @@
   border-bottom: 1px solid var(--token-6sli1sYB-Ose);
 }
 .text__nhZ5 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  margin-bottom: 16px;
+  min-width: 0;
+  display: none;
+}
+.text__xePdf {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  margin-bottom: 16px;
+  font-size: var(--token-VrIY9r5RDQZ_);
+  color: var(--token-Ycl7DlUSVY4S);
+  margin-top: 8px;
+  min-width: 0;
+}
+.text__syPav {
   position: relative;
   width: 100%;
   height: auto;
