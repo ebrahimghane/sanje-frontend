@@ -17,16 +17,13 @@ export interface GlobalContextsProviderProps {
   fragmentProps?: Partial<
     Omit<React.ComponentProps<typeof Fragment>, "children">
   >;
-
   growthBookProps?: Partial<
     Omit<React.ComponentProps<typeof GrowthBook>, "children">
   >;
-
   splunkProps?: Partial<Omit<React.ComponentProps<typeof Splunk>, "children">>;
   antdConfigProviderProps?: Partial<
     Omit<React.ComponentProps<typeof AntdConfigProvider>, "children">
   >;
-
   hamdastProps?: Partial<
     Omit<React.ComponentProps<typeof Hamdast>, "children">
   >;
@@ -182,7 +179,7 @@ export default function GlobalContextsProvider(
                 ? antdConfigProviderProps.themeStyles!
                 : true
                 ? {
-                    fontFamily: "Vazirmatn",
+                    fontFamily: "var(--iran-sans-x)",
                     fontSize: "16px",
                     fontWeight: "400",
                     lineHeight: "1.5",

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Vazirmatn%3Aital%2Cwght%400%2C400%3B0%2C600%3B0%2C700&family=Inconsolata%3Aital%2Cwght%400%2C400%3B0%2C600%3B0%2C700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata%3Aital%2Cwght%400%2C400%3B0%2C600%3B0%2C700&display=swap");
 
 .plasmic_tokens {
   --token-BrYyNnwefAfa: Roboto;
@@ -18,7 +18,7 @@
 }
 
 .plasmic_default_styles {
-  --mixin-7V6kj0TchWi9-aU6fP_font-family: "Vazirmatn", sans-serif;
+  --mixin-7V6kj0TchWi9-aU6fP_font-family: var(--iran-sans-x);
   --mixin-7V6kj0TchWi9-aU6fP_font-size: 16px;
   --mixin-7V6kj0TchWi9-aU6fP_font-weight: 400;
   --mixin-7V6kj0TchWi9-aU6fP_font-style: normal;
