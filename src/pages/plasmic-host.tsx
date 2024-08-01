@@ -5,8 +5,6 @@ import {
   registerGlobalContext,
 } from "@plasmicapp/react-web/lib/host";
 
-import { Hamdast, hamdastMeta } from "@/hamdast/hamdast";
-
 import { Fragment, fragmentMeta } from "@/fragment/fragment";
 import { GrowthBook, growthBookMeta } from "@/fragment/growthbook";
 import { DatePicker, datePickerMeta } from "@/fragment/components/date-picker";
@@ -18,12 +16,11 @@ import { Input, inputMeta } from "@/fragment/components/input";
 import { Switch, switchMeta } from "@/fragment/components/switch";
 import { ApiRequest, apiRequestMeta } from "@/fragment/components/api-request";
 import { Slider, sliderMeta } from "@/fragment/components/slider";
+import { Chart, chartMeta } from "@/fragment/components/chart";
 
 export default function PlasmicHost() {
   return <PlasmicCanvasHost />;
 }
-
-registerGlobalContext(Hamdast, hamdastMeta);
 
 registerGlobalContext(Fragment, fragmentMeta);
 registerGlobalContext(GrowthBook, growthBookMeta);
@@ -36,3 +33,4 @@ registerComponent(Input, inputMeta);
 registerComponent(Switch, switchMeta);
 registerComponent(Slider, sliderMeta);
 registerComponent(ApiRequest, apiRequestMeta);
+registerComponent(Chart, chartMeta);
