@@ -63,6 +63,7 @@ import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: MhkncRKg2Phv/codeComponent
 import { SimpleChart } from "@plasmicpkgs/react-chartjs-2";
+import TaskCardItem from "../../TaskCardItem"; // plasmic-import: HREvsQHdw0h_/component
 import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 import LinearScaleCustomChart2 from "../../LinearScaleCustomChart2"; // plasmic-import: 0EkZlbx6K2L1/component
 import LinearScaleCustomChart from "../../LinearScaleCustomChart"; // plasmic-import: 15G81XIekDs9/component
@@ -99,6 +100,8 @@ export type PlasmicHomepage__OverridesType = {
   sanjeSearchCardViewFragmentApiRequest2?: Flex__<typeof ApiRequest>;
   sanjeSearchClickPositionFragmentApiRequest3?: Flex__<typeof ApiRequest>;
   fragmentApiRequest?: Flex__<typeof ApiRequest>;
+  growthOpportunitiesFragmentApiRequest?: Flex__<typeof ApiRequest>;
+  taskCardItem?: Flex__<typeof TaskCardItem>;
   groupExpertiseOnlineVisitsPricingStats?: Flex__<typeof DataFetcher>;
   linearScaleCustomChart2?: Flex__<typeof LinearScaleCustomChart2>;
   linearScaleCustomChart?: Flex__<typeof LinearScaleCustomChart>;
@@ -217,6 +220,24 @@ function PlasmicHomepage__RenderFunc(props: {
       },
       {
         path: "sanjeSearchClickPositionFragmentApiRequest3.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "growthOpportunitiesFragmentApiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "growthOpportunitiesFragmentApiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "growthOpportunitiesFragmentApiRequest.loading",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -372,7 +393,7 @@ function PlasmicHomepage__RenderFunc(props: {
                   )}
                 >
                   {
-                    "\ud83d\udcca \u062f\u0627\u062f\u0647 \u0647\u0627\u06cc \u0639\u0645\u0644\u06a9\u0631\u062f\u06cc \u0634\u0645\u0627 \u062f\u0631 \u0646\u062a\u0627\u06cc\u062c \u062c\u0633\u062a\u062c\u0648"
+                    "\ud83d\udcca \u0622\u0645\u0627\u0631 \u062c\u0633\u062a\u062c\u0648"
                   }
                 </h6>
                 <ApiRequest
@@ -440,7 +461,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         style={{ fontWeight: 700 }}
                       >
                         {
-                          "\u062a\u0639\u062f\u0627\u062f \u062f\u0641\u0639\u0627\u062a \u0645\u0634\u0627\u0647\u062f\u0647 \u0634\u0645\u0627 \u062f\u0631 \u0646\u062a\u0627\u06cc\u062c \u062c\u0633\u062a\u062c\u0648"
+                          "\u062a\u0639\u062f\u0627\u062f \u0645\u0634\u0627\u0647\u062f\u0647 \u0634\u0645\u0627 \u062f\u0631 \u0646\u062a\u0627\u06cc\u062c"
                         }
                       </span>
                     </React.Fragment>
@@ -522,7 +543,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         style={{ fontWeight: 700 }}
                       >
                         {
-                          "\u062a\u0639\u062f\u0627\u062f \u062f\u0641\u0639\u0627\u062a \u06a9\u0644\u06cc\u06a9 \u06a9\u0627\u0631\u0628\u0631\u0627\u0646 \u0631\u0648\u06cc \u0635\u0641\u062d\u0647 \u0634\u0645\u0627 \u062f\u0631 \u0646\u062a\u0627\u06cc\u062c \u062c\u0633\u062a\u062c\u0648"
+                          "\u062a\u0639\u062f\u0627\u062f \u06a9\u0644\u06cc\u06a9 \u06a9\u0627\u0631\u0628\u0631\u0627\u0646 \u0631\u0648\u06cc \u0635\u0641\u062d\u0647 \u0634\u0645\u0627 \u062f\u0631 \u0646\u062a\u0627\u06cc\u062c"
                         }
                       </span>
                     </React.Fragment>
@@ -562,6 +583,181 @@ function PlasmicHomepage__RenderFunc(props: {
             }
           />
 
+          <ApiRequest
+            data-plasmic-name={"growthOpportunitiesFragmentApiRequest"}
+            data-plasmic-override={
+              overrides.growthOpportunitiesFragmentApiRequest
+            }
+            className={classNames(
+              "__wab_instance",
+              sty.growthOpportunitiesFragmentApiRequest
+            )}
+            errorDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___2Ghbf
+                )}
+              >
+                {"Error fetching data"}
+              </div>
+            }
+            loadingDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__rhRI
+                )}
+              >
+                {"Loading..."}
+              </div>
+            }
+            method={"GET"}
+            onError={generateStateOnChangeProp($state, [
+              "growthOpportunitiesFragmentApiRequest",
+              "error"
+            ])}
+            onLoading={generateStateOnChangeProp($state, [
+              "growthOpportunitiesFragmentApiRequest",
+              "loading"
+            ])}
+            onSuccess={generateStateOnChangeProp($state, [
+              "growthOpportunitiesFragmentApiRequest",
+              "data"
+            ])}
+            url={
+              "https://apigw.paziresh24.com/v1/n8n-search/webhook/growth-opportunities"
+            }
+          >
+            {(() => {
+              try {
+                return (
+                  $state.currentDoctorData.entity.consult_services[0]
+                    .free_price !== undefined &&
+                  $state.currentDoctorData.entity.consult_services[0]
+                    .free_price !== null
+                );
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div className={classNames(projectcss.all, sty.freeBox__g5Unx)}>
+                <h6
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.h6,
+                    projectcss.__wab_text,
+                    sty.h6__wPuk6
+                  )}
+                >
+                  {
+                    "\ud83d\udcca \u0641\u0631\u0635\u062a \u0647\u0627\u06cc \u0631\u0634\u062f"
+                  }
+                </h6>
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return $state.growthOpportunitiesFragmentApiRequest.data[
+                        "growth Opportunities"
+                      ];
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <TaskCardItem
+                      data-plasmic-name={"taskCardItem"}
+                      data-plasmic-override={overrides.taskCardItem}
+                      className={classNames("__wab_instance", sty.taskCardItem)}
+                      description={(() => {
+                        try {
+                          return currentItem.description;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      icon={(() => {
+                        try {
+                          return currentItem.icon;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      key={currentIndex}
+                      subtitle={(() => {
+                        try {
+                          return currentItem.subtitle;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      title={(() => {
+                        try {
+                          return currentItem.title;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      type={(() => {
+                        try {
+                          return currentItem.type;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    />
+                  );
+                })}
+              </div>
+            ) : null}
+          </ApiRequest>
           <div className={classNames(projectcss.all, sty.freeBox__hTcro)}>
             {(() => {
               try {
@@ -1134,7 +1330,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       __html: (() => {
                         try {
                           return (
-                            "📌 انتخاب مبلغ ویزیت در اختیار شماست. اما می‌توانید با مقایسه توزیع مبالغ پرداختی، تصمیم بهتری در انتخاب مبلغ بهینه بگیرید. " +
+                            "📌 انتخاب مبلغ ویزیت در اختیار شماست. اما می‌توانید با مقایسه توزیع مبالغ پرداختی، تصمیم بهتری در انتخاب مبلغ بگیرید. " +
                             '<a href="https://yun.ir/0x2b0c">' +
                             " <span style='font-size: smaller; text-decoration: underline;'>اصلاح مبلغ</span>" +
                             "</a>"
@@ -1305,7 +1501,7 @@ function PlasmicHomepage__RenderFunc(props: {
             data-plasmic-override={overrides.embedHtml}
             className={classNames("__wab_instance", sty.embedHtml)}
             code={
-              '<div id="gFH99yr" style="min-height: 480px;">\r\n  <script\r\n    type="text/JavaScript"\r\n    src="https://survey.porsline.ir/embed/eyJ3aWR0aCI6IjEwMCUiLCJoZWlnaHQiOiIxMDAlIiwiYm9yZGVyIjoibm9uZSJ9/gFH99yr?url=xxxx&tid=xxxx&userid=xxxx"\r\n  >\r\n  </script>\r\n</div>\r\n  '
+              "<div id=\"gFH99yr\" style=\"min-height: 480px;\">\r\n  <script type=\"text/JavaScript\">\r\n    // Function to get the value of a cookie by name\r\n    function getCookie(name) {\r\n      const value = `; ${document.cookie}`;\r\n      const parts = value.split(`; ${name}=`);\r\n      if (parts.length === 2) return parts.pop().split(';').shift();\r\n    }\r\n\r\n    // Get the terminal_id cookie value\r\n    const terminalId = getCookie('terminal_id');\r\n\r\n    // Get the current page's URL and URL-encode it\r\n    const currentPageUrl = encodeURIComponent(window.location.href);\r\n\r\n    // Update the script's src attribute dynamically\r\n    const script = document.createElement('script');\r\n    script.type = 'text/JavaScript';\r\n    script.src = `https://survey.porsline.ir/embed/eyJ3aWR0aCI6IjEwMCUiLCJoZWlnaHQiOiIxMDAlIiwiYm9yZGVyIjoibm9uZSJ9/gFH99yr?url=${currentPageUrl}&tid=${terminalId}&userid=xxxx`;\r\n    document.getElementById('gFH99yr').appendChild(script);\r\n  </script>\r\n</div>\r\n"
             }
           />
 
@@ -1399,6 +1595,8 @@ const PlasmicDescendants = {
     "sanjeSearchCardViewFragmentApiRequest2",
     "sanjeSearchClickPositionFragmentApiRequest3",
     "fragmentApiRequest",
+    "growthOpportunitiesFragmentApiRequest",
+    "taskCardItem",
     "groupExpertiseOnlineVisitsPricingStats",
     "linearScaleCustomChart2",
     "linearScaleCustomChart",
@@ -1418,6 +1616,11 @@ const PlasmicDescendants = {
     "sanjeSearchClickPositionFragmentApiRequest3"
   ],
   fragmentApiRequest: ["fragmentApiRequest"],
+  growthOpportunitiesFragmentApiRequest: [
+    "growthOpportunitiesFragmentApiRequest",
+    "taskCardItem"
+  ],
+  taskCardItem: ["taskCardItem"],
   groupExpertiseOnlineVisitsPricingStats: [
     "groupExpertiseOnlineVisitsPricingStats",
     "linearScaleCustomChart2",
@@ -1444,6 +1647,8 @@ type NodeDefaultElementType = {
   sanjeSearchCardViewFragmentApiRequest2: typeof ApiRequest;
   sanjeSearchClickPositionFragmentApiRequest3: typeof ApiRequest;
   fragmentApiRequest: typeof ApiRequest;
+  growthOpportunitiesFragmentApiRequest: typeof ApiRequest;
+  taskCardItem: typeof TaskCardItem;
   groupExpertiseOnlineVisitsPricingStats: typeof DataFetcher;
   linearScaleCustomChart2: typeof LinearScaleCustomChart2;
   linearScaleCustomChart: typeof LinearScaleCustomChart;
@@ -1524,6 +1729,10 @@ export const PlasmicHomepage = Object.assign(
       "sanjeSearchClickPositionFragmentApiRequest3"
     ),
     fragmentApiRequest: makeNodeComponent("fragmentApiRequest"),
+    growthOpportunitiesFragmentApiRequest: makeNodeComponent(
+      "growthOpportunitiesFragmentApiRequest"
+    ),
+    taskCardItem: makeNodeComponent("taskCardItem"),
     groupExpertiseOnlineVisitsPricingStats: makeNodeComponent(
       "groupExpertiseOnlineVisitsPricingStats"
     ),
