@@ -530,6 +530,19 @@
           "cssFilePath": "plasmic/sanje_panel/PlasmicLinearScaleCustomChart2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "HREvsQHdw0h_",
+          "name": "TaskCardItem",
+          "type": "managed",
+          "projectId": "aU6fPsMDSmKqgHWpAbdgs",
+          "renderModuleFilePath": "plasmic/sanje_panel/PlasmicTaskCardItem.tsx",
+          "importSpec": {
+            "modulePath": "TaskCardItem.tsx"
+          },
+          "cssFilePath": "plasmic/sanje_panel/PlasmicTaskCardItem.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

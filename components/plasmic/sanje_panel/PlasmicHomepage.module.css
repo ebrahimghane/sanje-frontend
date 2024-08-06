@@ -159,6 +159,53 @@
   object-fit: cover;
   position: relative;
 }
+.growthOpportunitiesFragmentApiRequest:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__rhRI {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.text___2Ghbf {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.freeBox__g5Unx {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  background: #ffffff;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  min-width: 0;
+  border-radius: var(--token-fhaz6q6bl-fW);
+  padding: 8px;
+  border: 1px solid var(--token-GEppKCdlxgWK);
+}
+.h6__wPuk6 {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  margin-bottom: 10px;
+  min-width: 0;
+}
+.taskCardItem:global(.__wab_instance) {
+  max-width: 100%;
+  margin-bottom: 4px;
+}
 .freeBox__hTcro {
   display: flex;
   position: relative;
