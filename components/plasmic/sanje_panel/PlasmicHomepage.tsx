@@ -105,9 +105,9 @@ export type PlasmicHomepage__OverridesType = {
   groupExpertiseOnlineVisitsPricingStats?: Flex__<typeof DataFetcher>;
   linearScaleCustomChart2?: Flex__<typeof LinearScaleCustomChart2>;
   linearScaleCustomChart?: Flex__<typeof LinearScaleCustomChart>;
-  svg?: Flex__<"svg">;
   link?: Flex__<"a"> & Partial<LinkProps>;
   button?: Flex__<typeof Button>;
+  supportLink?: Flex__<typeof Button>;
   embedHtml?: Flex__<typeof Embed>;
   blockquote?: Flex__<"blockquote">;
 };
@@ -1333,11 +1333,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                 )}
                               >
                                 <IconIcon
-                                  data-plasmic-name={"svg"}
-                                  data-plasmic-override={overrides.svg}
                                   className={classNames(
                                     projectcss.all,
-                                    sty.svg
+                                    sty.svg__hnDjI
                                   )}
                                   role={"img"}
                                 />
@@ -1578,6 +1576,37 @@ function PlasmicHomepage__RenderFunc(props: {
               "\u0644\u0637\u0641\u0627\u064b \u0628\u0627 \u062b\u0628\u062a \u0646\u0638\u0631 \u062e\u0648\u062f \u0628\u0647 \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc\u200c\u062a\u0631 \u0634\u062f\u0646 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u06a9\u0645\u06a9 \u06a9\u0646\u06cc\u062f. \ud83d\ude4f"
             }
           </div>
+          <Button
+            data-plasmic-name={"supportLink"}
+            data-plasmic-override={overrides.supportLink}
+            children2={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__dFzvt
+                )}
+              >
+                {"\u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc"}
+              </div>
+            }
+            className={classNames("__wab_instance", sty.supportLink)}
+            color={"sand"}
+            endIcon={
+              <ChevronLeftIcon
+                className={classNames(projectcss.all, sty.svg__bzqa9)}
+                role={"img"}
+              />
+            }
+            link={
+              "https://support.paziresh24.com/?utm_source=sanjeMyperformancePage&utm_medium=p24&utm_campaign=footerBlock"
+            }
+            outline={true}
+            showEndIcon={true}
+            space={true}
+            target={true}
+          />
+
           <Embed
             data-plasmic-name={"embedHtml"}
             data-plasmic-override={overrides.embedHtml}
@@ -1682,9 +1711,9 @@ const PlasmicDescendants = {
     "groupExpertiseOnlineVisitsPricingStats",
     "linearScaleCustomChart2",
     "linearScaleCustomChart",
-    "svg",
     "link",
     "button",
+    "supportLink",
     "embedHtml",
     "blockquote"
   ],
@@ -1707,14 +1736,13 @@ const PlasmicDescendants = {
     "groupExpertiseOnlineVisitsPricingStats",
     "linearScaleCustomChart2",
     "linearScaleCustomChart",
-    "svg",
     "link"
   ],
   linearScaleCustomChart2: ["linearScaleCustomChart2"],
   linearScaleCustomChart: ["linearScaleCustomChart"],
-  svg: ["svg"],
   link: ["link"],
   button: ["button"],
+  supportLink: ["supportLink"],
   embedHtml: ["embedHtml"],
   blockquote: ["blockquote"]
 } as const;
@@ -1734,9 +1762,9 @@ type NodeDefaultElementType = {
   groupExpertiseOnlineVisitsPricingStats: typeof DataFetcher;
   linearScaleCustomChart2: typeof LinearScaleCustomChart2;
   linearScaleCustomChart: typeof LinearScaleCustomChart;
-  svg: "svg";
   link: "a";
   button: typeof Button;
+  supportLink: typeof Button;
   embedHtml: typeof Embed;
   blockquote: "blockquote";
 };
@@ -1820,9 +1848,9 @@ export const PlasmicHomepage = Object.assign(
     ),
     linearScaleCustomChart2: makeNodeComponent("linearScaleCustomChart2"),
     linearScaleCustomChart: makeNodeComponent("linearScaleCustomChart"),
-    svg: makeNodeComponent("svg"),
     link: makeNodeComponent("link"),
     button: makeNodeComponent("button"),
+    supportLink: makeNodeComponent("supportLink"),
     embedHtml: makeNodeComponent("embedHtml"),
     blockquote: makeNodeComponent("blockquote"),
 
