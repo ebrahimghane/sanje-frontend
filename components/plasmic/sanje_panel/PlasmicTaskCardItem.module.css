@@ -40,15 +40,14 @@
   position: relative;
   width: auto;
   height: auto;
-  max-width: 100%;
+  max-width: auto;
   margin-left: 11px;
 }
 .text__fp4C {
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
-  min-width: 0;
 }
 .text__rtMIa {
   position: relative;
