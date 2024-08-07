@@ -260,21 +260,24 @@ function PlasmicTaskCardItem__RenderFunc(props: {
                     sty.text__rtMIa
                   )}
                 >
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return $props.subtitle;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "First Children";
+                  <div
+                    className={projectcss.__wab_expr_html_text}
+                    dangerouslySetInnerHTML={{
+                      __html: (() => {
+                        try {
+                          return $props.subtitle;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "First Children";
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()}
-                  </React.Fragment>
+                      })()
+                    }}
+                  />
                 </div>
                 <div
                   className={classNames(
@@ -283,21 +286,24 @@ function PlasmicTaskCardItem__RenderFunc(props: {
                     sty.text__vcXyb
                   )}
                 >
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return $props.description;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "First Children";
+                  <div
+                    className={projectcss.__wab_expr_html_text}
+                    dangerouslySetInnerHTML={{
+                      __html: (() => {
+                        try {
+                          return $props.description;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "First Children";
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()}
-                  </React.Fragment>
+                      })()
+                    }}
+                  />
                 </div>
               </AntdAccordionItem>
               <AntdAccordionItem
