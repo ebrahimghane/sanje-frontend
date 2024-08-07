@@ -662,6 +662,17 @@ function PlasmicHomepage__RenderFunc(props: {
                     "\ud83d\udcca \u0641\u0631\u0635\u062a \u0647\u0627\u06cc \u0631\u0634\u062f"
                   }
                 </h6>
+                <main
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.main__anzns
+                  )}
+                >
+                  {
+                    "\u0628\u0631\u0627\u06cc \u0631\u0634\u062f \u0631\u062a\u0628\u0647 \u0648 \u0627\u0641\u0632\u0627\u06cc\u0634 \u062a\u0639\u062f\u0627\u062f \u0645\u0631\u0627\u062c\u0639\u06cc\u0646 \u062e\u0648\u062f \u0646\u06a9\u0627\u062a \u0632\u06cc\u0631 \u0631\u0627 \u0645\u062f \u0646\u0638\u0631 \u0642\u0631\u0627\u0631 \u0628\u062f\u0647\u06cc\u062f."
+                  }
+                </main>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -1501,7 +1512,7 @@ function PlasmicHomepage__RenderFunc(props: {
             data-plasmic-override={overrides.embedHtml}
             className={classNames("__wab_instance", sty.embedHtml)}
             code={
-              "<div id=\"gFH99yr\" style=\"min-height: 480px;\">\r\n  <script type=\"text/JavaScript\">\r\n    // Function to get the value of a cookie by name\r\n    function getCookie(name) {\r\n      const value = `; ${document.cookie}`;\r\n      const parts = value.split(`; ${name}=`);\r\n      if (parts.length === 2) return parts.pop().split(';').shift();\r\n    }\r\n\r\n    // Get the terminal_id cookie value\r\n    const terminalId = getCookie('terminal_id');\r\n\r\n    // Get the current page's URL and URL-encode it\r\n    const currentPageUrl = encodeURIComponent(window.location.href);\r\n\r\n    // Update the script's src attribute dynamically\r\n    const script = document.createElement('script');\r\n    script.type = 'text/JavaScript';\r\n    script.src = `https://survey.porsline.ir/embed/eyJ3aWR0aCI6IjEwMCUiLCJoZWlnaHQiOiIxMDAlIiwiYm9yZGVyIjoibm9uZSJ9/gFH99yr?url=${currentPageUrl}&tid=${terminalId}&userid=xxxx`;\r\n    document.getElementById('gFH99yr').appendChild(script);\r\n  </script>\r\n</div>\r\n"
+              '<a href="#porsline-popup" \r\n  onclick="clgFH99yr(\'porsline-popup-iframe\');showPopUp()">\r\n  \u0644\u0637\u0641\u0627\u064b \u0628\u0627 \u062b\u0628\u062a \u0646\u0638\u0631 \u062e\u0648\u062f \u0628\u0647 \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc\u200c\u062a\u0631 \u0634\u062f\u0646 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u06a9\u0645\u06a9 \u06a9\u0646\u06cc\u062f. \ud83d\ude4f\r\n</a>\r\n<script>\r\n  (function() {\r\n    var js,q,d=document,\r\n    gi=d.getElementById,\r\n    ifid=\'porsline-popup-iframe\',\r\n    ce=d.createElement,\r\n    gt=d.getElementsByTagName,\r\n    id="porsline-share",\r\n    b="https://cdn.porsline.ir/static/modules/dashboard/controllers/";\r\n    if (!gi.call(d,id)) {\r\n      js=ce.call(d,"script");\r\n      js.id = id;\r\n      js.src=b+"popup.js";\r\n      q=gt.call(d,"script")[0];\r\n      q.parentNode.insertBefore(js,q)\r\n    }\r\n  })();\r\n  var clgFH99yr = function (ifid) {\r\n    document.getElementById(ifid).src = \r\n    "https://survey.porsline.ir/s/gFH99yr/#/?ac=1&ns=0"\r\n  }\r\n</script>\r\n  '
             }
           />
 

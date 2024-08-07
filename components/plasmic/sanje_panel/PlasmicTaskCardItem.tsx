@@ -176,7 +176,7 @@ function PlasmicTaskCardItem__RenderFunc(props: {
         plasmic_antd_5_hostless_css.plasmic_tokens,
         sty.root
       )}
-      dir={"RTL"}
+      dir={"rtl"}
     >
       {(() => {
         const child$Props = {
@@ -186,7 +186,7 @@ function PlasmicTaskCardItem__RenderFunc(props: {
           ]),
           bordered: true,
           className: classNames("__wab_instance", sty.accordion),
-          expandIconPosition: "start",
+          expandIconPosition: "end",
           ghost: false,
           items: (
             <React.Fragment>
@@ -336,7 +336,8 @@ function PlasmicTaskCardItem__RenderFunc(props: {
             "activePanelId",
             ["accordion", "activePanelId"],
             AntdAccordion_Helpers
-          )
+          ),
+          size: "middle"
         };
         initializeCodeComponentStates(
           $state,
