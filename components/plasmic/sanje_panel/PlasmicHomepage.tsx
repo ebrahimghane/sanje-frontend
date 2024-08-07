@@ -298,7 +298,7 @@ function PlasmicHomepage__RenderFunc(props: {
             data-plasmic-override={overrides.gtm}
             className={classNames("__wab_instance", sty.gtm)}
             code={
-              '<!-- Google Tag Manager (noscript) -->\r\n<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5RPLDP"\r\nheight="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>\r\n<!-- End Google Tag Manager (noscript) -->'
+              '<!-- Google Tag Manager (noscript) -->\r\n<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5RPLDP"\r\nheight="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>\r\n<!-- End Google Tag Manager (noscript) -->\r\n\r\n<!-- Yandex.Metrika counter -->\r\n<script type="text/javascript" >\r\n   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};\r\n   m[i].l=1*new Date();\r\n   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}\r\n   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})\r\n   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");\r\n\r\n   ym(98010713, "init", {\r\n        clickmap:true,\r\n        trackLinks:true,\r\n        accurateTrackBounce:true,\r\n        webvisor:true\r\n   });\r\n</script>\r\n<noscript><div><img src="https://mc.yandex.ru/watch/98010713" style="position:absolute; left:-9999px;" alt="" /></div></noscript>\r\n<!-- /Yandex.Metrika counter -->'
             }
           />
 
@@ -346,6 +346,52 @@ function PlasmicHomepage__RenderFunc(props: {
                 typeof $steps["runGtmCode"].then === "function"
               ) {
                 $steps["runGtmCode"] = await $steps["runGtmCode"];
+              }
+
+              $steps["loadMetrica"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          function loadMetrika() {
+                            var metrikaScript =
+                              document.createElement("script");
+                            metrikaScript.innerHTML = `(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(98010713, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+    });`;
+                            document.head.appendChild(metrikaScript);
+                            var metrikaNoScript =
+                              document.createElement("noscript");
+                            metrikaNoScript.innerHTML = `<div><img src="https://mc.yandex.ru/watch/98010713" style="position:absolute; left:-9999px;" alt="" /></div>`;
+                            document.body.insertBefore(
+                              metrikaNoScript,
+                              document.body.firstChild
+                            );
+                          }
+                          return loadMetrika();
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["loadMetrica"] != null &&
+                typeof $steps["loadMetrica"] === "object" &&
+                typeof $steps["loadMetrica"].then === "function"
+              ) {
+                $steps["loadMetrica"] = await $steps["loadMetrica"];
               }
             }}
           />
@@ -658,9 +704,21 @@ function PlasmicHomepage__RenderFunc(props: {
                     sty.h6__wPuk6
                   )}
                 >
-                  {
-                    "\ud83d\udcca \u0641\u0631\u0635\u062a \u0647\u0627\u06cc \u0631\u0634\u062f"
-                  }
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return `${$state.growthOpportunitiesFragmentApiRequest.data.headerSection.icon} ${$state.growthOpportunitiesFragmentApiRequest.data.headerSection.title}`;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "\ud83d\udcca \u0641\u0631\u0635\u062a \u0647\u0627\u06cc \u0631\u0634\u062f";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
                 </h6>
                 <main
                   className={classNames(
@@ -669,9 +727,22 @@ function PlasmicHomepage__RenderFunc(props: {
                     sty.main__anzns
                   )}
                 >
-                  {
-                    "\u0628\u0631\u0627\u06cc \u0631\u0634\u062f \u0631\u062a\u0628\u0647 \u0648 \u0627\u0641\u0632\u0627\u06cc\u0634 \u062a\u0639\u062f\u0627\u062f \u0645\u0631\u0627\u062c\u0639\u06cc\u0646 \u062e\u0648\u062f \u0646\u06a9\u0627\u062a \u0632\u06cc\u0631 \u0631\u0627 \u0645\u062f \u0646\u0638\u0631 \u0642\u0631\u0627\u0631 \u0628\u062f\u0647\u06cc\u062f."
-                  }
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $state.growthOpportunitiesFragmentApiRequest.data
+                          .headerSection.subtitle;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "\u0628\u0631\u0627\u06cc \u0631\u0634\u062f \u0631\u062a\u0628\u0647 \u0648 \u0627\u0641\u0632\u0627\u06cc\u0634 \u062a\u0639\u062f\u0627\u062f \u0645\u0631\u0627\u062c\u0639\u06cc\u0646 \u062e\u0648\u062f \u0646\u06a9\u0627\u062a \u0632\u06cc\u0631 \u0631\u0627 \u0645\u062f \u0646\u0638\u0631 \u0642\u0631\u0627\u0631 \u062f\u0647\u06cc\u062f.";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
                 </main>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {

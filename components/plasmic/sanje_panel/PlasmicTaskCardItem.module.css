@@ -42,6 +42,10 @@
   height: auto;
   max-width: auto;
   margin-left: 11px;
+  box-shadow: none;
+  backdrop-filter: none;
+  filter: none;
+  -webkit-backdrop-filter: none;
 }
 .text__fp4C {
   position: relative;
