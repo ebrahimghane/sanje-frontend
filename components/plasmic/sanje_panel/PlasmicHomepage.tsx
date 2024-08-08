@@ -1599,7 +1599,7 @@ function PlasmicHomepage__RenderFunc(props: {
               />
             }
             link={
-              "https://support.paziresh24.com/?utm_source=sanjeMyperformancePage&utm_medium=p24&utm_campaign=footerBlock"
+              "https://newsupport.paziresh24.com/new-ticket/?department=4&product=3&utm_source=sanjeMyperformancePage&utm_medium=p24&utm_campaign=footerBlock"
             }
             outline={true}
             showEndIcon={true}
