@@ -154,7 +154,7 @@
   user-select: text;
   min-width: 0;
 }
-.fragmentApiRequest:global(.__wab_instance) {
+.getMySearchDocument:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
   position: relative;
@@ -419,6 +419,7 @@
 }
 .text__dFzvt {
   color: var(--token-u3OudfMChOo3);
+  height: auto;
 }
 .svg__bzqa9 {
   position: relative;
@@ -427,17 +428,27 @@
   height: 1em;
   color: var(--token-u3OudfMChOo3);
 }
-.embedHtml:global(.__wab_instance) {
+.rateThePage:global(.__wab_instance) {
   max-width: 100%;
-  object-fit: cover;
-  position: relative;
-  margin-right: 0px;
+  margin-bottom: 11px;
   width: 100%;
-  justify-self: flex-start;
-  text-align: right;
   min-width: 0;
-  border-radius: var(--token-_c276Gs_1FIE);
-  border: 1px solid var(--token-GEppKCdlxgWK);
+}
+.svg__hvbu0 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.text__doPmz {
+  color: var(--token-u3OudfMChOo3);
+}
+.svg___3WOfw {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: var(--token-u3OudfMChOo3);
 }
 .freeBox__vwZX {
   display: flex;
