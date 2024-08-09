@@ -99,7 +99,7 @@ export type PlasmicHomepage__OverridesType = {
   h4?: Flex__<"h4">;
   sanjeSearchCardViewFragmentApiRequest2?: Flex__<typeof ApiRequest>;
   sanjeSearchClickPositionFragmentApiRequest3?: Flex__<typeof ApiRequest>;
-  fragmentApiRequest?: Flex__<typeof ApiRequest>;
+  getMySearchDocument?: Flex__<typeof ApiRequest>;
   growthOpportunitiesFragmentApiRequest?: Flex__<typeof ApiRequest>;
   taskCardItem?: Flex__<typeof TaskCardItem>;
   groupExpertiseOnlineVisitsPricingStats?: Flex__<typeof DataFetcher>;
@@ -108,7 +108,7 @@ export type PlasmicHomepage__OverridesType = {
   link?: Flex__<"a"> & Partial<LinkProps>;
   button?: Flex__<typeof Button>;
   supportLink?: Flex__<typeof Button>;
-  embedHtml?: Flex__<typeof Embed>;
+  rateThePage?: Flex__<typeof Button>;
   blockquote?: Flex__<"blockquote">;
 };
 
@@ -171,19 +171,19 @@ function PlasmicHomepage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       },
       {
-        path: "fragmentApiRequest.data",
+        path: "getMySearchDocument.data",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "fragmentApiRequest.error",
+        path: "getMySearchDocument.error",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "fragmentApiRequest.loading",
+        path: "getMySearchDocument.loading",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -407,9 +407,30 @@ function PlasmicHomepage__RenderFunc(props: {
                 sty.h4
               )}
             >
-              {
-                "\u0634\u0627\u062e\u0635\u200c\u0647\u0627\u06cc \u0639\u0645\u0644\u06a9\u0631\u062f \u0634\u0645\u0627"
-              }
+              <div
+                className={projectcss.__wab_expr_html_text}
+                dangerouslySetInnerHTML={{
+                  __html: (() => {
+                    try {
+                      return (
+                        "شاخص‌های عملکرد " +
+                        "<b>" +
+                        $state.getMySearchDocument.data.entity.display_name +
+                        "</b>" +
+                        " 👋"
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "\u0634\u0627\u062e\u0635\u200c\u0647\u0627\u06cc \u0639\u0645\u0644\u06a9\u0631\u062f \u0634\u0645\u0627";
+                      }
+                      throw e;
+                    }
+                  })()
+                }}
+              />
             </h4>
             {(() => {
               try {
@@ -608,20 +629,20 @@ function PlasmicHomepage__RenderFunc(props: {
             ) : null}
           </div>
           <ApiRequest
-            data-plasmic-name={"fragmentApiRequest"}
-            data-plasmic-override={overrides.fragmentApiRequest}
-            className={classNames("__wab_instance", sty.fragmentApiRequest)}
+            data-plasmic-name={"getMySearchDocument"}
+            data-plasmic-override={overrides.getMySearchDocument}
+            className={classNames("__wab_instance", sty.getMySearchDocument)}
             method={"GET"}
             onError={generateStateOnChangeProp($state, [
-              "fragmentApiRequest",
+              "getMySearchDocument",
               "error"
             ])}
             onLoading={generateStateOnChangeProp($state, [
-              "fragmentApiRequest",
+              "getMySearchDocument",
               "loading"
             ])}
             onSuccess={generateStateOnChangeProp($state, [
-              "fragmentApiRequest",
+              "getMySearchDocument",
               "data"
             ])}
             url={
@@ -889,7 +910,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             "<b>" +
                             Intl.NumberFormat("fa-IR").format(
                               Math.round(
-                                $state.fragmentApiRequest.data.entity
+                                $state.getMySearchDocument.data.entity
                                   .consult_services[0].free_price / 10000
                               )
                             ) +
@@ -911,7 +932,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
-                      return $state.fragmentApiRequest.data.entity
+                      return $state.getMySearchDocument.data.entity
                         .group_expertise_id;
                     } catch (e) {
                       if (
@@ -1288,7 +1309,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                   return (
                                     "ویزیت شما " +
                                     Math.round(
-                                      $state.fragmentApiRequest.data.entity
+                                      $state.getMySearchDocument.data.entity
                                         .consult_services[0].free_price / 10000
                                     ) +
                                     " هزارتومان"
@@ -1307,7 +1328,7 @@ function PlasmicHomepage__RenderFunc(props: {
                               range={(() => {
                                 try {
                                   return (
-                                    ($state.fragmentApiRequest.data.entity
+                                    ($state.getMySearchDocument.data.entity
                                       .consult_services[0].free_price /
                                       $ctx.fetchedData.max) *
                                     100
@@ -1587,7 +1608,9 @@ function PlasmicHomepage__RenderFunc(props: {
                   sty.text__dFzvt
                 )}
               >
-                {"\u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc"}
+                {
+                  "\u062b\u0628\u062a \u062f\u0631\u062e\u0648\u0627\u0633\u062a \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc"
+                }
               </div>
             }
             className={classNames("__wab_instance", sty.supportLink)}
@@ -1607,13 +1630,35 @@ function PlasmicHomepage__RenderFunc(props: {
             target={true}
           />
 
-          <Embed
-            data-plasmic-name={"embedHtml"}
-            data-plasmic-override={overrides.embedHtml}
-            className={classNames("__wab_instance", sty.embedHtml)}
-            code={
-              '<a href="#porsline-popup" \r\n  onclick="clgFH99yr(\'porsline-popup-iframe\');showPopUp()">\r\n  \u0644\u0637\u0641\u0627\u064b \u0628\u0627 \u062b\u0628\u062a \u0646\u0638\u0631 \u062e\u0648\u062f \u0628\u0647 \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc\u200c\u062a\u0631 \u0634\u062f\u0646 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u06a9\u0645\u06a9 \u06a9\u0646\u06cc\u062f. \ud83d\ude4f\r\n</a>\r\n<script>\r\n  (function() {\r\n    var js,q,d=document,\r\n    gi=d.getElementById,\r\n    ifid=\'porsline-popup-iframe\',\r\n    ce=d.createElement,\r\n    gt=d.getElementsByTagName,\r\n    id="porsline-share",\r\n    b="https://cdn.porsline.ir/static/modules/dashboard/controllers/";\r\n    if (!gi.call(d,id)) {\r\n      js=ce.call(d,"script");\r\n      js.id = id;\r\n      js.src=b+"popup.js";\r\n      q=gt.call(d,"script")[0];\r\n      q.parentNode.insertBefore(js,q)\r\n    }\r\n  })();\r\n  var clgFH99yr = function (ifid) {\r\n    document.getElementById(ifid).src = \r\n    "https://survey.porsline.ir/s/gFH99yr/#/?ac=1&ns=0"\r\n  }\r\n</script>\r\n  '
+          <Button
+            data-plasmic-name={"rateThePage"}
+            data-plasmic-override={overrides.rateThePage}
+            children2={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__doPmz
+                )}
+              >
+                {
+                  "\u0646\u0638\u0631\u062a\u0627\u0646 \u062f\u0631 \u0645\u0648\u0631\u062f \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0686\u06cc\u0633\u062a\u061f"
+                }
+              </div>
             }
+            className={classNames("__wab_instance", sty.rateThePage)}
+            color={"sand"}
+            endIcon={
+              <ChevronLeftIcon
+                className={classNames(projectcss.all, sty.svg___3WOfw)}
+                role={"img"}
+              />
+            }
+            link={"https://survey.porsline.ir/s/gFH99yr/"}
+            outline={true}
+            showEndIcon={true}
+            space={true}
+            target={true}
           />
 
           <div className={classNames(projectcss.all, sty.freeBox__vwZX)} />
@@ -1705,7 +1750,7 @@ const PlasmicDescendants = {
     "h4",
     "sanjeSearchCardViewFragmentApiRequest2",
     "sanjeSearchClickPositionFragmentApiRequest3",
-    "fragmentApiRequest",
+    "getMySearchDocument",
     "growthOpportunitiesFragmentApiRequest",
     "taskCardItem",
     "groupExpertiseOnlineVisitsPricingStats",
@@ -1714,7 +1759,7 @@ const PlasmicDescendants = {
     "link",
     "button",
     "supportLink",
-    "embedHtml",
+    "rateThePage",
     "blockquote"
   ],
   gtm: ["gtm"],
@@ -1726,7 +1771,7 @@ const PlasmicDescendants = {
   sanjeSearchClickPositionFragmentApiRequest3: [
     "sanjeSearchClickPositionFragmentApiRequest3"
   ],
-  fragmentApiRequest: ["fragmentApiRequest"],
+  getMySearchDocument: ["getMySearchDocument"],
   growthOpportunitiesFragmentApiRequest: [
     "growthOpportunitiesFragmentApiRequest",
     "taskCardItem"
@@ -1743,7 +1788,7 @@ const PlasmicDescendants = {
   link: ["link"],
   button: ["button"],
   supportLink: ["supportLink"],
-  embedHtml: ["embedHtml"],
+  rateThePage: ["rateThePage"],
   blockquote: ["blockquote"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1756,7 +1801,7 @@ type NodeDefaultElementType = {
   h4: "h4";
   sanjeSearchCardViewFragmentApiRequest2: typeof ApiRequest;
   sanjeSearchClickPositionFragmentApiRequest3: typeof ApiRequest;
-  fragmentApiRequest: typeof ApiRequest;
+  getMySearchDocument: typeof ApiRequest;
   growthOpportunitiesFragmentApiRequest: typeof ApiRequest;
   taskCardItem: typeof TaskCardItem;
   groupExpertiseOnlineVisitsPricingStats: typeof DataFetcher;
@@ -1765,7 +1810,7 @@ type NodeDefaultElementType = {
   link: "a";
   button: typeof Button;
   supportLink: typeof Button;
-  embedHtml: typeof Embed;
+  rateThePage: typeof Button;
   blockquote: "blockquote";
 };
 
@@ -1838,7 +1883,7 @@ export const PlasmicHomepage = Object.assign(
     sanjeSearchClickPositionFragmentApiRequest3: makeNodeComponent(
       "sanjeSearchClickPositionFragmentApiRequest3"
     ),
-    fragmentApiRequest: makeNodeComponent("fragmentApiRequest"),
+    getMySearchDocument: makeNodeComponent("getMySearchDocument"),
     growthOpportunitiesFragmentApiRequest: makeNodeComponent(
       "growthOpportunitiesFragmentApiRequest"
     ),
@@ -1851,7 +1896,7 @@ export const PlasmicHomepage = Object.assign(
     link: makeNodeComponent("link"),
     button: makeNodeComponent("button"),
     supportLink: makeNodeComponent("supportLink"),
-    embedHtml: makeNodeComponent("embedHtml"),
+    rateThePage: makeNodeComponent("rateThePage"),
     blockquote: makeNodeComponent("blockquote"),
 
     // Metadata about props expected for PlasmicHomepage
