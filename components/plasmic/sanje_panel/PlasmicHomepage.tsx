@@ -59,8 +59,8 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: MhkncRKg2Phv/codeComponent
 import { SimpleChart } from "@plasmicpkgs/react-chartjs-2";
 import TaskCardItem from "../../TaskCardItem"; // plasmic-import: HREvsQHdw0h_/component
@@ -94,8 +94,8 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHomepage__OverridesType = {
   root?: Flex__<"div">;
-  gtm?: Flex__<typeof Embed>;
   sideEffect?: Flex__<typeof SideEffect>;
+  gtm?: Flex__<typeof Embed>;
   h4?: Flex__<"h4">;
   sanjeSearchCardViewFragmentApiRequest2?: Flex__<typeof ApiRequest>;
   sanjeSearchClickPositionFragmentApiRequest3?: Flex__<typeof ApiRequest>;
@@ -293,15 +293,6 @@ function PlasmicHomepage__RenderFunc(props: {
           )}
           dir={"RTL"}
         >
-          <Embed
-            data-plasmic-name={"gtm"}
-            data-plasmic-override={overrides.gtm}
-            className={classNames("__wab_instance", sty.gtm)}
-            code={
-              '<!-- Google Tag Manager (noscript) -->\r\n<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5RPLDP"\r\nheight="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>\r\n<!-- End Google Tag Manager (noscript) -->\r\n\r\n<!-- Yandex.Metrika counter -->\r\n<script type="text/javascript" >\r\n   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};\r\n   m[i].l=1*new Date();\r\n   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}\r\n   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})\r\n   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");\r\n\r\n   ym(98010713, "init", {\r\n        clickmap:true,\r\n        trackLinks:true,\r\n        accurateTrackBounce:true,\r\n        webvisor:true\r\n   });\r\n</script>\r\n<noscript><div><img src="https://mc.yandex.ru/watch/98010713" style="position:absolute; left:-9999px;" alt="" /></div></noscript>\r\n<!-- /Yandex.Metrika counter -->'
-            }
-          />
-
           <SideEffect
             data-plasmic-name={"sideEffect"}
             data-plasmic-override={overrides.sideEffect}
@@ -394,6 +385,15 @@ function PlasmicHomepage__RenderFunc(props: {
                 $steps["loadMetrica"] = await $steps["loadMetrica"];
               }
             }}
+          />
+
+          <Embed
+            data-plasmic-name={"gtm"}
+            data-plasmic-override={overrides.gtm}
+            className={classNames("__wab_instance", sty.gtm)}
+            code={
+              '<!-- Google Tag Manager (noscript) -->\r\n<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5RPLDP"\r\nheight="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>\r\n<!-- End Google Tag Manager (noscript) -->\r\n\r\n<!-- Yandex.Metrika counter -->\r\n<script type="text/javascript" >\r\n   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};\r\n   m[i].l=1*new Date();\r\n   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}\r\n   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})\r\n   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");\r\n\r\n   ym(98010713, "init", {\r\n        clickmap:true,\r\n        trackLinks:true,\r\n        accurateTrackBounce:true,\r\n        webvisor:true\r\n   });\r\n</script>\r\n<noscript><div><img src="https://mc.yandex.ru/watch/98010713" style="position:absolute; left:-9999px;" alt="" /></div></noscript>\r\n<!-- /Yandex.Metrika counter -->'
+            }
           />
 
           <div className={classNames(projectcss.all, sty.freeBox___2PNhM)}>
@@ -1745,8 +1745,8 @@ function PlasmicHomepage__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "gtm",
     "sideEffect",
+    "gtm",
     "h4",
     "sanjeSearchCardViewFragmentApiRequest2",
     "sanjeSearchClickPositionFragmentApiRequest3",
@@ -1762,8 +1762,8 @@ const PlasmicDescendants = {
     "rateThePage",
     "blockquote"
   ],
-  gtm: ["gtm"],
   sideEffect: ["sideEffect"],
+  gtm: ["gtm"],
   h4: ["h4"],
   sanjeSearchCardViewFragmentApiRequest2: [
     "sanjeSearchCardViewFragmentApiRequest2"
@@ -1796,8 +1796,8 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  gtm: typeof Embed;
   sideEffect: typeof SideEffect;
+  gtm: typeof Embed;
   h4: "h4";
   sanjeSearchCardViewFragmentApiRequest2: typeof ApiRequest;
   sanjeSearchClickPositionFragmentApiRequest3: typeof ApiRequest;
@@ -1874,8 +1874,8 @@ export const PlasmicHomepage = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    gtm: makeNodeComponent("gtm"),
     sideEffect: makeNodeComponent("sideEffect"),
+    gtm: makeNodeComponent("gtm"),
     h4: makeNodeComponent("h4"),
     sanjeSearchCardViewFragmentApiRequest2: makeNodeComponent(
       "sanjeSearchCardViewFragmentApiRequest2"

@@ -31,6 +31,16 @@
       }
     },
     {
+      "name": "2xl",
+      "type": "fontsize",
+      "value": "1.5rem",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "aU6fPsMDSmKqgHWpAbdgs",
+        "id": "NlYKUzS5DGTT"
+      }
+    },
+    {
       "name": "3",
       "type": "spacing",
       "value": "0.75rem",
