@@ -188,9 +188,18 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                       customFunction: async () => {
                         return (() => {
                           return setTimeout(function () {
-                            const uri = decodeURIComponent($ctx.query.uri);
-                            const fullUrl = "https://doctoreto.com/" + uri;
-                            window.location.href = fullUrl;
+                            const urlParams = new URLSearchParams(
+                              window.location.search
+                            );
+                            const uri = decodeURIComponent(
+                              urlParams.get("uri") || ""
+                            );
+                            if (uri) {
+                              const fullUrl = "https://doctoreto.com/" + uri;
+                              window.location.href = fullUrl;
+                            } else {
+                              console.error("URI is undefined or empty.");
+                            }
                           }, 10000);
                         })();
                       }
