@@ -468,8 +468,7 @@
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "aU6fPsMDSmKqgHWpAbdgs",
@@ -543,6 +542,46 @@
           "cssFilePath": "plasmic/sanje_panel/PlasmicTaskCardItem.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "GV1KOlx_b_Xo",
+          "name": "InterstitialPage",
+          "type": "managed",
+          "projectId": "aU6fPsMDSmKqgHWpAbdgs",
+          "renderModuleFilePath": "plasmic/sanje_panel/PlasmicInterstitialPage.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/interstitial_page.tsx"
+          },
+          "cssFilePath": "plasmic/sanje_panel/PlasmicInterstitialPage.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/interstitial_page"
+        },
+        {
+          "id": "yQnkyuy8-tJy",
+          "name": "InterstitialFullPageComponent",
+          "type": "managed",
+          "projectId": "aU6fPsMDSmKqgHWpAbdgs",
+          "renderModuleFilePath": "plasmic/sanje_panel/PlasmicInterstitialFullPageComponent.tsx",
+          "importSpec": {
+            "modulePath": "InterstitialFullPageComponent.tsx"
+          },
+          "cssFilePath": "plasmic/sanje_panel/PlasmicInterstitialFullPageComponent.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "zZNx54MRT-Br",
+          "name": "ScriptsAndGeneralTags",
+          "type": "managed",
+          "projectId": "aU6fPsMDSmKqgHWpAbdgs",
+          "renderModuleFilePath": "plasmic/sanje_panel/PlasmicScriptsAndGeneralTags.tsx",
+          "importSpec": {
+            "modulePath": "ScriptsAndGeneralTags.tsx"
+          },
+          "cssFilePath": "plasmic/sanje_panel/PlasmicScriptsAndGeneralTags.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -550,6 +589,11 @@
           "id": "8AcWHALIfatm",
           "name": "IconIcon",
           "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon.tsx"
+        },
+        {
+          "id": "X98YuP_uFRc3",
+          "name": "Icon2Icon",
+          "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon2.tsx"
         }
       ],
       "images": [
@@ -646,6 +690,18 @@
           "name": "Hamdast",
           "displayName": "Hamdast",
           "componentImportPath": "@/hamdast/hamdast"
+        },
+        {
+          "id": "eqIt45l1ABZu",
+          "name": "Chart",
+          "displayName": "Chart",
+          "componentImportPath": "@/fragment/components/chart"
+        },
+        {
+          "id": "3Vv4-LOIB0Eu",
+          "name": "Textarea",
+          "displayName": "Textarea",
+          "componentImportPath": "@/fragment/components/textarea"
         }
       ],
       "customFunctions": []
@@ -1073,6 +1129,21 @@
       ],
       "customFunctions": [],
       "jsBundleThemes": []
+    },
+    {
+      "projectId": "95cydKu4zdmeK3V4rXXSKZ",
+      "projectApiToken": "k0uVgHoZQyzZ23fKDVDg365epZe7YaBIqAJKUiQ2sa1S5JCkcymdvAj7JHkfhkYFlvpV5HufIVCyJedMcPw",
+      "projectName": "fast-stringify",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/fast_stringify/plasmic.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "splitsProviderFilePath": "",
+      "codeComponents": [],
+      "customFunctions": []
     }
   ],
   "globalVariants": {
