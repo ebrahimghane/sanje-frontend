@@ -178,7 +178,7 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
             sty.text__vbKAv
           )}
         >
-          {"   >>>   "}
+          {" >>> "}
         </div>
         <div
           className={classNames(
