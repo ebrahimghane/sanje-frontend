@@ -479,20 +479,6 @@
       "cssFilePath": "plasmic/sanje_panel/plasmic.module.css",
       "components": [
         {
-          "id": "qMyNx4KEh22M",
-          "name": "Homepage",
-          "type": "managed",
-          "projectId": "aU6fPsMDSmKqgHWpAbdgs",
-          "renderModuleFilePath": "plasmic/sanje_panel/PlasmicHomepage.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/my-performance.tsx"
-          },
-          "cssFilePath": "plasmic/sanje_panel/PlasmicHomepage.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/"
-        },
-        {
           "id": "15G81XIekDs9",
           "name": "LinearScaleCustomChart",
           "type": "managed",
@@ -583,6 +569,20 @@
           "cssFilePath": "plasmic/sanje_panel/PlasmicScriptsAndGeneralTags.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "qMyNx4KEh22M",
+          "name": "MyPerformance",
+          "type": "managed",
+          "projectId": "aU6fPsMDSmKqgHWpAbdgs",
+          "renderModuleFilePath": "plasmic/sanje_panel/PlasmicMyPerformance.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/my-performance.tsx"
+          },
+          "cssFilePath": "plasmic/sanje_panel/PlasmicMyPerformance.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/my-performance"
         }
       ],
       "icons": [

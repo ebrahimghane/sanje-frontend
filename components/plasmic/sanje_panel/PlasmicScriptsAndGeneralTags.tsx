@@ -142,7 +142,7 @@ function PlasmicScriptsAndGeneralTags__RenderFunc(props: {
         data-plasmic-override={overrides.gtmMetrika}
         className={classNames("__wab_instance", sty.gtmMetrika)}
         code={
-          '<!-- Google Tag Manager (noscript) -->\r\n<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5RPLDP"\r\nheight="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>\r\n<!-- End Google Tag Manager (noscript) -->\r\n\r\n<!-- Yandex.Metrika counter -->\r\n<script type="text/javascript" >\r\n   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};\r\n   m[i].l=1*new Date();\r\n   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}\r\n   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})\r\n   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");\r\n\r\n   ym(98010713, "init", {\r\n        clickmap:true,\r\n        trackLinks:true,\r\n        accurateTrackBounce:true,\r\n        webvisor:true\r\n   });\r\n</script>\r\n<noscript><div><img src="https://mc.yandex.ru/watch/98010713" style="position:absolute; left:-9999px;" alt="" /></div></noscript>\r\n<!-- /Yandex.Metrika counter -->'
+          '<!-- Google Tag Manager (noscript) -->\r\n<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5RPLDP"\r\nheight="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>\r\n<!-- End Google Tag Manager (noscript) -->\r\n\r\n<!-- Yandex.Metrika counter -->\r\n<script type="text/javascript" >\r\n   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};\r\n   m[i].l=1*new Date();\r\n   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}\r\n   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})\r\n   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");\r\n\r\n   ym(97948198, "init", {\r\n        clickmap:true,\r\n        trackLinks:true,\r\n        accurateTrackBounce:true,\r\n        webvisor:true\r\n   });\r\n</script>\r\n<noscript><div><img src="https://mc.yandex.ru/watch/97948198" style="position:absolute; left:-9999px;" alt="" /></div></noscript>\r\n<!-- /Yandex.Metrika counter -->'
         }
       />
 
@@ -198,22 +198,22 @@ function PlasmicScriptsAndGeneralTags__RenderFunc(props: {
                     return (() => {
                       function loadMetrika() {
                         var metrikaScript = document.createElement("script");
-                        metrikaScript.innerHTML = `(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-    m[i].l=1*new Date();
-    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+                        metrikaScript.innerHTML = `(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};  
+    m[i].l=1*new Date();  
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}  
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})  
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");  
 
-    ym(98010713, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true
+    ym(97948198, "init", {  
+        clickmap:true,  
+        trackLinks:true,  
+        accurateTrackBounce:true,  
+        webvisor:true  
     });`;
                         document.head.appendChild(metrikaScript);
                         var metrikaNoScript =
                           document.createElement("noscript");
-                        metrikaNoScript.innerHTML = `<div><img src="https://mc.yandex.ru/watch/98010713" style="position:absolute; left:-9999px;" alt="" /></div>`;
+                        metrikaNoScript.innerHTML = `<div><img src="https://mc.yandex.ru/watch/97948198" style="position:absolute; left:-9999px;" alt="" /></div>`;
                         document.body.insertBefore(
                           metrikaNoScript,
                           document.body.firstChild
