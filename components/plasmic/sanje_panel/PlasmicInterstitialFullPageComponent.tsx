@@ -166,20 +166,26 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
           onMount={async () => {
             const $steps = {};
 
-            $steps["redirectRunCode"] = true
+            $steps["redirectRunCode"] = false
               ? (() => {
                   const actionArgs = {
                     customFunction: async () => {
                       return (() => {
-                        console.log(window.location.href);
                         return setTimeout(() => {
-                          if ($props.provider === "doctoreto") {
-                            const fullUrl =
-                              "https://doctoreto.com/" +
-                              decodeURIComponent($props.uri);
+                          const urlParams = new URLSearchParams(
+                            window.location.search
+                          );
+                          const uri = decodeURIComponent(
+                            urlParams.get("uri") || ""
+                          );
+                          const provide = decodeURIComponent(
+                            urlParams.get("provide") || ""
+                          );
+                          if (provide === "doctoreto") {
+                            const fullUrl = "https://doctoreto.com/" + uri;
                             window.location.href = fullUrl;
-                          } else if ($props.provider === "page") {
-                            const fullUrl = decodeURIComponent($props.uri);
+                          } else {
+                            const fullUrl = decodeURIComponent(uri);
                             window.location.href = fullUrl;
                           }
                         }, 10000);
