@@ -173,6 +173,45 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                 "__wab_instance",
                 sty.interstitialFullPageComponent
               )}
+              displayName={(() => {
+                try {
+                  return $ctx.query.display_name;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              provider={(() => {
+                try {
+                  return $ctx.query.provide;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              uri={(() => {
+                try {
+                  return $ctx.query.uri;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
             />
           </div>
           <SideEffect
