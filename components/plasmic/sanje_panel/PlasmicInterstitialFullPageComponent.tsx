@@ -135,8 +135,6 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const $globalActions = useGlobalActions?.();
-
   return (
     <div
       data-plasmic-name={"root"}
@@ -167,22 +165,6 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
           className={classNames("__wab_instance", sty.sideEffect)}
           onMount={async () => {
             const $steps = {};
-
-            $steps["wait"] = false
-              ? (() => {
-                  const actionArgs = { args: [11] };
-                  return $globalActions["Fragment.wait"]?.apply(null, [
-                    ...actionArgs.args
-                  ]);
-                })()
-              : undefined;
-            if (
-              $steps["wait"] != null &&
-              typeof $steps["wait"] === "object" &&
-              typeof $steps["wait"].then === "function"
-            ) {
-              $steps["wait"] = await $steps["wait"];
-            }
 
             $steps["redirectRunCode"] = true
               ? (() => {
