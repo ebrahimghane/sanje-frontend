@@ -221,7 +221,7 @@ function PlasmicInterstitialPage__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
-              $steps["runCode"] = false
+              $steps["runCode"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -233,11 +233,16 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                             const uri = decodeURIComponent(
                               urlParams.get("uri") || ""
                             );
-                            if (uri) {
+                            const provide = urlParams.get("provide");
+                            if (provide === "doctoreto") {
                               const fullUrl = "https://doctoreto.com/" + uri;
                               window.location.href = fullUrl;
+                            } else if (provide === "page") {
+                              window.location.href = uri;
                             } else {
-                              console.error("URI is undefined or empty.");
+                              console.error(
+                                "Provide parameter is not recognized."
+                              );
                             }
                           }, 10000);
                         })();
