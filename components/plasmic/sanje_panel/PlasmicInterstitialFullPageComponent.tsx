@@ -59,6 +59,9 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
+import Button from "../../Button"; // plasmic-import: oVzoHzMf1TLl/component
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_fragment_design_system_css from "../fragment_design_system/plasmic.module.css"; // plasmic-import: h9Dbk9ygddw7UVEq1NNhKi/projectcss
@@ -67,6 +70,8 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: aU6fPsMDSmKqgH
 import sty from "./PlasmicInterstitialFullPageComponent.module.css"; // plasmic-import: yQnkyuy8-tJy/css
 
 import Icon2Icon from "./icons/PlasmicIcon__Icon2"; // plasmic-import: X98YuP_uFRc3/icon
+import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
+import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
 
 createPlasmicElementProxy;
 
@@ -76,19 +81,28 @@ type VariantPropType = keyof PlasmicInterstitialFullPageComponent__VariantsArgs;
 export const PlasmicInterstitialFullPageComponent__VariantProps =
   new Array<VariantPropType>();
 
-export type PlasmicInterstitialFullPageComponent__ArgsType = {};
+export type PlasmicInterstitialFullPageComponent__ArgsType = {
+  provider?: string;
+  uri?: string;
+  displayName?: string;
+};
 type ArgPropType = keyof PlasmicInterstitialFullPageComponent__ArgsType;
 export const PlasmicInterstitialFullPageComponent__ArgProps =
-  new Array<ArgPropType>();
+  new Array<ArgPropType>("provider", "uri", "displayName");
 
 export type PlasmicInterstitialFullPageComponent__OverridesType = {
   root?: Flex__<"div">;
   freeBox?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   img?: Flex__<typeof PlasmicImg__>;
   svg?: Flex__<"svg">;
+  button?: Flex__<typeof Button>;
 };
 
 export interface DefaultInterstitialFullPageComponentProps {
+  provider?: string;
+  uri?: string;
+  displayName?: string;
   className?: string;
 }
 
@@ -121,6 +135,8 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = useGlobalActions?.();
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -145,6 +161,64 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
         hasGap={true}
         className={classNames(projectcss.all, sty.freeBox)}
       >
+        <SideEffect
+          data-plasmic-name={"sideEffect"}
+          data-plasmic-override={overrides.sideEffect}
+          className={classNames("__wab_instance", sty.sideEffect)}
+          onMount={async () => {
+            const $steps = {};
+
+            $steps["wait"] = false
+              ? (() => {
+                  const actionArgs = { args: [11] };
+                  return $globalActions["Fragment.wait"]?.apply(null, [
+                    ...actionArgs.args
+                  ]);
+                })()
+              : undefined;
+            if (
+              $steps["wait"] != null &&
+              typeof $steps["wait"] === "object" &&
+              typeof $steps["wait"].then === "function"
+            ) {
+              $steps["wait"] = await $steps["wait"];
+            }
+
+            $steps["redirectRunCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        console.log(window.location.href);
+                        return setTimeout(() => {
+                          if ($props.provider === "doctoreto") {
+                            const fullUrl =
+                              "https://doctoreto.com/" +
+                              decodeURIComponent($props.uri);
+                            window.location.href = fullUrl;
+                          } else if ($props.provider === "page") {
+                            const fullUrl = decodeURIComponent($props.uri);
+                            window.location.href = fullUrl;
+                          }
+                        }, 10000);
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["redirectRunCode"] != null &&
+              typeof $steps["redirectRunCode"] === "object" &&
+              typeof $steps["redirectRunCode"].then === "function"
+            ) {
+              $steps["redirectRunCode"] = await $steps["redirectRunCode"];
+            }
+          }}
+        />
+
         <PlasmicImg__
           data-plasmic-name={"img"}
           data-plasmic-override={overrides.img}
@@ -178,7 +252,7 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
             sty.text__vbKAv
           )}
         >
-          {" >>> "}
+          {" >>>"}
         </div>
         <div
           className={classNames(
@@ -209,7 +283,7 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
               )}
             >
               {
-                "\u0634\u0645\u0627 \u062f\u0631 \u062d\u0627\u0644 \u062c\u0627\u0628\u062c\u0627\u06cc\u06cc \u0627\u0632 \u0633\u0627\u06cc\u062a \u067e\u0630\u06cc\u0631\u063424 \u0628\u0647 \u0635\u0641\u062d\u0647 \u0641\u0639\u0627\u0644 \u067e\u0632\u0634\u06a9 \u062f\u0631 \u0633\u0627\u06cc\u062a \u062f\u06a9\u062a\u0631\u062a\u0648 \u0647\u0633\u062a\u06cc\u062f"
+                "\u0634\u0645\u0627 \u062f\u0631 \u062d\u0627\u0644 \u062c\u0627\u0628\u062c\u0627\u06cc\u06cc \u0627\u0632 \u0633\u0627\u06cc\u062a \u067e\u0630\u06cc\u0631\u063424 \u0628\u0647 \u0635\u0641\u062d\u0647 \u0641\u0639\u0627\u0644 \u067e\u0632\u0634\u06a9 \u062f\u0631 \u0633\u0627\u06cc\u062a \u062f\u06a9\u062a\u0631\u062a\u0648 \u0647\u0633\u062a\u06cc\u062f."
               }
             </h6>
           }
@@ -242,11 +316,49 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
               )}
             >
               {
-                "\n\ud83d\udd0d \u0627\u0632 \u0633\u0631\u0627\u0633\u0631 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a \u0635\u0641\u062d\u0647 \u0641\u0639\u0627\u0644 \u067e\u0632\u0634\u06a9 \u0628\u0631\u0627\u06cc \u0646\u0648\u0628\u062a \u062f\u0647\u06cc \u0631\u0627 \u067e\u06cc\u062f\u0627 \u06a9\u0631\u062f\u0647 \u0627\u06cc\u0645.\n\u062a\u0627 \u0686\u0646\u062f \u062b\u0627\u0646\u06cc\u0647 \u062f\u06cc\u06af\u0631 \u0622\u0646 \u0631\u0627 \u0645\u0634\u0627\u0647\u062f\u0647 \u062e\u0648\u0627\u0647\u06cc\u062f \u06a9\u0631\u062f.\n"
+                "\n\ud83d\udd0d \u067e\u0632\u0634\u06a9 \u0634\u0645\u0627 \u062f\u0631 \u067e\u0630\u06cc\u0631\u0634\u06f2\u06f4 \u062d\u0636\u0648\u0631 \u0646\u062f\u0627\u0634\u062a\u060c \u0627\u0645\u0627 \u0646\u0648\u0628\u062a\u200c\u062f\u0647\u06cc \u0622\u0646 \u0631\u0627 \u062f\u0631 \u0633\u0627\u06cc\u062a\u06cc \u062f\u06cc\u06af\u0631 \u0628\u0631\u0627\u06cc \u0634\u0645\u0627 \u067e\u06cc\u062f\u0627 \u06a9\u0631\u062f\u06cc\u0645.\n\n\u062a\u0627 \u0686\u0646\u062f \u062b\u0627\u0646\u06cc\u0647 \u062f\u06cc\u06af\u0631 \u0622\u0646 \u0631\u0627 \u0645\u0634\u0627\u0647\u062f\u0647 \u062e\u0648\u0627\u0647\u06cc\u062f \u06a9\u0631\u062f.\n"
               }
             </h6>
           }
           <React.Fragment>{""}</React.Fragment>
+        </React.Fragment>
+      </div>
+      <Button
+        data-plasmic-name={"button"}
+        data-plasmic-override={overrides.button}
+        children2={
+          "\u0633\u0648\u0627\u0644 \u06cc\u0627 \u0645\u0634\u06a9\u0644\u06cc \u062f\u0627\u0631\u06cc\u062f\u061f"
+        }
+        className={classNames("__wab_instance", sty.button)}
+        color={"sand"}
+        link={"https://survey.porsline.ir/s/NeySKF1?terminal_id=xxxx&url=xxxx"}
+        outline={true}
+        showEndIcon={true}
+        size={"compact"}
+        target={true}
+      />
+
+      <div
+        className={classNames(
+          projectcss.all,
+          projectcss.__wab_text,
+          sty.text__dbBj7
+        )}
+      >
+        <React.Fragment>
+          {(() => {
+            try {
+              return JSON.stringify($props);
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "";
+              }
+              throw e;
+            }
+          })()}
         </React.Fragment>
       </div>
     </div>
@@ -254,10 +366,12 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "freeBox", "img", "svg"],
-  freeBox: ["freeBox", "img"],
+  root: ["root", "freeBox", "sideEffect", "img", "svg", "button"],
+  freeBox: ["freeBox", "sideEffect", "img"],
+  sideEffect: ["sideEffect"],
   img: ["img"],
-  svg: ["svg"]
+  svg: ["svg"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -265,8 +379,10 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   freeBox: "div";
+  sideEffect: typeof SideEffect;
   img: typeof PlasmicImg__;
   svg: "svg";
+  button: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -334,8 +450,10 @@ export const PlasmicInterstitialFullPageComponent = Object.assign(
   {
     // Helper components rendering sub-elements
     freeBox: makeNodeComponent("freeBox"),
+    sideEffect: makeNodeComponent("sideEffect"),
     img: makeNodeComponent("img"),
     svg: makeNodeComponent("svg"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicInterstitialFullPageComponent
     internalVariantProps: PlasmicInterstitialFullPageComponent__VariantProps,
