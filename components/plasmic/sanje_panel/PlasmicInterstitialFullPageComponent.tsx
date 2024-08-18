@@ -59,8 +59,8 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import Button from "../../Button"; // plasmic-import: oVzoHzMf1TLl/component
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -69,6 +69,7 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectcss
 import sty from "./PlasmicInterstitialFullPageComponent.module.css"; // plasmic-import: yQnkyuy8-tJy/css
 
+import Icon3Icon from "./icons/PlasmicIcon__Icon3"; // plasmic-import: 52SKzpjqwYwC/icon
 import Icon2Icon from "./icons/PlasmicIcon__Icon2"; // plasmic-import: X98YuP_uFRc3/icon
 import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
 import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
@@ -92,11 +93,10 @@ export const PlasmicInterstitialFullPageComponent__ArgProps =
 
 export type PlasmicInterstitialFullPageComponent__OverridesType = {
   root?: Flex__<"div">;
-  freeBox?: Flex__<"div">;
-  sideEffect?: Flex__<typeof SideEffect>;
-  img?: Flex__<typeof PlasmicImg__>;
   svg?: Flex__<"svg">;
+  loading?: Flex__<"svg">;
   button?: Flex__<typeof Button>;
+  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultInterstitialFullPageComponentProps {
@@ -154,134 +154,194 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
     >
       <Stack__
         as={"div"}
-        data-plasmic-name={"freeBox"}
-        data-plasmic-override={overrides.freeBox}
         hasGap={true}
-        className={classNames(projectcss.all, sty.freeBox)}
+        className={classNames(projectcss.all, sty.freeBox__zvQgp)}
       >
-        <SideEffect
-          data-plasmic-name={"sideEffect"}
-          data-plasmic-override={overrides.sideEffect}
-          className={classNames("__wab_instance", sty.sideEffect)}
-          onMount={async () => {
-            const $steps = {};
-
-            $steps["redirectRunCode"] = false
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return (() => {
-                        return setTimeout(() => {
-                          const urlParams = new URLSearchParams(
-                            window.location.search
-                          );
-                          const uri = decodeURIComponent(
-                            urlParams.get("uri") || ""
-                          );
-                          const provide = decodeURIComponent(
-                            urlParams.get("provide") || ""
-                          );
-                          if (provide === "doctoreto") {
-                            const fullUrl = "https://doctoreto.com/" + uri;
-                            window.location.href = fullUrl;
-                          } else {
-                            const fullUrl = decodeURIComponent(uri);
-                            window.location.href = fullUrl;
-                          }
-                        }, 10000);
-                      })();
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["redirectRunCode"] != null &&
-              typeof $steps["redirectRunCode"] === "object" &&
-              typeof $steps["redirectRunCode"].then === "function"
-            ) {
-              $steps["redirectRunCode"] = await $steps["redirectRunCode"];
-            }
-          }}
-        />
-
-        <PlasmicImg__
-          data-plasmic-name={"img"}
-          data-plasmic-override={overrides.img}
-          alt={""}
-          className={classNames(sty.img)}
-          displayHeight={"60px"}
-          displayMaxHeight={"none"}
-          displayMaxWidth={"100%"}
-          displayMinHeight={"0"}
-          displayMinWidth={"0"}
-          displayWidth={"55px"}
-          loading={"lazy"}
-          src={
-            "https://www.paziresh24.com/_next/static/media/logo.5e03fe79.svg"
-          }
-        />
-
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text___1S3F8
-          )}
-        >
-          {"\u067e\u0630\u06cc\u0631\u063424"}
+        <div className={classNames(projectcss.all, sty.freeBox___4Coll)}>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__uXg5H
+            )}
+          >
+            <React.Fragment>
+              <React.Fragment>{""}</React.Fragment>
+              {
+                <h6
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.h6,
+                    projectcss.__wab_text,
+                    sty.h6__n09Sf
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return `نوبت‌دهی ${$props.displayName} را در سایت دیگری برای شما پیدا کردیم.`;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "\n\ud83d\udd0d \u067e\u0632\u0634\u06a9 \u0634\u0645\u0627 \u062f\u0631 \u067e\u0630\u06cc\u0631\u0634\u06f2\u06f4 \u062d\u0636\u0648\u0631 \u0646\u062f\u0627\u0634\u062a\u060c \u0627\u0645\u0627 \u0646\u0648\u0628\u062a\u200c\u062f\u0647\u06cc \u0622\u0646 \u0631\u0627 \u062f\u0631 \u0633\u0627\u06cc\u062a\u06cc \u062f\u06cc\u06af\u0631 \u0628\u0631\u0627\u06cc \u0634\u0645\u0627 \u067e\u06cc\u062f\u0627 \u06a9\u0631\u062f\u06cc\u0645.\n\n\u062a\u0627 \u0686\u0646\u062f \u062b\u0627\u0646\u06cc\u0647 \u062f\u06cc\u06af\u0631 \u0622\u0646 \u0631\u0627 \u0645\u0634\u0627\u0647\u062f\u0647 \u062e\u0648\u0627\u0647\u06cc\u062f \u06a9\u0631\u062f.\n";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </h6>
+              }
+              <React.Fragment>{""}</React.Fragment>
+            </React.Fragment>
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__poNvi
+            )}
+          >
+            <React.Fragment>
+              <React.Fragment>{""}</React.Fragment>
+              {
+                <h6
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.h6,
+                    projectcss.__wab_text,
+                    sty.h6__eBtE2
+                  )}
+                >
+                  {
+                    "\n\u062f\u0631 \u062d\u0627\u0644 \u0627\u0646\u062a\u0642\u0627\u0644 \u0627\u0632 \u067e\u0630\u06cc\u0631\u063424 \u0628\u0647 \u0635\u0641\u062d\u0647  \u0646\u0648\u0628\u062a\u200c\u062f\u0647\u06cc \u0641\u0639\u0627\u0644 \u067e\u0632\u0634\u06a9 \u0647\u0633\u062a\u06cc\u062f."
+                  }
+                </h6>
+              }
+              <React.Fragment>{""}</React.Fragment>
+            </React.Fragment>
+          </div>
         </div>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__vbKAv
-          )}
-        >
-          {" >>>"}
-        </div>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text___7Oly9
-          )}
-        >
-          {"\u062f\u06a9\u062a\u0640\u0640\u0640\u0631\u0650\u062a\u0648"}
-        </div>
-      </Stack__>
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__poNvi
-        )}
-      >
-        <React.Fragment>
-          <React.Fragment>{""}</React.Fragment>
-          {
-            <h6
+        <div className={classNames(projectcss.all, sty.freeBox__laggs)}>
+          <div className={classNames(projectcss.all, sty.freeBox__sDsLk)}>
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img___29ZsY)}
+              displayHeight={"40px"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={"35px"}
+              loading={"lazy"}
+              src={
+                "https://www.paziresh24.com/_next/static/media/logo.5e03fe79.svg"
+              }
+            />
+
+            <div
               className={classNames(
                 projectcss.all,
-                projectcss.h6,
                 projectcss.__wab_text,
-                sty.h6__eBtE2
+                sty.text___1S3F8
               )}
             >
-              {
-                "\u0634\u0645\u0627 \u062f\u0631 \u062d\u0627\u0644 \u062c\u0627\u0628\u062c\u0627\u06cc\u06cc \u0627\u0632 \u0633\u0627\u06cc\u062a \u067e\u0630\u06cc\u0631\u063424 \u0628\u0647 \u0635\u0641\u062d\u0647 \u0641\u0639\u0627\u0644 \u067e\u0632\u0634\u06a9 \u062f\u0631 \u0633\u0627\u06cc\u062a \u062f\u06a9\u062a\u0631\u062a\u0648 \u0647\u0633\u062a\u06cc\u062f."
-              }
-            </h6>
-          }
-          <React.Fragment>{""}</React.Fragment>
-        </React.Fragment>
-      </div>
+              {"\u067e\u0630\u06cc\u0631\u063424"}
+            </div>
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__vbKAv
+            )}
+          >
+            {" >>>"}
+          </div>
+          <Icon3Icon
+            data-plasmic-name={"svg"}
+            data-plasmic-override={overrides.svg}
+            className={classNames(projectcss.all, sty.svg)}
+            role={"img"}
+          />
+
+          <div className={classNames(projectcss.all, sty.freeBox__zLftn)}>
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img__nQKyM)}
+              displayHeight={"40px"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={"35px"}
+              loading={"lazy"}
+              src={{
+                src: "/plasmic/sanje_panel/images/image2.svg",
+                fullWidth: 1132,
+                fullHeight: 1132,
+                aspectRatio: 1
+              }}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__mZyXo
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $props.provider === "doctoreto"
+                      ? "دکتـــرِتو"
+                      : $props.displayName;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "\u0646\u0648\u0628\u062a\u200c\u062f\u0647\u06cc \u067e\u0632\u0634\u06a9";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___0MfFb
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $props.provider === "doctoreto"
+                      ? "دکتـــرِتو"
+                      : $props.displayName;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "\u067e\u0630\u06cc\u0631\u063424";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            </div>
+          </div>
+        </div>
+      </Stack__>
       <Icon2Icon
-        data-plasmic-name={"svg"}
-        data-plasmic-override={overrides.svg}
-        className={classNames(projectcss.all, sty.svg)}
+        data-plasmic-name={"loading"}
+        data-plasmic-override={overrides.loading}
+        className={classNames(projectcss.all, sty.loading)}
         role={"img"}
       />
 
@@ -289,7 +349,7 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
         className={classNames(
           projectcss.all,
           projectcss.__wab_text,
-          sty.text__uXg5H
+          sty.text__fqZvh
         )}
       >
         <React.Fragment>
@@ -300,11 +360,11 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
                 projectcss.all,
                 projectcss.h6,
                 projectcss.__wab_text,
-                sty.h6__n09Sf
+                sty.h6__qUd
               )}
             >
               {
-                "\n\ud83d\udd0d \u067e\u0632\u0634\u06a9 \u0634\u0645\u0627 \u062f\u0631 \u067e\u0630\u06cc\u0631\u0634\u06f2\u06f4 \u062d\u0636\u0648\u0631 \u0646\u062f\u0627\u0634\u062a\u060c \u0627\u0645\u0627 \u0646\u0648\u0628\u062a\u200c\u062f\u0647\u06cc \u0622\u0646 \u0631\u0627 \u062f\u0631 \u0633\u0627\u06cc\u062a\u06cc \u062f\u06cc\u06af\u0631 \u0628\u0631\u0627\u06cc \u0634\u0645\u0627 \u067e\u06cc\u062f\u0627 \u06a9\u0631\u062f\u06cc\u0645.\n\n\u062a\u0627 \u0686\u0646\u062f \u062b\u0627\u0646\u06cc\u0647 \u062f\u06cc\u06af\u0631 \u0622\u0646 \u0631\u0627 \u0645\u0634\u0627\u0647\u062f\u0647 \u062e\u0648\u0627\u0647\u06cc\u062f \u06a9\u0631\u062f.\n"
+                "\u062a\u0627 \u0686\u0646\u062f \u062b\u0627\u0646\u06cc\u0647 \u062f\u06cc\u06af\u0631 \u0622\u0646 \u0631\u0627 \u0645\u0634\u0627\u0647\u062f\u0647 \u062e\u0648\u0627\u0647\u06cc\u062f \u06a9\u0631\u062f.\n\n\u062f\u0631 \u0633\u0627\u06cc\u062a \u0645\u0642\u0635\u062f\u060c \u0646\u0648\u0628\u062a \u062e\u0648\u062f \u0631\u0627 \u062b\u0628\u062a \u06a9\u0646\u06cc\u062f.\n"
               }
             </h6>
           }
@@ -336,7 +396,7 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
         <React.Fragment>
           {(() => {
             try {
-              return JSON.stringify($props);
+              return $props.displayName;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -349,28 +409,73 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
           })()}
         </React.Fragment>
       </div>
+      <SideEffect
+        data-plasmic-name={"sideEffect"}
+        data-plasmic-override={overrides.sideEffect}
+        className={classNames("__wab_instance", sty.sideEffect)}
+        onMount={async () => {
+          const $steps = {};
+
+          $steps["redirectRunCode"] = false
+            ? (() => {
+                const actionArgs = {
+                  customFunction: async () => {
+                    return (() => {
+                      return setTimeout(() => {
+                        const urlParams = new URLSearchParams(
+                          window.location.search
+                        );
+                        const uri = decodeURIComponent(
+                          urlParams.get("uri") || ""
+                        );
+                        const provide = decodeURIComponent(
+                          urlParams.get("provide") || ""
+                        );
+                        if (provide === "doctoreto") {
+                          const fullUrl = "https://doctoreto.com/" + uri;
+                          window.location.href = fullUrl;
+                        } else {
+                          const fullUrl = decodeURIComponent(uri);
+                          window.location.href = fullUrl;
+                        }
+                      }, 10000);
+                    })();
+                  }
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["redirectRunCode"] != null &&
+            typeof $steps["redirectRunCode"] === "object" &&
+            typeof $steps["redirectRunCode"].then === "function"
+          ) {
+            $steps["redirectRunCode"] = await $steps["redirectRunCode"];
+          }
+        }}
+      />
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "freeBox", "sideEffect", "img", "svg", "button"],
-  freeBox: ["freeBox", "sideEffect", "img"],
-  sideEffect: ["sideEffect"],
-  img: ["img"],
+  root: ["root", "svg", "loading", "button", "sideEffect"],
   svg: ["svg"],
-  button: ["button"]
+  loading: ["loading"],
+  button: ["button"],
+  sideEffect: ["sideEffect"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  freeBox: "div";
-  sideEffect: typeof SideEffect;
-  img: typeof PlasmicImg__;
   svg: "svg";
+  loading: "svg";
   button: typeof Button;
+  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -437,11 +542,10 @@ export const PlasmicInterstitialFullPageComponent = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    freeBox: makeNodeComponent("freeBox"),
-    sideEffect: makeNodeComponent("sideEffect"),
-    img: makeNodeComponent("img"),
     svg: makeNodeComponent("svg"),
+    loading: makeNodeComponent("loading"),
     button: makeNodeComponent("button"),
+    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicInterstitialFullPageComponent
     internalVariantProps: PlasmicInterstitialFullPageComponent__VariantProps,
