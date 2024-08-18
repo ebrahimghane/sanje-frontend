@@ -239,6 +239,7 @@
   object-fit: cover;
   margin-left: 82px;
   min-height: 0;
+  display: none;
 }
 .text__fqZvh {
   position: relative;

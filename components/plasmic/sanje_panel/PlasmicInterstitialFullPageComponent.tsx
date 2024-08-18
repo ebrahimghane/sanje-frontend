@@ -69,7 +69,7 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectcss
 import sty from "./PlasmicInterstitialFullPageComponent.module.css"; // plasmic-import: yQnkyuy8-tJy/css
 
-import Icon3Icon from "./icons/PlasmicIcon__Icon3"; // plasmic-import: 52SKzpjqwYwC/icon
+import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: 4lvL6CfKGFeL/icon
 import Icon2Icon from "./icons/PlasmicIcon__Icon2"; // plasmic-import: X98YuP_uFRc3/icon
 import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
 import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
@@ -247,7 +247,7 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
                 sty.text___1S3F8
               )}
             >
-              {"\u067e\u0630\u06cc\u0631\u063424"}
+              {"\u067e\u0630\u06cc\u0631\u0634\u06f2\u06f4"}
             </div>
           </div>
           <div
@@ -259,7 +259,7 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
           >
             {" >>>"}
           </div>
-          <Icon3Icon
+          <Icon6Icon
             data-plasmic-name={"svg"}
             data-plasmic-override={overrides.svg}
             className={classNames(projectcss.all, sty.svg)}
