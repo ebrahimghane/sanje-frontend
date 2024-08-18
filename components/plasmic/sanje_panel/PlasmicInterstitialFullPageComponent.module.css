@@ -62,11 +62,12 @@
   font-weight: 400;
   text-align: right;
   white-space: pre-wrap;
+  margin-top: 9px;
 }
 .h6__n09Sf {
   font-weight: 400;
   text-align: right;
-  padding: 0px 14px;
+  padding: 0px 5px 0px 2px;
 }
 .text__poNvi {
   position: relative;
@@ -84,7 +85,7 @@
 }
 .h6__eBtE2 {
   text-align: right;
-  padding: 0px 15px;
+  padding: 0px 5px 0px 1px;
 }
 .freeBox__laggs {
   display: flex;
@@ -162,9 +163,9 @@
   height: 100%;
   object-fit: cover;
   width: 100%;
-  margin-top: 12px;
-  margin-bottom: 10px;
-  color: var(--token-JP-pI4-MAOWS);
+  color: var(--token-kpM4b4mG4f2d);
+  margin-bottom: -49px;
+  margin-top: -5px;
   min-width: 0;
   min-height: 0;
 }
@@ -239,6 +240,7 @@
   object-fit: cover;
   margin-left: 82px;
   min-height: 0;
+  display: none;
 }
 .text__fqZvh {
   position: relative;
@@ -253,8 +255,28 @@
   font-weight: 400;
   text-align: right;
   white-space: pre-wrap;
+  display: none;
 }
 .h6__qUd {
+  font-weight: 400;
+  text-align: right;
+  width: 338px;
+}
+.text__yw6Jt {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: #535353;
+  left: auto;
+  top: auto;
+  flex-shrink: 0;
+  font-size: 56px;
+  font-weight: 400;
+  text-align: right;
+  white-space: pre-wrap;
+}
+.h6__rtPk1 {
   font-weight: 400;
   text-align: right;
   width: 338px;
