@@ -95,7 +95,6 @@ export type PlasmicInterstitialFullPageComponent__OverridesType = {
   root?: Flex__<"div">;
   svg?: Flex__<"svg">;
   loading?: Flex__<"svg">;
-  button?: Flex__<typeof Button>;
   sideEffect?: Flex__<typeof SideEffect>;
 };
 
@@ -134,6 +133,8 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const $globalActions = useGlobalActions?.();
 
   return (
     <div
@@ -398,14 +399,50 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
         </React.Fragment>
       </div>
       <Button
-        data-plasmic-name={"button"}
-        data-plasmic-override={overrides.button}
         children2={
           "\u0633\u0648\u0627\u0644 \u06cc\u0627 \u0645\u0634\u06a9\u0644\u06cc \u062f\u0627\u0631\u06cc\u062f\u061f"
         }
-        className={classNames("__wab_instance", sty.button)}
+        className={classNames("__wab_instance", sty.button__qMxJ4)}
         color={"sand"}
         link={"https://survey.porsline.ir/s/NeySKF1?terminal_id=xxxx&url=xxxx"}
+        outline={true}
+        showEndIcon={true}
+        size={"compact"}
+        target={true}
+      />
+
+      <Button
+        children2={
+          "\u0628\u0627\u0632\u06af\u0634\u062a \u0628\u0647 \u0646\u062a\u0627\u06cc\u062c \u062c\u0633\u062a\u062c\u0648"
+        }
+        className={classNames("__wab_instance", sty.button___6V6Qq)}
+        color={"sand"}
+        link={""}
+        onClick={async event => {
+          const $steps = {};
+
+          $steps["runCode"] = true
+            ? (() => {
+                const actionArgs = {
+                  customFunction: async () => {
+                    return (() => {
+                      return window.history.back();
+                    })();
+                  }
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["runCode"] != null &&
+            typeof $steps["runCode"] === "object" &&
+            typeof $steps["runCode"].then === "function"
+          ) {
+            $steps["runCode"] = await $steps["runCode"];
+          }
+        }}
         outline={true}
         showEndIcon={true}
         size={"compact"}
@@ -442,30 +479,66 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
         onMount={async () => {
           const $steps = {};
 
+          $steps["sendSplunkEventOfLoadPage"] = true
+            ? (() => {
+                const actionArgs = {
+                  args: [
+                    (() => {
+                      try {
+                        return {
+                          event_group: "search_metrics",
+                          event_type: "interstitial_page_load",
+                          current_url: window.location.href
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+                  ]
+                };
+                return $globalActions["Splunk.sendLog"]?.apply(null, [
+                  ...actionArgs.args
+                ]);
+              })()
+            : undefined;
+          if (
+            $steps["sendSplunkEventOfLoadPage"] != null &&
+            typeof $steps["sendSplunkEventOfLoadPage"] === "object" &&
+            typeof $steps["sendSplunkEventOfLoadPage"].then === "function"
+          ) {
+            $steps["sendSplunkEventOfLoadPage"] = await $steps[
+              "sendSplunkEventOfLoadPage"
+            ];
+          }
+
           $steps["redirectRunCode"] = false
             ? (() => {
                 const actionArgs = {
                   customFunction: async () => {
-                    return (() => {
-                      return setTimeout(() => {
-                        const urlParams = new URLSearchParams(
-                          window.location.search
-                        );
-                        const uri = decodeURIComponent(
-                          urlParams.get("uri") || ""
-                        );
-                        const provide = decodeURIComponent(
-                          urlParams.get("provide") || ""
-                        );
-                        if (provide === "doctoreto") {
-                          const fullUrl = "https://doctoreto.com/" + uri;
-                          window.location.href = fullUrl;
-                        } else {
-                          const fullUrl = decodeURIComponent(uri);
-                          window.location.href = fullUrl;
-                        }
-                      }, 10000);
-                    })();
+                    return setTimeout(() => {
+                      const urlParams = new URLSearchParams(
+                        window.location.search
+                      );
+                      const uri = decodeURIComponent(
+                        urlParams.get("uri") || ""
+                      );
+                      const provide = decodeURIComponent(
+                        urlParams.get("provide") || ""
+                      );
+                      if (provide === "doctoreto") {
+                        const fullUrl = "https://doctoreto.com/" + uri;
+                        window.location.href = fullUrl;
+                      } else {
+                        const fullUrl = decodeURIComponent(uri);
+                        window.location.href = fullUrl;
+                      }
+                    }, 10000);
                   }
                 };
                 return (({ customFunction }) => {
@@ -487,10 +560,9 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "svg", "loading", "button", "sideEffect"],
+  root: ["root", "svg", "loading", "sideEffect"],
   svg: ["svg"],
   loading: ["loading"],
-  button: ["button"],
   sideEffect: ["sideEffect"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -500,7 +572,6 @@ type NodeDefaultElementType = {
   root: "div";
   svg: "svg";
   loading: "svg";
-  button: typeof Button;
   sideEffect: typeof SideEffect;
 };
 
@@ -570,7 +641,6 @@ export const PlasmicInterstitialFullPageComponent = Object.assign(
     // Helper components rendering sub-elements
     svg: makeNodeComponent("svg"),
     loading: makeNodeComponent("loading"),
-    button: makeNodeComponent("button"),
     sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicInterstitialFullPageComponent
