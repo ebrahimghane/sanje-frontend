@@ -595,6 +595,11 @@
           "id": "X98YuP_uFRc3",
           "name": "Icon2Icon",
           "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon2.tsx"
+        },
+        {
+          "id": "52SKzpjqwYwC",
+          "name": "Icon3Icon",
+          "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon3.tsx"
         }
       ],
       "images": [
@@ -602,6 +607,16 @@
           "id": "kIB-2kGROcap",
           "name": "down.png",
           "filePath": "../public/plasmic/sanje_panel/images/downpng.png"
+        },
+        {
+          "id": "9rW1HKt061TP",
+          "name": "image",
+          "filePath": "../public/plasmic/sanje_panel/images/image.svg"
+        },
+        {
+          "id": "lO45QrvFNWCM",
+          "name": "image 2",
+          "filePath": "../public/plasmic/sanje_panel/images/image2.svg"
         }
       ],
       "indirect": false,
