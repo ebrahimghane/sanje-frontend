@@ -600,6 +600,21 @@
           "id": "52SKzpjqwYwC",
           "name": "Icon3Icon",
           "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon3.tsx"
+        },
+        {
+          "id": "g1LUcwl7RvrM",
+          "name": "Icon4Icon",
+          "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon4.tsx"
+        },
+        {
+          "id": "QtRIZ9emewI1",
+          "name": "Icon5Icon",
+          "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon5.tsx"
+        },
+        {
+          "id": "4lvL6CfKGFeL",
+          "name": "Icon6Icon",
+          "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon6.tsx"
         }
       ],
       "images": [
