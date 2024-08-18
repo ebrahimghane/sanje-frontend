@@ -600,6 +600,36 @@
           "id": "52SKzpjqwYwC",
           "name": "Icon3Icon",
           "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon3.tsx"
+        },
+        {
+          "id": "g1LUcwl7RvrM",
+          "name": "Icon4Icon",
+          "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon4.tsx"
+        },
+        {
+          "id": "QtRIZ9emewI1",
+          "name": "Icon5Icon",
+          "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon5.tsx"
+        },
+        {
+          "id": "4lvL6CfKGFeL",
+          "name": "Icon6Icon",
+          "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon6.tsx"
+        },
+        {
+          "id": "Wd7WrOJjslY3",
+          "name": "Icon7Icon",
+          "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon7.tsx"
+        },
+        {
+          "id": "o0WWf6juUCyt",
+          "name": "Icon8Icon",
+          "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon8.tsx"
+        },
+        {
+          "id": "nKLk3Wbpr-Nw",
+          "name": "Icon9Icon",
+          "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon9.tsx"
         }
       ],
       "images": [

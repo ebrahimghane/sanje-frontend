@@ -69,7 +69,7 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectcss
 import sty from "./PlasmicInterstitialFullPageComponent.module.css"; // plasmic-import: yQnkyuy8-tJy/css
 
-import Icon3Icon from "./icons/PlasmicIcon__Icon3"; // plasmic-import: 52SKzpjqwYwC/icon
+import Icon9Icon from "./icons/PlasmicIcon__Icon9"; // plasmic-import: nKLk3Wbpr-Nw/icon
 import Icon2Icon from "./icons/PlasmicIcon__Icon2"; // plasmic-import: X98YuP_uFRc3/icon
 import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
 import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
@@ -215,7 +215,7 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
                   )}
                 >
                   {
-                    "\n\u062f\u0631 \u062d\u0627\u0644 \u0627\u0646\u062a\u0642\u0627\u0644 \u0627\u0632 \u067e\u0630\u06cc\u0631\u063424 \u0628\u0647 \u0635\u0641\u062d\u0647  \u0646\u0648\u0628\u062a\u200c\u062f\u0647\u06cc \u0641\u0639\u0627\u0644 \u067e\u0632\u0634\u06a9 \u0647\u0633\u062a\u06cc\u062f."
+                    "\n\n\n\n\u062f\u0631 \u062d\u0627\u0644 \u0627\u0646\u062a\u0642\u0627\u0644 \u0627\u0632 \u067e\u0630\u06cc\u0631\u063424 \u0628\u0647 \u0635\u0641\u062d\u0647  \u0646\u0648\u0628\u062a\u200c\u062f\u0647\u06cc \u0641\u0639\u0627\u0644 \u067e\u0632\u0634\u06a9 \u0647\u0633\u062a\u06cc\u062f."
                   }
                 </h6>
               }
@@ -247,7 +247,7 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
                 sty.text___1S3F8
               )}
             >
-              {"\u067e\u0630\u06cc\u0631\u063424"}
+              {"\u067e\u0630\u06cc\u0631\u0634\u06f2\u06f4"}
             </div>
           </div>
           <div
@@ -259,7 +259,7 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
           >
             {" >>>"}
           </div>
-          <Icon3Icon
+          <Icon9Icon
             data-plasmic-name={"svg"}
             data-plasmic-override={overrides.svg}
             className={classNames(projectcss.all, sty.svg)}
@@ -364,7 +364,33 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
               )}
             >
               {
-                "\u062a\u0627 \u0686\u0646\u062f \u062b\u0627\u0646\u06cc\u0647 \u062f\u06cc\u06af\u0631 \u0622\u0646 \u0631\u0627 \u0645\u0634\u0627\u0647\u062f\u0647 \u062e\u0648\u0627\u0647\u06cc\u062f \u06a9\u0631\u062f.\n\n\u062f\u0631 \u0633\u0627\u06cc\u062a \u0645\u0642\u0635\u062f\u060c \u0646\u0648\u0628\u062a \u062e\u0648\u062f \u0631\u0627 \u062b\u0628\u062a \u06a9\u0646\u06cc\u062f.\n"
+                "\u062a\u0627 \u0686\u0646\u062f \u062b\u0627\u0646\u06cc\u0647 \u062f\u06cc\u06af\u0631 \u0622\u0646 \u0631\u0627 \u0645\u0634\u0627\u0647\u062f\u0647 \u062e\u0648\u0627\u0647\u06cc\u062f \u06a9\u0631\u062f."
+              }
+            </h6>
+          }
+          <React.Fragment>{""}</React.Fragment>
+        </React.Fragment>
+      </div>
+      <div
+        className={classNames(
+          projectcss.all,
+          projectcss.__wab_text,
+          sty.text__yw6Jt
+        )}
+      >
+        <React.Fragment>
+          <React.Fragment>{""}</React.Fragment>
+          {
+            <h6
+              className={classNames(
+                projectcss.all,
+                projectcss.h6,
+                projectcss.__wab_text,
+                sty.h6__rtPk1
+              )}
+            >
+              {
+                "\u062f\u0631 \u0633\u0627\u06cc\u062a \u0645\u0642\u0635\u062f\u060c \u0646\u0648\u0628\u062a \u062e\u0648\u062f \u0631\u0627 \u062b\u0628\u062a \u06a9\u0646\u06cc\u062f.\n"
               }
             </h6>
           }
