@@ -49,6 +49,31 @@
   text-align: right;
   min-width: 0;
 }
+.newsUpdatesFragmentApiRequest:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__ouBiq {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  margin-top: 14px;
+  min-width: 0;
+}
+.text__wco8H {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.taskCardItem__gd7V:global(.__wab_instance) {
+  max-width: 100%;
+  margin-bottom: 4px;
+  margin-top: 13px;
+}
 .freeBox___7Og6 {
   display: flex;
   position: relative;
@@ -201,7 +226,7 @@
   min-width: 0;
   margin: 0px 0px 10px;
 }
-.taskCardItem:global(.__wab_instance) {
+.taskCardItem__pB9M4:global(.__wab_instance) {
   max-width: 100%;
   margin-bottom: 4px;
 }

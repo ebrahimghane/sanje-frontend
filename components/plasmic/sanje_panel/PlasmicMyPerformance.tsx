@@ -60,8 +60,8 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: MhkncRKg2Phv/codeComponent
-import { SimpleChart } from "@plasmicpkgs/react-chartjs-2";
 import TaskCardItem from "../../TaskCardItem"; // plasmic-import: HREvsQHdw0h_/component
+import { SimpleChart } from "@plasmicpkgs/react-chartjs-2";
 import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 import LinearScaleCustomChart2 from "../../LinearScaleCustomChart2"; // plasmic-import: 0EkZlbx6K2L1/component
 import LinearScaleCustomChart from "../../LinearScaleCustomChart"; // plasmic-import: 15G81XIekDs9/component
@@ -95,11 +95,11 @@ export const PlasmicMyPerformance__ArgProps = new Array<ArgPropType>();
 export type PlasmicMyPerformance__OverridesType = {
   root?: Flex__<"div">;
   h4?: Flex__<"h4">;
+  newsUpdatesFragmentApiRequest?: Flex__<typeof ApiRequest>;
   sanjeSearchCardViewFragmentApiRequest2?: Flex__<typeof ApiRequest>;
   sanjeSearchClickPositionFragmentApiRequest3?: Flex__<typeof ApiRequest>;
   getMySearchDocument?: Flex__<typeof ApiRequest>;
   growthOpportunitiesFragmentApiRequest?: Flex__<typeof ApiRequest>;
-  taskCardItem?: Flex__<typeof TaskCardItem>;
   groupExpertiseOnlineVisitsPricingStats?: Flex__<typeof DataFetcher>;
   linearScaleCustomChart2?: Flex__<typeof LinearScaleCustomChart2>;
   linearScaleCustomChart?: Flex__<typeof LinearScaleCustomChart>;
@@ -241,6 +241,24 @@ function PlasmicMyPerformance__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "newsUpdatesFragmentApiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "newsUpdatesFragmentApiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "newsUpdatesFragmentApiRequest.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -329,6 +347,147 @@ function PlasmicMyPerformance__RenderFunc(props: {
                 }}
               />
             </h4>
+            <ApiRequest
+              data-plasmic-name={"newsUpdatesFragmentApiRequest"}
+              data-plasmic-override={overrides.newsUpdatesFragmentApiRequest}
+              className={classNames(
+                "__wab_instance",
+                sty.newsUpdatesFragmentApiRequest
+              )}
+              errorDisplay={
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__wco8H
+                  )}
+                >
+                  {".."}
+                </div>
+              }
+              loadingDisplay={
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__ouBiq
+                  )}
+                >
+                  {
+                    "\u062f\u0631 \u062d\u0627\u0644 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a"
+                  }
+                </div>
+              }
+              method={"GET"}
+              onError={generateStateOnChangeProp($state, [
+                "newsUpdatesFragmentApiRequest",
+                "error"
+              ])}
+              onLoading={generateStateOnChangeProp($state, [
+                "newsUpdatesFragmentApiRequest",
+                "loading"
+              ])}
+              onSuccess={generateStateOnChangeProp($state, [
+                "newsUpdatesFragmentApiRequest",
+                "data"
+              ])}
+              url={
+                "https://apigw.paziresh24.com/v1/n8n-search/webhook/sanje-news-updates"
+              }
+            >
+              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                (() => {
+                  try {
+                    return $state.newsUpdatesFragmentApiRequest.data.news;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()
+              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                const currentItem = __plasmic_item_0;
+                const __index = __plasmic_idx_0;
+                return (
+                  <TaskCardItem
+                    className={classNames(
+                      "__wab_instance",
+                      sty.taskCardItem__gd7V
+                    )}
+                    description={(() => {
+                      try {
+                        return currentItem.description;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    icon={(() => {
+                      try {
+                        return currentItem.icon;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    key={__index}
+                    subtitle={(() => {
+                      try {
+                        return currentItem.subtitle;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    title={(() => {
+                      try {
+                        return currentItem.title;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    type={(() => {
+                      try {
+                        return currentItem.type;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                  />
+                );
+              })}
+            </ApiRequest>
             {(() => {
               try {
                 return (
@@ -425,7 +584,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
                         style={{ fontWeight: 700 }}
                       >
                         {
-                          "\u062a\u0639\u062f\u0627\u062f \u0645\u0634\u0627\u0647\u062f\u0647 \u0634\u0645\u0627 \u062f\u0631 \u0646\u062a\u0627\u06cc\u062c"
+                          "\u0645\u0634\u0627\u0647\u062f\u0647 \u06a9\u0627\u0631\u062a \u0634\u0645\u0627 \u062f\u0631 \u0646\u062a\u0627\u06cc\u062c"
                         }
                       </span>
                     </React.Fragment>
@@ -507,7 +666,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
                         style={{ fontWeight: 700 }}
                       >
                         {
-                          "\u062a\u0639\u062f\u0627\u062f \u06a9\u0644\u06cc\u06a9 \u06a9\u0627\u0631\u0628\u0631\u0627\u0646 \u0631\u0648\u06cc \u0635\u0641\u062d\u0647 \u0634\u0645\u0627 \u062f\u0631 \u0646\u062a\u0627\u06cc\u062c"
+                          "\u06a9\u0644\u06cc\u06a9 \u0631\u0648\u06cc \u06a9\u0627\u0631\u062a \u0634\u0645\u0627"
                         }
                       </span>
                     </React.Fragment>
@@ -683,9 +842,10 @@ function PlasmicMyPerformance__RenderFunc(props: {
                   const currentIndex = __plasmic_idx_0;
                   return (
                     <TaskCardItem
-                      data-plasmic-name={"taskCardItem"}
-                      data-plasmic-override={overrides.taskCardItem}
-                      className={classNames("__wab_instance", sty.taskCardItem)}
+                      className={classNames(
+                        "__wab_instance",
+                        sty.taskCardItem__pB9M4
+                      )}
                       description={(() => {
                         try {
                           return currentItem.description;
@@ -1328,7 +1488,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
                       __html: (() => {
                         try {
                           return (
-                            "📌 انتخاب مبلغ ویزیت در اختیار شماست. اما می‌توانید با مقایسه توزیع مبالغ پرداختی، تصمیم بهتری در انتخاب مبلغ بگیرید. " +
+                            "📌 قیمت پایین‌تر از میانگین به مقدار اندکی در رتبه‌بندی تاثیر مثبت دارد. اگر به تازگی فعالیت خود را شروع کرده اید، می‌توانید با مبلغ پایین تری شروع کنید تا دامنه از بیماران ثابت از پذیرش24 برای شما فراهم شود. " +
                             '<a href="https://yun.ir/0x2b0c">' +
                             " <span style='font-size: smaller; text-decoration: underline;'>اصلاح مبلغ</span>" +
                             "</a>"
@@ -1748,11 +1908,11 @@ const PlasmicDescendants = {
   root: [
     "root",
     "h4",
+    "newsUpdatesFragmentApiRequest",
     "sanjeSearchCardViewFragmentApiRequest2",
     "sanjeSearchClickPositionFragmentApiRequest3",
     "getMySearchDocument",
     "growthOpportunitiesFragmentApiRequest",
-    "taskCardItem",
     "groupExpertiseOnlineVisitsPricingStats",
     "linearScaleCustomChart2",
     "linearScaleCustomChart",
@@ -1765,6 +1925,7 @@ const PlasmicDescendants = {
     "gtm"
   ],
   h4: ["h4"],
+  newsUpdatesFragmentApiRequest: ["newsUpdatesFragmentApiRequest"],
   sanjeSearchCardViewFragmentApiRequest2: [
     "sanjeSearchCardViewFragmentApiRequest2"
   ],
@@ -1773,10 +1934,8 @@ const PlasmicDescendants = {
   ],
   getMySearchDocument: ["getMySearchDocument"],
   growthOpportunitiesFragmentApiRequest: [
-    "growthOpportunitiesFragmentApiRequest",
-    "taskCardItem"
+    "growthOpportunitiesFragmentApiRequest"
   ],
-  taskCardItem: ["taskCardItem"],
   groupExpertiseOnlineVisitsPricingStats: [
     "groupExpertiseOnlineVisitsPricingStats",
     "linearScaleCustomChart2",
@@ -1799,11 +1958,11 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   h4: "h4";
+  newsUpdatesFragmentApiRequest: typeof ApiRequest;
   sanjeSearchCardViewFragmentApiRequest2: typeof ApiRequest;
   sanjeSearchClickPositionFragmentApiRequest3: typeof ApiRequest;
   getMySearchDocument: typeof ApiRequest;
   growthOpportunitiesFragmentApiRequest: typeof ApiRequest;
-  taskCardItem: typeof TaskCardItem;
   groupExpertiseOnlineVisitsPricingStats: typeof DataFetcher;
   linearScaleCustomChart2: typeof LinearScaleCustomChart2;
   linearScaleCustomChart: typeof LinearScaleCustomChart;
@@ -1877,6 +2036,9 @@ export const PlasmicMyPerformance = Object.assign(
   {
     // Helper components rendering sub-elements
     h4: makeNodeComponent("h4"),
+    newsUpdatesFragmentApiRequest: makeNodeComponent(
+      "newsUpdatesFragmentApiRequest"
+    ),
     sanjeSearchCardViewFragmentApiRequest2: makeNodeComponent(
       "sanjeSearchCardViewFragmentApiRequest2"
     ),
@@ -1887,7 +2049,6 @@ export const PlasmicMyPerformance = Object.assign(
     growthOpportunitiesFragmentApiRequest: makeNodeComponent(
       "growthOpportunitiesFragmentApiRequest"
     ),
-    taskCardItem: makeNodeComponent("taskCardItem"),
     groupExpertiseOnlineVisitsPricingStats: makeNodeComponent(
       "groupExpertiseOnlineVisitsPricingStats"
     ),

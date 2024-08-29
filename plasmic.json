@@ -77,8 +77,7 @@
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "oBJtsp5RgVpcN6KCrDTuQT",
@@ -630,6 +629,11 @@
           "id": "nKLk3Wbpr-Nw",
           "name": "Icon9Icon",
           "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon9.tsx"
+        },
+        {
+          "id": "k_c6Xh1LZrcX",
+          "name": "Icon10Icon",
+          "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon10.tsx"
         }
       ],
       "images": [
@@ -1173,8 +1177,7 @@
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerBreadcrumb"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "95cydKu4zdmeK3V4rXXSKZ",
