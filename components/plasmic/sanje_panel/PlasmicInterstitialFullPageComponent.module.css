@@ -9,6 +9,26 @@
   max-width: 100%;
   min-width: 0;
 }
+.text__uXg5H {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: #535353;
+  left: auto;
+  top: auto;
+  flex-shrink: 0;
+  font-size: 56px;
+  font-weight: 400;
+  text-align: right;
+  white-space: pre-wrap;
+  margin-top: 9px;
+}
+.h6__n09Sf {
+  font-weight: 400;
+  text-align: right;
+  padding: 0px 5px 0px 2px;
+}
 .freeBox__zvQgp {
   display: flex;
   position: relative;
@@ -49,26 +69,6 @@
   min-width: 0;
   padding: 8px;
 }
-.text__uXg5H {
-  position: relative;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  color: #535353;
-  left: auto;
-  top: auto;
-  flex-shrink: 0;
-  font-size: 56px;
-  font-weight: 400;
-  text-align: right;
-  white-space: pre-wrap;
-  margin-top: 9px;
-}
-.h6__n09Sf {
-  font-weight: 400;
-  text-align: right;
-  padding: 0px 5px 0px 2px;
-}
 .text__poNvi {
   position: relative;
   width: auto;
@@ -85,7 +85,45 @@
 }
 .h6__eBtE2 {
   text-align: right;
+  padding: 15px 5px 0px 1px;
+}
+.text__tasqH {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: #535353;
+  left: auto;
+  top: auto;
+  flex-shrink: 0;
+  font-size: 56px;
+  font-weight: 600;
+  text-align: center;
+  white-space: pre-wrap;
+}
+.h6__a1Uvo {
+  text-align: right;
   padding: 0px 5px 0px 1px;
+}
+.text__yw6Jt {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: #535353;
+  left: auto;
+  top: auto;
+  flex-shrink: 0;
+  font-size: 56px;
+  font-weight: 400;
+  text-align: right;
+  white-space: pre-wrap;
+  display: none;
+}
+.h6__rtPk1 {
+  font-weight: 400;
+  text-align: right;
+  width: 338px;
 }
 .freeBox__laggs {
   display: flex;
@@ -258,25 +296,6 @@
   display: none;
 }
 .h6__qUd {
-  font-weight: 400;
-  text-align: right;
-  width: 338px;
-}
-.text__yw6Jt {
-  position: relative;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  color: #535353;
-  left: auto;
-  top: auto;
-  flex-shrink: 0;
-  font-size: 56px;
-  font-weight: 400;
-  text-align: right;
-  white-space: pre-wrap;
-}
-.h6__rtPk1 {
   font-weight: 400;
   text-align: right;
   width: 338px;
