@@ -122,7 +122,16 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -174,7 +183,7 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
               <React.Fragment>
                 {(() => {
                   try {
-                    return `نوبت‌دهی ${$props.displayName} را در سایت دیگری برای شما پیدا کردیم.`;
+                    return `نوبت‌دهی ${$props.displayName} در پذیرش24 فعال نبود. بجای آن نوبت دهی ایشان در سایت دیگری برای شما پیدا کردیم.`;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -441,7 +450,7 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
       </div>
       <Button
         children2={
-          "\u0633\u0648\u0627\u0644 \u06cc\u0627 \u0645\u0634\u06a9\u0644\u06cc \u062f\u0627\u0631\u06cc\u062f\u061f"
+          "\u062f\u0631 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0645\u0648\u062a\u0648\u0631 \u062c\u0633\u062a\u062c\u0648 \u0645\u0634\u06a9\u0644\u06cc \u062f\u0627\u0631\u06cc\u062f\u061f"
         }
         className={classNames("__wab_instance", sty.button__qMxJ4)}
         color={"sand"}

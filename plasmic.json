@@ -229,14 +229,14 @@
       "components": [
         {
           "id": "5nirPCGmCnRD",
-          "name": "Button",
+          "name": "RadixUiButton",
           "type": "managed",
           "projectId": "sqPBLwEBBKHA2WDuGb17eV",
-          "renderModuleFilePath": "plasmic/radix_ui/PlasmicButton.tsx",
+          "renderModuleFilePath": "plasmic/radix_ui/PlasmicRadixUiButton.tsx",
           "importSpec": {
-            "modulePath": "Button.tsx"
+            "modulePath": "RadixUiButton.tsx"
           },
-          "cssFilePath": "plasmic/radix_ui/PlasmicButton.module.css",
+          "cssFilePath": "plasmic/radix_ui/PlasmicRadixUiButton.module.css",
           "scheme": "blackbox",
           "componentType": "component",
           "plumeType": "button"
@@ -245,8 +245,8 @@
       "icons": [
         {
           "id": "Wyt3GMMsLefj",
-          "name": "ChecksvgIcon",
-          "moduleFilePath": "plasmic/radix_ui/icons/PlasmicIcon__Checksvg.tsx"
+          "name": "CheckSvgIcon",
+          "moduleFilePath": "plasmic/radix_ui/icons/PlasmicIcon__CheckSvg.tsx"
         },
         {
           "id": "MbDRsJU0e3bw",
@@ -308,8 +308,7 @@
           "componentImportPath": "@plasmicpkgs/radix-ui"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "YUiM7yqBWAqsh8KSnrdj7",
@@ -337,8 +336,7 @@
           "componentImportPath": "@plasmicpkgs/plasmic-query"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "h9Dbk9ygddw7UVEq1NNhKi",
@@ -440,13 +438,13 @@
         },
         {
           "id": "RqwNL88PjcHS",
-          "name": "SearchsvgIcon",
-          "moduleFilePath": "plasmic/fragment_design_system/icons/PlasmicIcon__Searchsvg.tsx"
+          "name": "SearchSvgIcon",
+          "moduleFilePath": "plasmic/fragment_design_system/icons/PlasmicIcon__SearchSvg.tsx"
         },
         {
           "id": "_Qaeb-4Y8N07",
-          "name": "ChecksvgIcon",
-          "moduleFilePath": "plasmic/fragment_design_system/icons/PlasmicIcon__Checksvg.tsx"
+          "name": "CheckSvgIcon",
+          "moduleFilePath": "plasmic/fragment_design_system/icons/PlasmicIcon__CheckSvg.tsx"
         }
       ],
       "images": [],
@@ -467,8 +465,7 @@
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "aU6fPsMDSmKqgHWpAbdgs",
@@ -640,7 +637,7 @@
         {
           "id": "kIB-2kGROcap",
           "name": "down.png",
-          "filePath": "../public/plasmic/sanje_panel/images/downpng.png"
+          "filePath": "../public/plasmic/sanje_panel/images/downPng.png"
         },
         {
           "id": "9rW1HKt061TP",
@@ -776,8 +773,7 @@
           "componentImportPath": "@plasmicpkgs/react-chartjs-2"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
