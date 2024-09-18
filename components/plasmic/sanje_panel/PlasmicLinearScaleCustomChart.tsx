@@ -115,7 +115,16 @@ function PlasmicLinearScaleCustomChart__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -214,7 +223,7 @@ function PlasmicLinearScaleCustomChart__RenderFunc(props: {
             displayWidth={"24px"}
             loading={"lazy"}
             src={{
-              src: "/plasmic/sanje_panel/images/downpng.png",
+              src: "/plasmic/sanje_panel/images/downPng.png",
               fullWidth: 64,
               fullHeight: 64,
               aspectRatio: undefined
