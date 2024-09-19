@@ -69,7 +69,7 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectcss
 import sty from "./PlasmicInterstitialFullPageComponent.module.css"; // plasmic-import: yQnkyuy8-tJy/css
 
-import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: k_c6Xh1LZrcX/icon
+import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: JdG0eXaRAeXh/icon
 import Icon2Icon from "./icons/PlasmicIcon__Icon2"; // plasmic-import: X98YuP_uFRc3/icon
 import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
 import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
@@ -162,44 +162,6 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
         sty.root
       )}
     >
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__uXg5H
-        )}
-      >
-        <React.Fragment>
-          <React.Fragment>{""}</React.Fragment>
-          {
-            <h6
-              className={classNames(
-                projectcss.all,
-                projectcss.h6,
-                projectcss.__wab_text,
-                sty.h6__n09Sf
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return `نوبت‌دهی ${$props.displayName} در پذیرش24 فعال نبود. بجای آن نوبت دهی ایشان در سایت دیگری برای شما پیدا کردیم.`;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "\n\ud83d\udd0d \u067e\u0632\u0634\u06a9 \u0634\u0645\u0627 \u062f\u0631 \u067e\u0630\u06cc\u0631\u0634\u06f2\u06f4 \u062d\u0636\u0648\u0631 \u0646\u062f\u0627\u0634\u062a\u060c \u0627\u0645\u0627 \u0646\u0648\u0628\u062a\u200c\u062f\u0647\u06cc \u0622\u0646 \u0631\u0627 \u062f\u0631 \u0633\u0627\u06cc\u062a\u06cc \u062f\u06cc\u06af\u0631 \u0628\u0631\u0627\u06cc \u0634\u0645\u0627 \u067e\u06cc\u062f\u0627 \u06a9\u0631\u062f\u06cc\u0645.\n\n\u062a\u0627 \u0686\u0646\u062f \u062b\u0627\u0646\u06cc\u0647 \u062f\u06cc\u06af\u0631 \u0622\u0646 \u0631\u0627 \u0645\u0634\u0627\u0647\u062f\u0647 \u062e\u0648\u0627\u0647\u06cc\u062f \u06a9\u0631\u062f.\n";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </h6>
-          }
-          <React.Fragment>{""}</React.Fragment>
-        </React.Fragment>
-      </div>
       <Stack__
         as={"div"}
         hasGap={true}
@@ -225,49 +187,8 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
                   )}
                 >
                   {
-                    "\u062f\u0631 \u062d\u0627\u0644 \u0627\u0646\u062a\u0642\u0627\u0644 \u0627\u0632 \u067e\u0630\u06cc\u0631\u063424 \u0628\u0647 \u0635\u0641\u062d\u0647  \u0646\u0648\u0628\u062a\u200c\u062f\u0647\u06cc \u0641\u0639\u0627\u0644 \u067e\u0632\u0634\u06a9 \u0647\u0633\u062a\u06cc\u062f."
+                    "\u062a\u0627 \u0686\u0646\u062f \u062b\u0627\u0646\u06cc\u0647 \u062f\u06cc\u06af\u0631 \u0627\u0632 \u067e\u0630\u06cc\u0631\u063424 \u0628\u0647 \u0633\u0627\u06cc\u062a \u0646\u0648\u0628\u062a\u200c\u062f\u0647\u06cc \u0641\u0639\u0627\u0644 \u067e\u0632\u0634\u06a9 \u0645\u0646\u062a\u0642\u0644 \u0645\u06cc \u0634\u0648\u06cc\u062f."
                   }
-                </h6>
-              }
-              <React.Fragment>{""}</React.Fragment>
-            </React.Fragment>
-          </div>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__tasqH
-            )}
-          >
-            <React.Fragment>
-              <React.Fragment>{""}</React.Fragment>
-              {
-                <h6
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.h6,
-                    projectcss.__wab_text,
-                    sty.h6__a1Uvo
-                  )}
-                >
-                  <React.Fragment>
-                    <React.Fragment>{""}</React.Fragment>
-                    {
-                      <h6
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.h6,
-                          projectcss.__wab_text,
-                          sty.h6__iPoxf
-                        )}
-                      >
-                        {
-                          "\n\n\n\n\n\n\u062f\u0631 \u0633\u0627\u06cc\u062a \u0645\u0642\u0635\u062f\u060c \u0646\u0648\u0628\u062a \u062e\u0648\u062f \u0631\u0627 \u062b\u0628\u062a \u06a9\u0646\u06cc\u062f."
-                        }
-                      </h6>
-                    }
-                    <React.Fragment>{""}</React.Fragment>
-                  </React.Fragment>
                 </h6>
               }
               <React.Fragment>{""}</React.Fragment>
@@ -336,7 +257,7 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
           >
             {" >>>"}
           </div>
-          <Icon10Icon
+          <Icon11Icon
             data-plasmic-name={"svg"}
             data-plasmic-override={overrides.svg}
             className={classNames(projectcss.all, sty.svg)}
@@ -443,6 +364,85 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
               {
                 "\u062a\u0627 \u0686\u0646\u062f \u062b\u0627\u0646\u06cc\u0647 \u062f\u06cc\u06af\u0631 \u0622\u0646 \u0631\u0627 \u0645\u0634\u0627\u0647\u062f\u0647 \u062e\u0648\u0627\u0647\u06cc\u062f \u06a9\u0631\u062f."
               }
+            </h6>
+          }
+          <React.Fragment>{""}</React.Fragment>
+        </React.Fragment>
+      </div>
+      <div
+        className={classNames(
+          projectcss.all,
+          projectcss.__wab_text,
+          sty.text__tasqH
+        )}
+      >
+        <React.Fragment>
+          <React.Fragment>{""}</React.Fragment>
+          {
+            <h6
+              className={classNames(
+                projectcss.all,
+                projectcss.h6,
+                projectcss.__wab_text,
+                sty.h6__a1Uvo
+              )}
+            >
+              <React.Fragment>
+                <React.Fragment>{""}</React.Fragment>
+                {
+                  <h6
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h6,
+                      projectcss.__wab_text,
+                      sty.h6__iPoxf
+                    )}
+                  >
+                    {
+                      "\u067e\u0633 \u0627\u0632 \u0645\u0634\u0627\u0647\u062f\u0647 \u0633\u0627\u06cc\u062a \u067e\u0632\u0634\u06a9\u060c \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0646\u0648\u0628\u062a \u062e\u0648\u062f \u0631\u0627 \u062b\u0628\u062a \u06a9\u0646\u06cc\u062f."
+                    }
+                  </h6>
+                }
+                <React.Fragment>{""}</React.Fragment>
+              </React.Fragment>
+            </h6>
+          }
+          <React.Fragment>{""}</React.Fragment>
+        </React.Fragment>
+      </div>
+      <div
+        className={classNames(
+          projectcss.all,
+          projectcss.__wab_text,
+          sty.text__uXg5H
+        )}
+      >
+        <React.Fragment>
+          <React.Fragment>{""}</React.Fragment>
+          {
+            <h6
+              className={classNames(
+                projectcss.all,
+                projectcss.h6,
+                projectcss.__wab_text,
+                sty.h6__n09Sf
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return `نوبت‌دهی ${$props.displayName} در پذیرش24 فعال نبود. بجای آن نوبت دهی ایشان در سایت دیگری برای شما پیدا کردیم.`;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "\n\ud83d\udd0d \u067e\u0632\u0634\u06a9 \u0634\u0645\u0627 \u062f\u0631 \u067e\u0630\u06cc\u0631\u0634\u06f2\u06f4 \u062d\u0636\u0648\u0631 \u0646\u062f\u0627\u0634\u062a\u060c \u0627\u0645\u0627 \u0646\u0648\u0628\u062a\u200c\u062f\u0647\u06cc \u0622\u0646 \u0631\u0627 \u062f\u0631 \u0633\u0627\u06cc\u062a\u06cc \u062f\u06cc\u06af\u0631 \u0628\u0631\u0627\u06cc \u0634\u0645\u0627 \u067e\u06cc\u062f\u0627 \u06a9\u0631\u062f\u06cc\u0645.\n\n\u062a\u0627 \u0686\u0646\u062f \u062b\u0627\u0646\u06cc\u0647 \u062f\u06cc\u06af\u0631 \u0622\u0646 \u0631\u0627 \u0645\u0634\u0627\u0647\u062f\u0647 \u062e\u0648\u0627\u0647\u06cc\u062f \u06a9\u0631\u062f.\n";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
             </h6>
           }
           <React.Fragment>{""}</React.Fragment>
