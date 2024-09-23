@@ -95,7 +95,8 @@ export type PlasmicInterstitialFullPageComponent__OverridesType = {
   root?: Flex__<"div">;
   svg?: Flex__<"svg">;
   loading?: Flex__<"svg">;
-  sideEffect?: Flex__<typeof SideEffect>;
+  splunkEventRedirect?: Flex__<typeof SideEffect>;
+  writeTransitionDataCookie?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultInterstitialFullPageComponentProps {
@@ -187,7 +188,7 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
                   )}
                 >
                   {
-                    "\u062a\u0627 \u0686\u0646\u062f \u062b\u0627\u0646\u06cc\u0647 \u062f\u06cc\u06af\u0631 \u0627\u0632 \u067e\u0630\u06cc\u0631\u063424 \u0628\u0647 \u0633\u0627\u06cc\u062a \u0646\u0648\u0628\u062a\u200c\u062f\u0647\u06cc \u0641\u0639\u0627\u0644 \u067e\u0632\u0634\u06a9 \u0645\u0646\u062a\u0642\u0644 \u0645\u06cc \u0634\u0648\u06cc\u062f."
+                    "\u062a\u0627 \u0686\u0646\u062f \u062b\u0627\u0646\u06cc\u0647 \u062f\u06cc\u06af\u0631 \u0627\u0632 \u067e\u0630\u06cc\u0631\u063424 \u0628\u0647 \u0633\u0627\u06cc\u062a \u0646\u0648\u0628\u062a\u200c\u062f\u0647\u06cc \u0641\u0639\u0627\u0644 \u067e\u0632\u0634\u06a9 \u0645\u0646\u062a\u0642\u0644 \u0645\u06cc\u200c\u0634\u0648\u06cc\u062f."
                   }
                 </h6>
               }
@@ -523,9 +524,9 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
         </React.Fragment>
       </div>
       <SideEffect
-        data-plasmic-name={"sideEffect"}
-        data-plasmic-override={overrides.sideEffect}
-        className={classNames("__wab_instance", sty.sideEffect)}
+        data-plasmic-name={"splunkEventRedirect"}
+        data-plasmic-override={overrides.splunkEventRedirect}
+        className={classNames("__wab_instance", sty.splunkEventRedirect)}
         onMount={async () => {
           const $steps = {};
 
@@ -538,7 +539,11 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
                         return {
                           event_group: "search_metrics",
                           event_type: "interstitial_page_load",
-                          current_url: window.location.href
+                          current_url: window.location.href,
+                          terminal_id: window.document.cookie
+                            ?.split("; ")
+                            ?.find?.(row => row.startsWith("terminal_id="))
+                            ?.split?.("=")?.[1]
                         };
                       } catch (e) {
                         if (
@@ -566,29 +571,98 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
               "sendSplunkEventOfLoadPage"
             ];
           }
+        }}
+      />
 
-          $steps["redirectRunCode"] = false
+      <SideEffect
+        data-plasmic-name={"writeTransitionDataCookie"}
+        data-plasmic-override={overrides.writeTransitionDataCookie}
+        className={classNames("__wab_instance", sty.writeTransitionDataCookie)}
+        onMount={async () => {
+          const $steps = {};
+
+          $steps["runCode"] = true
             ? (() => {
                 const actionArgs = {
                   customFunction: async () => {
-                    return setTimeout(() => {
-                      const urlParams = new URLSearchParams(
-                        window.location.search
-                      );
-                      const uri = decodeURIComponent(
-                        urlParams.get("uri") || ""
-                      );
-                      const provide = decodeURIComponent(
-                        urlParams.get("provide") || ""
-                      );
-                      if (provide === "doctoreto") {
-                        const fullUrl = "https://doctoreto.com/" + uri;
-                        window.location.href = fullUrl;
-                      } else {
-                        const fullUrl = decodeURIComponent(uri);
-                        window.location.href = fullUrl;
-                      }
-                    }, 10000);
+                    return (() => {
+                      return (function () {
+                        function getQueryParams() {
+                          let params = {};
+                          let queryString = window.location.search.substring(1);
+                          let vars = queryString.split("&");
+                          for (let i = 0; i < vars.length; i++) {
+                            let pair = vars[i].split("=");
+                            let key = decodeURIComponent(pair[0]);
+                            let value = decodeURIComponent(pair[1] || "");
+                            params[key] = value;
+                          }
+                          return params;
+                        }
+                        function getCookie(name) {
+                          let match = document.cookie.match(
+                            new RegExp("(^|;\\s*)" + name + "=([^;]*)")
+                          );
+                          return match ? decodeURIComponent(match[2]) : null;
+                        }
+                        let params = getQueryParams();
+                        let destinationURL = params["uri"] || "";
+                        let destinationHost = "";
+                        if (destinationURL) {
+                          try {
+                            let urlObj = new URL(destinationURL);
+                            destinationHost = urlObj.hostname;
+                          } catch (e) {
+                            console.error(
+                              "Invalid destination URL:",
+                              destinationURL
+                            );
+                          }
+                        }
+                        let destinationDoctorName =
+                          params["display_name"] || "";
+                        let surveyResponseStatus = "Not-displayed";
+                        let terminalId = getCookie("terminal_id") || "";
+                        let destinationSiteTitle = "";
+                        switch (destinationHost) {
+                          case "drdr.ir":
+                            destinationSiteTitle = "دکتردکتر";
+                            break;
+                          case "darmankade.com":
+                            destinationSiteTitle = "درمانکده";
+                            break;
+                          case "nobat.ir":
+                            destinationSiteTitle = "نوبت دات‌آی‌آر";
+                            break;
+                          case "doctoreto.com":
+                            destinationSiteTitle = "دکترتو";
+                            break;
+                          default:
+                            destinationSiteTitle = "سایت پزشک";
+                            break;
+                        }
+                        let cookieData = {
+                          surveyResponseStatus: surveyResponseStatus,
+                          destinationURL: destinationURL,
+                          destinationHost: destinationHost,
+                          destinationDoctorName: destinationDoctorName,
+                          terminalId: terminalId,
+                          destinationSiteTitle: destinationSiteTitle
+                        };
+                        let now = new Date();
+                        let expireTime = new Date(
+                          now.getTime() + 24 * 60 * 60 * 1000
+                        );
+                        let expires = "expires=" + expireTime.toUTCString();
+                        let cookieName = "transitionData";
+                        let cookieValue = encodeURIComponent(
+                          JSON.stringify(cookieData)
+                        );
+                        let cookiePath = "path=/";
+                        let cookieDomain = "domain=.paziresh24.com";
+                        document.cookie = `${cookieName}=${cookieValue}; ${expires}; ${cookiePath}; ${cookieDomain}`;
+                      })();
+                    })();
                   }
                 };
                 return (({ customFunction }) => {
@@ -597,11 +671,11 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
               })()
             : undefined;
           if (
-            $steps["redirectRunCode"] != null &&
-            typeof $steps["redirectRunCode"] === "object" &&
-            typeof $steps["redirectRunCode"].then === "function"
+            $steps["runCode"] != null &&
+            typeof $steps["runCode"] === "object" &&
+            typeof $steps["runCode"].then === "function"
           ) {
-            $steps["redirectRunCode"] = await $steps["redirectRunCode"];
+            $steps["runCode"] = await $steps["runCode"];
           }
         }}
       />
@@ -610,10 +684,17 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "svg", "loading", "sideEffect"],
+  root: [
+    "root",
+    "svg",
+    "loading",
+    "splunkEventRedirect",
+    "writeTransitionDataCookie"
+  ],
   svg: ["svg"],
   loading: ["loading"],
-  sideEffect: ["sideEffect"]
+  splunkEventRedirect: ["splunkEventRedirect"],
+  writeTransitionDataCookie: ["writeTransitionDataCookie"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -622,7 +703,8 @@ type NodeDefaultElementType = {
   root: "div";
   svg: "svg";
   loading: "svg";
-  sideEffect: typeof SideEffect;
+  splunkEventRedirect: typeof SideEffect;
+  writeTransitionDataCookie: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -691,7 +773,8 @@ export const PlasmicInterstitialFullPageComponent = Object.assign(
     // Helper components rendering sub-elements
     svg: makeNodeComponent("svg"),
     loading: makeNodeComponent("loading"),
-    sideEffect: makeNodeComponent("sideEffect"),
+    splunkEventRedirect: makeNodeComponent("splunkEventRedirect"),
+    writeTransitionDataCookie: makeNodeComponent("writeTransitionDataCookie"),
 
     // Metadata about props expected for PlasmicInterstitialFullPageComponent
     internalVariantProps: PlasmicInterstitialFullPageComponent__VariantProps,

@@ -59,8 +59,8 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import InterstitialFullPageComponent from "../../InterstitialFullPageComponent"; // plasmic-import: yQnkyuy8-tJy/component
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
+import InterstitialFullPageComponent from "../../InterstitialFullPageComponent"; // plasmic-import: yQnkyuy8-tJy/component
 import ScriptsAndGeneralTags from "../../ScriptsAndGeneralTags"; // plasmic-import: zZNx54MRT-Br/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -84,9 +84,9 @@ export const PlasmicInterstitialPage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicInterstitialPage__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   freeBox?: Flex__<"div">;
   interstitialFullPageComponent?: Flex__<typeof InterstitialFullPageComponent>;
-  sideEffect?: Flex__<typeof SideEffect>;
   scriptsAndGeneralTags?: Flex__<typeof ScriptsAndGeneralTags>;
 };
 
@@ -130,6 +130,8 @@ function PlasmicInterstitialPage__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = useGlobalActions?.();
+
   return (
     <React.Fragment>
       <Head>
@@ -170,6 +172,95 @@ function PlasmicInterstitialPage__RenderFunc(props: {
             sty.root
           )}
         >
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["invokeGlobalAction"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        (() => {
+                          try {
+                            return {
+                              event_group: "search_metrics",
+                              event_type: "interstitial_page_load",
+                              current_url: window.location.href,
+                              terminal_id: window.document.cookie
+                                ?.split("; ")
+                                ?.find?.(row => row.startsWith("terminal_id="))
+                                ?.split?.("=")?.[1]
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Splunk.sendLog"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return setTimeout(function () {
+                          const urlParams = new URLSearchParams(
+                            window.location.search
+                          );
+                          const uri = decodeURIComponent(
+                            urlParams.get("uri") || ""
+                          );
+                          const provide = urlParams.get("provide");
+                          if (provide === "doctoreto") {
+                            const fullUrl = "https://doctoreto.com/" + uri;
+                            window.location.href = fullUrl;
+                          } else if (provide === "page") {
+                            window.location.href = uri;
+                          } else {
+                            console.error(
+                              "Provide parameter is not recognized."
+                            );
+                          }
+                        }, 10000);
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
+          />
+
           <div
             data-plasmic-name={"freeBox"}
             data-plasmic-override={overrides.freeBox}
@@ -178,10 +269,6 @@ function PlasmicInterstitialPage__RenderFunc(props: {
             <InterstitialFullPageComponent
               data-plasmic-name={"interstitialFullPageComponent"}
               data-plasmic-override={overrides.interstitialFullPageComponent}
-              className={classNames(
-                "__wab_instance",
-                sty.interstitialFullPageComponent
-              )}
               displayName={(() => {
                 try {
                   return $ctx.query.display_name;
@@ -223,55 +310,6 @@ function PlasmicInterstitialPage__RenderFunc(props: {
               })()}
             />
           </div>
-          <SideEffect
-            data-plasmic-name={"sideEffect"}
-            data-plasmic-override={overrides.sideEffect}
-            className={classNames("__wab_instance", sty.sideEffect)}
-            onMount={async () => {
-              const $steps = {};
-
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          return setTimeout(function () {
-                            const urlParams = new URLSearchParams(
-                              window.location.search
-                            );
-                            const uri = decodeURIComponent(
-                              urlParams.get("uri") || ""
-                            );
-                            const provide = urlParams.get("provide");
-                            if (provide === "doctoreto") {
-                              const fullUrl = "https://doctoreto.com/" + uri;
-                              window.location.href = fullUrl;
-                            } else if (provide === "page") {
-                              window.location.href = uri;
-                            } else {
-                              console.error(
-                                "Provide parameter is not recognized."
-                              );
-                            }
-                          }, 10000);
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
-            }}
-          />
-
           <ScriptsAndGeneralTags
             data-plasmic-name={"scriptsAndGeneralTags"}
             data-plasmic-override={overrides.scriptsAndGeneralTags}
@@ -286,14 +324,14 @@ function PlasmicInterstitialPage__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "sideEffect",
     "freeBox",
     "interstitialFullPageComponent",
-    "sideEffect",
     "scriptsAndGeneralTags"
   ],
+  sideEffect: ["sideEffect"],
   freeBox: ["freeBox", "interstitialFullPageComponent"],
   interstitialFullPageComponent: ["interstitialFullPageComponent"],
-  sideEffect: ["sideEffect"],
   scriptsAndGeneralTags: ["scriptsAndGeneralTags"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -301,9 +339,9 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   freeBox: "div";
   interstitialFullPageComponent: typeof InterstitialFullPageComponent;
-  sideEffect: typeof SideEffect;
   scriptsAndGeneralTags: typeof ScriptsAndGeneralTags;
 };
 
@@ -367,11 +405,11 @@ export const PlasmicInterstitialPage = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     freeBox: makeNodeComponent("freeBox"),
     interstitialFullPageComponent: makeNodeComponent(
       "interstitialFullPageComponent"
     ),
-    sideEffect: makeNodeComponent("sideEffect"),
     scriptsAndGeneralTags: makeNodeComponent("scriptsAndGeneralTags"),
 
     // Metadata about props expected for PlasmicInterstitialPage
