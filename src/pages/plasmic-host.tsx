@@ -5,8 +5,6 @@ import {
   registerGlobalContext,
 } from "@plasmicapp/react-web/lib/host";
 
-import { Hamdast, hamdastMeta } from "@/hamdast/hamdast";
-
 import { Fragment, fragmentMeta } from "@/fragment/fragment";
 import { GrowthBook, growthBookMeta } from "@/fragment/growthbook";
 import { DatePicker, datePickerMeta } from "@/fragment/components/date-picker";
@@ -24,8 +22,6 @@ import { Textarea, textareaMeta } from "@/fragment/components/textarea";
 export default function PlasmicHost() {
   return <PlasmicCanvasHost />;
 }
-
-registerGlobalContext(Hamdast, hamdastMeta);
 
 registerGlobalContext(Fragment, fragmentMeta);
 registerGlobalContext(GrowthBook, growthBookMeta);
