@@ -697,6 +697,19 @@ function PlasmicMyPerformance__RenderFunc(props: {
             data-plasmic-name={"getMySearchDocument"}
             data-plasmic-override={overrides.getMySearchDocument}
             className={classNames("__wab_instance", sty.getMySearchDocument)}
+            errorDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__wEjYx
+                )}
+              >
+                {
+                  "\u062e\u0637\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a. \u0633\u0637\u062d \u062f\u0633\u062a\u0631\u0633\u06cc \u062e\u0648\u062f \u0628\u0631\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0631\u0627 \u0628\u0631\u0631\u0633\u06cc \u06a9\u0646\u06cc\u062f."
+                }
+              </div>
+            }
             method={"GET"}
             onError={generateStateOnChangeProp($state, [
               "getMySearchDocument",
@@ -732,7 +745,9 @@ function PlasmicMyPerformance__RenderFunc(props: {
                   sty.text___2Ghbf
                 )}
               >
-                {"Error fetching data"}
+                {
+                  "\u062e\u0637\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a. \u0633\u0637\u062d \u062f\u0633\u062a\u0631\u0633\u06cc \u062e\u0648\u062f \u0628\u0631\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0631\u0627 \u0628\u0631\u0631\u0633\u06cc \u06a9\u0646\u06cc\u062f."
+                }
               </div>
             }
             loadingDisplay={
