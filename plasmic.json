@@ -585,19 +585,6 @@
           "path": "/my-performance"
         },
         {
-          "id": "0UcJTMqEEn6u",
-          "name": "DynamicPagePage",
-          "type": "managed",
-          "projectId": "aU6fPsMDSmKqgHWpAbdgs",
-          "renderModuleFilePath": "plasmic/sanje_panel/PlasmicDynamicPagePage.tsx",
-          "importSpec": {
-            "modulePath": "DynamicPagePage.tsx"
-          },
-          "cssFilePath": "plasmic/sanje_panel/PlasmicDynamicPagePage.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "Pbd98u3TbJTJ",
           "name": "DynamicPageCardList",
           "type": "managed",
@@ -636,6 +623,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/booking-options"
+        },
+        {
+          "id": "0UcJTMqEEn6u",
+          "name": "DynamicPageCardItem",
+          "type": "managed",
+          "projectId": "aU6fPsMDSmKqgHWpAbdgs",
+          "renderModuleFilePath": "plasmic/sanje_panel/PlasmicDynamicPageCardItem.tsx",
+          "importSpec": {
+            "modulePath": "DynamicPageCardItem.tsx"
+          },
+          "cssFilePath": "plasmic/sanje_panel/PlasmicDynamicPageCardItem.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

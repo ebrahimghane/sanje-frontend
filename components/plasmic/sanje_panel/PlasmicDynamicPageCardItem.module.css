@@ -1,0 +1,111 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  background: #ffffff;
+  box-shadow: 0px 0px 4px 0px #0000001a;
+  min-width: 0;
+  border-radius: 8px;
+  border-width: 1px;
+  border-style: solid;
+}
+.text__cTcaN {
+  position: absolute;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  backdrop-filter: blur(1px);
+  pointer-events: auto;
+  left: 0;
+  top: 0em;
+  z-index: 5;
+  bottom: 0;
+  right: 0;
+  -webkit-backdrop-filter: blur(1px);
+}
+.header {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-RvPI6LyeIPmd);
+  min-width: 0;
+  padding: 16px;
+}
+.headernoTitle {
+  display: none;
+}
+.freeBox__wHmgr {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+.avatar:global(.__wab_instance) {
+  max-width: 100%;
+  margin-left: 6px;
+  flex-shrink: 0;
+}
+.freeBox__o2RtP {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.captionText {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-Le07ngBUPl2h);
+  min-width: 0;
+}
+.text__lxd3T {
+  font-size: var(--token-RxWJli6xyBzp);
+  font-weight: 600;
+}
+.subtitleText {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.body {
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  display: none;
+  padding: 0px 16px 16px;
+}
+.bodynoTitle {
+  padding-top: 16px;
+}
+.text__zOyUr {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
