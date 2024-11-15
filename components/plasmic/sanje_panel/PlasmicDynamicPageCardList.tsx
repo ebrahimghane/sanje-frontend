@@ -59,7 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import DynamicPagePage from "../../DynamicPagePage"; // plasmic-import: 0UcJTMqEEn6u/component
+import DynamicPageCardItem from "../../DynamicPageCardItem"; // plasmic-import: 0UcJTMqEEn6u/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -87,7 +87,7 @@ export const PlasmicDynamicPageCardList__ArgProps = new Array<ArgPropType>(
 export type PlasmicDynamicPageCardList__OverridesType = {
   root?: Flex__<"div">;
   freeBox?: Flex__<"div">;
-  dynamicPagePage?: Flex__<typeof DynamicPagePage>;
+  dynamicPageCardItem?: Flex__<typeof DynamicPageCardItem>;
 };
 
 export interface DefaultDynamicPageCardListProps {
@@ -175,9 +175,9 @@ function PlasmicDynamicPageCardList__RenderFunc(props: {
           const currentItem = __plasmic_item_0;
           const currentIndex = __plasmic_idx_0;
           return (
-            <DynamicPagePage
-              data-plasmic-name={"dynamicPagePage"}
-              data-plasmic-override={overrides.dynamicPagePage}
+            <DynamicPageCardItem
+              data-plasmic-name={"dynamicPageCardItem"}
+              data-plasmic-override={overrides.dynamicPageCardItem}
               caption={(() => {
                 try {
                   return currentItem.content.caption;
@@ -191,7 +191,7 @@ function PlasmicDynamicPageCardList__RenderFunc(props: {
                   throw e;
                 }
               })()}
-              className={classNames("__wab_instance", sty.dynamicPagePage)}
+              className={classNames("__wab_instance", sty.dynamicPageCardItem)}
               iconUrl={(() => {
                 try {
                   return currentItem.content.icon_url;
@@ -209,6 +209,19 @@ function PlasmicDynamicPageCardList__RenderFunc(props: {
               navigateLink={(() => {
                 try {
                   return currentItem.actions.on_click.url;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              overlayText={(() => {
+                try {
+                  return currentItem.content.overlay_text;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -254,9 +267,9 @@ function PlasmicDynamicPageCardList__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "freeBox", "dynamicPagePage"],
-  freeBox: ["freeBox", "dynamicPagePage"],
-  dynamicPagePage: ["dynamicPagePage"]
+  root: ["root", "freeBox", "dynamicPageCardItem"],
+  freeBox: ["freeBox", "dynamicPageCardItem"],
+  dynamicPageCardItem: ["dynamicPageCardItem"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -264,7 +277,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   freeBox: "div";
-  dynamicPagePage: typeof DynamicPagePage;
+  dynamicPageCardItem: typeof DynamicPageCardItem;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -328,7 +341,7 @@ export const PlasmicDynamicPageCardList = Object.assign(
   {
     // Helper components rendering sub-elements
     freeBox: makeNodeComponent("freeBox"),
-    dynamicPagePage: makeNodeComponent("dynamicPagePage"),
+    dynamicPageCardItem: makeNodeComponent("dynamicPageCardItem"),
 
     // Metadata about props expected for PlasmicDynamicPageCardList
     internalVariantProps: PlasmicDynamicPageCardList__VariantProps,
