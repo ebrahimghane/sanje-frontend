@@ -157,7 +157,7 @@ function PlasmicBookingOptions__RenderFunc(props: {
             data-plasmic-name={"dynamicPagePageSection"}
             data-plasmic-override={overrides.dynamicPagePageSection}
             className={classNames("__wab_instance", sty.dynamicPagePageSection)}
-            dataSourceUrl={`https://apigw.paziresh24.com/v1/ui-jahannama/booking_selection_page_ui/${$ctx.query.docId}`}
+            dataSourceUrl={`https://apigw.paziresh24.com/v1/ui-jahannama/booking_selection_page_ui/${$ctx.query.document_id}`}
           />
 
           <ScriptsAndGeneralTags
