@@ -196,6 +196,7 @@ function PlasmicTaskCardItem__RenderFunc(props: {
           bordered: true,
           className: classNames("__wab_instance", sty.accordion),
           expandIconPosition: "end",
+          forceRender: false,
           ghost: false,
           items: (
             <React.Fragment>
