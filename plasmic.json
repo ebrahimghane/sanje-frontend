@@ -426,6 +426,19 @@
           "cssFilePath": "plasmic/fragment_design_system/PlasmicMultilineTextInput.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "kYXN54tCkD2S",
+          "name": "Collapsible",
+          "type": "managed",
+          "projectId": "h9Dbk9ygddw7UVEq1NNhKi",
+          "renderModuleFilePath": "plasmic/fragment_design_system/PlasmicCollapsible.tsx",
+          "importSpec": {
+            "modulePath": "Collapsible.tsx"
+          },
+          "cssFilePath": "plasmic/fragment_design_system/PlasmicCollapsible.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -468,8 +481,7 @@
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "aU6fPsMDSmKqgHWpAbdgs",
@@ -488,19 +500,6 @@
             "modulePath": "LinearScaleCustomChart.tsx"
           },
           "cssFilePath": "plasmic/sanje_panel/PlasmicLinearScaleCustomChart.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
-          "id": "0UcJTMqEEn6u",
-          "name": "Card",
-          "type": "managed",
-          "projectId": "aU6fPsMDSmKqgHWpAbdgs",
-          "renderModuleFilePath": "plasmic/sanje_panel/PlasmicCard.tsx",
-          "importSpec": {
-            "modulePath": "Card.tsx"
-          },
-          "cssFilePath": "plasmic/sanje_panel/PlasmicCard.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         },
@@ -583,6 +582,59 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/my-performance"
+        },
+        {
+          "id": "0UcJTMqEEn6u",
+          "name": "DynamicPagePage",
+          "type": "managed",
+          "projectId": "aU6fPsMDSmKqgHWpAbdgs",
+          "renderModuleFilePath": "plasmic/sanje_panel/PlasmicDynamicPagePage.tsx",
+          "importSpec": {
+            "modulePath": "DynamicPagePage.tsx"
+          },
+          "cssFilePath": "plasmic/sanje_panel/PlasmicDynamicPagePage.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "Pbd98u3TbJTJ",
+          "name": "DynamicPageCardList",
+          "type": "managed",
+          "projectId": "aU6fPsMDSmKqgHWpAbdgs",
+          "renderModuleFilePath": "plasmic/sanje_panel/PlasmicDynamicPageCardList.tsx",
+          "importSpec": {
+            "modulePath": "DynamicPageCardList.tsx"
+          },
+          "cssFilePath": "plasmic/sanje_panel/PlasmicDynamicPageCardList.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "w-k8SPtgF7fV",
+          "name": "DynamicPagePageSection",
+          "type": "managed",
+          "projectId": "aU6fPsMDSmKqgHWpAbdgs",
+          "renderModuleFilePath": "plasmic/sanje_panel/PlasmicDynamicPagePageSection.tsx",
+          "importSpec": {
+            "modulePath": "DynamicPagePageSection.tsx"
+          },
+          "cssFilePath": "plasmic/sanje_panel/PlasmicDynamicPagePageSection.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "oqH1E7yoY1w4",
+          "name": "BookingOptions",
+          "type": "managed",
+          "projectId": "aU6fPsMDSmKqgHWpAbdgs",
+          "renderModuleFilePath": "plasmic/sanje_panel/PlasmicBookingOptions.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/booking-options.tsx"
+          },
+          "cssFilePath": "plasmic/sanje_panel/PlasmicBookingOptions.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/booking-options"
         }
       ],
       "icons": [
@@ -1229,6 +1281,6 @@
   "nextjsConfig": {
     "pagesDir": "../src/pages"
   },
-  "cliVersion": "0.1.331",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.331/dist/plasmic.schema.json"
+  "cliVersion": "0.1.334",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.334/dist/plasmic.schema.json"
 }
