@@ -88,8 +88,8 @@ export const PlasmicDynamicPagePageSection__ArgProps = new Array<ArgPropType>(
 export type PlasmicDynamicPagePageSection__OverridesType = {
   root?: Flex__<"div">;
   httpRestApiFetcher?: Flex__<typeof DataFetcher>;
+  img?: Flex__<typeof PlasmicImg__>;
   freeBox?: Flex__<"div">;
-  text?: Flex__<"div">;
   dynamicPageCardList?: Flex__<typeof DynamicPageCardList>;
 };
 
@@ -161,7 +161,11 @@ function PlasmicDynamicPagePageSection__RenderFunc(props: {
         className={classNames("__wab_instance", sty.httpRestApiFetcher)}
         dataName={"fetchedData"}
         errorDisplay={
-          <DataCtxReader__>{$ctx => "Error fetching data"}</DataCtxReader__>
+          <DataCtxReader__>
+            {$ctx =>
+              "\n\u0645\u062a\u0627\u0633\u0641\u0627\u0646\u0647 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0641\u062a \u062f\u0627\u062f\u0647 \u0647\u0627 \u0628\u0627 \u062e\u0637\u0627 \u0645\u0648\u0627\u062c\u0647 \u0634\u062f\u06cc\u0645. \n\n\u0644\u0637\u0641\u0627 \u067e\u0633 \u0627\u0632 \u0627\u0637\u0645\u06cc\u0646\u0627\u0646 \u0627\u0632 \u0648\u0631\u0648\u062f \u0628\u0647 \u0635\u0641\u062d\u0647 \u0635\u062d\u06cc\u062d\u060c \u0645\u062c\u062f\u062f\u0627\u064b \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f. "
+            }
+          </DataCtxReader__>
         }
         errorName={"fetchError"}
         headers={{
@@ -169,10 +173,47 @@ function PlasmicDynamicPagePageSection__RenderFunc(props: {
           Accept: "application/json"
         }}
         loadingDisplay={
-          <DataCtxReader__>{$ctx => "Loading..."}</DataCtxReader__>
+          <DataCtxReader__>
+            {$ctx => (
+              <React.Fragment>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__cbWv4
+                  )}
+                >
+                  {
+                    "\n\u062f\u0631 \u062d\u0627\u0644 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a ...\n\n"
+                  }
+                </div>
+                <PlasmicImg__
+                  data-plasmic-name={"img"}
+                  data-plasmic-override={overrides.img}
+                  alt={""}
+                  className={classNames(sty.img)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"auto"}
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/sanje_panel/images/image3.svg",
+                    fullWidth: 120,
+                    fullHeight: 30,
+                    aspectRatio: 4
+                  }}
+                />
+              </React.Fragment>
+            )}
+          </DataCtxReader__>
         }
         method={"GET"}
         noLayout={false}
+        previewErrorDisplay={false}
+        previewSpinner={false}
         url={(() => {
           try {
             return $props.dataSourceUrl;
@@ -197,12 +238,10 @@ function PlasmicDynamicPagePageSection__RenderFunc(props: {
               className={classNames(projectcss.all, sty.freeBox)}
             >
               <div
-                data-plasmic-name={"text"}
-                data-plasmic-override={overrides.text}
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text
+                  sty.text___7Qzu5
                 )}
               >
                 <React.Fragment>
@@ -215,7 +254,7 @@ function PlasmicDynamicPagePageSection__RenderFunc(props: {
                         e instanceof TypeError ||
                         e?.plasmicType === "PlasmicUndefinedDataError"
                       ) {
-                        return "\u0628\u06cc\u0645\u0627\u0631\u0633\u062a\u0627\u0646 \u06af\u0648\u062f\u0631\u0632";
+                        return " ";
                       }
                       throw e;
                     }
@@ -253,21 +292,15 @@ function PlasmicDynamicPagePageSection__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "httpRestApiFetcher",
-    "freeBox",
-    "text",
-    "dynamicPageCardList"
-  ],
+  root: ["root", "httpRestApiFetcher", "img", "freeBox", "dynamicPageCardList"],
   httpRestApiFetcher: [
     "httpRestApiFetcher",
+    "img",
     "freeBox",
-    "text",
     "dynamicPageCardList"
   ],
-  freeBox: ["freeBox", "text", "dynamicPageCardList"],
-  text: ["text"],
+  img: ["img"],
+  freeBox: ["freeBox", "dynamicPageCardList"],
   dynamicPageCardList: ["dynamicPageCardList"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -276,8 +309,8 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   httpRestApiFetcher: typeof DataFetcher;
+  img: typeof PlasmicImg__;
   freeBox: "div";
-  text: "div";
   dynamicPageCardList: typeof DynamicPageCardList;
 };
 
@@ -342,8 +375,8 @@ export const PlasmicDynamicPagePageSection = Object.assign(
   {
     // Helper components rendering sub-elements
     httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
+    img: makeNodeComponent("img"),
     freeBox: makeNodeComponent("freeBox"),
-    text: makeNodeComponent("text"),
     dynamicPageCardList: makeNodeComponent("dynamicPageCardList"),
 
     // Metadata about props expected for PlasmicDynamicPagePageSection

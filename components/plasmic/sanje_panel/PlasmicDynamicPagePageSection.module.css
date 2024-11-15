@@ -26,6 +26,16 @@
   object-fit: cover;
   min-width: 0;
 }
+.text__cbWv4 {
+  text-align: center;
+}
+.img {
+  object-fit: cover;
+  max-width: 100%;
+}
+.img > picture > img {
+  object-fit: cover;
+}
 .freeBox {
   display: flex;
   flex-direction: column;
@@ -52,7 +62,7 @@
   > img {
   margin-top: 11px;
 }
-.text {
+.text___7Qzu5 {
   text-align: center;
   font-weight: 700;
   font-size: var(--token-RxWJli6xyBzp);
