@@ -710,6 +710,11 @@
           "id": "lO45QrvFNWCM",
           "name": "image 2",
           "filePath": "../public/plasmic/sanje_panel/images/image2.svg"
+        },
+        {
+          "id": "6CtvFi3OxXUS",
+          "name": "image 3",
+          "filePath": "../public/plasmic/sanje_panel/images/image3.svg"
         }
       ],
       "indirect": false,
