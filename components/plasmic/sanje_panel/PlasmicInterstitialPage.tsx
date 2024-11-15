@@ -179,7 +179,7 @@ function PlasmicInterstitialPage__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
-              $steps["invokeGlobalAction"] = true
+              $steps["sendSplunkInterstitialPageLoad"] = true
                 ? (() => {
                     const actionArgs = {
                       args: [
@@ -212,12 +212,13 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                   })()
                 : undefined;
               if (
-                $steps["invokeGlobalAction"] != null &&
-                typeof $steps["invokeGlobalAction"] === "object" &&
-                typeof $steps["invokeGlobalAction"].then === "function"
+                $steps["sendSplunkInterstitialPageLoad"] != null &&
+                typeof $steps["sendSplunkInterstitialPageLoad"] === "object" &&
+                typeof $steps["sendSplunkInterstitialPageLoad"].then ===
+                  "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
+                $steps["sendSplunkInterstitialPageLoad"] = await $steps[
+                  "sendSplunkInterstitialPageLoad"
                 ];
               }
 

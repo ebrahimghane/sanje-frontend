@@ -530,7 +530,7 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
         onMount={async () => {
           const $steps = {};
 
-          $steps["sendSplunkEventOfLoadPage"] = true
+          $steps["sendSplunkEventOfLoadPage"] = false
             ? (() => {
                 const actionArgs = {
                   args: [
