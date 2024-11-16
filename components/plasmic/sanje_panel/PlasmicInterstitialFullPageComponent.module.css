@@ -263,6 +263,13 @@
   text-align: right;
   width: 338px;
 }
+.img__gd4Ci {
+  object-fit: fill;
+  max-width: 100%;
+}
+.img__gd4Ci > picture > img {
+  object-fit: fill;
+}
 .text__tasqH {
   position: relative;
   width: auto;
@@ -307,14 +314,16 @@
 }
 .button__qMxJ4:global(.__wab_instance) {
   max-width: 100%;
-  margin-bottom: 17px;
-  margin-top: 160px;
+  margin: 460px 0px 17px;
 }
 .svg__aRasq {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
+}
+.text__dL3T {
+  color: var(--token-Le07ngBUPl2h);
 }
 .svg__xaPZc {
   position: relative;

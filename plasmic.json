@@ -693,6 +693,16 @@
           "id": "JdG0eXaRAeXh",
           "name": "Icon11Icon",
           "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon11.tsx"
+        },
+        {
+          "id": "TKOT_DA7kShk",
+          "name": "Icon12Icon",
+          "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon12.tsx"
+        },
+        {
+          "id": "d6VF5bDgNrVL",
+          "name": "Icon13Icon",
+          "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon13.tsx"
         }
       ],
       "images": [
@@ -715,6 +725,26 @@
           "id": "6CtvFi3OxXUS",
           "name": "image 3",
           "filePath": "../public/plasmic/sanje_panel/images/image3.svg"
+        },
+        {
+          "id": "_-6oV2iRNmZh",
+          "name": "image 4",
+          "filePath": "../public/plasmic/sanje_panel/images/image4.svg"
+        },
+        {
+          "id": "XoYN8K9m5U2P",
+          "name": "image 5",
+          "filePath": "../public/plasmic/sanje_panel/images/image5.svg"
+        },
+        {
+          "id": "_W__1UPS20gG",
+          "name": "image 6",
+          "filePath": "../public/plasmic/sanje_panel/images/image6.svg"
+        },
+        {
+          "id": "KXYZwvVjQjB7",
+          "name": "image 7",
+          "filePath": "../public/plasmic/sanje_panel/images/image7.svg"
         }
       ],
       "indirect": false,

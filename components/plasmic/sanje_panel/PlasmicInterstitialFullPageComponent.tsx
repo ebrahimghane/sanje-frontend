@@ -370,6 +370,24 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
           <React.Fragment>{""}</React.Fragment>
         </React.Fragment>
       </div>
+      <PlasmicImg__
+        alt={""}
+        className={classNames(sty.img__gd4Ci)}
+        displayHeight={"auto"}
+        displayMaxHeight={"none"}
+        displayMaxWidth={"100%"}
+        displayMinHeight={"0"}
+        displayMinWidth={"0"}
+        displayWidth={"auto"}
+        loading={"lazy"}
+        src={{
+          src: "/plasmic/sanje_panel/images/image7.svg",
+          fullWidth: 400,
+          fullHeight: 8,
+          aspectRatio: 50
+        }}
+      />
+
       <div
         className={classNames(
           projectcss.all,
@@ -451,13 +469,22 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
       </div>
       <Button
         children2={
-          "\u062f\u0631 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0645\u0648\u062a\u0648\u0631 \u062c\u0633\u062a\u062c\u0648 \u0645\u0634\u06a9\u0644\u06cc \u062f\u0627\u0631\u06cc\u062f\u061f"
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__dL3T
+            )}
+          >
+            {
+              "\u062f\u0631 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0645\u0648\u062a\u0648\u0631 \u062c\u0633\u062a\u062c\u0648 \u0645\u0634\u06a9\u0644\u06cc \u062f\u0627\u0631\u06cc\u062f\u061f"
+            }
+          </div>
         }
         className={classNames("__wab_instance", sty.button__qMxJ4)}
-        color={"sand"}
+        color={"clear"}
         link={"https://survey.porsline.ir/s/NeySKF1?terminal_id=xxxx&url=xxxx"}
         outline={true}
-        showEndIcon={true}
         size={"compact"}
         target={true}
       />
