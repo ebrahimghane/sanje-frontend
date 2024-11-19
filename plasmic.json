@@ -636,6 +636,19 @@
           "cssFilePath": "plasmic/sanje_panel/PlasmicDynamicPageCardItem.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "UQQ4edXpA84b",
+          "name": "SampleTestChart",
+          "type": "managed",
+          "projectId": "aU6fPsMDSmKqgHWpAbdgs",
+          "renderModuleFilePath": "plasmic/sanje_panel/PlasmicSampleTestChart.tsx",
+          "importSpec": {
+            "modulePath": "SampleTestChart.tsx"
+          },
+          "cssFilePath": "plasmic/sanje_panel/PlasmicSampleTestChart.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

@@ -244,22 +244,25 @@ function PlasmicDynamicPagePageSection__RenderFunc(props: {
                   sty.text___7Qzu5
                 )}
               >
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return $ctx.fetchedData.booking_selection_page_ui_by_pk
-                        .data.screen_title;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return " ";
+                <div
+                  className={projectcss.__wab_expr_html_text}
+                  dangerouslySetInnerHTML={{
+                    __html: (() => {
+                      try {
+                        return $ctx.fetchedData.booking_selection_page_ui_by_pk
+                          .data.screen_title;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return " ";
+                        }
+                        throw e;
                       }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
+                    })()
+                  }}
+                />
               </div>
               <DynamicPageCardList
                 data-plasmic-name={"dynamicPageCardList"}
