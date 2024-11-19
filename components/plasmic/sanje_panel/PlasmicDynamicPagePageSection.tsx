@@ -60,6 +60,7 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import { DataFetcher } from "@plasmicpkgs/plasmic-query";
+import Avatar from "../../Avatar"; // plasmic-import: 3i84rYjQRrs4/component
 import DynamicPageCardList from "../../DynamicPageCardList"; // plasmic-import: Pbd98u3TbJTJ/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -89,7 +90,7 @@ export type PlasmicDynamicPagePageSection__OverridesType = {
   root?: Flex__<"div">;
   httpRestApiFetcher?: Flex__<typeof DataFetcher>;
   img?: Flex__<typeof PlasmicImg__>;
-  freeBox?: Flex__<"div">;
+  avatar?: Flex__<typeof Avatar>;
   dynamicPageCardList?: Flex__<typeof DynamicPageCardList>;
 };
 
@@ -232,38 +233,62 @@ function PlasmicDynamicPagePageSection__RenderFunc(props: {
           {$ctx => (
             <Stack__
               as={"div"}
-              data-plasmic-name={"freeBox"}
-              data-plasmic-override={overrides.freeBox}
               hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox)}
+              className={classNames(projectcss.all, sty.freeBox__oR5Fm)}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___7Qzu5
-                )}
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox___2EO3Y)}
               >
-                <div
-                  className={projectcss.__wab_expr_html_text}
-                  dangerouslySetInnerHTML={{
-                    __html: (() => {
-                      try {
-                        return $ctx.fetchedData.booking_selection_page_ui_by_pk
-                          .data.screen_title;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return " ";
-                        }
-                        throw e;
+                <Avatar
+                  data-plasmic-name={"avatar"}
+                  data-plasmic-override={overrides.avatar}
+                  className={classNames("__wab_instance", sty.avatar)}
+                  src={(() => {
+                    try {
+                      return $ctx.fetchedData.booking_selection_page_ui_by_pk
+                        .data.screen_main_image_link;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
                       }
-                    })()
-                  }}
+                      throw e;
+                    }
+                  })()}
                 />
-              </div>
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___7Qzu5
+                  )}
+                >
+                  <div
+                    className={projectcss.__wab_expr_html_text}
+                    dangerouslySetInnerHTML={{
+                      __html: (() => {
+                        try {
+                          return $ctx.fetchedData
+                            .booking_selection_page_ui_by_pk.data.screen_title;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return " ";
+                          }
+                          throw e;
+                        }
+                      })()
+                    }}
+                  />
+                </div>
+              </Stack__>
               <DynamicPageCardList
                 data-plasmic-name={"dynamicPageCardList"}
                 data-plasmic-override={overrides.dynamicPageCardList}
@@ -295,15 +320,15 @@ function PlasmicDynamicPagePageSection__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "httpRestApiFetcher", "img", "freeBox", "dynamicPageCardList"],
+  root: ["root", "httpRestApiFetcher", "img", "avatar", "dynamicPageCardList"],
   httpRestApiFetcher: [
     "httpRestApiFetcher",
     "img",
-    "freeBox",
+    "avatar",
     "dynamicPageCardList"
   ],
   img: ["img"],
-  freeBox: ["freeBox", "dynamicPageCardList"],
+  avatar: ["avatar"],
   dynamicPageCardList: ["dynamicPageCardList"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -313,7 +338,7 @@ type NodeDefaultElementType = {
   root: "div";
   httpRestApiFetcher: typeof DataFetcher;
   img: typeof PlasmicImg__;
-  freeBox: "div";
+  avatar: typeof Avatar;
   dynamicPageCardList: typeof DynamicPageCardList;
 };
 
@@ -379,7 +404,7 @@ export const PlasmicDynamicPagePageSection = Object.assign(
     // Helper components rendering sub-elements
     httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
     img: makeNodeComponent("img"),
-    freeBox: makeNodeComponent("freeBox"),
+    avatar: makeNodeComponent("avatar"),
     dynamicPageCardList: makeNodeComponent("dynamicPageCardList"),
 
     // Metadata about props expected for PlasmicDynamicPagePageSection

@@ -102,9 +102,9 @@ export const PlasmicDynamicPageCardItem__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicDynamicPageCardItem__OverridesType = {
   root?: Flex__<"div">;
-  header?: Flex__<"a"> & Partial<LinkProps>;
   captionText?: Flex__<"div">;
   svg?: Flex__<"svg">;
+  header?: Flex__<"a"> & Partial<LinkProps>;
   img?: Flex__<typeof PlasmicImg__>;
   subtitleText?: Flex__<"div">;
   body?: Flex__<"div">;
@@ -234,6 +234,39 @@ function PlasmicDynamicPageCardItem__RenderFunc(props: {
           </div>
         </div>
       ) : null}
+      <div className={classNames(projectcss.all, sty.freeBox__yYon2)}>
+        <div
+          data-plasmic-name={"captionText"}
+          data-plasmic-override={overrides.captionText}
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.captionText
+          )}
+        >
+          <React.Fragment>
+            {(() => {
+              try {
+                return $props.caption;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return " ";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
+        </div>
+        <ChevronLeftIcon
+          data-plasmic-name={"svg"}
+          data-plasmic-override={overrides.svg}
+          className={classNames(projectcss.all, sty.svg)}
+          role={"img"}
+        />
+      </div>
       <Stack__
         as={PlasmicLink__}
         data-plasmic-name={"header"}
@@ -258,39 +291,6 @@ function PlasmicDynamicPageCardItem__RenderFunc(props: {
         })()}
         platform={"nextjs"}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__yYon2)}>
-          <div
-            data-plasmic-name={"captionText"}
-            data-plasmic-override={overrides.captionText}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.captionText
-            )}
-          >
-            <React.Fragment>
-              {(() => {
-                try {
-                  return $props.caption;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return " ";
-                  }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
-          </div>
-          <ChevronLeftIcon
-            data-plasmic-name={"svg"}
-            data-plasmic-override={overrides.svg}
-            className={classNames(projectcss.all, sty.svg)}
-            role={"img"}
-          />
-        </div>
         <Stack__
           as={"div"}
           hasGap={true}
@@ -307,7 +307,7 @@ function PlasmicDynamicPageCardItem__RenderFunc(props: {
             displayMinHeight={"0"}
             displayMinWidth={"0"}
             displayWidth={"auto"}
-            height={"30"}
+            height={"25"}
             loading={"lazy"}
             src={(() => {
               try {
@@ -322,7 +322,7 @@ function PlasmicDynamicPageCardItem__RenderFunc(props: {
                 throw e;
               }
             })()}
-            width={"30"}
+            width={"25"}
           />
 
           <div
@@ -408,10 +408,10 @@ function PlasmicDynamicPageCardItem__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "header", "captionText", "svg", "img", "subtitleText", "body"],
-  header: ["header", "captionText", "svg", "img", "subtitleText"],
+  root: ["root", "captionText", "svg", "header", "img", "subtitleText", "body"],
   captionText: ["captionText"],
   svg: ["svg"],
+  header: ["header", "img", "subtitleText"],
   img: ["img"],
   subtitleText: ["subtitleText"],
   body: ["body"]
@@ -421,9 +421,9 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  header: "a";
   captionText: "div";
   svg: "svg";
+  header: "a";
   img: typeof PlasmicImg__;
   subtitleText: "div";
   body: "div";
@@ -489,9 +489,9 @@ export const PlasmicDynamicPageCardItem = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    header: makeNodeComponent("header"),
     captionText: makeNodeComponent("captionText"),
     svg: makeNodeComponent("svg"),
+    header: makeNodeComponent("header"),
     img: makeNodeComponent("img"),
     subtitleText: makeNodeComponent("subtitleText"),
     body: makeNodeComponent("body"),
