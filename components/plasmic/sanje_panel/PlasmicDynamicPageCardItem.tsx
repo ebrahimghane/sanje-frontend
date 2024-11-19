@@ -59,14 +59,14 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import Avatar from "../../Avatar"; // plasmic-import: 3i84rYjQRrs4/component
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_fragment_design_system_css from "../fragment_design_system/plasmic.module.css"; // plasmic-import: h9Dbk9ygddw7UVEq1NNhKi/projectcss
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectcss
 import sty from "./PlasmicDynamicPageCardItem.module.css"; // plasmic-import: 0UcJTMqEEn6u/css
+
+import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
 
 createPlasmicElementProxy;
 
@@ -104,7 +104,8 @@ export type PlasmicDynamicPageCardItem__OverridesType = {
   root?: Flex__<"div">;
   header?: Flex__<"a"> & Partial<LinkProps>;
   captionText?: Flex__<"div">;
-  avatar?: Flex__<typeof Avatar>;
+  svg?: Flex__<"svg">;
+  img?: Flex__<typeof PlasmicImg__>;
   subtitleText?: Flex__<"div">;
   body?: Flex__<"div">;
 };
@@ -257,77 +258,73 @@ function PlasmicDynamicPageCardItem__RenderFunc(props: {
         })()}
         platform={"nextjs"}
       >
-        <div
-          data-plasmic-name={"captionText"}
-          data-plasmic-override={overrides.captionText}
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.captionText
-          )}
-        >
-          <React.Fragment>
-            {(() => {
-              try {
-                return $props.caption;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "\u067e\u0630\u06cc\u0631\u063424";
-                }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
-        </div>
-        <div className={classNames(projectcss.all, sty.freeBox__wHmgr)}>
-          {(() => {
-            try {
-              return !!$props.iconUrl;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })() ? (
-            <Avatar
-              data-plasmic-name={"avatar"}
-              data-plasmic-override={overrides.avatar}
-              className={classNames("__wab_instance", sty.avatar)}
-              ring={"slate"}
-              src={(() => {
+        <div className={classNames(projectcss.all, sty.freeBox__yYon2)}>
+          <div
+            data-plasmic-name={"captionText"}
+            data-plasmic-override={overrides.captionText}
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.captionText
+            )}
+          >
+            <React.Fragment>
+              {(() => {
                 try {
-                  return $props.iconUrl;
+                  return $props.caption;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
                     e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    return undefined;
+                    return " ";
                   }
                   throw e;
                 }
               })()}
-            />
-          ) : null}
+            </React.Fragment>
+          </div>
+          <ChevronLeftIcon
+            data-plasmic-name={"svg"}
+            data-plasmic-override={overrides.svg}
+            className={classNames(projectcss.all, sty.svg)}
+            role={"img"}
+          />
         </div>
         <Stack__
           as={"div"}
           hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__o2RtP, {
-            [sty.freeBoxnoTitle__o2RtPbvtJw]: hasVariant(
-              $state,
-              "noTitle",
-              "noTitle"
-            )
-          })}
+          className={classNames(projectcss.all, sty.freeBox__wHmgr)}
         >
+          <PlasmicImg__
+            data-plasmic-name={"img"}
+            data-plasmic-override={overrides.img}
+            alt={""}
+            className={classNames(sty.img)}
+            displayHeight={"auto"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"auto"}
+            height={"30"}
+            loading={"lazy"}
+            src={(() => {
+              try {
+                return $props.iconUrl;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            width={"30"}
+          />
+
           <div
             className={classNames(
               projectcss.all,
@@ -351,37 +348,37 @@ function PlasmicDynamicPageCardItem__RenderFunc(props: {
               })()}
             </React.Fragment>
           </div>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__sWitC)}
+        </Stack__>
+        <Stack__
+          as={"div"}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.freeBox__sWitC)}
+        >
+          <div
+            data-plasmic-name={"subtitleText"}
+            data-plasmic-override={overrides.subtitleText}
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.subtitleText
+            )}
           >
-            <div
-              data-plasmic-name={"subtitleText"}
-              data-plasmic-override={overrides.subtitleText}
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.subtitleText
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return $props.subtitle;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return " ";
-                    }
-                    throw e;
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $props.subtitle;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return " ";
                   }
-                })()}
-              </React.Fragment>
-            </div>
-          </Stack__>
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </div>
         </Stack__>
       </Stack__>
       <div
@@ -411,10 +408,11 @@ function PlasmicDynamicPageCardItem__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "header", "captionText", "avatar", "subtitleText", "body"],
-  header: ["header", "captionText", "avatar", "subtitleText"],
+  root: ["root", "header", "captionText", "svg", "img", "subtitleText", "body"],
+  header: ["header", "captionText", "svg", "img", "subtitleText"],
   captionText: ["captionText"],
-  avatar: ["avatar"],
+  svg: ["svg"],
+  img: ["img"],
   subtitleText: ["subtitleText"],
   body: ["body"]
 } as const;
@@ -425,7 +423,8 @@ type NodeDefaultElementType = {
   root: "div";
   header: "a";
   captionText: "div";
-  avatar: typeof Avatar;
+  svg: "svg";
+  img: typeof PlasmicImg__;
   subtitleText: "div";
   body: "div";
 };
@@ -492,7 +491,8 @@ export const PlasmicDynamicPageCardItem = Object.assign(
     // Helper components rendering sub-elements
     header: makeNodeComponent("header"),
     captionText: makeNodeComponent("captionText"),
-    avatar: makeNodeComponent("avatar"),
+    svg: makeNodeComponent("svg"),
+    img: makeNodeComponent("img"),
     subtitleText: makeNodeComponent("subtitleText"),
     body: makeNodeComponent("body"),
 
