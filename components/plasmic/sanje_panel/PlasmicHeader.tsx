@@ -164,12 +164,12 @@ function PlasmicHeader__RenderFunc(props: {
             data-plasmic-override={overrides.img}
             alt={""}
             className={classNames(sty.img)}
-            displayHeight={"42px"}
+            displayHeight={"32px"}
             displayMaxHeight={"none"}
             displayMaxWidth={"100%"}
             displayMinHeight={"0"}
             displayMinWidth={"0"}
-            displayWidth={"40px"}
+            displayWidth={"30px"}
             loading={"lazy"}
             src={{
               src: "/plasmic/sanje_panel/images/image9.svg",
