@@ -69,22 +69,37 @@
 .headernoTitle {
   display: none;
 }
-.captionText {
+.freeBox__yYon2 {
+  display: flex;
+  flex-direction: row;
   position: absolute;
+  align-items: center;
+  justify-content: flex-start;
   width: auto;
   height: auto;
   max-width: 100%;
-  color: var(--token-sMH6_tUwTYlv);
-  text-align: left;
-  background: var(--token-BU1JCAY6hntB);
+  top: auto;
+  left: var(--token-fhaz6q6bl-fW);
+  bottom: var(--token-vMUQwr5Jto1d);
   align-self: auto;
+}
+.captionText {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  background: var(--token-BU1JCAY6hntB);
   padding-right: 11px;
   padding-left: 11px;
-  font-size: var(--token-VrIY9r5RDQZ_);
   opacity: 0.8;
-  left: var(--token-_c276Gs_1FIE);
-  top: var(--token-vMUQwr5Jto1d);
+  text-align: left;
+  color: var(--token-sMH6_tUwTYlv);
+  font-size: var(--token-VrIY9r5RDQZ_);
   border-radius: var(--token-dT-owZu8-6an);
+}
+.svg {
+  object-fit: cover;
+  max-width: 100%;
+  height: 1em;
 }
 .freeBox__wHmgr {
   display: flex;
