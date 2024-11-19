@@ -1,0 +1,19 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+}
+.fragmentChart:global(.__wab_instance) {
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  margin-right: 0px;
+  height: 443px;
+  min-width: 0;
+  flex-shrink: 0;
+}
