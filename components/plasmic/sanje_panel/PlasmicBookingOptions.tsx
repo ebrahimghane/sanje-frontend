@@ -59,6 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import Header from "../../Header"; // plasmic-import: OuJG8ggWPxG0/component
 import DynamicPagePageSection from "../../DynamicPagePageSection"; // plasmic-import: w-k8SPtgF7fV/component
 import ScriptsAndGeneralTags from "../../ScriptsAndGeneralTags"; // plasmic-import: zZNx54MRT-Br/component
 
@@ -82,6 +83,8 @@ export const PlasmicBookingOptions__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicBookingOptions__OverridesType = {
   root?: Flex__<"div">;
+  header?: Flex__<typeof Header>;
+  freeBox?: Flex__<"div">;
   dynamicPagePageSection?: Flex__<typeof DynamicPagePageSection>;
   scriptsAndGeneralTags?: Flex__<typeof ScriptsAndGeneralTags>;
 };
@@ -153,13 +156,27 @@ function PlasmicBookingOptions__RenderFunc(props: {
             sty.root
           )}
         >
-          <DynamicPagePageSection
-            data-plasmic-name={"dynamicPagePageSection"}
-            data-plasmic-override={overrides.dynamicPagePageSection}
-            className={classNames("__wab_instance", sty.dynamicPagePageSection)}
-            dataSourceUrl={`https://apigw.paziresh24.com/v1/ui-jahannama/booking_selection_page_ui/${$ctx.query.document_id}`}
+          <Header
+            data-plasmic-name={"header"}
+            data-plasmic-override={overrides.header}
+            className={classNames("__wab_instance", sty.header)}
           />
 
+          <div
+            data-plasmic-name={"freeBox"}
+            data-plasmic-override={overrides.freeBox}
+            className={classNames(projectcss.all, sty.freeBox)}
+          >
+            <DynamicPagePageSection
+              data-plasmic-name={"dynamicPagePageSection"}
+              data-plasmic-override={overrides.dynamicPagePageSection}
+              className={classNames(
+                "__wab_instance",
+                sty.dynamicPagePageSection
+              )}
+              dataSourceUrl={`https://apigw.paziresh24.com/v1/ui-jahannama/booking_selection_page_ui/${$ctx.query.document_id}`}
+            />
+          </div>
           <ScriptsAndGeneralTags
             data-plasmic-name={"scriptsAndGeneralTags"}
             data-plasmic-override={overrides.scriptsAndGeneralTags}
@@ -172,7 +189,15 @@ function PlasmicBookingOptions__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "dynamicPagePageSection", "scriptsAndGeneralTags"],
+  root: [
+    "root",
+    "header",
+    "freeBox",
+    "dynamicPagePageSection",
+    "scriptsAndGeneralTags"
+  ],
+  header: ["header"],
+  freeBox: ["freeBox", "dynamicPagePageSection"],
   dynamicPagePageSection: ["dynamicPagePageSection"],
   scriptsAndGeneralTags: ["scriptsAndGeneralTags"]
 } as const;
@@ -181,6 +206,8 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  header: typeof Header;
+  freeBox: "div";
   dynamicPagePageSection: typeof DynamicPagePageSection;
   scriptsAndGeneralTags: typeof ScriptsAndGeneralTags;
 };
@@ -245,6 +272,8 @@ export const PlasmicBookingOptions = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    header: makeNodeComponent("header"),
+    freeBox: makeNodeComponent("freeBox"),
     dynamicPagePageSection: makeNodeComponent("dynamicPagePageSection"),
     scriptsAndGeneralTags: makeNodeComponent("scriptsAndGeneralTags"),
 
