@@ -649,6 +649,19 @@
           "cssFilePath": "plasmic/sanje_panel/PlasmicSampleTestChart.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "OuJG8ggWPxG0",
+          "name": "Header",
+          "type": "managed",
+          "projectId": "aU6fPsMDSmKqgHWpAbdgs",
+          "renderModuleFilePath": "plasmic/sanje_panel/PlasmicHeader.tsx",
+          "importSpec": {
+            "modulePath": "Header.tsx"
+          },
+          "cssFilePath": "plasmic/sanje_panel/PlasmicHeader.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -758,6 +771,16 @@
           "id": "KXYZwvVjQjB7",
           "name": "image 7",
           "filePath": "../public/plasmic/sanje_panel/images/image7.svg"
+        },
+        {
+          "id": "mQbOodyNS2fS",
+          "name": "image 8",
+          "filePath": "../public/plasmic/sanje_panel/images/image8.png"
+        },
+        {
+          "id": "vC3SUn6vS2NR",
+          "name": "image 9",
+          "filePath": "../public/plasmic/sanje_panel/images/image9.svg"
         }
       ],
       "indirect": false,
