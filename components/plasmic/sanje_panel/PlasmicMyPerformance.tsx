@@ -94,13 +94,13 @@ export const PlasmicMyPerformance__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicMyPerformance__OverridesType = {
   root?: Flex__<"div">;
+  h4?: Flex__<"h4">;
   getMySearchDocument?: Flex__<typeof ApiRequest>;
   growthOpportunitiesFragmentApiRequest?: Flex__<typeof ApiRequest>;
   groupExpertiseOnlineVisitsPricingStats?: Flex__<typeof DataFetcher>;
   linearScaleCustomChart2?: Flex__<typeof LinearScaleCustomChart2>;
   linearScaleCustomChart?: Flex__<typeof LinearScaleCustomChart>;
   link?: Flex__<"a"> & Partial<LinkProps>;
-  h4?: Flex__<"h4">;
   newsUpdatesFragmentApiRequest?: Flex__<typeof ApiRequest>;
   sanjeSearchCardViewFragmentApiRequest2?: Flex__<typeof ApiRequest>;
   sanjeSearchClickPositionFragmentApiRequest3?: Flex__<typeof ApiRequest>;
@@ -320,6 +320,41 @@ function PlasmicMyPerformance__RenderFunc(props: {
           )}
           dir={"RTL"}
         >
+          <h4
+            data-plasmic-name={"h4"}
+            data-plasmic-override={overrides.h4}
+            className={classNames(
+              projectcss.all,
+              projectcss.h4,
+              projectcss.__wab_text,
+              sty.h4
+            )}
+          >
+            <div
+              className={projectcss.__wab_expr_html_text}
+              dangerouslySetInnerHTML={{
+                __html: (() => {
+                  try {
+                    return (
+                      "شاخص‌های عملکرد " +
+                      "<b>" +
+                      $state.getMySearchDocument.data.entity.display_name +
+                      "</b>" +
+                      " 👋"
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "\u0634\u0627\u062e\u0635\u200c\u0647\u0627\u06cc \u0639\u0645\u0644\u06a9\u0631\u062f \u0634\u0645\u0627";
+                    }
+                    throw e;
+                  }
+                })()
+              }}
+            />
+          </h4>
           <ApiRequest
             data-plasmic-name={"getMySearchDocument"}
             data-plasmic-override={overrides.getMySearchDocument}
@@ -334,6 +369,19 @@ function PlasmicMyPerformance__RenderFunc(props: {
               >
                 {
                   "\u062e\u0637\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a. \u0633\u0637\u062d \u062f\u0633\u062a\u0631\u0633\u06cc \u062e\u0648\u062f \u0628\u0631\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0631\u0627 \u0628\u0631\u0631\u0633\u06cc \u06a9\u0646\u06cc\u062f."
+                }
+              </div>
+            }
+            loadingDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__by5IM
+                )}
+              >
+                {
+                  "\n\u062f\u0631 \u062d\u0627\u0644 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a.\n"
                 }
               </div>
             }
@@ -385,7 +433,9 @@ function PlasmicMyPerformance__RenderFunc(props: {
                   sty.text__rhRI
                 )}
               >
-                {"Loading..."}
+                {
+                  "\u062f\u0631 \u062d\u0627\u0644 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a ..."
+                }
               </div>
             }
             method={"GET"}
@@ -674,10 +724,6 @@ function PlasmicMyPerformance__RenderFunc(props: {
                         </DataCtxReader__>
                       }
                       errorName={"fetchError"}
-                      headers={{
-                        "Content-Type": "application/json",
-                        Accept: "application/json"
-                      }}
                       key={currentIndex}
                       loadingDisplay={
                         <DataCtxReader__>
@@ -1161,41 +1207,6 @@ function PlasmicMyPerformance__RenderFunc(props: {
             ) : null}
           </div>
           <div className={classNames(projectcss.all, sty.freeBox___2PNhM)}>
-            <h4
-              data-plasmic-name={"h4"}
-              data-plasmic-override={overrides.h4}
-              className={classNames(
-                projectcss.all,
-                projectcss.h4,
-                projectcss.__wab_text,
-                sty.h4
-              )}
-            >
-              <div
-                className={projectcss.__wab_expr_html_text}
-                dangerouslySetInnerHTML={{
-                  __html: (() => {
-                    try {
-                      return (
-                        "شاخص‌های عملکرد " +
-                        "<b>" +
-                        $state.getMySearchDocument.data.entity.display_name +
-                        "</b>" +
-                        " 👋"
-                      );
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "\u0634\u0627\u062e\u0635\u200c\u0647\u0627\u06cc \u0639\u0645\u0644\u06a9\u0631\u062f \u0634\u0645\u0627";
-                      }
-                      throw e;
-                    }
-                  })()
-                }}
-              />
-            </h4>
             <ApiRequest
               data-plasmic-name={"newsUpdatesFragmentApiRequest"}
               data-plasmic-override={overrides.newsUpdatesFragmentApiRequest}
@@ -1911,6 +1922,116 @@ function PlasmicMyPerformance__RenderFunc(props: {
               ) {
                 $steps["loadMetrica"] = await $steps["loadMetrica"];
               }
+
+              $steps["userIdToYandexMetrica"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (function sendUserDetailsToMetrica() {
+                          async function fetchUserDetails() {
+                            try {
+                              const response = await fetch(
+                                "https://apigw.paziresh24.com/v1/auth/me",
+                                {
+                                  method: "GET",
+                                  credentials: "include",
+                                  headers: {
+                                    "Content-Type": "application/json"
+                                  }
+                                }
+                              );
+                              if (!response.ok) {
+                                console.error(
+                                  "Failed to fetch user data:",
+                                  response.statusText
+                                );
+                                return null;
+                              }
+                              const data = await response.json();
+                              if (data && data.users && data.users[0]) {
+                                return {
+                                  id: data.users[0].id?.toString() || null,
+                                  family: data.users[0].family || null,
+                                  name: data.users[0].name || null,
+                                  cell: data.users[0].cell || null,
+                                  email: data.users[0].email || null,
+                                  username: data.users[0].username || null,
+                                  national_code:
+                                    data.users[0].national_code || null,
+                                  gender: data.users[0].gender || null,
+                                  country_code_id:
+                                    data.users[0].country_code_id || null
+                                };
+                              } else {
+                                console.error(
+                                  "User data not found in API response."
+                                );
+                                return null;
+                              }
+                            } catch (error) {
+                              console.error("Error fetching user data:", error);
+                              return null;
+                            }
+                          }
+                          function isMetricaInitialized() {
+                            return typeof ym === "function";
+                          }
+                          async function sendToMetrica() {
+                            if (!isMetricaInitialized()) {
+                              console.error(
+                                "Yandex Metrica is not initialized. Please ensure it is included on your site."
+                              );
+                              return;
+                            }
+                            const userDetails = await fetchUserDetails();
+                            if (!userDetails || !userDetails.id) {
+                              console.error(
+                                "Failed to retrieve user details or User ID. Aborting sending to Yandex Metrica."
+                              );
+                              return;
+                            }
+                            const counterId = 98010713;
+                            try {
+                              ym(counterId, "userParams", {
+                                user_id: userDetails.id,
+                                family: userDetails.family,
+                                name: userDetails.name,
+                                cell: userDetails.cell,
+                                email: userDetails.email,
+                                username: userDetails.username,
+                                national_code: userDetails.national_code,
+                                gender: userDetails.gender,
+                                country_code_id: userDetails.country_code_id
+                              });
+                              console.log(
+                                `User details successfully sent to Yandex Metrica:`,
+                                userDetails
+                              );
+                            } catch (error) {
+                              console.error(
+                                "Error sending user details to Yandex Metrica:",
+                                error
+                              );
+                            }
+                          }
+                          setTimeout(sendToMetrica, 3000);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["userIdToYandexMetrica"] != null &&
+                typeof $steps["userIdToYandexMetrica"] === "object" &&
+                typeof $steps["userIdToYandexMetrica"].then === "function"
+              ) {
+                $steps["userIdToYandexMetrica"] = await $steps[
+                  "userIdToYandexMetrica"
+                ];
+              }
             }}
           />
 
@@ -1931,13 +2052,13 @@ function PlasmicMyPerformance__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "h4",
     "getMySearchDocument",
     "growthOpportunitiesFragmentApiRequest",
     "groupExpertiseOnlineVisitsPricingStats",
     "linearScaleCustomChart2",
     "linearScaleCustomChart",
     "link",
-    "h4",
     "newsUpdatesFragmentApiRequest",
     "sanjeSearchCardViewFragmentApiRequest2",
     "sanjeSearchClickPositionFragmentApiRequest3",
@@ -1948,6 +2069,7 @@ const PlasmicDescendants = {
     "runGtmAndMetricaSideEffect",
     "gtm"
   ],
+  h4: ["h4"],
   getMySearchDocument: ["getMySearchDocument"],
   growthOpportunitiesFragmentApiRequest: [
     "growthOpportunitiesFragmentApiRequest"
@@ -1961,7 +2083,6 @@ const PlasmicDescendants = {
   linearScaleCustomChart2: ["linearScaleCustomChart2"],
   linearScaleCustomChart: ["linearScaleCustomChart"],
   link: ["link"],
-  h4: ["h4"],
   newsUpdatesFragmentApiRequest: ["newsUpdatesFragmentApiRequest"],
   sanjeSearchCardViewFragmentApiRequest2: [
     "sanjeSearchCardViewFragmentApiRequest2"
@@ -1981,13 +2102,13 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  h4: "h4";
   getMySearchDocument: typeof ApiRequest;
   growthOpportunitiesFragmentApiRequest: typeof ApiRequest;
   groupExpertiseOnlineVisitsPricingStats: typeof DataFetcher;
   linearScaleCustomChart2: typeof LinearScaleCustomChart2;
   linearScaleCustomChart: typeof LinearScaleCustomChart;
   link: "a";
-  h4: "h4";
   newsUpdatesFragmentApiRequest: typeof ApiRequest;
   sanjeSearchCardViewFragmentApiRequest2: typeof ApiRequest;
   sanjeSearchClickPositionFragmentApiRequest3: typeof ApiRequest;
@@ -2059,6 +2180,7 @@ export const PlasmicMyPerformance = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    h4: makeNodeComponent("h4"),
     getMySearchDocument: makeNodeComponent("getMySearchDocument"),
     growthOpportunitiesFragmentApiRequest: makeNodeComponent(
       "growthOpportunitiesFragmentApiRequest"
@@ -2069,7 +2191,6 @@ export const PlasmicMyPerformance = Object.assign(
     linearScaleCustomChart2: makeNodeComponent("linearScaleCustomChart2"),
     linearScaleCustomChart: makeNodeComponent("linearScaleCustomChart"),
     link: makeNodeComponent("link"),
-    h4: makeNodeComponent("h4"),
     newsUpdatesFragmentApiRequest: makeNodeComponent(
       "newsUpdatesFragmentApiRequest"
     ),
