@@ -60,6 +60,9 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import { Chart } from "@/fragment/components/chart"; // plasmic-import: eqIt45l1ABZu/codeComponent
+import { AntdAccordion } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import { accordionHelpers as AntdAccordion_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import { AntdAccordionItem } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -83,6 +86,7 @@ export const PlasmicSampleTestChart__ArgProps = new Array<ArgPropType>();
 export type PlasmicSampleTestChart__OverridesType = {
   root?: Flex__<"div">;
   fragmentChart?: Flex__<typeof Chart>;
+  accordion?: Flex__<typeof AntdAccordion>;
 };
 
 export interface DefaultSampleTestChartProps {
@@ -126,6 +130,29 @@ function PlasmicSampleTestChart__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "accordion.activePanelId",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec(
+          "activePanelId",
+          AntdAccordion_Helpers
+        )
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
 
   return (
     <div
@@ -368,13 +395,113 @@ function PlasmicSampleTestChart__RenderFunc(props: {
           return __composite;
         })()}
       />
+
+      {(() => {
+        const child$Props = {
+          activeKey: generateStateValueProp($state, [
+            "accordion",
+            "activePanelId"
+          ]),
+          bordered: true,
+          className: classNames("__wab_instance", sty.accordion),
+          items: (
+            <React.Fragment>
+              <AntdAccordionItem
+                className={classNames(
+                  "__wab_instance",
+                  sty.accordionItem__pDnnm
+                )}
+                id={1}
+                label2={
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___6Tgp9
+                    )}
+                  >
+                    {"First Item"}
+                  </div>
+                }
+                showArrow={true}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__l0Zxo
+                  )}
+                >
+                  {"First Children"}
+                </div>
+              </AntdAccordionItem>
+              <AntdAccordionItem
+                className={classNames(
+                  "__wab_instance",
+                  sty.accordionItem___80Leo
+                )}
+                id={2}
+                label2={
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__c2N3O
+                    )}
+                  >
+                    {"Second Item"}
+                  </div>
+                }
+                showArrow={true}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__mmg3
+                  )}
+                >
+                  {"Second Children"}
+                </div>
+              </AntdAccordionItem>
+            </React.Fragment>
+          ),
+          onChange: generateStateOnChangePropForCodeComponents(
+            $state,
+            "activePanelId",
+            ["accordion", "activePanelId"],
+            AntdAccordion_Helpers
+          )
+        };
+        initializeCodeComponentStates(
+          $state,
+          [
+            {
+              name: "activePanelId",
+              plasmicStateName: "accordion.activePanelId"
+            }
+          ],
+          [],
+          AntdAccordion_Helpers ?? {},
+          child$Props
+        );
+
+        return (
+          <AntdAccordion
+            data-plasmic-name={"accordion"}
+            data-plasmic-override={overrides.accordion}
+            {...child$Props}
+          />
+        );
+      })()}
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "fragmentChart"],
-  fragmentChart: ["fragmentChart"]
+  root: ["root", "fragmentChart", "accordion"],
+  fragmentChart: ["fragmentChart"],
+  accordion: ["accordion"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -382,6 +509,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   fragmentChart: typeof Chart;
+  accordion: typeof AntdAccordion;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -445,6 +573,7 @@ export const PlasmicSampleTestChart = Object.assign(
   {
     // Helper components rendering sub-elements
     fragmentChart: makeNodeComponent("fragmentChart"),
+    accordion: makeNodeComponent("accordion"),
 
     // Metadata about props expected for PlasmicSampleTestChart
     internalVariantProps: PlasmicSampleTestChart__VariantProps,
