@@ -40,6 +40,13 @@
   object-fit: cover;
   position: relative;
 }
+.img__p1MY {
+  object-fit: scale-down;
+  max-width: 100%;
+}
+.img__p1MY > picture > img {
+  object-fit: scale-down;
+}
 .text__by5IM {
   width: 100%;
   height: auto;
@@ -55,6 +62,13 @@
 .growthOpportunitiesFragmentApiRequest:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
+}
+.img__cuWEd {
+  object-fit: scale-down;
+  max-width: 100%;
+}
+.img__cuWEd > picture > img {
+  object-fit: scale-down;
 }
 .text__rhRI {
   position: relative;
