@@ -96,7 +96,6 @@ export const PlasmicTaskCardItem__ArgProps = new Array<ArgPropType>(
 export type PlasmicTaskCardItem__OverridesType = {
   root?: Flex__<"div">;
   accordion?: Flex__<typeof AntdAccordion>;
-  freeBox?: Flex__<"div">;
 };
 
 export interface DefaultTaskCardItemProps {
@@ -195,6 +194,19 @@ function PlasmicTaskCardItem__RenderFunc(props: {
           ]),
           bordered: true,
           className: classNames("__wab_instance", sty.accordion),
+          expandIcon: (
+            <div className={classNames(projectcss.all, sty.freeBox__rPrQh)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__b0E5I
+                )}
+              >
+                {"\u25c1"}
+              </div>
+            </div>
+          ),
           expandIconPosition: "end",
           forceRender: false,
           ghost: false,
@@ -209,9 +221,7 @@ function PlasmicTaskCardItem__RenderFunc(props: {
                 id={1}
                 label2={
                   <div
-                    data-plasmic-name={"freeBox"}
-                    data-plasmic-override={overrides.freeBox}
-                    className={classNames(projectcss.all, sty.freeBox)}
+                    className={classNames(projectcss.all, sty.freeBox__cKzxW)}
                   >
                     <div
                       className={classNames(
@@ -381,9 +391,8 @@ function PlasmicTaskCardItem__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "accordion", "freeBox"],
-  accordion: ["accordion", "freeBox"],
-  freeBox: ["freeBox"]
+  root: ["root", "accordion"],
+  accordion: ["accordion"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -391,7 +400,6 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   accordion: typeof AntdAccordion;
-  freeBox: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -455,7 +463,6 @@ export const PlasmicTaskCardItem = Object.assign(
   {
     // Helper components rendering sub-elements
     accordion: makeNodeComponent("accordion"),
-    freeBox: makeNodeComponent("freeBox"),
 
     // Metadata about props expected for PlasmicTaskCardItem
     internalVariantProps: PlasmicTaskCardItem__VariantProps,
