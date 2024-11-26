@@ -373,17 +373,37 @@ function PlasmicMyPerformance__RenderFunc(props: {
               </div>
             }
             loadingDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__by5IM
-                )}
-              >
-                {
-                  "\n\u062f\u0631 \u062d\u0627\u0644 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a.\n"
-                }
-              </div>
+              <React.Fragment>
+                <PlasmicImg__
+                  alt={""}
+                  className={classNames(sty.img__p1MY)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"auto"}
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/sanje_panel/images/image10.svg",
+                    fullWidth: 200,
+                    fullHeight: 200,
+                    aspectRatio: 1
+                  }}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__by5IM
+                  )}
+                >
+                  {
+                    "\n\u062f\u0631 \u062d\u0627\u0644 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a...\n"
+                  }
+                </div>
+              </React.Fragment>
             }
             method={"GET"}
             onError={generateStateOnChangeProp($state, [
@@ -426,17 +446,37 @@ function PlasmicMyPerformance__RenderFunc(props: {
               </div>
             }
             loadingDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__rhRI
-                )}
-              >
-                {
-                  "\u062f\u0631 \u062d\u0627\u0644 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a ..."
-                }
-              </div>
+              <React.Fragment>
+                <PlasmicImg__
+                  alt={""}
+                  className={classNames(sty.img__cuWEd)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"auto"}
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/sanje_panel/images/image10.svg",
+                    fullWidth: 200,
+                    fullHeight: 200,
+                    aspectRatio: 1
+                  }}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__rhRI
+                  )}
+                >
+                  {
+                    "\u062f\u0631 \u062d\u0627\u0644 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a ..."
+                  }
+                </div>
+              </React.Fragment>
             }
             method={"GET"}
             onError={generateStateOnChangeProp($state, [

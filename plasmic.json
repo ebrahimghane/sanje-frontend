@@ -338,7 +338,8 @@
           "componentImportPath": "@plasmicpkgs/plasmic-query"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "h9Dbk9ygddw7UVEq1NNhKi",
@@ -780,6 +781,11 @@
           "id": "vC3SUn6vS2NR",
           "name": "image 9",
           "filePath": "../public/plasmic/sanje_panel/images/image9.svg"
+        },
+        {
+          "id": "8hxSv_8rxzq3",
+          "name": "image 10",
+          "filePath": "../public/plasmic/sanje_panel/images/image10.svg"
         }
       ],
       "indirect": false,
