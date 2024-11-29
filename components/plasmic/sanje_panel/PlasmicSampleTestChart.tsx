@@ -63,6 +63,7 @@ import { Chart } from "@/fragment/components/chart"; // plasmic-import: eqIt45l1
 import { AntdAccordion } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { accordionHelpers as AntdAccordion_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { AntdAccordionItem } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import LinearScaleCustomChart from "../../LinearScaleCustomChart"; // plasmic-import: 15G81XIekDs9/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -87,6 +88,7 @@ export type PlasmicSampleTestChart__OverridesType = {
   root?: Flex__<"div">;
   fragmentChart?: Flex__<typeof Chart>;
   accordion?: Flex__<typeof AntdAccordion>;
+  linearScaleCustomChart?: Flex__<typeof LinearScaleCustomChart>;
 };
 
 export interface DefaultSampleTestChartProps {
@@ -494,14 +496,22 @@ function PlasmicSampleTestChart__RenderFunc(props: {
           />
         );
       })()}
+      <LinearScaleCustomChart
+        data-plasmic-name={"linearScaleCustomChart"}
+        data-plasmic-override={overrides.linearScaleCustomChart}
+        className={classNames("__wab_instance", sty.linearScaleCustomChart)}
+        label={``}
+        range={50}
+      />
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "fragmentChart", "accordion"],
+  root: ["root", "fragmentChart", "accordion", "linearScaleCustomChart"],
   fragmentChart: ["fragmentChart"],
-  accordion: ["accordion"]
+  accordion: ["accordion"],
+  linearScaleCustomChart: ["linearScaleCustomChart"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -510,6 +520,7 @@ type NodeDefaultElementType = {
   root: "div";
   fragmentChart: typeof Chart;
   accordion: typeof AntdAccordion;
+  linearScaleCustomChart: typeof LinearScaleCustomChart;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -574,6 +585,7 @@ export const PlasmicSampleTestChart = Object.assign(
     // Helper components rendering sub-elements
     fragmentChart: makeNodeComponent("fragmentChart"),
     accordion: makeNodeComponent("accordion"),
+    linearScaleCustomChart: makeNodeComponent("linearScaleCustomChart"),
 
     // Metadata about props expected for PlasmicSampleTestChart
     internalVariantProps: PlasmicSampleTestChart__VariantProps,

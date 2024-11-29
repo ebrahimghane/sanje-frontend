@@ -359,6 +359,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
             data-plasmic-name={"getMySearchDocument"}
             data-plasmic-override={overrides.getMySearchDocument}
             className={classNames("__wab_instance", sty.getMySearchDocument)}
+            config={{ withCredentials: true }}
             errorDisplay={
               <div
                 className={classNames(
@@ -672,14 +673,15 @@ function PlasmicMyPerformance__RenderFunc(props: {
                   $state.currentDoctorData.entity.consult_services[0]
                     .free_price !== undefined &&
                   $state.currentDoctorData.entity.consult_services[0]
-                    .free_price !== null
+                    .free_price !== null &&
+                  $state.getMySearchDocument.data !== null
                 );
               } catch (e) {
                 if (
                   e instanceof TypeError ||
                   e?.plasmicType === "PlasmicUndefinedDataError"
                 ) {
-                  return true;
+                  return false;
                 }
                 throw e;
               }
