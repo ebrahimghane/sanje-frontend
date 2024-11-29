@@ -94,6 +94,7 @@ export const PlasmicMyPerformance__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicMyPerformance__OverridesType = {
   root?: Flex__<"div">;
+  newsUpdatesFragmentApiRequest?: Flex__<typeof ApiRequest>;
   h4?: Flex__<"h4">;
   getMySearchDocument?: Flex__<typeof ApiRequest>;
   growthOpportunitiesFragmentApiRequest?: Flex__<typeof ApiRequest>;
@@ -101,7 +102,6 @@ export type PlasmicMyPerformance__OverridesType = {
   linearScaleCustomChart2?: Flex__<typeof LinearScaleCustomChart2>;
   linearScaleCustomChart?: Flex__<typeof LinearScaleCustomChart>;
   link?: Flex__<"a"> & Partial<LinkProps>;
-  newsUpdatesFragmentApiRequest?: Flex__<typeof ApiRequest>;
   sanjeSearchCardViewFragmentApiRequest2?: Flex__<typeof ApiRequest>;
   sanjeSearchClickPositionFragmentApiRequest3?: Flex__<typeof ApiRequest>;
   button?: Flex__<typeof Button>;
@@ -320,6 +320,161 @@ function PlasmicMyPerformance__RenderFunc(props: {
           )}
           dir={"RTL"}
         >
+          <ApiRequest
+            data-plasmic-name={"newsUpdatesFragmentApiRequest"}
+            data-plasmic-override={overrides.newsUpdatesFragmentApiRequest}
+            className={classNames(
+              "__wab_instance",
+              sty.newsUpdatesFragmentApiRequest
+            )}
+            errorDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__wco8H
+                )}
+              >
+                {".."}
+              </div>
+            }
+            loadingDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__ouBiq
+                )}
+              >
+                {
+                  "\u062f\u0631 \u062d\u0627\u0644 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a"
+                }
+              </div>
+            }
+            method={"GET"}
+            onError={generateStateOnChangeProp($state, [
+              "newsUpdatesFragmentApiRequest",
+              "error"
+            ])}
+            onLoading={generateStateOnChangeProp($state, [
+              "newsUpdatesFragmentApiRequest",
+              "loading"
+            ])}
+            onSuccess={generateStateOnChangeProp($state, [
+              "newsUpdatesFragmentApiRequest",
+              "data"
+            ])}
+            url={
+              "https://apigw.paziresh24.com/v1/n8n-search/webhook/sanje-news-updates"
+            }
+          >
+            {(() => {
+              try {
+                return !!$state.newsUpdatesFragmentApiRequest.data.news;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()
+              ? (_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return $state.newsUpdatesFragmentApiRequest.data.news;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const __index = __plasmic_idx_0;
+                  return (
+                    <TaskCardItem
+                      className={classNames(
+                        "__wab_instance",
+                        sty.taskCardItem__gd7V
+                      )}
+                      description={(() => {
+                        try {
+                          return currentItem.description;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      icon={(() => {
+                        try {
+                          return currentItem.icon;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      key={__index}
+                      subtitle={(() => {
+                        try {
+                          return currentItem.subtitle;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      title={(() => {
+                        try {
+                          return currentItem.title;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      type={(() => {
+                        try {
+                          return currentItem.type;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    />
+                  );
+                })
+              : null}
+          </ApiRequest>
           <h4
             data-plasmic-name={"h4"}
             data-plasmic-override={overrides.h4}
@@ -1255,147 +1410,6 @@ function PlasmicMyPerformance__RenderFunc(props: {
             ) : null}
           </div>
           <div className={classNames(projectcss.all, sty.freeBox___2PNhM)}>
-            <ApiRequest
-              data-plasmic-name={"newsUpdatesFragmentApiRequest"}
-              data-plasmic-override={overrides.newsUpdatesFragmentApiRequest}
-              className={classNames(
-                "__wab_instance",
-                sty.newsUpdatesFragmentApiRequest
-              )}
-              errorDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__wco8H
-                  )}
-                >
-                  {".."}
-                </div>
-              }
-              loadingDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__ouBiq
-                  )}
-                >
-                  {
-                    "\u062f\u0631 \u062d\u0627\u0644 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a"
-                  }
-                </div>
-              }
-              method={"GET"}
-              onError={generateStateOnChangeProp($state, [
-                "newsUpdatesFragmentApiRequest",
-                "error"
-              ])}
-              onLoading={generateStateOnChangeProp($state, [
-                "newsUpdatesFragmentApiRequest",
-                "loading"
-              ])}
-              onSuccess={generateStateOnChangeProp($state, [
-                "newsUpdatesFragmentApiRequest",
-                "data"
-              ])}
-              url={
-                "https://apigw.paziresh24.com/v1/n8n-search/webhook/sanje-news-updates"
-              }
-            >
-              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                (() => {
-                  try {
-                    return $state.newsUpdatesFragmentApiRequest.data.news;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return [];
-                    }
-                    throw e;
-                  }
-                })()
-              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                const currentItem = __plasmic_item_0;
-                const __index = __plasmic_idx_0;
-                return (
-                  <TaskCardItem
-                    className={classNames(
-                      "__wab_instance",
-                      sty.taskCardItem__gd7V
-                    )}
-                    description={(() => {
-                      try {
-                        return currentItem.description;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    icon={(() => {
-                      try {
-                        return currentItem.icon;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    key={__index}
-                    subtitle={(() => {
-                      try {
-                        return currentItem.subtitle;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    title={(() => {
-                      try {
-                        return currentItem.title;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    type={(() => {
-                      try {
-                        return currentItem.type;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                  />
-                );
-              })}
-            </ApiRequest>
             {(() => {
               try {
                 return (
@@ -2100,6 +2114,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "newsUpdatesFragmentApiRequest",
     "h4",
     "getMySearchDocument",
     "growthOpportunitiesFragmentApiRequest",
@@ -2107,7 +2122,6 @@ const PlasmicDescendants = {
     "linearScaleCustomChart2",
     "linearScaleCustomChart",
     "link",
-    "newsUpdatesFragmentApiRequest",
     "sanjeSearchCardViewFragmentApiRequest2",
     "sanjeSearchClickPositionFragmentApiRequest3",
     "button",
@@ -2117,6 +2131,7 @@ const PlasmicDescendants = {
     "runGtmAndMetricaSideEffect",
     "gtm"
   ],
+  newsUpdatesFragmentApiRequest: ["newsUpdatesFragmentApiRequest"],
   h4: ["h4"],
   getMySearchDocument: ["getMySearchDocument"],
   growthOpportunitiesFragmentApiRequest: [
@@ -2131,7 +2146,6 @@ const PlasmicDescendants = {
   linearScaleCustomChart2: ["linearScaleCustomChart2"],
   linearScaleCustomChart: ["linearScaleCustomChart"],
   link: ["link"],
-  newsUpdatesFragmentApiRequest: ["newsUpdatesFragmentApiRequest"],
   sanjeSearchCardViewFragmentApiRequest2: [
     "sanjeSearchCardViewFragmentApiRequest2"
   ],
@@ -2150,6 +2164,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  newsUpdatesFragmentApiRequest: typeof ApiRequest;
   h4: "h4";
   getMySearchDocument: typeof ApiRequest;
   growthOpportunitiesFragmentApiRequest: typeof ApiRequest;
@@ -2157,7 +2172,6 @@ type NodeDefaultElementType = {
   linearScaleCustomChart2: typeof LinearScaleCustomChart2;
   linearScaleCustomChart: typeof LinearScaleCustomChart;
   link: "a";
-  newsUpdatesFragmentApiRequest: typeof ApiRequest;
   sanjeSearchCardViewFragmentApiRequest2: typeof ApiRequest;
   sanjeSearchClickPositionFragmentApiRequest3: typeof ApiRequest;
   button: typeof Button;
@@ -2228,6 +2242,9 @@ export const PlasmicMyPerformance = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    newsUpdatesFragmentApiRequest: makeNodeComponent(
+      "newsUpdatesFragmentApiRequest"
+    ),
     h4: makeNodeComponent("h4"),
     getMySearchDocument: makeNodeComponent("getMySearchDocument"),
     growthOpportunitiesFragmentApiRequest: makeNodeComponent(
@@ -2239,9 +2256,6 @@ export const PlasmicMyPerformance = Object.assign(
     linearScaleCustomChart2: makeNodeComponent("linearScaleCustomChart2"),
     linearScaleCustomChart: makeNodeComponent("linearScaleCustomChart"),
     link: makeNodeComponent("link"),
-    newsUpdatesFragmentApiRequest: makeNodeComponent(
-      "newsUpdatesFragmentApiRequest"
-    ),
     sanjeSearchCardViewFragmentApiRequest2: makeNodeComponent(
       "sanjeSearchCardViewFragmentApiRequest2"
     ),
