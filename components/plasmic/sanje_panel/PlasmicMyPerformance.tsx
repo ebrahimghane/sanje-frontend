@@ -514,7 +514,6 @@ function PlasmicMyPerformance__RenderFunc(props: {
             data-plasmic-name={"getMySearchDocument"}
             data-plasmic-override={overrides.getMySearchDocument}
             className={classNames("__wab_instance", sty.getMySearchDocument)}
-            config={{ withCredentials: true }}
             errorDisplay={
               <div
                 className={classNames(
@@ -821,232 +820,179 @@ function PlasmicMyPerformance__RenderFunc(props: {
               </div>
             ) : null}
           </ApiRequest>
-          <div className={classNames(projectcss.all, sty.freeBox__hTcro)}>
-            {(() => {
-              try {
-                return (
-                  $state.currentDoctorData.entity.consult_services[0]
-                    .free_price !== undefined &&
-                  $state.currentDoctorData.entity.consult_services[0]
-                    .free_price !== null &&
-                  $state.getMySearchDocument.data !== null
-                );
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return false;
-                }
-                throw e;
+          {(() => {
+            try {
+              return (
+                $state.growthOpportunitiesFragmentApiRequest.data.statusType !==
+                "LOADING"
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
               }
-            })() ? (
-              <div className={classNames(projectcss.all, sty.freeBox___6T4Ji)}>
-                <h6
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.h6,
-                    projectcss.__wab_text,
-                    sty.h6__l69DR
-                  )}
-                >
-                  {
-                    "\ud83c\udff7\ufe0f \u0642\u06cc\u0645\u062a\u200c\u06af\u0630\u0627\u0631\u06cc \u0648\u06cc\u0632\u06cc\u062a \u0622\u0646\u0644\u0627\u06cc\u0646"
-                  }
-                </h6>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__z2EUv
-                  )}
-                >
-                  <div
-                    className={projectcss.__wab_expr_html_text}
-                    dangerouslySetInnerHTML={{
-                      __html: (() => {
-                        try {
-                          return (
-                            "مبلغ ویزیت آنلاین شما " +
-                            "<b>" +
-                            Intl.NumberFormat("fa-IR").format(
-                              Math.round(
-                                $state.getMySearchDocument.data.entity
-                                  .consult_services[0].free_price / 10000
-                              )
-                            ) +
-                            " هزارتومان</b> می‌باشد. "
-                          );
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "...";
-                          }
-                          throw e;
-                        }
-                      })()
-                    }}
-                  />
-                </div>
-                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                  (() => {
-                    try {
-                      return $state.getMySearchDocument.data.entity
-                        .group_expertise_id;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return [];
-                      }
-                      throw e;
-                    }
-                  })()
-                ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                  const currentItem = __plasmic_item_0;
-                  const currentIndex = __plasmic_idx_0;
+              throw e;
+            }
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox__hTcro)}>
+              {(() => {
+                try {
                   return (
-                    <DataFetcher
-                      data-plasmic-name={
-                        "groupExpertiseOnlineVisitsPricingStats"
-                      }
-                      data-plasmic-override={
-                        overrides.groupExpertiseOnlineVisitsPricingStats
-                      }
-                      className={classNames(
-                        "__wab_instance",
-                        sty.groupExpertiseOnlineVisitsPricingStats
-                      )}
-                      dataName={"fetchedData"}
-                      errorDisplay={
-                        <DataCtxReader__>
-                          {$ctx => "Error fetching data"}
-                        </DataCtxReader__>
-                      }
-                      errorName={"fetchError"}
-                      key={currentIndex}
-                      loadingDisplay={
-                        <DataCtxReader__>
-                          {$ctx => "Loading..."}
-                        </DataCtxReader__>
-                      }
-                      method={"GET"}
-                      noLayout={false}
-                      previewErrorDisplay={false}
-                      previewSpinner={false}
-                      url={(() => {
-                        try {
-                          return (
-                            "https://apigw.paziresh24.com/v1/n8n-search/webhook/GroupExpertiseOnlineVisitsPricingRangeStats?group_expertise_id=" +
-                            currentItem
-                          );
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
+                    $state.currentDoctorData.entity.consult_services[0]
+                      .free_price !== undefined &&
+                    $state.currentDoctorData.entity.consult_services[0]
+                      .free_price !== null &&
+                    $state.getMySearchDocument.data !== null
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___6T4Ji)}
+                >
+                  <h6
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h6,
+                      projectcss.__wab_text,
+                      sty.h6__l69DR
+                    )}
+                  >
+                    {
+                      "\ud83c\udff7\ufe0f \u0642\u06cc\u0645\u062a\u200c\u06af\u0630\u0627\u0631\u06cc \u0648\u06cc\u0632\u06cc\u062a \u0622\u0646\u0644\u0627\u06cc\u0646"
+                    }
+                  </h6>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__z2EUv
+                    )}
+                  >
+                    <div
+                      className={projectcss.__wab_expr_html_text}
+                      dangerouslySetInnerHTML={{
+                        __html: (() => {
+                          try {
+                            return (
+                              "مبلغ ویزیت آنلاین شما " +
+                              "<b>" +
+                              Intl.NumberFormat("fa-IR").format(
+                                Math.round(
+                                  $state.getMySearchDocument.data.entity
+                                    .consult_services[0].free_price / 10000
+                                )
+                              ) +
+                              " هزارتومان</b> می‌باشد. "
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "...";
+                            }
+                            throw e;
                           }
-                          throw e;
+                        })()
+                      }}
+                    />
+                  </div>
+                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return $state.getMySearchDocument.data.entity
+                          .group_expertise_id;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
                         }
-                      })()}
-                    >
-                      <DataCtxReader__>
-                        {$ctx => (
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__otToo
-                            )}
-                          >
-                            <h6
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.h6,
-                                projectcss.__wab_text,
-                                sty.h6__u6RgF
-                              )}
-                            >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return $ctx.fetchedData.group_name
-                                      ? "گروه " + $ctx.fetchedData.group_name
-                                      : "";
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "...";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            </h6>
-                            <LinearScaleCustomChart2
-                              data-plasmic-name={"linearScaleCustomChart2"}
-                              data-plasmic-override={
-                                overrides.linearScaleCustomChart2
-                              }
-                              chartTitle={
-                                "\u0641\u0631\u0627\u0648\u0627\u0646\u06cc \u0642\u06cc\u0645\u062a \u0628\u0647 \u0646\u0648\u0628\u062a"
-                              }
-                              className={classNames(
-                                "__wab_instance",
-                                sty.linearScaleCustomChart2
-                              )}
-                              rangeStatsArray={(() => {
-                                try {
-                                  return $ctx.fetchedData[1].factorCosts.map(
-                                    item => ({
-                                      "تعداد نوبت": item.count,
-                                      range: item.range
-                                    })
-                                  );
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return [{}];
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            />
-
+                        throw e;
+                      }
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <DataFetcher
+                        data-plasmic-name={
+                          "groupExpertiseOnlineVisitsPricingStats"
+                        }
+                        data-plasmic-override={
+                          overrides.groupExpertiseOnlineVisitsPricingStats
+                        }
+                        className={classNames(
+                          "__wab_instance",
+                          sty.groupExpertiseOnlineVisitsPricingStats
+                        )}
+                        dataName={"fetchedData"}
+                        errorDisplay={
+                          <DataCtxReader__>
+                            {$ctx => "Error fetching data"}
+                          </DataCtxReader__>
+                        }
+                        errorName={"fetchError"}
+                        key={currentIndex}
+                        loadingDisplay={
+                          <DataCtxReader__>
+                            {$ctx => "Loading..."}
+                          </DataCtxReader__>
+                        }
+                        method={"GET"}
+                        noLayout={false}
+                        previewErrorDisplay={false}
+                        previewSpinner={false}
+                        url={(() => {
+                          try {
+                            return (
+                              "https://apigw.paziresh24.com/v1/n8n-search/webhook/GroupExpertiseOnlineVisitsPricingRangeStats?group_expertise_id=" +
+                              currentItem
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                      >
+                        <DataCtxReader__>
+                          {$ctx => (
                             <div
                               className={classNames(
                                 projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__zY36Z
+                                sty.freeBox__otToo
                               )}
                             >
-                              <div
-                                className={projectcss.__wab_expr_html_text}
-                                dangerouslySetInnerHTML={{
-                                  __html: (() => {
+                              <h6
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.h6,
+                                  projectcss.__wab_text,
+                                  sty.h6__u6RgF
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
                                     try {
-                                      return (
-                                        "میانگین پرداختی دسته " +
-                                        "<b>" +
-                                        $ctx.fetchedData[0].group_expertise
-                                          .name +
-                                        ": " +
-                                        new Intl.NumberFormat("fa-IR").format(
-                                          Math.round(
-                                            $ctx.fetchedData[1].averageCost
-                                          )
-                                        ) +
-                                        " هزارتومان</b>"
-                                      );
+                                      return $ctx.fetchedData.group_name
+                                        ? "گروه " + $ctx.fetchedData.group_name
+                                        : "";
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -1057,555 +1003,651 @@ function PlasmicMyPerformance__RenderFunc(props: {
                                       }
                                       throw e;
                                     }
-                                  })()
-                                }}
-                              />
-                            </div>
-                            {false ? (
-                              <SimpleChart
+                                  })()}
+                                </React.Fragment>
+                              </h6>
+                              <LinearScaleCustomChart2
+                                data-plasmic-name={"linearScaleCustomChart2"}
+                                data-plasmic-override={
+                                  overrides.linearScaleCustomChart2
+                                }
+                                chartTitle={
+                                  "\u0641\u0631\u0627\u0648\u0627\u0646\u06cc \u0642\u06cc\u0645\u062a \u0628\u0647 \u0646\u0648\u0628\u062a"
+                                }
                                 className={classNames(
                                   "__wab_instance",
-                                  sty.chart__dItqY
+                                  sty.linearScaleCustomChart2
                                 )}
-                                data={[
-                                  {
-                                    factor_cost: "0-25",
-                                    count: 4
-                                  },
-                                  {
-                                    factor_cost: "25-50",
-                                    count: 28
-                                  },
-                                  {
-                                    factor_cost: "50-75",
-                                    count: 155
-                                  },
-                                  {
-                                    factor_cost: "75-100",
-                                    count: 180
-                                  },
-                                  {
-                                    factor_cost: "100-125",
-                                    count: 215
-                                  },
-                                  {
-                                    factor_cost: "125-150",
-                                    count: 98
-                                  },
-                                  {
-                                    factor_cost: "150-175",
-                                    count: 259
-                                  },
-                                  {
-                                    factor_cost: "175-200",
-                                    count: 51
-                                  },
-                                  {
-                                    factor_cost: "200-225",
-                                    count: 16
-                                  },
-                                  {
-                                    factor_cost: "250-275",
-                                    count: 11
-                                  },
-                                  {
-                                    factor_cost: "275-300",
-                                    count: 1
-                                  },
-                                  {
-                                    factor_cost: "300-325",
-                                    count: 35
-                                  },
-                                  {
-                                    factor_cost: "350-375",
-                                    count: 7
-                                  },
-                                  {
-                                    factor_cost: "375-400",
-                                    count: 1
-                                  },
-                                  {
-                                    factor_cost: "650-675",
-                                    count: 1
+                                rangeStatsArray={(() => {
+                                  try {
+                                    return $ctx.fetchedData[1].factorCosts.map(
+                                      item => ({
+                                        "تعداد نوبت": item.count,
+                                        range: item.range
+                                      })
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [{}];
+                                    }
+                                    throw e;
                                   }
-                                ]}
-                                direction={"vertical"}
-                                interactive={true}
-                                labelField={"factor_cost"}
-                                stacked={false}
-                                title={
-                                  "\u062a\u0648\u0632\u06cc\u0639 \u0641\u0631\u0627\u0648\u0627\u0646\u06cc \u0642\u06cc\u0645\u062a \u0648\u06cc\u0632\u06cc\u062a \u0628\u0631 \u0646\u0648\u0628\u062a \u0647\u0627"
-                                }
-                                type={"bar"}
+                                })()}
                               />
-                            ) : null}
-                            <LinearScaleCustomChart
-                              data-plasmic-name={"linearScaleCustomChart"}
-                              data-plasmic-override={
-                                overrides.linearScaleCustomChart
-                              }
-                              className={classNames(
-                                "__wab_instance",
-                                sty.linearScaleCustomChart
-                              )}
-                              colorrange={(() => {
-                                try {
-                                  return {
-                                    range: [
-                                      {
-                                        minvalue: $ctx.fetchedData.min / 10000,
-                                        "minvalue-lable":
-                                          $ctx.fetchedData.min / 10000 +
-                                          " هزار تومان",
-                                        maxvalue: Math.round(
-                                          ($ctx.fetchedData.avg -
-                                            ($ctx.fetchedData.max -
-                                              $ctx.fetchedData.min) /
-                                              10) /
-                                            10000
-                                        ),
-                                        label: "خوش قیمت",
-                                        code: "#62B58F"
-                                      },
-                                      {
-                                        minvalue: Math.round(
-                                          ($ctx.fetchedData.avg -
-                                            ($ctx.fetchedData.max -
-                                              $ctx.fetchedData.min) /
-                                              10) /
-                                            10000
-                                        ),
-                                        "minvalue-lable":
-                                          Math.round(
+
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__zY36Z
+                                )}
+                              >
+                                <div
+                                  className={projectcss.__wab_expr_html_text}
+                                  dangerouslySetInnerHTML={{
+                                    __html: (() => {
+                                      try {
+                                        return (
+                                          "میانگین پرداختی دسته " +
+                                          "<b>" +
+                                          $ctx.fetchedData[0].group_expertise
+                                            .name +
+                                          ": " +
+                                          new Intl.NumberFormat("fa-IR").format(
+                                            Math.round(
+                                              $ctx.fetchedData[1].averageCost
+                                            )
+                                          ) +
+                                          " هزارتومان</b>"
+                                        );
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "...";
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  }}
+                                />
+                              </div>
+                              {false ? (
+                                <SimpleChart
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.chart__dItqY
+                                  )}
+                                  data={[
+                                    {
+                                      factor_cost: "0-25",
+                                      count: 4
+                                    },
+                                    {
+                                      factor_cost: "25-50",
+                                      count: 28
+                                    },
+                                    {
+                                      factor_cost: "50-75",
+                                      count: 155
+                                    },
+                                    {
+                                      factor_cost: "75-100",
+                                      count: 180
+                                    },
+                                    {
+                                      factor_cost: "100-125",
+                                      count: 215
+                                    },
+                                    {
+                                      factor_cost: "125-150",
+                                      count: 98
+                                    },
+                                    {
+                                      factor_cost: "150-175",
+                                      count: 259
+                                    },
+                                    {
+                                      factor_cost: "175-200",
+                                      count: 51
+                                    },
+                                    {
+                                      factor_cost: "200-225",
+                                      count: 16
+                                    },
+                                    {
+                                      factor_cost: "250-275",
+                                      count: 11
+                                    },
+                                    {
+                                      factor_cost: "275-300",
+                                      count: 1
+                                    },
+                                    {
+                                      factor_cost: "300-325",
+                                      count: 35
+                                    },
+                                    {
+                                      factor_cost: "350-375",
+                                      count: 7
+                                    },
+                                    {
+                                      factor_cost: "375-400",
+                                      count: 1
+                                    },
+                                    {
+                                      factor_cost: "650-675",
+                                      count: 1
+                                    }
+                                  ]}
+                                  direction={"vertical"}
+                                  interactive={true}
+                                  labelField={"factor_cost"}
+                                  stacked={false}
+                                  title={
+                                    "\u062a\u0648\u0632\u06cc\u0639 \u0641\u0631\u0627\u0648\u0627\u0646\u06cc \u0642\u06cc\u0645\u062a \u0648\u06cc\u0632\u06cc\u062a \u0628\u0631 \u0646\u0648\u0628\u062a \u0647\u0627"
+                                  }
+                                  type={"bar"}
+                                />
+                              ) : null}
+                              <LinearScaleCustomChart
+                                data-plasmic-name={"linearScaleCustomChart"}
+                                data-plasmic-override={
+                                  overrides.linearScaleCustomChart
+                                }
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.linearScaleCustomChart
+                                )}
+                                colorrange={(() => {
+                                  try {
+                                    return {
+                                      range: [
+                                        {
+                                          minvalue:
+                                            $ctx.fetchedData.min / 10000,
+                                          "minvalue-lable":
+                                            $ctx.fetchedData.min / 10000 +
+                                            " هزار تومان",
+                                          maxvalue: Math.round(
                                             ($ctx.fetchedData.avg -
                                               ($ctx.fetchedData.max -
                                                 $ctx.fetchedData.min) /
                                                 10) /
                                               10000
-                                          ) + " هزار تومان",
-                                        maxvalue: Math.round(
-                                          ($ctx.fetchedData.avg +
-                                            ($ctx.fetchedData.max -
-                                              $ctx.fetchedData.min) /
-                                              10) /
-                                            10000
-                                        ),
-                                        label: "مناسب",
-                                        code: "#FFC533"
-                                      },
-                                      {
-                                        minvalue: Math.round(
-                                          ($ctx.fetchedData.avg +
-                                            ($ctx.fetchedData.max -
-                                              $ctx.fetchedData.min) /
-                                              10) /
-                                            10000
-                                        ),
-                                        "minvalue-lable":
-                                          Math.round(
+                                          ),
+                                          label: "خوش قیمت",
+                                          code: "#62B58F"
+                                        },
+                                        {
+                                          minvalue: Math.round(
+                                            ($ctx.fetchedData.avg -
+                                              ($ctx.fetchedData.max -
+                                                $ctx.fetchedData.min) /
+                                                10) /
+                                              10000
+                                          ),
+                                          "minvalue-lable":
+                                            Math.round(
+                                              ($ctx.fetchedData.avg -
+                                                ($ctx.fetchedData.max -
+                                                  $ctx.fetchedData.min) /
+                                                  10) /
+                                                10000
+                                            ) + " هزار تومان",
+                                          maxvalue: Math.round(
                                             ($ctx.fetchedData.avg +
                                               ($ctx.fetchedData.max -
                                                 $ctx.fetchedData.min) /
                                                 10) /
                                               10000
-                                          ) + " هزار تومان",
-                                        maxvalue: $ctx.fetchedData.max / 10000,
-                                        "maxvalue-lable":
-                                          $ctx.fetchedData.max / 10000 +
-                                          " هزار تومان",
-                                        label: "گران",
-                                        code: "#F2726F"
-                                      }
-                                    ]
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return {
-                                      range: [
-                                        {
-                                          minvalue: "1",
-                                          "minvalue-lable":
-                                            "1 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
-                                          maxvalue: "1",
-                                          label:
-                                            "\u062e\u0648\u0634 \u0642\u06cc\u0645\u062a\n \u06a9\u0645\u062a\u0631 \u0627\u0632 \u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
-                                          code: "#62B58F"
-                                        },
-                                        {
-                                          minvalue: "1",
-                                          "minvalue-lable":
-                                            "1 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
-                                          maxvalue: "1",
-                                          label:
-                                            "\u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
+                                          ),
+                                          label: "مناسب",
                                           code: "#FFC533"
                                         },
                                         {
-                                          minvalue: "1",
+                                          minvalue: Math.round(
+                                            ($ctx.fetchedData.avg +
+                                              ($ctx.fetchedData.max -
+                                                $ctx.fetchedData.min) /
+                                                10) /
+                                              10000
+                                          ),
                                           "minvalue-lable":
-                                            "1 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
-                                          maxvalue: "1",
+                                            Math.round(
+                                              ($ctx.fetchedData.avg +
+                                                ($ctx.fetchedData.max -
+                                                  $ctx.fetchedData.min) /
+                                                  10) /
+                                                10000
+                                            ) + " هزار تومان",
+                                          maxvalue:
+                                            $ctx.fetchedData.max / 10000,
                                           "maxvalue-lable":
-                                            "1 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
-                                          label:
-                                            "\u06af\u0631\u0627\u0646\n \u0628\u06cc\u0634 \u0627\u0632 \u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
+                                            $ctx.fetchedData.max / 10000 +
+                                            " هزار تومان",
+                                          label: "گران",
                                           code: "#F2726F"
                                         }
                                       ]
                                     };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return {
+                                        range: [
+                                          {
+                                            minvalue: "1",
+                                            "minvalue-lable":
+                                              "1 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
+                                            maxvalue: "1",
+                                            label:
+                                              "\u062e\u0648\u0634 \u0642\u06cc\u0645\u062a\n \u06a9\u0645\u062a\u0631 \u0627\u0632 \u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
+                                            code: "#62B58F"
+                                          },
+                                          {
+                                            minvalue: "1",
+                                            "minvalue-lable":
+                                              "1 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
+                                            maxvalue: "1",
+                                            label:
+                                              "\u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
+                                            code: "#FFC533"
+                                          },
+                                          {
+                                            minvalue: "1",
+                                            "minvalue-lable":
+                                              "1 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
+                                            maxvalue: "1",
+                                            "maxvalue-lable":
+                                              "1 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
+                                            label:
+                                              "\u06af\u0631\u0627\u0646\n \u0628\u06cc\u0634 \u0627\u0632 \u0645\u06cc\u0627\u0646\u06af\u06cc\u0646",
+                                            code: "#F2726F"
+                                          }
+                                        ]
+                                      };
+                                    }
+                                    throw e;
                                   }
-                                  throw e;
-                                }
-                              })()}
-                              label={(() => {
-                                try {
-                                  return (
-                                    "ویزیت شما " +
-                                    Math.round(
-                                      $state.getMySearchDocument.data.entity
-                                        .consult_services[0].free_price / 10000
-                                    ) +
-                                    " هزارتومان"
-                                  );
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
+                                })()}
+                                label={(() => {
+                                  try {
+                                    return (
+                                      "ویزیت شما " +
+                                      Math.round(
+                                        $state.getMySearchDocument.data.entity
+                                          .consult_services[0].free_price /
+                                          10000
+                                      ) +
+                                      " هزارتومان"
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
                                   }
-                                  throw e;
-                                }
-                              })()}
-                              range={(() => {
-                                try {
-                                  return (
-                                    ($state.getMySearchDocument.data.entity
-                                      .consult_services[0].free_price /
-                                      $ctx.fetchedData.max) *
-                                    100
-                                  );
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
+                                })()}
+                                range={(() => {
+                                  try {
+                                    return (
+                                      ($state.getMySearchDocument.data.entity
+                                        .consult_services[0].free_price /
+                                        $ctx.fetchedData.max) *
+                                      100
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
                                   }
-                                  throw e;
-                                }
-                              })()}
-                            />
+                                })()}
+                              />
 
-                            {false ? (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__bBhKw
-                                )}
-                              >
-                                <IconIcon
+                              {false ? (
+                                <div
                                   className={classNames(
                                     projectcss.all,
-                                    sty.svg__hnDjI
-                                  )}
-                                  role={"img"}
-                                />
-
-                                <main
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.main__tXQkN
+                                    sty.freeBox__bBhKw
                                   )}
                                 >
-                                  <React.Fragment>
+                                  <IconIcon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__hnDjI
+                                    )}
+                                    role={"img"}
+                                  />
+
+                                  <main
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.main__tXQkN
+                                    )}
+                                  >
                                     <React.Fragment>
-                                      {
-                                        "\u0645\u0628\u0644\u063a \u0648\u06cc\u0632\u06cc\u062a \u0634\u0645\u0627 \u0628\u0627\u0644\u0627\u062a\u0631 \u0627\u0632 \u0645\u06cc\u0627\u0646\u06af\u06cc\u0646 \u0627\u0633\u062a \u0648 \u0631\u0648\u06cc \u0631\u062a\u0628\u0647 \u0634\u0645\u0627 \u062f\u0631 \u0646\u062a\u0627\u06cc\u062c \u062c\u0633\u062a\u062c\u0648 \u0627\u062b\u0631 \u0645\u0646\u0641\u06cc \u0645\u06cc\u200c\u06af\u0630\u0627\u0631\u062f.  "
-                                      }
-                                    </React.Fragment>
-                                    {
-                                      <PlasmicLink__
-                                        data-plasmic-name={"link"}
-                                        data-plasmic-override={overrides.link}
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.a,
-                                          projectcss.__wab_text,
-                                          projectcss.plasmic_default__inline,
-                                          sty.link
-                                        )}
-                                        component={Link}
-                                        href={
-                                          "https://dr.paziresh24.com/setting/payment"
-                                        }
-                                        platform={"nextjs"}
-                                      >
+                                      <React.Fragment>
                                         {
-                                          "\u0627\u0635\u0644\u0627\u062d \u0645\u0628\u0644\u063a"
+                                          "\u0645\u0628\u0644\u063a \u0648\u06cc\u0632\u06cc\u062a \u0634\u0645\u0627 \u0628\u0627\u0644\u0627\u062a\u0631 \u0627\u0632 \u0645\u06cc\u0627\u0646\u06af\u06cc\u0646 \u0627\u0633\u062a \u0648 \u0631\u0648\u06cc \u0631\u062a\u0628\u0647 \u0634\u0645\u0627 \u062f\u0631 \u0646\u062a\u0627\u06cc\u062c \u062c\u0633\u062a\u062c\u0648 \u0627\u062b\u0631 \u0645\u0646\u0641\u06cc \u0645\u06cc\u200c\u06af\u0630\u0627\u0631\u062f.  "
                                         }
-                                      </PlasmicLink__>
-                                    }
-                                    <React.Fragment>{""}</React.Fragment>
-                                  </React.Fragment>
-                                </main>
-                              </div>
-                            ) : null}
-                          </div>
-                        )}
-                      </DataCtxReader__>
-                    </DataFetcher>
-                  );
-                })}
-                <main
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.main__qrmV
-                  )}
-                >
-                  {
-                    "\u062f\u0627\u062f\u0647\u200c\u0647\u0627\u06cc \u0641\u0648\u0642 \u0628\u0631 \u0627\u0633\u0627\u0633 \u0645\u0628\u0627\u0644\u063a \u067e\u0631\u062f\u0627\u062e\u062a\u06cc \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u062f\u0631 \u0646\u0648\u0628\u062a \u0647\u0627\u06cc \u0627\u062e\u06cc\u0631 \u0645\u062d\u0627\u0633\u0628\u0647 \u0634\u062f\u0647."
-                  }
-                </main>
-                <main
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.main__uh8Qe
-                  )}
-                >
-                  <div
-                    className={projectcss.__wab_expr_html_text}
-                    dangerouslySetInnerHTML={{
-                      __html: (() => {
-                        try {
-                          return (
-                            "📌 قیمت پایین‌تر از میانگین به مقدار اندکی در رتبه‌بندی تاثیر مثبت دارد. اگر به تازگی فعالیت خود را شروع کرده اید، می‌توانید با مبلغ پایین تری شروع کنید تا دامنه از بیماران ثابت از پذیرش24 برای شما فراهم شود. " +
-                            '<a href="https://yun.ir/0x2b0c">' +
-                            " <span style='font-size: smaller; text-decoration: underline;'>اصلاح مبلغ</span>" +
-                            "</a>"
-                          );
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u062f\u0627\u062f\u0647\u200c\u0647\u0627\u06cc \u0641\u0648\u0642 \u0628\u0631 \u0627\u0633\u0627\u0633 \u0645\u0628\u0627\u0644\u063a \u067e\u0631\u062f\u0627\u062e\u062a\u06cc \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u062f\u0631 \u0646\u0648\u0628\u062a \u0647\u0627\u06cc \u0627\u062e\u06cc\u0631 \u0645\u062d\u0627\u0633\u0628\u0647 \u0634\u062f\u0647 \u0627\u0633\u062a.\n\ud83d\udccc \u0627\u0646\u062a\u062e\u0627\u0628 \u0645\u0628\u0644\u063a \u0648\u06cc\u0632\u06cc\u062a \u0628\u0647 \u062a\u0635\u0645\u06cc\u0645 \u0634\u0645\u0627 \u0628\u0633\u062a\u06af\u06cc \u062f\u0627\u0631\u062f. \u0627\u0645\u0627 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0628\u0627 \u0645\u0642\u0627\u06cc\u0633\u0647 \u0645\u0628\u0627\u0644\u063a \u067e\u0631\u062f\u0627\u062e\u062a\u06cc \u0641\u0639\u0644\u06cc\u060c \u062a\u0635\u0645\u06cc\u0645 \u0628\u0647\u062a\u0631\u06cc \u062f\u0631 \u0627\u0646\u062a\u062e\u0627\u0628 \u0645\u0628\u0644\u063a \u0628\u0647\u06cc\u0646\u0647 \u0628\u06af\u06cc\u0631\u06cc\u062f. \n'<a href=\"https://yun.ir/0x2b0c\">' +\n\" <span style='font-size: smaller; text-decoration: underline;'>\u0627\u0635\u0644\u0627\u062d \u0645\u0628\u0644\u063a</span>\"+\n'</a>'";
+                                      </React.Fragment>
+                                      {
+                                        <PlasmicLink__
+                                          data-plasmic-name={"link"}
+                                          data-plasmic-override={overrides.link}
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.a,
+                                            projectcss.__wab_text,
+                                            projectcss.plasmic_default__inline,
+                                            sty.link
+                                          )}
+                                          component={Link}
+                                          href={
+                                            "https://dr.paziresh24.com/setting/payment"
+                                          }
+                                          platform={"nextjs"}
+                                        >
+                                          {
+                                            "\u0627\u0635\u0644\u0627\u062d \u0645\u0628\u0644\u063a"
+                                          }
+                                        </PlasmicLink__>
+                                      }
+                                      <React.Fragment>{""}</React.Fragment>
+                                    </React.Fragment>
+                                  </main>
+                                </div>
+                              ) : null}
+                            </div>
+                          )}
+                        </DataCtxReader__>
+                      </DataFetcher>
+                    );
+                  })}
+                  <main
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.main__qrmV
+                    )}
+                  >
+                    {
+                      "\u062f\u0627\u062f\u0647\u200c\u0647\u0627\u06cc \u0641\u0648\u0642 \u0628\u0631 \u0627\u0633\u0627\u0633 \u0645\u0628\u0627\u0644\u063a \u067e\u0631\u062f\u0627\u062e\u062a\u06cc \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u062f\u0631 \u0646\u0648\u0628\u062a \u0647\u0627\u06cc \u0627\u062e\u06cc\u0631 \u0645\u062d\u0627\u0633\u0628\u0647 \u0634\u062f\u0647."
+                    }
+                  </main>
+                  <main
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.main__uh8Qe
+                    )}
+                  >
+                    <div
+                      className={projectcss.__wab_expr_html_text}
+                      dangerouslySetInnerHTML={{
+                        __html: (() => {
+                          try {
+                            return (
+                              "📌 قیمت پایین‌تر از میانگین به مقدار اندکی در رتبه‌بندی تاثیر مثبت دارد. اگر به تازگی فعالیت خود را شروع کرده اید، می‌توانید با مبلغ پایین تری شروع کنید تا دامنه از بیماران ثابت از پذیرش24 برای شما فراهم شود. " +
+                              '<a href="https://yun.ir/0x2b0c">' +
+                              " <span style='font-size: smaller; text-decoration: underline;'>اصلاح مبلغ</span>" +
+                              "</a>"
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u062f\u0627\u062f\u0647\u200c\u0647\u0627\u06cc \u0641\u0648\u0642 \u0628\u0631 \u0627\u0633\u0627\u0633 \u0645\u0628\u0627\u0644\u063a \u067e\u0631\u062f\u0627\u062e\u062a\u06cc \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u062f\u0631 \u0646\u0648\u0628\u062a \u0647\u0627\u06cc \u0627\u062e\u06cc\u0631 \u0645\u062d\u0627\u0633\u0628\u0647 \u0634\u062f\u0647 \u0627\u0633\u062a.\n\ud83d\udccc \u0627\u0646\u062a\u062e\u0627\u0628 \u0645\u0628\u0644\u063a \u0648\u06cc\u0632\u06cc\u062a \u0628\u0647 \u062a\u0635\u0645\u06cc\u0645 \u0634\u0645\u0627 \u0628\u0633\u062a\u06af\u06cc \u062f\u0627\u0631\u062f. \u0627\u0645\u0627 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0628\u0627 \u0645\u0642\u0627\u06cc\u0633\u0647 \u0645\u0628\u0627\u0644\u063a \u067e\u0631\u062f\u0627\u062e\u062a\u06cc \u0641\u0639\u0644\u06cc\u060c \u062a\u0635\u0645\u06cc\u0645 \u0628\u0647\u062a\u0631\u06cc \u062f\u0631 \u0627\u0646\u062a\u062e\u0627\u0628 \u0645\u0628\u0644\u063a \u0628\u0647\u06cc\u0646\u0647 \u0628\u06af\u06cc\u0631\u06cc\u062f. \n'<a href=\"https://yun.ir/0x2b0c\">' +\n\" <span style='font-size: smaller; text-decoration: underline;'>\u0627\u0635\u0644\u0627\u062d \u0645\u0628\u0644\u063a</span>\"+\n'</a>'";
+                            }
+                            throw e;
                           }
-                          throw e;
-                        }
-                      })()
-                    }}
-                  />
-                </main>
-              </div>
-            ) : null}
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox___2PNhM)}>
-            {(() => {
-              try {
-                return (
-                  $state.currentDoctorData.entity.consult_services[0]
-                    .free_price !== undefined &&
-                  $state.currentDoctorData.entity.consult_services[0]
-                    .free_price !== null
-                );
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
-                }
-                throw e;
+                        })()
+                      }}
+                    />
+                  </main>
+                </div>
+              ) : null}
+            </div>
+          ) : null}
+          {(() => {
+            try {
+              return (
+                $state.growthOpportunitiesFragmentApiRequest.data.statusType !==
+                "LOADING"
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
               }
-            })() ? (
-              <div className={classNames(projectcss.all, sty.freeBox___7Og6)}>
-                <h6
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.h6,
-                    projectcss.__wab_text,
-                    sty.h6__jf1Uy
-                  )}
-                >
-                  {
-                    "\ud83d\udcca \u0622\u0645\u0627\u0631 \u062c\u0633\u062a\u062c\u0648"
+              throw e;
+            }
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox___2PNhM)}>
+              {(() => {
+                try {
+                  return (
+                    $state.currentDoctorData.entity.consult_services[0]
+                      .free_price !== undefined &&
+                    $state.currentDoctorData.entity.consult_services[0]
+                      .free_price !== null
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
                   }
-                </h6>
-                <ApiRequest
-                  data-plasmic-name={"sanjeSearchCardViewFragmentApiRequest2"}
-                  data-plasmic-override={
-                    overrides.sanjeSearchCardViewFragmentApiRequest2
-                  }
-                  className={classNames(
-                    "__wab_instance",
-                    sty.sanjeSearchCardViewFragmentApiRequest2
-                  )}
-                  errorDisplay={
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___3ZVfj
-                      )}
-                    >
-                      {
-                        "\u062e\u0637\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a"
-                      }
-                    </div>
-                  }
-                  loadingDisplay={
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__ylQUj
-                      )}
-                    >
-                      {
-                        "\u062f\u0631 \u062d\u0627\u0644 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a\n\n"
-                      }
-                    </div>
-                  }
-                  method={"GET"}
-                  onError={generateStateOnChangeProp($state, [
-                    "sanjeSearchCardViewFragmentApiRequest2",
-                    "error"
-                  ])}
-                  onLoading={generateStateOnChangeProp($state, [
-                    "sanjeSearchCardViewFragmentApiRequest2",
-                    "loading"
-                  ])}
-                  onSuccess={generateStateOnChangeProp($state, [
-                    "sanjeSearchCardViewFragmentApiRequest2",
-                    "data"
-                  ])}
-                  url={
-                    "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-metric-data?metric_name=search_card_view"
-                  }
-                >
-                  <div
+                  throw e;
+                }
+              })() ? (
+                <div className={classNames(projectcss.all, sty.freeBox___7Og6)}>
+                  <h6
                     className={classNames(
                       projectcss.all,
+                      projectcss.h6,
                       projectcss.__wab_text,
-                      sty.text__zpJac
+                      sty.h6__jf1Uy
                     )}
                   >
-                    <React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ fontWeight: 700 }}
-                      >
-                        {
-                          "\u0645\u0634\u0627\u0647\u062f\u0647 \u06a9\u0627\u0631\u062a \u0634\u0645\u0627 \u062f\u0631 \u0646\u062a\u0627\u06cc\u062c"
-                        }
-                      </span>
-                    </React.Fragment>
-                  </div>
-                  <SimpleChart
-                    className={classNames("__wab_instance", sty.chart__uVyNw)}
-                    data={
-                      $state.sanjeSearchCardViewFragmentApiRequest2?.data
-                        ?.data || []
+                    {
+                      "\ud83d\udcca \u0622\u0645\u0627\u0631 \u062c\u0633\u062a\u062c\u0648"
                     }
-                    stacked={false}
-                    type={"bar"}
-                  />
-                </ApiRequest>
-                <ApiRequest
-                  data-plasmic-name={
-                    "sanjeSearchClickPositionFragmentApiRequest3"
-                  }
-                  data-plasmic-override={
-                    overrides.sanjeSearchClickPositionFragmentApiRequest3
-                  }
-                  className={classNames(
-                    "__wab_instance",
-                    sty.sanjeSearchClickPositionFragmentApiRequest3
-                  )}
-                  errorDisplay={
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__tjDfl
-                      )}
-                    >
-                      {
-                        "\u062e\u0637\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a"
-                      }
-                    </div>
-                  }
-                  loadingDisplay={
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___50Avl
-                      )}
-                    >
-                      {
-                        "\u062f\u0631 \u062d\u0627\u0644 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a\n\n"
-                      }
-                    </div>
-                  }
-                  method={"GET"}
-                  onError={generateStateOnChangeProp($state, [
-                    "sanjeSearchClickPositionFragmentApiRequest3",
-                    "error"
-                  ])}
-                  onLoading={generateStateOnChangeProp($state, [
-                    "sanjeSearchClickPositionFragmentApiRequest3",
-                    "loading"
-                  ])}
-                  onSuccess={generateStateOnChangeProp($state, [
-                    "sanjeSearchClickPositionFragmentApiRequest3",
-                    "data"
-                  ])}
-                  url={
-                    "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-metric-data?metric_name=search_click_position"
-                  }
-                >
-                  <div
+                  </h6>
+                  <ApiRequest
+                    data-plasmic-name={"sanjeSearchCardViewFragmentApiRequest2"}
+                    data-plasmic-override={
+                      overrides.sanjeSearchCardViewFragmentApiRequest2
+                    }
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___5CVj8
+                      "__wab_instance",
+                      sty.sanjeSearchCardViewFragmentApiRequest2
                     )}
-                  >
-                    <React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ fontWeight: 700 }}
+                    errorDisplay={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___3ZVfj
+                        )}
                       >
                         {
-                          "\u06a9\u0644\u06cc\u06a9 \u0631\u0648\u06cc \u06a9\u0627\u0631\u062a \u0634\u0645\u0627"
+                          "\u062e\u0637\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a"
                         }
-                      </span>
-                    </React.Fragment>
-                  </div>
-                  <SimpleChart
-                    className={classNames("__wab_instance", sty.chart__wl5YV)}
-                    data={
-                      $state.sanjeSearchClickPositionFragmentApiRequest3?.data
-                        ?.data || []
+                      </div>
                     }
-                    stacked={false}
-                    type={"bar"}
-                  />
-                </ApiRequest>
-              </div>
-            ) : null}
-          </div>
+                    loadingDisplay={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__ylQUj
+                        )}
+                      >
+                        {
+                          "\u062f\u0631 \u062d\u0627\u0644 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a\n\n"
+                        }
+                      </div>
+                    }
+                    method={"GET"}
+                    onError={generateStateOnChangeProp($state, [
+                      "sanjeSearchCardViewFragmentApiRequest2",
+                      "error"
+                    ])}
+                    onLoading={generateStateOnChangeProp($state, [
+                      "sanjeSearchCardViewFragmentApiRequest2",
+                      "loading"
+                    ])}
+                    onSuccess={generateStateOnChangeProp($state, [
+                      "sanjeSearchCardViewFragmentApiRequest2",
+                      "data"
+                    ])}
+                    url={
+                      "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-metric-data?metric_name=search_card_view"
+                    }
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__zpJac
+                      )}
+                    >
+                      <React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {
+                            "\u0645\u0634\u0627\u0647\u062f\u0647 \u06a9\u0627\u0631\u062a \u0634\u0645\u0627 \u062f\u0631 \u0646\u062a\u0627\u06cc\u062c"
+                          }
+                        </span>
+                      </React.Fragment>
+                    </div>
+                    <SimpleChart
+                      className={classNames("__wab_instance", sty.chart__uVyNw)}
+                      data={
+                        $state.sanjeSearchCardViewFragmentApiRequest2?.data
+                          ?.data || []
+                      }
+                      stacked={false}
+                      type={"bar"}
+                    />
+                  </ApiRequest>
+                  <ApiRequest
+                    data-plasmic-name={
+                      "sanjeSearchClickPositionFragmentApiRequest3"
+                    }
+                    data-plasmic-override={
+                      overrides.sanjeSearchClickPositionFragmentApiRequest3
+                    }
+                    className={classNames(
+                      "__wab_instance",
+                      sty.sanjeSearchClickPositionFragmentApiRequest3
+                    )}
+                    errorDisplay={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__tjDfl
+                        )}
+                      >
+                        {
+                          "\u062e\u0637\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a"
+                        }
+                      </div>
+                    }
+                    loadingDisplay={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___50Avl
+                        )}
+                      >
+                        {
+                          "\u062f\u0631 \u062d\u0627\u0644 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a\n\n"
+                        }
+                      </div>
+                    }
+                    method={"GET"}
+                    onError={generateStateOnChangeProp($state, [
+                      "sanjeSearchClickPositionFragmentApiRequest3",
+                      "error"
+                    ])}
+                    onLoading={generateStateOnChangeProp($state, [
+                      "sanjeSearchClickPositionFragmentApiRequest3",
+                      "loading"
+                    ])}
+                    onSuccess={generateStateOnChangeProp($state, [
+                      "sanjeSearchClickPositionFragmentApiRequest3",
+                      "data"
+                    ])}
+                    url={
+                      "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-metric-data?metric_name=search_click_position"
+                    }
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___5CVj8
+                      )}
+                    >
+                      <React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {
+                            "\u06a9\u0644\u06cc\u06a9 \u0631\u0648\u06cc \u06a9\u0627\u0631\u062a \u0634\u0645\u0627"
+                          }
+                        </span>
+                      </React.Fragment>
+                    </div>
+                    <SimpleChart
+                      className={classNames("__wab_instance", sty.chart__wl5YV)}
+                      data={
+                        $state.sanjeSearchClickPositionFragmentApiRequest3?.data
+                          ?.data || []
+                      }
+                      stacked={false}
+                      type={"bar"}
+                    />
+                  </ApiRequest>
+                </div>
+              ) : null}
+            </div>
+          ) : null}
           <Button
             data-plasmic-name={"button"}
             data-plasmic-override={overrides.button}
