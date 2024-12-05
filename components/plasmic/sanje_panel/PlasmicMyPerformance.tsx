@@ -1848,7 +1848,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
                     role={"img"}
                   />
                 }
-                link={"https://survey.porsline.ir/s/gFH99yr/"}
+                link={"https://t.me/paziresh24_users"}
                 outline={true}
                 showEndIcon={true}
                 space={true}
