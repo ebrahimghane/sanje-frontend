@@ -105,9 +105,8 @@ export type PlasmicMyPerformance__OverridesType = {
   sanjeSearchCardViewFragmentApiRequest2?: Flex__<typeof ApiRequest>;
   sanjeSearchClickPositionFragmentApiRequest3?: Flex__<typeof ApiRequest>;
   button?: Flex__<typeof Button>;
-  supportLink?: Flex__<typeof Button>;
   rateThePage?: Flex__<typeof Button>;
-  blockquote?: Flex__<"blockquote">;
+  supportLink?: Flex__<typeof Button>;
   runGtmAndMetricaSideEffect?: Flex__<typeof SideEffect>;
   gtm?: Flex__<typeof Embed>;
 };
@@ -320,6 +319,31 @@ function PlasmicMyPerformance__RenderFunc(props: {
           )}
           dir={"RTL"}
         >
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__nN7K1
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return JSON.stringify(
+                    $state.growthOpportunitiesFragmentApiRequest
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </div>
           <ApiRequest
             data-plasmic-name={"newsUpdatesFragmentApiRequest"}
             data-plasmic-override={overrides.newsUpdatesFragmentApiRequest}
@@ -494,8 +518,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
                       "شاخص‌های عملکرد " +
                       "<b>" +
                       $state.getMySearchDocument.data.entity.display_name +
-                      "</b>" +
-                      " 👋"
+                      "</b>"
                     );
                   } catch (e) {
                     if (
@@ -528,13 +551,13 @@ function PlasmicMyPerformance__RenderFunc(props: {
               </div>
             }
             loadingDisplay={
-              <React.Fragment>
+              <div className={classNames(projectcss.all, sty.freeBox__eBwgp)}>
                 <PlasmicImg__
                   alt={""}
                   className={classNames(sty.img__p1MY)}
                   displayHeight={"auto"}
                   displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
+                  displayMaxWidth={"48px"}
                   displayMinHeight={"0"}
                   displayMinWidth={"0"}
                   displayWidth={"auto"}
@@ -555,10 +578,10 @@ function PlasmicMyPerformance__RenderFunc(props: {
                   )}
                 >
                   {
-                    "\n\u062f\u0631 \u062d\u0627\u0644 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a...\n"
+                    "\u062f\u0631 \u062d\u0627\u0644 \u062f\u0631\u06cc\u0627\u0641\u062a \u062f\u0627\u062f\u0647 \u0647\u0627\u06cc \u067e\u0631\u0648\u0641\u0627\u06cc\u0644 \u06a9\u0627\u0631\u0628\u0631\u06cc \u0634\u0645\u0627"
                   }
                 </div>
-              </React.Fragment>
+              </div>
             }
             method={"GET"}
             onError={generateStateOnChangeProp($state, [
@@ -601,13 +624,13 @@ function PlasmicMyPerformance__RenderFunc(props: {
               </div>
             }
             loadingDisplay={
-              <React.Fragment>
+              <div className={classNames(projectcss.all, sty.freeBox___8CJNh)}>
                 <PlasmicImg__
                   alt={""}
-                  className={classNames(sty.img__cuWEd)}
+                  className={classNames(sty.img__bfV58)}
                   displayHeight={"auto"}
                   displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
+                  displayMaxWidth={"48px"}
                   displayMinHeight={"0"}
                   displayMinWidth={"0"}
                   displayWidth={"auto"}
@@ -624,14 +647,14 @@ function PlasmicMyPerformance__RenderFunc(props: {
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__rhRI
+                    sty.text__ayivr
                   )}
                 >
                   {
-                    "\u062f\u0631 \u062d\u0627\u0644 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a ..."
+                    "\u0628\u0631\u0631\u0633\u06cc \u0634\u0627\u062e\u0635 \u0647\u0627\u06cc \u0639\u0645\u0644\u06a9\u0631\u062f\u06cc \u0634\u0645\u0627"
                   }
                 </div>
-              </React.Fragment>
+              </div>
             }
             method={"GET"}
             onError={generateStateOnChangeProp($state, [
@@ -822,10 +845,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
           </ApiRequest>
           {(() => {
             try {
-              return (
-                $state.growthOpportunitiesFragmentApiRequest.data.statusType !==
-                "LOADING"
-              );
+              return !$state.growthOpportunitiesFragmentApiRequest.loading;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1432,10 +1452,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
           ) : null}
           {(() => {
             try {
-              return (
-                $state.growthOpportunitiesFragmentApiRequest.data.statusType !==
-                "LOADING"
-              );
+              return !$state.growthOpportunitiesFragmentApiRequest.loading;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1793,145 +1810,123 @@ function PlasmicMyPerformance__RenderFunc(props: {
               "\u0644\u0637\u0641\u0627\u064b \u0628\u0627 \u062b\u0628\u062a \u0646\u0638\u0631 \u062e\u0648\u062f \u0628\u0647 \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc\u200c\u062a\u0631 \u0634\u062f\u0646 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u06a9\u0645\u06a9 \u06a9\u0646\u06cc\u062f. \ud83d\ude4f"
             }
           </div>
-          <Button
-            data-plasmic-name={"supportLink"}
-            data-plasmic-override={overrides.supportLink}
-            children2={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__dFzvt
-                )}
-              >
-                {
-                  "\u062b\u0628\u062a \u062f\u0631\u062e\u0648\u0627\u0633\u062a \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc"
-                }
-              </div>
-            }
-            className={classNames("__wab_instance", sty.supportLink)}
-            color={"sand"}
-            endIcon={
-              <ChevronLeftIcon
-                className={classNames(projectcss.all, sty.svg__bzqa9)}
-                role={"img"}
-              />
-            }
-            link={
-              "https://newsupport.paziresh24.com/new-ticket/?department=4&product=3&utm_source=sanjeMyperformancePage&utm_medium=p24&utm_campaign=footerBlock"
-            }
-            outline={true}
-            showEndIcon={true}
-            space={true}
-            target={true}
-          />
-
-          <Button
-            data-plasmic-name={"rateThePage"}
-            data-plasmic-override={overrides.rateThePage}
-            children2={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__doPmz
-                )}
-              >
-                {
-                  "\u0646\u0638\u0631\u062a\u0627\u0646 \u062f\u0631 \u0645\u0648\u0631\u062f \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0686\u06cc\u0633\u062a\u061f"
-                }
-              </div>
-            }
-            className={classNames("__wab_instance", sty.rateThePage)}
-            color={"sand"}
-            endIcon={
-              <ChevronLeftIcon
-                className={classNames(projectcss.all, sty.svg___3WOfw)}
-                role={"img"}
-              />
-            }
-            link={"https://survey.porsline.ir/s/gFH99yr/"}
-            outline={true}
-            showEndIcon={true}
-            space={true}
-            target={true}
-          />
-
-          <div className={classNames(projectcss.all, sty.freeBox__vwZX)} />
-
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__nhZ5
-            )}
-          >
-            <React.Fragment>
-              <React.Fragment>{"\n"}</React.Fragment>
-              {
-                <blockquote
-                  data-plasmic-name={"blockquote"}
-                  data-plasmic-override={overrides.blockquote}
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.blockquote
-                  )}
-                >
-                  {
-                    "\u0627\u0632 \u0647\u0645\u0647 \u0639\u0632\u06cc\u0632\u0627\u0646\u06cc \u06a9\u0647 \u0628\u0627 \u0646\u0642\u062f \u0648 \u0628\u0627\u0632\u062e\u0648\u0631\u062f\u0647\u0627\u06cc \u0645\u0641\u06cc\u062f\u0634\u0627\u0646 \u0632\u0645\u06cc\u0646\u0647 \u0633\u0627\u062e\u062a\u0647 \u0634\u062f\u0646 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0631\u0627 \u0641\u0631\u0627\u0647\u0645 \u06a9\u0631\u062f\u0646\u062f \u0645\u062a\u0634\u06a9\u0631\u06cc\u0645. \ud83e\udd1d"
-                  }
-                </blockquote>
+          {(() => {
+            try {
+              return !$state.growthOpportunitiesFragmentApiRequest.loading;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
               }
-              <React.Fragment>{""}</React.Fragment>
-              <span
-                className={"plasmic_default__all plasmic_default__span"}
-                style={{ fontStyle: "italic" }}
-              >
-                {
-                  "\u0627\u0632 \u062c\u0645\u0644\u0647 \u062f\u06a9\u062a\u0631 \u0646\u06cc\u0645\u0627 \u062f\u0633\u062a\u06af\u06cc\u0631\u060c \u0633\u06cc\u0627\u0645\u06a9 \u0631\u062d\u0645\u0627\u0646\u06cc\u060c \u062a\u0648\u0645\u0627\u062c \u0634\u0627\u0647\u0648\u0631\u062f\u06cc\u060c \u0641\u0631\u062d \u0646\u0627\u0632 \u0631\u0634\u06cc\u062f\u06cc\u060c \u0641\u0627\u0637\u0645\u0647 \u0645\u0631\u0627\u062f\u06cc\u060c \u0645\u062d\u0633\u0646 \u0645\u0634\u06cc\u0631\u06cc\u060c \u0632\u0647\u0631\u0627 \u0639\u0633\u06af\u0631\u06cc \u0648 \u0635\u062f\u0647\u0627 \u0647\u0645\u0631\u0627\u0647 \u062f\u06cc\u06af\u0631... ."
-                }
-              </span>
-              <React.Fragment>{"\n\n\n"}</React.Fragment>
-            </React.Fragment>
-          </div>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__xePdf
-            )}
-          >
-            {
-              "\u0634\u0645\u0627 \u062f\u0631 \u062d\u0627\u0644 \u0645\u0634\u0627\u0647\u062f\u0647 \u0646\u0633\u062e\u0647 \u0622\u0632\u0645\u0627\u06cc\u0634\u06cc (\u0631\u0627\u06cc\u06af\u0627\u0646) \u0635\u0641\u062d\u0647 \u0639\u0645\u0644\u06a9\u0631\u062f \u067e\u0632\u0634\u06a9\u0627\u0646 \u0647\u0633\u062a\u06cc\u062f. \u0645\u0645\u06a9\u0646 \u0627\u0633\u062a \u062f\u0631 \u0622\u06cc\u0646\u062f\u0647 \u0646\u06cc\u0627\u0632 \u0628\u0647 \u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 \u0628\u0631\u0627\u06cc \u0645\u0634\u0627\u0647\u062f\u0647 \u0627\u06cc\u0646 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627\u0634\u062f."
+              throw e;
             }
-          </div>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__syPav
-            )}
-          >
-            <React.Fragment>
-              <React.Fragment>
-                {
-                  "\u0633\u0627\u062e\u062a\u0647 \u0634\u062f\u0647 \u0628\u0627 "
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox__vwZX)}>
+              <Button
+                data-plasmic-name={"rateThePage"}
+                data-plasmic-override={overrides.rateThePage}
+                children2={
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__doPmz
+                    )}
+                  >
+                    {
+                      "\u0646\u0638\u0631\u062a\u0627\u0646 \u062f\u0631 \u0645\u0648\u0631\u062f \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0686\u06cc\u0633\u062a\u061f"
+                    }
+                  </div>
                 }
-              </React.Fragment>
-              <span
-                className={"plasmic_default__all plasmic_default__span"}
-                style={{ color: "var(--token-1jTXKEDkeRHC)" }}
+                className={classNames("__wab_instance", sty.rateThePage)}
+                color={"sand"}
+                endIcon={
+                  <ChevronLeftIcon
+                    className={classNames(projectcss.all, sty.svg___3WOfw)}
+                    role={"img"}
+                  />
+                }
+                link={"https://survey.porsline.ir/s/gFH99yr/"}
+                outline={true}
+                showEndIcon={true}
+                space={true}
+                target={true}
+              />
+
+              <Button
+                data-plasmic-name={"supportLink"}
+                data-plasmic-override={overrides.supportLink}
+                children2={
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__dFzvt
+                    )}
+                  >
+                    {
+                      "\u062b\u0628\u062a \u062f\u0631\u062e\u0648\u0627\u0633\u062a \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc"
+                    }
+                  </div>
+                }
+                className={classNames("__wab_instance", sty.supportLink)}
+                color={"sand"}
+                endIcon={
+                  <ChevronLeftIcon
+                    className={classNames(projectcss.all, sty.svg__bzqa9)}
+                    role={"img"}
+                  />
+                }
+                link={
+                  "https://newsupport.paziresh24.com/new-ticket/?department=4&product=3&utm_source=sanjeMyperformancePage&utm_medium=p24&utm_campaign=footerBlock"
+                }
+                outline={true}
+                showEndIcon={true}
+                space={true}
+                target={true}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__xePdf
+                )}
               >
-                {"\u2764"}
-              </span>
-              <React.Fragment>
                 {
-                  " \u0628\u0631\u0627\u06cc \u0647\u0645\u0647 \u0637\u0628\u06cc\u0628\u0627\u0646 \u067e\u0630\u06cc\u0631\u063424\n"
+                  "\u0634\u0645\u0627 \u062f\u0631 \u062d\u0627\u0644 \u0645\u0634\u0627\u0647\u062f\u0647 \u0646\u0633\u062e\u0647 \u0622\u0632\u0645\u0627\u06cc\u0634\u06cc (\u0631\u0627\u06cc\u06af\u0627\u0646) \u0635\u0641\u062d\u0647 \u0639\u0645\u0644\u06a9\u0631\u062f \u067e\u0632\u0634\u06a9\u0627\u0646 \u0647\u0633\u062a\u06cc\u062f. \u0645\u0645\u06a9\u0646 \u0627\u0633\u062a \u062f\u0631 \u0622\u06cc\u0646\u062f\u0647 \u0646\u06cc\u0627\u0632 \u0628\u0647 \u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 \u0628\u0631\u0627\u06cc \u0645\u0634\u0627\u0647\u062f\u0647 \u0627\u06cc\u0646 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627\u0634\u062f."
                 }
-              </React.Fragment>
-            </React.Fragment>
-          </div>
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__syPav
+                )}
+              >
+                <React.Fragment>
+                  <React.Fragment>
+                    {
+                      "\u0633\u0627\u062e\u062a\u0647 \u0634\u062f\u0647 \u0628\u0627 "
+                    }
+                  </React.Fragment>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ color: "var(--token-1jTXKEDkeRHC)" }}
+                  >
+                    {"\u2764"}
+                  </span>
+                  <React.Fragment>
+                    {
+                      " \u0628\u0631\u0627\u06cc \u0647\u0645\u0647 \u0637\u0628\u06cc\u0628\u0627\u0646 \u067e\u0630\u06cc\u0631\u063424\n"
+                    }
+                  </React.Fragment>
+                </React.Fragment>
+              </div>
+            </div>
+          ) : null}
           <SideEffect
             data-plasmic-name={"runGtmAndMetricaSideEffect"}
             data-plasmic-override={overrides.runGtmAndMetricaSideEffect}
@@ -2167,9 +2162,8 @@ const PlasmicDescendants = {
     "sanjeSearchCardViewFragmentApiRequest2",
     "sanjeSearchClickPositionFragmentApiRequest3",
     "button",
-    "supportLink",
     "rateThePage",
-    "blockquote",
+    "supportLink",
     "runGtmAndMetricaSideEffect",
     "gtm"
   ],
@@ -2195,9 +2189,8 @@ const PlasmicDescendants = {
     "sanjeSearchClickPositionFragmentApiRequest3"
   ],
   button: ["button"],
-  supportLink: ["supportLink"],
   rateThePage: ["rateThePage"],
-  blockquote: ["blockquote"],
+  supportLink: ["supportLink"],
   runGtmAndMetricaSideEffect: ["runGtmAndMetricaSideEffect"],
   gtm: ["gtm"]
 } as const;
@@ -2217,9 +2210,8 @@ type NodeDefaultElementType = {
   sanjeSearchCardViewFragmentApiRequest2: typeof ApiRequest;
   sanjeSearchClickPositionFragmentApiRequest3: typeof ApiRequest;
   button: typeof Button;
-  supportLink: typeof Button;
   rateThePage: typeof Button;
-  blockquote: "blockquote";
+  supportLink: typeof Button;
   runGtmAndMetricaSideEffect: typeof SideEffect;
   gtm: typeof Embed;
 };
@@ -2305,9 +2297,8 @@ export const PlasmicMyPerformance = Object.assign(
       "sanjeSearchClickPositionFragmentApiRequest3"
     ),
     button: makeNodeComponent("button"),
-    supportLink: makeNodeComponent("supportLink"),
     rateThePage: makeNodeComponent("rateThePage"),
-    blockquote: makeNodeComponent("blockquote"),
+    supportLink: makeNodeComponent("supportLink"),
     runGtmAndMetricaSideEffect: makeNodeComponent("runGtmAndMetricaSideEffect"),
     gtm: makeNodeComponent("gtm"),
 
