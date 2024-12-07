@@ -266,6 +266,17 @@
 .linearScaleCustomChart2:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
+  display: none;
+}
+.linearScaleCustomChart__jEjHe:global(.__wab_instance) {
+  max-width: 100%;
+  display: none;
+}
+.fragmentChart:global(.__wab_instance) {
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  min-width: 0;
 }
 .text__zY36Z {
   width: 100%;
@@ -282,7 +293,7 @@
   cursor: pointer;
   min-width: 0;
 }
-.linearScaleCustomChart:global(.__wab_instance) {
+.linearScaleCustomChart___8ZMrv:global(.__wab_instance) {
   max-width: 100%;
   display: none;
 }

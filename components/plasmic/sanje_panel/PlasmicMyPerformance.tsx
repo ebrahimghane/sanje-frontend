@@ -63,8 +63,9 @@ import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-impor
 import TaskCardItem from "../../TaskCardItem"; // plasmic-import: HREvsQHdw0h_/component
 import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 import LinearScaleCustomChart2 from "../../LinearScaleCustomChart2"; // plasmic-import: 0EkZlbx6K2L1/component
-import { SimpleChart } from "@plasmicpkgs/react-chartjs-2";
 import LinearScaleCustomChart from "../../LinearScaleCustomChart"; // plasmic-import: 15G81XIekDs9/component
+import { Chart } from "@/fragment/components/chart"; // plasmic-import: eqIt45l1ABZu/codeComponent
+import { SimpleChart } from "@plasmicpkgs/react-chartjs-2";
 import Button from "../../Button"; // plasmic-import: oVzoHzMf1TLl/component
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
@@ -100,7 +101,7 @@ export type PlasmicMyPerformance__OverridesType = {
   growthOpportunitiesFragmentApiRequest?: Flex__<typeof ApiRequest>;
   groupExpertiseOnlineVisitsPricingStats?: Flex__<typeof DataFetcher>;
   linearScaleCustomChart2?: Flex__<typeof LinearScaleCustomChart2>;
-  linearScaleCustomChart?: Flex__<typeof LinearScaleCustomChart>;
+  fragmentChart?: Flex__<typeof Chart>;
   link?: Flex__<"a"> & Partial<LinkProps>;
   sanjeSearchCardViewFragmentApiRequest2?: Flex__<typeof ApiRequest>;
   sanjeSearchClickPositionFragmentApiRequest3?: Flex__<typeof ApiRequest>;
@@ -859,13 +860,8 @@ function PlasmicMyPerformance__RenderFunc(props: {
             <div className={classNames(projectcss.all, sty.freeBox__hTcro)}>
               {(() => {
                 try {
-                  return (
-                    $state.currentDoctorData.entity.consult_services[0]
-                      .free_price !== undefined &&
-                    $state.currentDoctorData.entity.consult_services[0]
-                      .free_price !== null &&
-                    $state.getMySearchDocument.data !== null
-                  );
+                  return !!$state.getMySearchDocument.data.entity
+                    .consult_services[0].free_price;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -1059,6 +1055,93 @@ function PlasmicMyPerformance__RenderFunc(props: {
                                 })()}
                               />
 
+                              <LinearScaleCustomChart
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.linearScaleCustomChart__jEjHe
+                                )}
+                              />
+
+                              <Chart
+                                data-plasmic-name={"fragmentChart"}
+                                data-plasmic-override={overrides.fragmentChart}
+                                cartesianGrid={[]}
+                                chartConfig={(() => {
+                                  const __composite = [
+                                    {
+                                      color: "#000000",
+                                      type: "natural",
+                                      dot: false,
+                                      key: null,
+                                      label: null
+                                    }
+                                  ];
+                                  __composite["0"]["key"] =
+                                    "\u062a\u0639\u062f\u0627\u062f \u0646\u0648\u0628\u062a";
+                                  __composite["0"]["label"] =
+                                    "\u0641\u0631\u0627\u0648\u0627\u0646\u06cc \u0647\u0632\u06cc\u0646\u0647 \u067e\u0631\u062f\u0627\u062e\u062a\u06cc";
+                                  return __composite;
+                                })()}
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.fragmentChart
+                                )}
+                                data={(() => {
+                                  try {
+                                    return $ctx.fetchedData[1].factorCosts.map(
+                                      item => ({
+                                        "تعداد نوبت": item.count,
+                                        range: item.range
+                                      })
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                                dataKey={(() => {
+                                  const __composite = { key: null };
+                                  __composite["key"] =
+                                    "\u062a\u0639\u062f\u0627\u062f \u0646\u0648\u0628\u062a";
+                                  return __composite;
+                                })()}
+                                label={true}
+                                layout={"horizontal"}
+                                legend={true}
+                                nameKey={(() => {
+                                  const __composite = {
+                                    key: null,
+                                    label: null
+                                  };
+                                  __composite["key"] = "range";
+                                  __composite["label"] = ``;
+                                  return __composite;
+                                })()}
+                                stack={false}
+                                type={"bar"}
+                                xAxis={(() => {
+                                  const __composite = {
+                                    enabled: null,
+                                    key: null,
+                                    type: null,
+                                    tickLine: null,
+                                    axisLine: null
+                                  };
+                                  __composite["enabled"] = true;
+                                  __composite["key"] = "range";
+                                  __composite["type"] = "category";
+                                  __composite["tickLine"] = false;
+                                  __composite["axisLine"] = false;
+                                  return __composite;
+                                })()}
+                              />
+
                               <div
                                 className={classNames(
                                   projectcss.all,
@@ -1177,13 +1260,9 @@ function PlasmicMyPerformance__RenderFunc(props: {
                                 />
                               ) : null}
                               <LinearScaleCustomChart
-                                data-plasmic-name={"linearScaleCustomChart"}
-                                data-plasmic-override={
-                                  overrides.linearScaleCustomChart
-                                }
                                 className={classNames(
                                   "__wab_instance",
-                                  sty.linearScaleCustomChart
+                                  sty.linearScaleCustomChart___8ZMrv
                                 )}
                                 colorrange={(() => {
                                   try {
@@ -1428,7 +1507,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
                         __html: (() => {
                           try {
                             return (
-                              "📌 قیمت پایین‌تر از میانگین به مقدار اندکی در رتبه‌بندی تاثیر مثبت دارد. اگر به تازگی فعالیت خود را شروع کرده اید، می‌توانید با مبلغ پایین تری شروع کنید تا دامنه از بیماران ثابت از پذیرش24 برای شما فراهم شود. " +
+                              "📌 قیمت پایین‌تر از میانگین کل، اندکی در رتبه‌بندی تاثیر مثبت دارد. اگر به تازگی فعالیت خود را شروع کرده اید، می‌توانید با مبلغ پایین تری شروع کنید تا جریان ثابتی از مراجعین را به دست بیاورید. " +
                               '<a href="https://yun.ir/0x2b0c">' +
                               " <span style='font-size: smaller; text-decoration: underline;'>اصلاح مبلغ</span>" +
                               "</a>"
@@ -2157,7 +2236,7 @@ const PlasmicDescendants = {
     "growthOpportunitiesFragmentApiRequest",
     "groupExpertiseOnlineVisitsPricingStats",
     "linearScaleCustomChart2",
-    "linearScaleCustomChart",
+    "fragmentChart",
     "link",
     "sanjeSearchCardViewFragmentApiRequest2",
     "sanjeSearchClickPositionFragmentApiRequest3",
@@ -2176,11 +2255,11 @@ const PlasmicDescendants = {
   groupExpertiseOnlineVisitsPricingStats: [
     "groupExpertiseOnlineVisitsPricingStats",
     "linearScaleCustomChart2",
-    "linearScaleCustomChart",
+    "fragmentChart",
     "link"
   ],
   linearScaleCustomChart2: ["linearScaleCustomChart2"],
-  linearScaleCustomChart: ["linearScaleCustomChart"],
+  fragmentChart: ["fragmentChart"],
   link: ["link"],
   sanjeSearchCardViewFragmentApiRequest2: [
     "sanjeSearchCardViewFragmentApiRequest2"
@@ -2205,7 +2284,7 @@ type NodeDefaultElementType = {
   growthOpportunitiesFragmentApiRequest: typeof ApiRequest;
   groupExpertiseOnlineVisitsPricingStats: typeof DataFetcher;
   linearScaleCustomChart2: typeof LinearScaleCustomChart2;
-  linearScaleCustomChart: typeof LinearScaleCustomChart;
+  fragmentChart: typeof Chart;
   link: "a";
   sanjeSearchCardViewFragmentApiRequest2: typeof ApiRequest;
   sanjeSearchClickPositionFragmentApiRequest3: typeof ApiRequest;
@@ -2288,7 +2367,7 @@ export const PlasmicMyPerformance = Object.assign(
       "groupExpertiseOnlineVisitsPricingStats"
     ),
     linearScaleCustomChart2: makeNodeComponent("linearScaleCustomChart2"),
-    linearScaleCustomChart: makeNodeComponent("linearScaleCustomChart"),
+    fragmentChart: makeNodeComponent("fragmentChart"),
     link: makeNodeComponent("link"),
     sanjeSearchCardViewFragmentApiRequest2: makeNodeComponent(
       "sanjeSearchCardViewFragmentApiRequest2"
