@@ -887,42 +887,6 @@ function PlasmicMyPerformance__RenderFunc(props: {
                       "\ud83c\udff7\ufe0f \u0642\u06cc\u0645\u062a\u200c\u06af\u0630\u0627\u0631\u06cc \u0648\u06cc\u0632\u06cc\u062a \u0622\u0646\u0644\u0627\u06cc\u0646"
                     }
                   </h6>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__z2EUv
-                    )}
-                  >
-                    <div
-                      className={projectcss.__wab_expr_html_text}
-                      dangerouslySetInnerHTML={{
-                        __html: (() => {
-                          try {
-                            return (
-                              "مبلغ ویزیت آنلاین شما " +
-                              "<b>" +
-                              Intl.NumberFormat("fa-IR").format(
-                                Math.round(
-                                  $state.getMySearchDocument.data.entity
-                                    .consult_services[0].free_price / 10000
-                                )
-                              ) +
-                              " هزارتومان</b> می‌باشد. "
-                            );
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "...";
-                            }
-                            throw e;
-                          }
-                        })()
-                      }}
-                    />
-                  </div>
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
@@ -1070,16 +1034,18 @@ function PlasmicMyPerformance__RenderFunc(props: {
                                   const __composite = [
                                     {
                                       color: "#000000",
-                                      type: "natural",
-                                      dot: false,
+                                      type: null,
+                                      dot: null,
                                       key: null,
                                       label: null
                                     }
                                   ];
+                                  __composite["0"]["type"] = "natural";
+                                  __composite["0"]["dot"] = false;
                                   __composite["0"]["key"] =
                                     "\u062a\u0639\u062f\u0627\u062f \u0646\u0648\u0628\u062a";
                                   __composite["0"]["label"] =
-                                    "\u0641\u0631\u0627\u0648\u0627\u0646\u06cc \u0647\u0632\u06cc\u0646\u0647 \u067e\u0631\u062f\u0627\u062e\u062a\u06cc";
+                                    "\u0641\u0631\u0627\u0648\u0627\u0646\u06cc \u0646\u0648\u0628\u062a\u200e\u200c\u0647\u0627 \u0628\u0631 \u062d\u0633\u0628 \u0647\u0632\u06cc\u0646\u0647 \u067e\u0631\u062f\u0627\u062e\u062a\u06cc";
                                   return __composite;
                                 })()}
                                 className={classNames(
@@ -1111,7 +1077,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
                                     "\u062a\u0639\u062f\u0627\u062f \u0646\u0648\u0628\u062a";
                                   return __composite;
                                 })()}
-                                label={true}
+                                label={false}
                                 layout={"horizontal"}
                                 legend={true}
                                 nameKey={(() => {
@@ -1124,7 +1090,16 @@ function PlasmicMyPerformance__RenderFunc(props: {
                                   return __composite;
                                 })()}
                                 stack={false}
-                                type={"bar"}
+                                tooltip={(() => {
+                                  const __composite = {
+                                    enabled: null,
+                                    indicator: null
+                                  };
+                                  __composite["enabled"] = false;
+                                  __composite["indicator"] = "dot";
+                                  return __composite;
+                                })()}
+                                type={"area"}
                                 xAxis={(() => {
                                   const __composite = {
                                     enabled: null,
@@ -1155,7 +1130,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
                                     __html: (() => {
                                       try {
                                         return (
-                                          "میانگین پرداختی دسته " +
+                                          "میانگین مبلغ ویزیت پرداختی دسته " +
                                           "<b>" +
                                           $ctx.fetchedData[0].group_expertise
                                             .name +
@@ -1494,6 +1469,42 @@ function PlasmicMyPerformance__RenderFunc(props: {
                       "\u062f\u0627\u062f\u0647\u200c\u0647\u0627\u06cc \u0641\u0648\u0642 \u0628\u0631 \u0627\u0633\u0627\u0633 \u0645\u0628\u0627\u0644\u063a \u067e\u0631\u062f\u0627\u062e\u062a\u06cc \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u062f\u0631 \u0646\u0648\u0628\u062a \u0647\u0627\u06cc \u0627\u062e\u06cc\u0631 \u0645\u062d\u0627\u0633\u0628\u0647 \u0634\u062f\u0647."
                     }
                   </main>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__z2EUv
+                    )}
+                  >
+                    <div
+                      className={projectcss.__wab_expr_html_text}
+                      dangerouslySetInnerHTML={{
+                        __html: (() => {
+                          try {
+                            return (
+                              "مبلغ ویزیت آنلاین شما " +
+                              "<b>" +
+                              Intl.NumberFormat("fa-IR").format(
+                                Math.round(
+                                  $state.getMySearchDocument.data.entity
+                                    .consult_services[0].free_price / 10000
+                                )
+                              ) +
+                              " هزارتومان</b> می‌باشد. "
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "...";
+                            }
+                            throw e;
+                          }
+                        })()
+                      }}
+                    />
+                  </div>
                   <main
                     className={classNames(
                       projectcss.all,
@@ -1507,10 +1518,13 @@ function PlasmicMyPerformance__RenderFunc(props: {
                         __html: (() => {
                           try {
                             return (
-                              "📌 قیمت پایین‌تر از میانگین کل، اندکی در رتبه‌بندی تاثیر مثبت دارد. اگر به تازگی فعالیت خود را شروع کرده اید، می‌توانید با مبلغ پایین تری شروع کنید تا جریان ثابتی از مراجعین را به دست بیاورید. " +
+                              "تنظیم قیمت پایین‌تر از میانگین پرداختی بیماران، در رتبه‌بندی شما تاثیر مثبت دارد.  <br>اگر مبلغ انتخابی شما بیش از میانگین هست و یا به تازگی فعالیت خود را شروع کرده اید، توصیه می‌کنیم با مبلغ پایین تری شروع کنید تا توجه جریان ثابتی از مراجعین را به خود جلب کنید. " +
+                              "<br>" +
+                              "<b>" +
                               '<a href="https://yun.ir/0x2b0c">' +
-                              " <span style='font-size: smaller; text-decoration: underline;'>اصلاح مبلغ</span>" +
-                              "</a>"
+                              " <span style='font-size: smaller; text-decoration: underline;'>برای اصلاح هزینه ویزیت آنلاین خود کلیک کنید</span>" +
+                              "</a>" +
+                              "<b>"
                             );
                           } catch (e) {
                             if (
