@@ -468,12 +468,14 @@ function PlasmicSampleTestChart__RenderFunc(props: {
               </AntdAccordionItem>
             </React.Fragment>
           ),
-          onChange: generateStateOnChangePropForCodeComponents(
-            $state,
-            "activePanelId",
-            ["accordion", "activePanelId"],
-            AntdAccordion_Helpers
-          )
+          onChange: async (...eventArgs: any) => {
+            generateStateOnChangePropForCodeComponents(
+              $state,
+              "activePanelId",
+              ["accordion", "activePanelId"],
+              AntdAccordion_Helpers
+            ).apply(null, eventArgs);
+          }
         };
         initializeCodeComponentStates(
           $state,
