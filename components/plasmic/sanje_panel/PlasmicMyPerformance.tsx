@@ -105,7 +105,6 @@ export type PlasmicMyPerformance__OverridesType = {
   link?: Flex__<"a"> & Partial<LinkProps>;
   sanjeSearchCardViewFragmentApiRequest2?: Flex__<typeof ApiRequest>;
   sanjeSearchClickPositionFragmentApiRequest3?: Flex__<typeof ApiRequest>;
-  button?: Flex__<typeof Button>;
   rateThePage?: Flex__<typeof Button>;
   supportLink?: Flex__<typeof Button>;
   runGtmAndMetricaSideEffect?: Flex__<typeof SideEffect>;
@@ -151,6 +150,8 @@ function PlasmicMyPerformance__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const $globalActions = useGlobalActions?.();
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -377,18 +378,24 @@ function PlasmicMyPerformance__RenderFunc(props: {
               </div>
             }
             method={"GET"}
-            onError={generateStateOnChangeProp($state, [
-              "newsUpdatesFragmentApiRequest",
-              "error"
-            ])}
-            onLoading={generateStateOnChangeProp($state, [
-              "newsUpdatesFragmentApiRequest",
-              "loading"
-            ])}
-            onSuccess={generateStateOnChangeProp($state, [
-              "newsUpdatesFragmentApiRequest",
-              "data"
-            ])}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "newsUpdatesFragmentApiRequest",
+                "error"
+              ]).apply(null, eventArgs);
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "newsUpdatesFragmentApiRequest",
+                "loading"
+              ]).apply(null, eventArgs);
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "newsUpdatesFragmentApiRequest",
+                "data"
+              ]).apply(null, eventArgs);
+            }}
             url={
               "https://apigw.paziresh24.com/v1/n8n-search/webhook/sanje-news-updates"
             }
@@ -585,18 +592,24 @@ function PlasmicMyPerformance__RenderFunc(props: {
               </div>
             }
             method={"GET"}
-            onError={generateStateOnChangeProp($state, [
-              "getMySearchDocument",
-              "error"
-            ])}
-            onLoading={generateStateOnChangeProp($state, [
-              "getMySearchDocument",
-              "loading"
-            ])}
-            onSuccess={generateStateOnChangeProp($state, [
-              "getMySearchDocument",
-              "data"
-            ])}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "getMySearchDocument",
+                "error"
+              ]).apply(null, eventArgs);
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "getMySearchDocument",
+                "loading"
+              ]).apply(null, eventArgs);
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "getMySearchDocument",
+                "data"
+              ]).apply(null, eventArgs);
+            }}
             url={
               "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-search-document"
             }
@@ -658,18 +671,24 @@ function PlasmicMyPerformance__RenderFunc(props: {
               </div>
             }
             method={"GET"}
-            onError={generateStateOnChangeProp($state, [
-              "growthOpportunitiesFragmentApiRequest",
-              "error"
-            ])}
-            onLoading={generateStateOnChangeProp($state, [
-              "growthOpportunitiesFragmentApiRequest",
-              "loading"
-            ])}
-            onSuccess={generateStateOnChangeProp($state, [
-              "growthOpportunitiesFragmentApiRequest",
-              "data"
-            ])}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "growthOpportunitiesFragmentApiRequest",
+                "error"
+              ]).apply(null, eventArgs);
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "growthOpportunitiesFragmentApiRequest",
+                "loading"
+              ]).apply(null, eventArgs);
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "growthOpportunitiesFragmentApiRequest",
+                "data"
+              ]).apply(null, eventArgs);
+            }}
             url={
               "https://apigw.paziresh24.com/v1/n8n-search/webhook/growth-opportunities"
             }
@@ -1624,18 +1643,24 @@ function PlasmicMyPerformance__RenderFunc(props: {
                       </div>
                     }
                     method={"GET"}
-                    onError={generateStateOnChangeProp($state, [
-                      "sanjeSearchCardViewFragmentApiRequest2",
-                      "error"
-                    ])}
-                    onLoading={generateStateOnChangeProp($state, [
-                      "sanjeSearchCardViewFragmentApiRequest2",
-                      "loading"
-                    ])}
-                    onSuccess={generateStateOnChangeProp($state, [
-                      "sanjeSearchCardViewFragmentApiRequest2",
-                      "data"
-                    ])}
+                    onError={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "sanjeSearchCardViewFragmentApiRequest2",
+                        "error"
+                      ]).apply(null, eventArgs);
+                    }}
+                    onLoading={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "sanjeSearchCardViewFragmentApiRequest2",
+                        "loading"
+                      ]).apply(null, eventArgs);
+                    }}
+                    onSuccess={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "sanjeSearchCardViewFragmentApiRequest2",
+                        "data"
+                      ]).apply(null, eventArgs);
+                    }}
                     url={
                       "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-metric-data?metric_name=search_card_view"
                     }
@@ -1708,18 +1733,24 @@ function PlasmicMyPerformance__RenderFunc(props: {
                       </div>
                     }
                     method={"GET"}
-                    onError={generateStateOnChangeProp($state, [
-                      "sanjeSearchClickPositionFragmentApiRequest3",
-                      "error"
-                    ])}
-                    onLoading={generateStateOnChangeProp($state, [
-                      "sanjeSearchClickPositionFragmentApiRequest3",
-                      "loading"
-                    ])}
-                    onSuccess={generateStateOnChangeProp($state, [
-                      "sanjeSearchClickPositionFragmentApiRequest3",
-                      "data"
-                    ])}
+                    onError={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "sanjeSearchClickPositionFragmentApiRequest3",
+                        "error"
+                      ]).apply(null, eventArgs);
+                    }}
+                    onLoading={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "sanjeSearchClickPositionFragmentApiRequest3",
+                        "loading"
+                      ]).apply(null, eventArgs);
+                    }}
+                    onSuccess={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "sanjeSearchClickPositionFragmentApiRequest3",
+                        "data"
+                      ]).apply(null, eventArgs);
+                    }}
                     url={
                       "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-metric-data?metric_name=search_click_position"
                     }
@@ -1759,9 +1790,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
             </div>
           ) : null}
           <Button
-            data-plasmic-name={"button"}
-            data-plasmic-override={overrides.button}
-            className={classNames("__wab_instance", sty.button)}
+            className={classNames("__wab_instance", sty.button__vvKvi)}
             onClick={async event => {
               const $steps = {};
 
@@ -1979,6 +2008,69 @@ function PlasmicMyPerformance__RenderFunc(props: {
                 showEndIcon={true}
                 space={true}
                 target={true}
+              />
+
+              <Button
+                children2={
+                  "\u0628\u0647 \u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc \u062f\u0631 \u0646\u062a\u0627\u06cc\u062c \u062c\u0633\u062a\u062c\u0648"
+                }
+                className={classNames("__wab_instance", sty.button__tstMe)}
+                color={"softSand"}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["crawlMe"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "PUT",
+                            "https://apigw.paziresh24.com/v1/n8n-search/webhook/crawl-me",
+                            undefined,
+                            undefined,
+                            { withCredentials: true }
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["crawlMe"] != null &&
+                    typeof $steps["crawlMe"] === "object" &&
+                    typeof $steps["crawlMe"].then === "function"
+                  ) {
+                    $steps["crawlMe"] = await $steps["crawlMe"];
+                  }
+
+                  $steps["invokeGlobalAction"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            undefined,
+                            "\u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0628\u0647 \u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc \u062f\u0631 \u0646\u062a\u0627\u06cc\u062c \u062c\u0633\u062a\u062c\u0648 \u062b\u0628\u062a \u0634\u062f \u0648 \u062f\u0631 \u0635\u0641 \u0622\u067e\u062f\u06cc\u062a \u0642\u0631\u0627\u0631 \u06af\u0631\u0641\u062a.",
+                            "top-center"
+                          ]
+                        };
+                        return $globalActions["Fragment.showToast"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction"] != null &&
+                    typeof $steps["invokeGlobalAction"] === "object" &&
+                    typeof $steps["invokeGlobalAction"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction"] = await $steps[
+                      "invokeGlobalAction"
+                    ];
+                  }
+                }}
+                outline={true}
+                submitsForm={false}
               />
 
               <div
@@ -2254,7 +2346,6 @@ const PlasmicDescendants = {
     "link",
     "sanjeSearchCardViewFragmentApiRequest2",
     "sanjeSearchClickPositionFragmentApiRequest3",
-    "button",
     "rateThePage",
     "supportLink",
     "runGtmAndMetricaSideEffect",
@@ -2281,7 +2372,6 @@ const PlasmicDescendants = {
   sanjeSearchClickPositionFragmentApiRequest3: [
     "sanjeSearchClickPositionFragmentApiRequest3"
   ],
-  button: ["button"],
   rateThePage: ["rateThePage"],
   supportLink: ["supportLink"],
   runGtmAndMetricaSideEffect: ["runGtmAndMetricaSideEffect"],
@@ -2302,7 +2392,6 @@ type NodeDefaultElementType = {
   link: "a";
   sanjeSearchCardViewFragmentApiRequest2: typeof ApiRequest;
   sanjeSearchClickPositionFragmentApiRequest3: typeof ApiRequest;
-  button: typeof Button;
   rateThePage: typeof Button;
   supportLink: typeof Button;
   runGtmAndMetricaSideEffect: typeof SideEffect;
@@ -2389,7 +2478,6 @@ export const PlasmicMyPerformance = Object.assign(
     sanjeSearchClickPositionFragmentApiRequest3: makeNodeComponent(
       "sanjeSearchClickPositionFragmentApiRequest3"
     ),
-    button: makeNodeComponent("button"),
     rateThePage: makeNodeComponent("rateThePage"),
     supportLink: makeNodeComponent("supportLink"),
     runGtmAndMetricaSideEffect: makeNodeComponent("runGtmAndMetricaSideEffect"),

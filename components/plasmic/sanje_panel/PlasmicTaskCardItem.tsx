@@ -357,12 +357,14 @@ function PlasmicTaskCardItem__RenderFunc(props: {
               </AntdAccordionItem>
             </React.Fragment>
           ),
-          onChange: generateStateOnChangePropForCodeComponents(
-            $state,
-            "activePanelId",
-            ["accordion", "activePanelId"],
-            AntdAccordion_Helpers
-          ),
+          onChange: async (...eventArgs: any) => {
+            generateStateOnChangePropForCodeComponents(
+              $state,
+              "activePanelId",
+              ["accordion", "activePanelId"],
+              AntdAccordion_Helpers
+            ).apply(null, eventArgs);
+          },
           size: "middle"
         };
         initializeCodeComponentStates(

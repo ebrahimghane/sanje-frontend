@@ -449,7 +449,7 @@
   user-select: text;
   min-width: 0;
 }
-.button:global(.__wab_instance) {
+.button__vvKvi:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
   display: none;
@@ -555,6 +555,21 @@
   width: auto;
   height: 1em;
   color: var(--token-u3OudfMChOo3);
+}
+.button__tstMe:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__hrBym {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__yQlbo {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
 }
 .text__xePdf {
   position: relative;
