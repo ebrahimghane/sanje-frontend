@@ -105,8 +105,10 @@ export type PlasmicMyPerformance__OverridesType = {
   link?: Flex__<"a"> & Partial<LinkProps>;
   sanjeSearchCardViewFragmentApiRequest2?: Flex__<typeof ApiRequest>;
   sanjeSearchClickPositionFragmentApiRequest3?: Flex__<typeof ApiRequest>;
+  button?: Flex__<typeof Button>;
   rateThePage?: Flex__<typeof Button>;
   supportLink?: Flex__<typeof Button>;
+  crawlMeButton?: Flex__<typeof Button>;
   runGtmAndMetricaSideEffect?: Flex__<typeof SideEffect>;
   gtm?: Flex__<typeof Embed>;
 };
@@ -1790,7 +1792,9 @@ function PlasmicMyPerformance__RenderFunc(props: {
             </div>
           ) : null}
           <Button
-            className={classNames("__wab_instance", sty.button__vvKvi)}
+            data-plasmic-name={"button"}
+            data-plasmic-override={overrides.button}
+            className={classNames("__wab_instance", sty.button)}
             onClick={async event => {
               const $steps = {};
 
@@ -2011,10 +2015,12 @@ function PlasmicMyPerformance__RenderFunc(props: {
               />
 
               <Button
+                data-plasmic-name={"crawlMeButton"}
+                data-plasmic-override={overrides.crawlMeButton}
                 children2={
                   "\u0628\u0647 \u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc \u062f\u0631 \u0646\u062a\u0627\u06cc\u062c \u062c\u0633\u062a\u062c\u0648"
                 }
-                className={classNames("__wab_instance", sty.button__tstMe)}
+                className={classNames("__wab_instance", sty.crawlMeButton)}
                 color={"softSand"}
                 onClick={async event => {
                   const $steps = {};
@@ -2346,8 +2352,10 @@ const PlasmicDescendants = {
     "link",
     "sanjeSearchCardViewFragmentApiRequest2",
     "sanjeSearchClickPositionFragmentApiRequest3",
+    "button",
     "rateThePage",
     "supportLink",
+    "crawlMeButton",
     "runGtmAndMetricaSideEffect",
     "gtm"
   ],
@@ -2372,8 +2380,10 @@ const PlasmicDescendants = {
   sanjeSearchClickPositionFragmentApiRequest3: [
     "sanjeSearchClickPositionFragmentApiRequest3"
   ],
+  button: ["button"],
   rateThePage: ["rateThePage"],
   supportLink: ["supportLink"],
+  crawlMeButton: ["crawlMeButton"],
   runGtmAndMetricaSideEffect: ["runGtmAndMetricaSideEffect"],
   gtm: ["gtm"]
 } as const;
@@ -2392,8 +2402,10 @@ type NodeDefaultElementType = {
   link: "a";
   sanjeSearchCardViewFragmentApiRequest2: typeof ApiRequest;
   sanjeSearchClickPositionFragmentApiRequest3: typeof ApiRequest;
+  button: typeof Button;
   rateThePage: typeof Button;
   supportLink: typeof Button;
+  crawlMeButton: typeof Button;
   runGtmAndMetricaSideEffect: typeof SideEffect;
   gtm: typeof Embed;
 };
@@ -2478,8 +2490,10 @@ export const PlasmicMyPerformance = Object.assign(
     sanjeSearchClickPositionFragmentApiRequest3: makeNodeComponent(
       "sanjeSearchClickPositionFragmentApiRequest3"
     ),
+    button: makeNodeComponent("button"),
     rateThePage: makeNodeComponent("rateThePage"),
     supportLink: makeNodeComponent("supportLink"),
+    crawlMeButton: makeNodeComponent("crawlMeButton"),
     runGtmAndMetricaSideEffect: makeNodeComponent("runGtmAndMetricaSideEffect"),
     gtm: makeNodeComponent("gtm"),
 

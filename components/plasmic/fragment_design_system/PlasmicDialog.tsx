@@ -92,17 +92,17 @@ export const PlasmicDialog__VariantProps = new Array<VariantPropType>(
 export type PlasmicDialog__ArgsType = {
   open?: boolean;
   onOpenChange?: (val: boolean) => void;
-  body?: React.ReactNode;
-  title?: React.ReactNode;
   trigger?: React.ReactNode;
+  title?: React.ReactNode;
+  body?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicDialog__ArgsType;
 export const PlasmicDialog__ArgProps = new Array<ArgPropType>(
   "open",
   "onOpenChange",
-  "body",
+  "trigger",
   "title",
-  "trigger"
+  "body"
 );
 
 export type PlasmicDialog__OverridesType = {
@@ -117,9 +117,9 @@ export type PlasmicDialog__OverridesType = {
 export interface DefaultDialogProps {
   open?: boolean;
   onOpenChange?: (val: boolean) => void;
-  body?: React.ReactNode;
-  title?: React.ReactNode;
   trigger?: React.ReactNode;
+  title?: React.ReactNode;
+  body?: React.ReactNode;
   noTrigger?: SingleBooleanChoiceArg<"noTrigger">;
   className?: string;
 }
@@ -207,7 +207,13 @@ function PlasmicDialog__RenderFunc(props: {
         sty.dialog,
         { [sty.dialognoTrigger]: hasVariant($state, "noTrigger", "noTrigger") }
       )}
-      onOpenChange={generateStateOnChangeProp($state, ["dialog", "open"])}
+      modal={true}
+      onOpenChange={async (...eventArgs: any) => {
+        generateStateOnChangeProp($state, ["dialog", "open"]).apply(
+          null,
+          eventArgs
+        );
+      }}
       open={generateStateValueProp($state, ["dialog", "open"])}
       overlayClassName={classNames({
         [sty["pcls_PPgMZnImy2Ka"]]: hasVariant(
@@ -215,7 +221,7 @@ function PlasmicDialog__RenderFunc(props: {
           "screen",
           "mobileOnly"
         ),
-        [sty["pcls_ukY8bLVH2ml5"]]: true
+        [sty["pcls_W-THuxFZxtZl"]]: true
       })}
       themeResetClass={classNames(
         projectcss.root_reset,

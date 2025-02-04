@@ -244,7 +244,7 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                               "Provide parameter is not recognized."
                             );
                           }
-                        }, 10000);
+                        }, 4000);
                       }
                     };
                     return (({ customFunction }) => {

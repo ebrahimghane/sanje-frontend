@@ -222,18 +222,18 @@
   height: auto;
   max-width: 100%;
   font-weight: 900;
-  font-size: var(--token-RxWJli6xyBzp);
   color: var(--token-N7E-iBLBGvbe);
   font-family: "IRANSansXV";
   font-style: normal;
   text-align: center;
   text-transform: none;
-  line-height: 1.5;
+  line-height: 1.5em;
   letter-spacing: normal;
-  white-space: pre-wrap;
+  white-space: pre;
   user-select: text;
   text-decoration-line: none;
   text-overflow: clip;
+  font-size: 1.4em;
 }
 .loading {
   height: 100%;
@@ -316,7 +316,7 @@
   max-width: 100%;
   margin: 460px 0px 17px;
 }
-.svg__aRasq {
+.svg__po2TP {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -325,7 +325,7 @@
 .text__dL3T {
   color: var(--token-Le07ngBUPl2h);
 }
-.svg__xaPZc {
+.svg__ue2Kf {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -337,13 +337,13 @@
   margin-top: 10px;
   display: none;
 }
-.svg__jzqJt {
+.svg__blgQr {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.svg__bwWwt {
+.svg__bXxh {
   position: relative;
   object-fit: cover;
   width: auto;
