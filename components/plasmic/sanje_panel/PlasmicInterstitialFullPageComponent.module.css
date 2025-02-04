@@ -266,9 +266,17 @@
 .img__gd4Ci {
   object-fit: fill;
   max-width: 100%;
+  display: none !important;
 }
 .img__gd4Ci > picture > img {
   object-fit: fill;
+}
+.img__iRy6T {
+  object-fit: cover;
+  max-width: 100%;
+}
+.img__iRy6T > picture > img {
+  object-fit: cover;
 }
 .text__tasqH {
   position: relative;

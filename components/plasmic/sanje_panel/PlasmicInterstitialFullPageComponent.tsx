@@ -331,7 +331,7 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
                       e instanceof TypeError ||
                       e?.plasmicType === "PlasmicUndefinedDataError"
                     ) {
-                      return "\u067e\u0630\u06cc\u0631\u063424";
+                      return " ";
                     }
                     throw e;
                   }
@@ -386,6 +386,24 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
         loading={"lazy"}
         src={{
           src: "/plasmic/sanje_panel/images/image7.svg",
+          fullWidth: 400,
+          fullHeight: 8,
+          aspectRatio: 50
+        }}
+      />
+
+      <PlasmicImg__
+        alt={""}
+        className={classNames(sty.img__iRy6T)}
+        displayHeight={"auto"}
+        displayMaxHeight={"none"}
+        displayMaxWidth={"100%"}
+        displayMinHeight={"0"}
+        displayMinWidth={"0"}
+        displayWidth={"auto"}
+        loading={"lazy"}
+        src={{
+          src: "/plasmic/sanje_panel/images/image20SSvg.svg",
           fullWidth: 400,
           fullHeight: 8,
           aspectRatio: 50
