@@ -319,8 +319,12 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
               <React.Fragment>
                 {(() => {
                   try {
-                    return $props.provider === "doctoreto"
+                    return $props.uri.includes("doctoreto")
                       ? "دکتـــرِتو"
+                      : $props.uri.includes("drdr")
+                      ? "دکتر دکتر"
+                      : $props.uri.includes("nobat724")
+                      ? "علوم پزشکی تهران"
                       : $props.displayName;
                   } catch (e) {
                     if (

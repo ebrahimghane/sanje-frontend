@@ -11,24 +11,25 @@ import { GrowthBook } from "@/fragment/growthbook"; // plasmic-import: DbAR2bd9p
 import { Splunk } from "@/fragment/splunk"; // plasmic-import: Iqj9wqmRKfGb/codeComponent
 import { AntdConfigProvider } from "@plasmicpkgs/antd5/skinny/registerConfigProvider";
 import { Hamdast } from "@/hamdast/hamdast"; // plasmic-import: RuE2-zUZLQ_z/codeComponent
+import { EmbedCss } from "@plasmicpkgs/plasmic-embed-css";
 
 export interface GlobalContextsProviderProps {
   children?: React.ReactElement;
   fragmentProps?: Partial<
     Omit<React.ComponentProps<typeof Fragment>, "children">
   >;
-
   growthBookProps?: Partial<
     Omit<React.ComponentProps<typeof GrowthBook>, "children">
   >;
-
   splunkProps?: Partial<Omit<React.ComponentProps<typeof Splunk>, "children">>;
   antdConfigProviderProps?: Partial<
     Omit<React.ComponentProps<typeof AntdConfigProvider>, "children">
   >;
-
   hamdastProps?: Partial<
     Omit<React.ComponentProps<typeof Hamdast>, "children">
+  >;
+  embedCssProps?: Partial<
+    Omit<React.ComponentProps<typeof EmbedCss>, "children">
   >;
 }
 
@@ -41,7 +42,8 @@ export default function GlobalContextsProvider(
     growthBookProps,
     splunkProps,
     antdConfigProviderProps,
-    hamdastProps
+    hamdastProps,
+    embedCssProps
   } = props;
 
   return (
@@ -205,7 +207,16 @@ export default function GlobalContextsProvider(
                   : "9e5789a2da3a43a8k05636486a07200b"
               }
             >
-              {children}
+              <EmbedCss
+                {...embedCssProps}
+                css={
+                  embedCssProps && "css" in embedCssProps
+                    ? embedCssProps.css!
+                    : ".pl__z-50{\r\n  z-index: 9999 !important;\r\n}"
+                }
+              >
+                {children}
+              </EmbedCss>
             </Hamdast>
           </AntdConfigProvider>
         </Splunk>
