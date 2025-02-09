@@ -2006,7 +2006,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
                   />
                 }
                 link={
-                  "https://newsupport.paziresh24.com/new-ticket/?department=4&product=3&utm_source=sanjeMyperformancePage&utm_medium=p24&utm_campaign=footerBlock"
+                  "https://support.paziresh24.com/new-ticket/?department=4&utm_source=sanjeMyperformancePage&utm_medium=p24&utm_campaign=footerBlock"
                 }
                 outline={true}
                 showEndIcon={true}
