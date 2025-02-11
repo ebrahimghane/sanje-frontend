@@ -224,7 +224,7 @@ function PlasmicInterstitialPage__RenderFunc(props: {
               try {
                 return $ctx.query.source === "profile"
                   ? $state.apiRequest.data?.users?.length > 0
-                  : true;
+                  : !$state.apiRequest.loading;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -299,7 +299,7 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                   try {
                     return $ctx.query.source === "profile"
                       ? $state.apiRequest.data?.users?.length > 0
-                      : true;
+                      : !$state.apiRequest.loading;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
