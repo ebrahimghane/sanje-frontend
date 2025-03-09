@@ -65,6 +65,7 @@
 }
 .h6__eBtE2 {
   text-align: right;
+  font-family: var(--iran-sans-x);
   padding: 15px 5px 0px 1px;
 }
 .text__yw6Jt {
@@ -298,6 +299,7 @@
 }
 .h6__iPoxf {
   margin-top: var(--token-QcxRWQfhgyJI);
+  font-family: var(--iran-sans-x);
 }
 .text__uXg5H {
   position: relative;
@@ -318,6 +320,7 @@
   font-weight: 400;
   text-align: right;
   margin-top: var(--token-BCWljTOyDNmw);
+  font-family: var(--iran-sans-x);
   padding: 0px 5px 0px 2px;
 }
 .button__qMxJ4:global(.__wab_instance) {
