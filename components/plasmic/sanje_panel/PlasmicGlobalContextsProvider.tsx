@@ -10,7 +10,6 @@ import { Fragment } from "@/fragment/fragment"; // plasmic-import: aoWuS25X94s0/
 import { GrowthBook } from "@/fragment/growthbook"; // plasmic-import: DbAR2bd9pX5P/codeComponent
 import { Splunk } from "@/fragment/splunk"; // plasmic-import: Iqj9wqmRKfGb/codeComponent
 import { AntdConfigProvider } from "@plasmicpkgs/antd5/skinny/registerConfigProvider";
-import { Hamdast } from "@/hamdast/hamdast"; // plasmic-import: RuE2-zUZLQ_z/codeComponent
 import { EmbedCss } from "@plasmicpkgs/plasmic-embed-css";
 
 export interface GlobalContextsProviderProps {
@@ -18,20 +17,13 @@ export interface GlobalContextsProviderProps {
   fragmentProps?: Partial<
     Omit<React.ComponentProps<typeof Fragment>, "children">
   >;
-
   growthBookProps?: Partial<
     Omit<React.ComponentProps<typeof GrowthBook>, "children">
   >;
-
   splunkProps?: Partial<Omit<React.ComponentProps<typeof Splunk>, "children">>;
   antdConfigProviderProps?: Partial<
     Omit<React.ComponentProps<typeof AntdConfigProvider>, "children">
   >;
-
-  hamdastProps?: Partial<
-    Omit<React.ComponentProps<typeof Hamdast>, "children">
-  >;
-
   embedCssProps?: Partial<
     Omit<React.ComponentProps<typeof EmbedCss>, "children">
   >;
@@ -46,7 +38,6 @@ export default function GlobalContextsProvider(
     growthBookProps,
     splunkProps,
     antdConfigProviderProps,
-    hamdastProps,
     embedCssProps
   } = props;
 
@@ -203,25 +194,16 @@ export default function GlobalContextsProvider(
                 : false
             }
           >
-            <Hamdast
-              {...hamdastProps}
-              clientKey={
-                hamdastProps && "clientKey" in hamdastProps
-                  ? hamdastProps.clientKey!
-                  : "9e5789a2da3a43a8k05636486a07200b"
+            <EmbedCss
+              {...embedCssProps}
+              css={
+                embedCssProps && "css" in embedCssProps
+                  ? embedCssProps.css!
+                  : '*{\r\n  direction: rtl !important; \r\n  font-family: "iran-sans-x";\r\n}\r\n\r\n.pl__z-50{\r\n  z-index: 9999 !important;\r\n}'
               }
             >
-              <EmbedCss
-                {...embedCssProps}
-                css={
-                  embedCssProps && "css" in embedCssProps
-                    ? embedCssProps.css!
-                    : ".pl__z-50{\r\n  z-index: 9999 !important;\r\n}"
-                }
-              >
-                {children}
-              </EmbedCss>
-            </Hamdast>
+              {children}
+            </EmbedCss>
           </AntdConfigProvider>
         </Splunk>
       </GrowthBook>

@@ -186,91 +186,121 @@ function PlasmicMyPerformance__RenderFunc(props: {
         path: "getMySearchDocument.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "getMySearchDocument"
       },
       {
         path: "getMySearchDocument.error",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "getMySearchDocument"
       },
       {
         path: "getMySearchDocument.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "getMySearchDocument"
       },
       {
         path: "sanjeSearchCardViewFragmentApiRequest2.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "sanjeSearchCardViewFragmentApiRequest2"
       },
       {
         path: "sanjeSearchCardViewFragmentApiRequest2.error",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "sanjeSearchCardViewFragmentApiRequest2"
       },
       {
         path: "sanjeSearchCardViewFragmentApiRequest2.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "sanjeSearchCardViewFragmentApiRequest2"
       },
       {
         path: "sanjeSearchClickPositionFragmentApiRequest3.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "sanjeSearchClickPositionFragmentApiRequest3"
       },
       {
         path: "sanjeSearchClickPositionFragmentApiRequest3.error",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "sanjeSearchClickPositionFragmentApiRequest3"
       },
       {
         path: "sanjeSearchClickPositionFragmentApiRequest3.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "sanjeSearchClickPositionFragmentApiRequest3"
       },
       {
         path: "growthOpportunitiesFragmentApiRequest.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "growthOpportunitiesFragmentApiRequest"
       },
       {
         path: "growthOpportunitiesFragmentApiRequest.error",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "growthOpportunitiesFragmentApiRequest"
       },
       {
         path: "growthOpportunitiesFragmentApiRequest.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "growthOpportunitiesFragmentApiRequest"
       },
       {
         path: "newsUpdatesFragmentApiRequest.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "newsUpdatesFragmentApiRequest"
       },
       {
         path: "newsUpdatesFragmentApiRequest.error",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "newsUpdatesFragmentApiRequest"
       },
       {
         path: "newsUpdatesFragmentApiRequest.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "newsUpdatesFragmentApiRequest"
       }
     ],
     [$props, $ctx, $refs]
@@ -397,6 +427,9 @@ function PlasmicMyPerformance__RenderFunc(props: {
                 "newsUpdatesFragmentApiRequest",
                 "data"
               ]).apply(null, eventArgs);
+            }}
+            ref={ref => {
+              $refs["newsUpdatesFragmentApiRequest"] = ref;
             }}
             url={
               "https://apigw.paziresh24.com/v1/n8n-search/webhook/sanje-news-updates"
@@ -612,6 +645,9 @@ function PlasmicMyPerformance__RenderFunc(props: {
                 "data"
               ]).apply(null, eventArgs);
             }}
+            ref={ref => {
+              $refs["getMySearchDocument"] = ref;
+            }}
             url={
               "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-search-document"
             }
@@ -690,6 +726,9 @@ function PlasmicMyPerformance__RenderFunc(props: {
                 "growthOpportunitiesFragmentApiRequest",
                 "data"
               ]).apply(null, eventArgs);
+            }}
+            ref={ref => {
+              $refs["growthOpportunitiesFragmentApiRequest"] = ref;
             }}
             url={
               "https://apigw.paziresh24.com/v1/n8n-search/webhook/growth-opportunities"
@@ -1663,6 +1702,9 @@ function PlasmicMyPerformance__RenderFunc(props: {
                         "data"
                       ]).apply(null, eventArgs);
                     }}
+                    ref={ref => {
+                      $refs["sanjeSearchCardViewFragmentApiRequest2"] = ref;
+                    }}
                     url={
                       "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-metric-data?metric_name=search_card_view"
                     }
@@ -1752,6 +1794,10 @@ function PlasmicMyPerformance__RenderFunc(props: {
                         "sanjeSearchClickPositionFragmentApiRequest3",
                         "data"
                       ]).apply(null, eventArgs);
+                    }}
+                    ref={ref => {
+                      $refs["sanjeSearchClickPositionFragmentApiRequest3"] =
+                        ref;
                     }}
                     url={
                       "https://apigw.paziresh24.com/v1/n8n-search/webhook/my-metric-data?metric_name=search_click_position"

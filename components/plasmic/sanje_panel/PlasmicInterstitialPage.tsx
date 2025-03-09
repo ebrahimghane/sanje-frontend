@@ -142,19 +142,25 @@ function PlasmicInterstitialPage__RenderFunc(props: {
         path: "apiRequest.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "apiRequest"
       },
       {
         path: "apiRequest.error",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "apiRequest"
       },
       {
         path: "apiRequest.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "apiRequest"
       }
     ],
     [$props, $ctx, $refs]
@@ -565,6 +571,9 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                 (async data => {
                   const $steps = {};
                 }).apply(null, eventArgs);
+              }}
+              ref={ref => {
+                $refs["apiRequest"] = ref;
               }}
               url={"https://apigw.paziresh24.com/v1/auth/me"}
             />
