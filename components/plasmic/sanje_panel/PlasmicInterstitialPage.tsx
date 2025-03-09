@@ -90,7 +90,6 @@ export type PlasmicInterstitialPage__OverridesType = {
   freeBox?: Flex__<"div">;
   interstitialFullPageComponent?: Flex__<typeof InterstitialFullPageComponent>;
   scriptsAndGeneralTags?: Flex__<typeof ScriptsAndGeneralTags>;
-  sideEffect?: Flex__<typeof SideEffect>;
   apiRequest?: Flex__<typeof ApiRequest>;
   svg?: Flex__<"svg">;
 };
@@ -278,6 +277,99 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                 )}
               />
 
+              <SideEffect
+                className={classNames("__wab_instance", sty.sideEffect__sImXq)}
+                onMount={async () => {
+                  const $steps = {};
+
+                  $steps["sendSplunkInterstitialPageLoad"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            (() => {
+                              try {
+                                return {
+                                  event_group: "search_metrics",
+                                  event_type: "interstitial_page_load",
+                                  current_url: window.location.href,
+                                  user_id:
+                                    $state?.apiRequest?.data?.users?.[0]?.id,
+                                  terminal_id: window.document.cookie
+                                    ?.split("; ")
+                                    ?.find?.(row =>
+                                      row.startsWith("terminal_id=")
+                                    )
+                                    ?.split?.("=")?.[1]
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          ]
+                        };
+                        return $globalActions["Splunk.sendLog"]?.apply(null, [
+                          ...actionArgs.args
+                        ]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["sendSplunkInterstitialPageLoad"] != null &&
+                    typeof $steps["sendSplunkInterstitialPageLoad"] ===
+                      "object" &&
+                    typeof $steps["sendSplunkInterstitialPageLoad"].then ===
+                      "function"
+                  ) {
+                    $steps["sendSplunkInterstitialPageLoad"] = await $steps[
+                      "sendSplunkInterstitialPageLoad"
+                    ];
+                  }
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return setTimeout(function () {
+                              const urlParams = new URLSearchParams(
+                                window.location.search
+                              );
+                              const uri = decodeURIComponent(
+                                urlParams.get("uri") || ""
+                              );
+                              const provide = urlParams.get("provide");
+                              if (provide === "doctoreto") {
+                                const fullUrl = "https://doctoreto.com/" + uri;
+                                window.location.href = fullUrl;
+                              } else if (provide === "page") {
+                                window.location.href = uri;
+                              } else {
+                                console.error(
+                                  "Provide parameter is not recognized."
+                                );
+                              }
+                            }, 4000);
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+              />
+
               {(() => {
                 try {
                   return $ctx.query.source === "profile"
@@ -294,9 +386,10 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                 }
               })() ? (
                 <SideEffect
-                  data-plasmic-name={"sideEffect"}
-                  data-plasmic-override={overrides.sideEffect}
-                  className={classNames("__wab_instance", sty.sideEffect)}
+                  className={classNames(
+                    "__wab_instance",
+                    sty.sideEffect___2EPr
+                  )}
                   onMount={async () => {
                     const $steps = {};
 
@@ -488,19 +581,16 @@ const PlasmicDescendants = {
     "freeBox",
     "interstitialFullPageComponent",
     "scriptsAndGeneralTags",
-    "sideEffect",
     "apiRequest",
     "svg"
   ],
   freeBox: [
     "freeBox",
     "interstitialFullPageComponent",
-    "scriptsAndGeneralTags",
-    "sideEffect"
+    "scriptsAndGeneralTags"
   ],
   interstitialFullPageComponent: ["interstitialFullPageComponent"],
   scriptsAndGeneralTags: ["scriptsAndGeneralTags"],
-  sideEffect: ["sideEffect"],
   apiRequest: ["apiRequest", "svg"],
   svg: ["svg"]
 } as const;
@@ -512,7 +602,6 @@ type NodeDefaultElementType = {
   freeBox: "div";
   interstitialFullPageComponent: typeof InterstitialFullPageComponent;
   scriptsAndGeneralTags: typeof ScriptsAndGeneralTags;
-  sideEffect: typeof SideEffect;
   apiRequest: typeof ApiRequest;
   svg: "svg";
 };
@@ -582,7 +671,6 @@ export const PlasmicInterstitialPage = Object.assign(
       "interstitialFullPageComponent"
     ),
     scriptsAndGeneralTags: makeNodeComponent("scriptsAndGeneralTags"),
-    sideEffect: makeNodeComponent("sideEffect"),
     apiRequest: makeNodeComponent("apiRequest"),
     svg: makeNodeComponent("svg"),
 
