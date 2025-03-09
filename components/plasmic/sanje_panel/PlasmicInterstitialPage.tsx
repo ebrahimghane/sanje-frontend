@@ -220,197 +220,177 @@ function PlasmicInterstitialPage__RenderFunc(props: {
               sty.root
             )}
           >
-            {(() => {
-              try {
-                return $ctx.query.source === "profile"
-                  ? $state.apiRequest.data?.users?.length > 0
-                  : !$state.apiRequest.loading;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return false;
-                }
-                throw e;
-              }
-            })() ? (
-              <div
-                data-plasmic-name={"freeBox"}
-                data-plasmic-override={overrides.freeBox}
-                className={classNames(projectcss.all, sty.freeBox)}
-              >
-                <InterstitialFullPageComponent
-                  data-plasmic-name={"interstitialFullPageComponent"}
-                  data-plasmic-override={
-                    overrides.interstitialFullPageComponent
-                  }
-                  displayName={(() => {
-                    try {
-                      return $ctx.query.display_name;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                  provider={(() => {
-                    try {
-                      return $ctx.query.provide;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                  uri={(() => {
-                    try {
-                      return $ctx.query.uri;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                />
-
-                <ScriptsAndGeneralTags
-                  data-plasmic-name={"scriptsAndGeneralTags"}
-                  data-plasmic-override={overrides.scriptsAndGeneralTags}
-                  className={classNames(
-                    "__wab_instance",
-                    sty.scriptsAndGeneralTags
-                  )}
-                />
-
-                {(() => {
+            <div
+              data-plasmic-name={"freeBox"}
+              data-plasmic-override={overrides.freeBox}
+              className={classNames(projectcss.all, sty.freeBox)}
+            >
+              <InterstitialFullPageComponent
+                data-plasmic-name={"interstitialFullPageComponent"}
+                data-plasmic-override={overrides.interstitialFullPageComponent}
+                displayName={(() => {
                   try {
-                    return $ctx.query.source === "profile"
-                      ? $state.apiRequest.data?.users?.length > 0
-                      : !$state.apiRequest.loading;
+                    return $ctx.query.display_name;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
                       e?.plasmicType === "PlasmicUndefinedDataError"
                     ) {
-                      return false;
+                      return undefined;
                     }
                     throw e;
                   }
-                })() ? (
-                  <SideEffect
-                    data-plasmic-name={"sideEffect"}
-                    data-plasmic-override={overrides.sideEffect}
-                    className={classNames("__wab_instance", sty.sideEffect)}
-                    onMount={async () => {
-                      const $steps = {};
+                })()}
+                provider={(() => {
+                  try {
+                    return $ctx.query.provide;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                uri={(() => {
+                  try {
+                    return $ctx.query.uri;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+              />
 
-                      $steps["sendSplunkInterstitialPageLoad"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                (() => {
-                                  try {
-                                    return {
-                                      event_group: "search_metrics",
-                                      event_type: "interstitial_page_load",
-                                      current_url: window.location.href,
-                                      user_id:
-                                        $state?.apiRequest?.data?.users?.[0]
-                                          ?.id,
-                                      terminal_id: window.document.cookie
-                                        ?.split("; ")
-                                        ?.find?.(row =>
-                                          row.startsWith("terminal_id=")
-                                        )
-                                        ?.split?.("=")?.[1]
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              ]
-                            };
-                            return $globalActions["Splunk.sendLog"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["sendSplunkInterstitialPageLoad"] != null &&
-                        typeof $steps["sendSplunkInterstitialPageLoad"] ===
-                          "object" &&
-                        typeof $steps["sendSplunkInterstitialPageLoad"].then ===
-                          "function"
-                      ) {
-                        $steps["sendSplunkInterstitialPageLoad"] = await $steps[
-                          "sendSplunkInterstitialPageLoad"
-                        ];
-                      }
+              <ScriptsAndGeneralTags
+                data-plasmic-name={"scriptsAndGeneralTags"}
+                data-plasmic-override={overrides.scriptsAndGeneralTags}
+                className={classNames(
+                  "__wab_instance",
+                  sty.scriptsAndGeneralTags
+                )}
+              />
 
-                      $steps["runCode"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return setTimeout(function () {
-                                  const urlParams = new URLSearchParams(
-                                    window.location.search
-                                  );
-                                  const uri = decodeURIComponent(
-                                    urlParams.get("uri") || ""
-                                  );
-                                  const provide = urlParams.get("provide");
-                                  if (provide === "doctoreto") {
-                                    const fullUrl =
-                                      "https://doctoreto.com/" + uri;
-                                    window.location.href = fullUrl;
-                                  } else if (provide === "page") {
-                                    window.location.href = uri;
-                                  } else {
-                                    console.error(
-                                      "Provide parameter is not recognized."
-                                    );
+              {(() => {
+                try {
+                  return $ctx.query.source === "profile"
+                    ? $state.apiRequest.data?.users?.length > 0
+                    : !$state.apiRequest.loading;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <SideEffect
+                  data-plasmic-name={"sideEffect"}
+                  data-plasmic-override={overrides.sideEffect}
+                  className={classNames("__wab_instance", sty.sideEffect)}
+                  onMount={async () => {
+                    const $steps = {};
+
+                    $steps["sendSplunkInterstitialPageLoad"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              (() => {
+                                try {
+                                  return {
+                                    event_group: "search_metrics",
+                                    event_type: "interstitial_page_load",
+                                    current_url: window.location.href,
+                                    user_id:
+                                      $state?.apiRequest?.data?.users?.[0]?.id,
+                                    terminal_id: window.document.cookie
+                                      ?.split("; ")
+                                      ?.find?.(row =>
+                                        row.startsWith("terminal_id=")
+                                      )
+                                      ?.split?.("=")?.[1]
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
                                   }
-                                }, 4000);
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
-                      }
-                    }}
-                  />
-                ) : null}
-              </div>
-            ) : null}
+                                  throw e;
+                                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Splunk.sendLog"]?.apply(null, [
+                            ...actionArgs.args
+                          ]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["sendSplunkInterstitialPageLoad"] != null &&
+                      typeof $steps["sendSplunkInterstitialPageLoad"] ===
+                        "object" &&
+                      typeof $steps["sendSplunkInterstitialPageLoad"].then ===
+                        "function"
+                    ) {
+                      $steps["sendSplunkInterstitialPageLoad"] = await $steps[
+                        "sendSplunkInterstitialPageLoad"
+                      ];
+                    }
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return setTimeout(function () {
+                                const urlParams = new URLSearchParams(
+                                  window.location.search
+                                );
+                                const uri = decodeURIComponent(
+                                  urlParams.get("uri") || ""
+                                );
+                                const provide = urlParams.get("provide");
+                                if (provide === "doctoreto") {
+                                  const fullUrl =
+                                    "https://doctoreto.com/" + uri;
+                                  window.location.href = fullUrl;
+                                } else if (provide === "page") {
+                                  window.location.href = uri;
+                                } else {
+                                  console.error(
+                                    "Provide parameter is not recognized."
+                                  );
+                                }
+                              }, 4000);
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
+                />
+              ) : null}
+            </div>
             <ApiRequest
               data-plasmic-name={"apiRequest"}
               data-plasmic-override={overrides.apiRequest}
