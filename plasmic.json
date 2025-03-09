@@ -1365,12 +1365,6 @@
           "componentImportPath": "@/fragment/components/slider"
         },
         {
-          "id": "RuE2-zUZLQ_z",
-          "name": "Hamdast",
-          "displayName": "Hamdast",
-          "componentImportPath": "@/hamdast/hamdast"
-        },
-        {
           "id": "eqIt45l1ABZu",
           "name": "Chart",
           "displayName": "Chart",
