@@ -1158,8 +1158,8 @@ function PlasmicMyPerformance__RenderFunc(props: {
                                     enabled: null,
                                     indicator: null
                                   };
-                                  __composite["enabled"] = false;
-                                  __composite["indicator"] = "dot";
+                                  __composite["enabled"] = true;
+                                  __composite["indicator"] = "dashed";
                                   return __composite;
                                 })()}
                                 type={"area"}
@@ -1169,13 +1169,31 @@ function PlasmicMyPerformance__RenderFunc(props: {
                                     key: null,
                                     type: null,
                                     tickLine: null,
-                                    axisLine: null
+                                    axisLine: null,
+                                    tickMargin: null
                                   };
                                   __composite["enabled"] = true;
                                   __composite["key"] = "range";
                                   __composite["type"] = "category";
                                   __composite["tickLine"] = false;
                                   __composite["axisLine"] = false;
+                                  __composite["tickMargin"] = 10;
+                                  return __composite;
+                                })()}
+                                yAxis={(() => {
+                                  const __composite = {
+                                    enabled: null,
+                                    key: null,
+                                    type: null,
+                                    tickLine: null,
+                                    axisLine: null
+                                  };
+                                  __composite["enabled"] = true;
+                                  __composite["key"] =
+                                    "\u062a\u0639\u062f\u0627\u062f \u0646\u0648\u0628\u062a";
+                                  __composite["type"] = "number";
+                                  __composite["tickLine"] = false;
+                                  __composite["axisLine"] = true;
                                   return __composite;
                                 })()}
                               />
