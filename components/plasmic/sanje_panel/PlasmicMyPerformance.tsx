@@ -951,7 +951,10 @@ function PlasmicMyPerformance__RenderFunc(props: {
                     (() => {
                       try {
                         return $state.getMySearchDocument.data.entity
-                          .group_expertise_id;
+                          .group_expertise_id.length > 0
+                          ? $state.getMySearchDocument.data.entity
+                              .group_expertise_id
+                          : [35];
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
