@@ -199,7 +199,7 @@ export default function GlobalContextsProvider(
               css={
                 embedCssProps && "css" in embedCssProps
                   ? embedCssProps.css!
-                  : '*{\r\n  direction: rtl !important; \r\n  font-family: "iran-sans-x";\r\n}\r\n\r\n.pl__z-50{\r\n  z-index: 9999 !important;\r\n}'
+                  : '*{\r\n  direction: rtl !important; \r\n  font-family: "IRANSansXV", "iran-sans-x";\r\n  }\r\n\r\n.pl__z-50{\r\n  z-index: 9999 !important;\r\n}'
               }
             >
               {children}
