@@ -399,55 +399,6 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                   onMount={async () => {
                     const $steps = {};
 
-                    $steps["sendSplunkInterstitialPageLoad"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              (() => {
-                                try {
-                                  return {
-                                    event_group: "search_metrics",
-                                    event_type: "interstitial_page_load",
-                                    current_url: window.location.href,
-                                    user_id:
-                                      $state?.apiRequest?.data?.users?.[0]?.id,
-                                    terminal_id: window.document.cookie
-                                      ?.split("; ")
-                                      ?.find?.(row =>
-                                        row.startsWith("terminal_id=")
-                                      )
-                                      ?.split?.("=")?.[1]
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            ]
-                          };
-                          return $globalActions["Splunk.sendLog"]?.apply(null, [
-                            ...actionArgs.args
-                          ]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["sendSplunkInterstitialPageLoad"] != null &&
-                      typeof $steps["sendSplunkInterstitialPageLoad"] ===
-                        "object" &&
-                      typeof $steps["sendSplunkInterstitialPageLoad"].then ===
-                        "function"
-                    ) {
-                      $steps["sendSplunkInterstitialPageLoad"] = await $steps[
-                        "sendSplunkInterstitialPageLoad"
-                      ];
-                    }
-
                     $steps["runCode"] = true
                       ? (() => {
                           const actionArgs = {
