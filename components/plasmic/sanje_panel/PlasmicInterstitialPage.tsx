@@ -381,7 +381,7 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                 onMount={async () => {
                   const $steps = {};
 
-                  $steps["runCode"] = true
+                  $steps["runCode"] = false
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
@@ -419,7 +419,7 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                     $steps["runCode"] = await $steps["runCode"];
                   }
 
-                  $steps["rismanSendSplunkLog"] = true
+                  $steps["rismanSendSplunkLog"] = false
                     ? (() => {
                         const actionArgs = {
                           args: [
