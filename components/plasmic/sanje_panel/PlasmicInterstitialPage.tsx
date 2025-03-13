@@ -486,6 +486,55 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                     ) {
                       $steps["runCode"] = await $steps["runCode"];
                     }
+
+                    $steps["rismanSendSplunkLog"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              (() => {
+                                try {
+                                  return {
+                                    event_group: "risman_metrics",
+                                    event_type: "interstitial_page_load",
+                                    current_url: window.location.href,
+                                    user_id:
+                                      $state?.apiRequest?.data?.users?.[0]?.id,
+                                    terminal_id: window.document.cookie
+                                      ?.split("; ")
+                                      ?.find?.(row =>
+                                        row.startsWith("terminal_id=")
+                                      )
+                                      ?.split?.("=")?.[1]
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })(),
+                              "https://splunk-risman-hec.paziresh24.com",
+                              "3c14a148-787c-4b8c-b442-96a9c9979683"
+                            ]
+                          };
+                          return $globalActions["Splunk.sendLog"]?.apply(null, [
+                            ...actionArgs.args
+                          ]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["rismanSendSplunkLog"] != null &&
+                      typeof $steps["rismanSendSplunkLog"] === "object" &&
+                      typeof $steps["rismanSendSplunkLog"].then === "function"
+                    ) {
+                      $steps["rismanSendSplunkLog"] = await $steps[
+                        "rismanSendSplunkLog"
+                      ];
+                    }
                   }}
                 />
               ) : null}
