@@ -295,7 +295,7 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                             (() => {
                               try {
                                 return {
-                                  event_group: "search_metrics",
+                                  event_group: "risman_metrics",
                                   event_type: "interstitial_page_load",
                                   current_url: window.location.href,
                                   user_id:
