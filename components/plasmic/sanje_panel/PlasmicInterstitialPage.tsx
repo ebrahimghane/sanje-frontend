@@ -288,7 +288,7 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                 onMount={async () => {
                   const $steps = {};
 
-                  $steps["sendSplunkInterstitialPageLoad"] = true
+                  $steps["rismanSendSplunkLog"] = true
                     ? (() => {
                         const actionArgs = {
                           args: [
@@ -316,7 +316,9 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                                 }
                                 throw e;
                               }
-                            })()
+                            })(),
+                            "https://splunk-risman-hec.paziresh24.com",
+                            "3c14a148-787c-4b8c-b442-96a9c9979683"
                           ]
                         };
                         return $globalActions["Splunk.sendLog"]?.apply(null, [
@@ -325,14 +327,12 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                       })()
                     : undefined;
                   if (
-                    $steps["sendSplunkInterstitialPageLoad"] != null &&
-                    typeof $steps["sendSplunkInterstitialPageLoad"] ===
-                      "object" &&
-                    typeof $steps["sendSplunkInterstitialPageLoad"].then ===
-                      "function"
+                    $steps["rismanSendSplunkLog"] != null &&
+                    typeof $steps["rismanSendSplunkLog"] === "object" &&
+                    typeof $steps["rismanSendSplunkLog"].then === "function"
                   ) {
-                    $steps["sendSplunkInterstitialPageLoad"] = await $steps[
-                      "sendSplunkInterstitialPageLoad"
+                    $steps["rismanSendSplunkLog"] = await $steps[
+                      "rismanSendSplunkLog"
                     ];
                   }
 
@@ -376,119 +376,98 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                 }}
               />
 
-              {(() => {
-                try {
-                  return $ctx.query.source === "profile"
-                    ? $state.apiRequest.data?.users?.length > 0
-                    : !$state.apiRequest.loading;
-                } catch (e) {
+              <SideEffect
+                className={classNames("__wab_instance", sty.sideEffect___2EPr)}
+                onMount={async () => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return setTimeout(function () {
+                              const urlParams = new URLSearchParams(
+                                window.location.search
+                              );
+                              const uri = decodeURIComponent(
+                                urlParams.get("uri") || ""
+                              );
+                              const provide = urlParams.get("provide");
+                              if (provide === "doctoreto") {
+                                const fullUrl = "https://doctoreto.com/" + uri;
+                                window.location.href = fullUrl;
+                              } else if (provide === "page") {
+                                window.location.href = uri;
+                              } else {
+                                console.error(
+                                  "Provide parameter is not recognized."
+                                );
+                              }
+                            }, 4000);
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
                   if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
                   ) {
-                    return false;
+                    $steps["runCode"] = await $steps["runCode"];
                   }
-                  throw e;
-                }
-              })() ? (
-                <SideEffect
-                  className={classNames(
-                    "__wab_instance",
-                    sty.sideEffect___2EPr
-                  )}
-                  onMount={async () => {
-                    const $steps = {};
 
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return setTimeout(function () {
-                                const urlParams = new URLSearchParams(
-                                  window.location.search
-                                );
-                                const uri = decodeURIComponent(
-                                  urlParams.get("uri") || ""
-                                );
-                                const provide = urlParams.get("provide");
-                                if (provide === "doctoreto") {
-                                  const fullUrl =
-                                    "https://doctoreto.com/" + uri;
-                                  window.location.href = fullUrl;
-                                } else if (provide === "page") {
-                                  window.location.href = uri;
-                                } else {
-                                  console.error(
-                                    "Provide parameter is not recognized."
-                                  );
+                  $steps["rismanSendSplunkLog"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            (() => {
+                              try {
+                                return {
+                                  event_group: "risman_metrics",
+                                  event_type: "interstitial_page_load",
+                                  current_url: window.location.href,
+                                  user_id:
+                                    $state?.apiRequest?.data?.users?.[0]?.id,
+                                  terminal_id: window.document.cookie
+                                    ?.split("; ")
+                                    ?.find?.(row =>
+                                      row.startsWith("terminal_id=")
+                                    )
+                                    ?.split?.("=")?.[1]
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
                                 }
-                              }, 4000);
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-
-                    $steps["rismanSendSplunkLog"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              (() => {
-                                try {
-                                  return {
-                                    event_group: "risman_metrics",
-                                    event_type: "interstitial_page_load",
-                                    current_url: window.location.href,
-                                    user_id:
-                                      $state?.apiRequest?.data?.users?.[0]?.id,
-                                    terminal_id: window.document.cookie
-                                      ?.split("; ")
-                                      ?.find?.(row =>
-                                        row.startsWith("terminal_id=")
-                                      )
-                                      ?.split?.("=")?.[1]
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })(),
-                              "https://splunk-risman-hec.paziresh24.com",
-                              "3c14a148-787c-4b8c-b442-96a9c9979683"
-                            ]
-                          };
-                          return $globalActions["Splunk.sendLog"]?.apply(null, [
-                            ...actionArgs.args
-                          ]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["rismanSendSplunkLog"] != null &&
-                      typeof $steps["rismanSendSplunkLog"] === "object" &&
-                      typeof $steps["rismanSendSplunkLog"].then === "function"
-                    ) {
-                      $steps["rismanSendSplunkLog"] = await $steps[
-                        "rismanSendSplunkLog"
-                      ];
-                    }
-                  }}
-                />
-              ) : null}
+                                throw e;
+                              }
+                            })(),
+                            "https://splunk-risman-hec.paziresh24.com",
+                            "3c14a148-787c-4b8c-b442-96a9c9979683"
+                          ]
+                        };
+                        return $globalActions["Splunk.sendLog"]?.apply(null, [
+                          ...actionArgs.args
+                        ]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["rismanSendSplunkLog"] != null &&
+                    typeof $steps["rismanSendSplunkLog"] === "object" &&
+                    typeof $steps["rismanSendSplunkLog"].then === "function"
+                  ) {
+                    $steps["rismanSendSplunkLog"] = await $steps[
+                      "rismanSendSplunkLog"
+                    ];
+                  }
+                }}
+              />
             </div>
             <ApiRequest
               data-plasmic-name={"apiRequest"}
