@@ -687,6 +687,11 @@
           "assetId": "aU6fPsMDSmKqgHWpAbdgs",
           "type": "projectCss",
           "checksum": "45fb2aa6ce33d0a9f33c1c11bd2c6b4b"
+        },
+        {
+          "type": "image",
+          "assetId": "I3ndKkWfLeND",
+          "checksum": "f36ed94caa3e89404e6217c951138e9e"
         }
       ],
       "codegenVersion": "0.0.1"
