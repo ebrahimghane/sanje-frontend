@@ -365,6 +365,7 @@ function PlasmicTaskCardItem__RenderFunc(props: {
               AntdAccordion_Helpers
             ).apply(null, eventArgs);
           },
+          rotateCustomExpandIcon: true,
           size: "middle"
         };
         initializeCodeComponentStates(
@@ -416,15 +417,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicTaskCardItem__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicTaskCardItem__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicTaskCardItem__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicTaskCardItem__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;
