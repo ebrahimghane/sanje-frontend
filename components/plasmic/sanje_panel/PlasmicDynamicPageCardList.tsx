@@ -76,9 +76,7 @@ type VariantPropType = keyof PlasmicDynamicPageCardList__VariantsArgs;
 export const PlasmicDynamicPageCardList__VariantProps =
   new Array<VariantPropType>();
 
-export type PlasmicDynamicPageCardList__ArgsType = {
-  cards?: any;
-};
+export type PlasmicDynamicPageCardList__ArgsType = { cards?: any };
 type ArgPropType = keyof PlasmicDynamicPageCardList__ArgsType;
 export const PlasmicDynamicPageCardList__ArgProps = new Array<ArgPropType>(
   "cards"
@@ -292,15 +290,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicDynamicPageCardList__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicDynamicPageCardList__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicDynamicPageCardList__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicDynamicPageCardList__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;
