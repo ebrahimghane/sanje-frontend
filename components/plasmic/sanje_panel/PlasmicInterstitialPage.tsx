@@ -289,7 +289,6 @@ function PlasmicInterstitialPage__RenderFunc(props: {
               <ApiRequest
                 data-plasmic-name={"apiRequest"}
                 data-plasmic-override={overrides.apiRequest}
-                children={null}
                 className={classNames("__wab_instance", sty.apiRequest)}
                 errorDisplay={null}
                 loadingDisplay={
@@ -372,101 +371,105 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                   $refs["apiRequest"] = ref;
                 }}
                 url={"https://apigw.paziresh24.com/v1/auth/me"}
-              />
+              >
+                <SideEffect
+                  className={classNames(
+                    "__wab_instance",
+                    sty.sideEffect__sqaxq
+                  )}
+                  onMount={async () => {
+                    const $steps = {};
 
-              <SideEffect
-                className={classNames("__wab_instance", sty.sideEffect__sqaxq)}
-                onMount={async () => {
-                  const $steps = {};
-
-                  $steps["rismanSendSplunkLog"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          args: [
-                            (() => {
-                              try {
-                                return {
-                                  event_group: "risman_metrics",
-                                  event_type: "interstitial_page_load",
-                                  current_url: window?.location?.href,
-                                  user_id:
-                                    $state?.apiRequest?.data?.users?.[0]?.id,
-                                  terminal_id: window.document.cookie
-                                    ?.split("; ")
-                                    ?.find?.(row =>
-                                      row.startsWith("terminal_id=")
-                                    )
-                                    ?.split?.("=")?.[1]
-                                };
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
+                    $steps["rismanSendSplunkLog"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              (() => {
+                                try {
+                                  return {
+                                    event_group: "risman_metrics",
+                                    event_type: "interstitial_page_load",
+                                    current_url: window?.location?.href,
+                                    user_id:
+                                      $state?.apiRequest?.data?.users?.[0]?.id,
+                                    terminal_id: window.document.cookie
+                                      ?.split("; ")
+                                      ?.find?.(row =>
+                                        row.startsWith("terminal_id=")
+                                      )
+                                      ?.split?.("=")?.[1]
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
                                 }
-                                throw e;
-                              }
-                            })(),
-                            "https://splunk-risman-hec.paziresh24.com",
-                            "3c14a148-787c-4b8c-b442-96a9c9979683"
-                          ]
-                        };
-                        return $globalActions["Splunk.sendLog"]?.apply(null, [
-                          ...actionArgs.args
-                        ]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["rismanSendSplunkLog"] != null &&
-                    typeof $steps["rismanSendSplunkLog"] === "object" &&
-                    typeof $steps["rismanSendSplunkLog"].then === "function"
-                  ) {
-                    $steps["rismanSendSplunkLog"] = await $steps[
-                      "rismanSendSplunkLog"
-                    ];
-                  }
+                              })(),
+                              "https://splunk-risman-hec.paziresh24.com",
+                              "3c14a148-787c-4b8c-b442-96a9c9979683"
+                            ]
+                          };
+                          return $globalActions["Splunk.sendLog"]?.apply(null, [
+                            ...actionArgs.args
+                          ]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["rismanSendSplunkLog"] != null &&
+                      typeof $steps["rismanSendSplunkLog"] === "object" &&
+                      typeof $steps["rismanSendSplunkLog"].then === "function"
+                    ) {
+                      $steps["rismanSendSplunkLog"] = await $steps[
+                        "rismanSendSplunkLog"
+                      ];
+                    }
 
-                  $steps["runCode"] = false
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return setTimeout(function () {
-                              const urlParams = new URLSearchParams(
-                                window.location.search
-                              );
-                              const uri = decodeURIComponent(
-                                urlParams.get("uri") || ""
-                              );
-                              const provide = urlParams.get("provide");
-                              if (provide === "doctoreto") {
-                                const fullUrl = "https://doctoreto.com/" + uri;
-                                window.location.href = fullUrl;
-                              } else if (provide === "page") {
-                                window.location.href = uri;
-                              } else {
-                                console.error(
-                                  "Provide parameter is not recognized."
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return setTimeout(function () {
+                                const urlParams = new URLSearchParams(
+                                  window.location.search
                                 );
-                              }
-                            }, 4000);
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
-                }}
-              />
-
+                                const uri = decodeURIComponent(
+                                  urlParams.get("uri") || ""
+                                );
+                                const provide = urlParams.get("provide");
+                                if (provide === "doctoreto") {
+                                  const fullUrl =
+                                    "https://doctoreto.com/" + uri;
+                                  window.location.href = fullUrl;
+                                } else if (provide === "page") {
+                                  window.location.href = uri;
+                                } else {
+                                  console.error(
+                                    "Provide parameter is not recognized."
+                                  );
+                                }
+                              }, 4000);
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
+                />
+              </ApiRequest>
               <SideEffect
                 className={classNames("__wab_instance", sty.sideEffect___2EPr)}
                 onMount={async () => {
