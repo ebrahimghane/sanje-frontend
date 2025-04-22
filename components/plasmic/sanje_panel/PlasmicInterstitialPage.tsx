@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -261,7 +261,10 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                 })()}
                 uri={(() => {
                   try {
-                    return $ctx.query.uri;
+                    return $ctx.query.uri.includes("utm")
+                      ? $ctx.query.uri
+                      : $ctx.query.uri +
+                          "/?utm_source=paziresh24&utm_medium=r-btn&utm_campaign=risman";
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
