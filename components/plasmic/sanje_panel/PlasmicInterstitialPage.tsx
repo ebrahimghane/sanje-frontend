@@ -61,8 +61,8 @@ import {
 
 import InterstitialFullPageComponent from "../../InterstitialFullPageComponent"; // plasmic-import: yQnkyuy8-tJy/component
 import ScriptsAndGeneralTags from "../../ScriptsAndGeneralTags"; // plasmic-import: zZNx54MRT-Br/component
-import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: MhkncRKg2Phv/codeComponent
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: MhkncRKg2Phv/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -88,8 +88,8 @@ export type PlasmicInterstitialPage__OverridesType = {
   freeBox?: Flex__<"div">;
   interstitialFullPageComponent?: Flex__<typeof InterstitialFullPageComponent>;
   scriptsAndGeneralTags?: Flex__<typeof ScriptsAndGeneralTags>;
-  apiRequest?: Flex__<typeof ApiRequest>;
   sideEffect?: Flex__<typeof SideEffect>;
+  apiRequest?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultInterstitialPageProps {}
@@ -284,9 +284,105 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                 )}
               />
 
+              <SideEffect
+                data-plasmic-name={"sideEffect"}
+                data-plasmic-override={overrides.sideEffect}
+                className={classNames("__wab_instance", sty.sideEffect)}
+                onMount={async () => {
+                  const $steps = {};
+
+                  $steps["rismanSendSplunkLog"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            (() => {
+                              try {
+                                return {
+                                  event_group: "risman_metrics",
+                                  event_type: "interstitial_page_load",
+                                  current_url: window?.location?.href,
+                                  user_id:
+                                    $state?.apiRequest?.data?.users?.[0]?.id,
+                                  terminal_id: window.document.cookie
+                                    ?.split("; ")
+                                    ?.find?.(row =>
+                                      row.startsWith("terminal_id=")
+                                    )
+                                    ?.split?.("=")?.[1]
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })(),
+                            "https://splunk-risman-hec.paziresh24.com",
+                            "3c14a148-787c-4b8c-b442-96a9c9979683"
+                          ]
+                        };
+                        return $globalActions["Splunk.sendLog"]?.apply(null, [
+                          ...actionArgs.args
+                        ]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["rismanSendSplunkLog"] != null &&
+                    typeof $steps["rismanSendSplunkLog"] === "object" &&
+                    typeof $steps["rismanSendSplunkLog"].then === "function"
+                  ) {
+                    $steps["rismanSendSplunkLog"] = await $steps[
+                      "rismanSendSplunkLog"
+                    ];
+                  }
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return setTimeout(function () {
+                              const urlParams = new URLSearchParams(
+                                window.location.search
+                              );
+                              const uri = decodeURIComponent(
+                                urlParams.get("uri") || ""
+                              );
+                              const provide = urlParams.get("provide");
+                              if (provide === "doctoreto") {
+                                const fullUrl = "https://doctoreto.com/" + uri;
+                                window.location.href = fullUrl;
+                              } else if (provide === "page") {
+                                window.location.href = uri;
+                              } else {
+                                console.error(
+                                  "Provide parameter is not recognized."
+                                );
+                              }
+                            }, 4000);
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+              />
+
               <ApiRequest
                 data-plasmic-name={"apiRequest"}
                 data-plasmic-override={overrides.apiRequest}
+                children={null}
                 className={classNames("__wab_instance", sty.apiRequest)}
                 errorDisplay={null}
                 loadingDisplay={null}
@@ -362,104 +458,7 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                   $refs["apiRequest"] = ref;
                 }}
                 url={"https://apigw.paziresh24.com/v1/auth/me"}
-              >
-                <SideEffect
-                  data-plasmic-name={"sideEffect"}
-                  data-plasmic-override={overrides.sideEffect}
-                  className={classNames("__wab_instance", sty.sideEffect)}
-                  onMount={async () => {
-                    const $steps = {};
-
-                    $steps["rismanSendSplunkLog"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              (() => {
-                                try {
-                                  return {
-                                    event_group: "risman_metricss",
-                                    event_type: "interstitial_page_load",
-                                    current_url: window?.location?.href,
-                                    user_id:
-                                      $state?.apiRequest?.data?.users?.[0]?.id,
-                                    terminal_id: window.document.cookie
-                                      ?.split("; ")
-                                      ?.find?.(row =>
-                                        row.startsWith("terminal_id=")
-                                      )
-                                      ?.split?.("=")?.[1]
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })(),
-                              "https://splunk-risman-hec.paziresh24.com",
-                              "3c14a148-787c-4b8c-b442-96a9c9979683"
-                            ]
-                          };
-                          return $globalActions["Splunk.sendLog"]?.apply(null, [
-                            ...actionArgs.args
-                          ]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["rismanSendSplunkLog"] != null &&
-                      typeof $steps["rismanSendSplunkLog"] === "object" &&
-                      typeof $steps["rismanSendSplunkLog"].then === "function"
-                    ) {
-                      $steps["rismanSendSplunkLog"] = await $steps[
-                        "rismanSendSplunkLog"
-                      ];
-                    }
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return setTimeout(function () {
-                                const urlParams = new URLSearchParams(
-                                  window.location.search
-                                );
-                                const uri = decodeURIComponent(
-                                  urlParams.get("uri") || ""
-                                );
-                                const provide = urlParams.get("provide");
-                                if (provide === "doctoreto") {
-                                  const fullUrl =
-                                    "https://doctoreto.com/" + uri;
-                                  window.location.href = fullUrl;
-                                } else if (provide === "page") {
-                                  window.location.href = uri;
-                                } else {
-                                  console.error(
-                                    "Provide parameter is not recognized."
-                                  );
-                                }
-                              }, 4000);
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-                  }}
-                />
-              </ApiRequest>
+              />
             </div>
           </div>
         ) : null}
@@ -474,20 +473,20 @@ const PlasmicDescendants = {
     "freeBox",
     "interstitialFullPageComponent",
     "scriptsAndGeneralTags",
-    "apiRequest",
-    "sideEffect"
+    "sideEffect",
+    "apiRequest"
   ],
   freeBox: [
     "freeBox",
     "interstitialFullPageComponent",
     "scriptsAndGeneralTags",
-    "apiRequest",
-    "sideEffect"
+    "sideEffect",
+    "apiRequest"
   ],
   interstitialFullPageComponent: ["interstitialFullPageComponent"],
   scriptsAndGeneralTags: ["scriptsAndGeneralTags"],
-  apiRequest: ["apiRequest", "sideEffect"],
-  sideEffect: ["sideEffect"]
+  sideEffect: ["sideEffect"],
+  apiRequest: ["apiRequest"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -497,8 +496,8 @@ type NodeDefaultElementType = {
   freeBox: "div";
   interstitialFullPageComponent: typeof InterstitialFullPageComponent;
   scriptsAndGeneralTags: typeof ScriptsAndGeneralTags;
-  apiRequest: typeof ApiRequest;
   sideEffect: typeof SideEffect;
+  apiRequest: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -566,8 +565,8 @@ export const PlasmicInterstitialPage = Object.assign(
       "interstitialFullPageComponent"
     ),
     scriptsAndGeneralTags: makeNodeComponent("scriptsAndGeneralTags"),
-    apiRequest: makeNodeComponent("apiRequest"),
     sideEffect: makeNodeComponent("sideEffect"),
+    apiRequest: makeNodeComponent("apiRequest"),
 
     // Metadata about props expected for PlasmicInterstitialPage
     internalVariantProps: PlasmicInterstitialPage__VariantProps,
