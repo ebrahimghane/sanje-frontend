@@ -71,8 +71,6 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectcss
 import sty from "./PlasmicInterstitialPage.module.css"; // plasmic-import: GV1KOlx_b_Xo/css
 
-import Icon2Icon from "./icons/PlasmicIcon__Icon2"; // plasmic-import: X98YuP_uFRc3/icon
-
 createPlasmicElementProxy;
 
 export type PlasmicInterstitialPage__VariantMembers = {};
@@ -91,7 +89,7 @@ export type PlasmicInterstitialPage__OverridesType = {
   interstitialFullPageComponent?: Flex__<typeof InterstitialFullPageComponent>;
   scriptsAndGeneralTags?: Flex__<typeof ScriptsAndGeneralTags>;
   apiRequest?: Flex__<typeof ApiRequest>;
-  svg?: Flex__<"svg">;
+  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultInterstitialPageProps {}
@@ -291,14 +289,7 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                 data-plasmic-override={overrides.apiRequest}
                 className={classNames("__wab_instance", sty.apiRequest)}
                 errorDisplay={null}
-                loadingDisplay={
-                  <Icon2Icon
-                    data-plasmic-name={"svg"}
-                    data-plasmic-override={overrides.svg}
-                    className={classNames(projectcss.all, sty.svg)}
-                    role={"img"}
-                  />
-                }
+                loadingDisplay={null}
                 method={"GET"}
                 onError={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, [
@@ -373,10 +364,9 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                 url={"https://apigw.paziresh24.com/v1/auth/me"}
               >
                 <SideEffect
-                  className={classNames(
-                    "__wab_instance",
-                    sty.sideEffect__sqaxq
-                  )}
+                  data-plasmic-name={"sideEffect"}
+                  data-plasmic-override={overrides.sideEffect}
+                  className={classNames("__wab_instance", sty.sideEffect)}
                   onMount={async () => {
                     const $steps = {};
 
@@ -387,7 +377,7 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                               (() => {
                                 try {
                                   return {
-                                    event_group: "risman_metrics",
+                                    event_group: "risman_metricss",
                                     event_type: "interstitial_page_load",
                                     current_url: window?.location?.href,
                                     user_id:
@@ -470,98 +460,6 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                   }}
                 />
               </ApiRequest>
-              <SideEffect
-                className={classNames("__wab_instance", sty.sideEffect___2EPr)}
-                onMount={async () => {
-                  const $steps = {};
-
-                  $steps["runCode"] = false
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return setTimeout(function () {
-                              const urlParams = new URLSearchParams(
-                                window.location.search
-                              );
-                              const uri = decodeURIComponent(
-                                urlParams.get("uri") || ""
-                              );
-                              const provide = urlParams.get("provide");
-                              if (provide === "doctoreto") {
-                                const fullUrl = "https://doctoreto.com/" + uri;
-                                window.location.href = fullUrl;
-                              } else if (provide === "page") {
-                                window.location.href = uri;
-                              } else {
-                                console.error(
-                                  "Provide parameter is not recognized."
-                                );
-                              }
-                            }, 4000);
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
-
-                  $steps["rismanSendSplunkLog"] = false
-                    ? (() => {
-                        const actionArgs = {
-                          args: [
-                            (() => {
-                              try {
-                                return {
-                                  event_group: "risman_metrics",
-                                  event_type: "interstitial_page_load",
-                                  current_url: window.location.href,
-                                  user_id:
-                                    $state?.apiRequest?.data?.users?.[0]?.id,
-                                  terminal_id: window.document.cookie
-                                    ?.split("; ")
-                                    ?.find?.(row =>
-                                      row.startsWith("terminal_id=")
-                                    )
-                                    ?.split?.("=")?.[1]
-                                };
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })(),
-                            "https://splunk-risman-hec.paziresh24.com",
-                            "3c14a148-787c-4b8c-b442-96a9c9979683"
-                          ]
-                        };
-                        return $globalActions["Splunk.sendLog"]?.apply(null, [
-                          ...actionArgs.args
-                        ]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["rismanSendSplunkLog"] != null &&
-                    typeof $steps["rismanSendSplunkLog"] === "object" &&
-                    typeof $steps["rismanSendSplunkLog"].then === "function"
-                  ) {
-                    $steps["rismanSendSplunkLog"] = await $steps[
-                      "rismanSendSplunkLog"
-                    ];
-                  }
-                }}
-              />
             </div>
           </div>
         ) : null}
@@ -577,19 +475,19 @@ const PlasmicDescendants = {
     "interstitialFullPageComponent",
     "scriptsAndGeneralTags",
     "apiRequest",
-    "svg"
+    "sideEffect"
   ],
   freeBox: [
     "freeBox",
     "interstitialFullPageComponent",
     "scriptsAndGeneralTags",
     "apiRequest",
-    "svg"
+    "sideEffect"
   ],
   interstitialFullPageComponent: ["interstitialFullPageComponent"],
   scriptsAndGeneralTags: ["scriptsAndGeneralTags"],
-  apiRequest: ["apiRequest", "svg"],
-  svg: ["svg"]
+  apiRequest: ["apiRequest", "sideEffect"],
+  sideEffect: ["sideEffect"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -600,7 +498,7 @@ type NodeDefaultElementType = {
   interstitialFullPageComponent: typeof InterstitialFullPageComponent;
   scriptsAndGeneralTags: typeof ScriptsAndGeneralTags;
   apiRequest: typeof ApiRequest;
-  svg: "svg";
+  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -669,7 +567,7 @@ export const PlasmicInterstitialPage = Object.assign(
     ),
     scriptsAndGeneralTags: makeNodeComponent("scriptsAndGeneralTags"),
     apiRequest: makeNodeComponent("apiRequest"),
-    svg: makeNodeComponent("svg"),
+    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicInterstitialPage
     internalVariantProps: PlasmicInterstitialPage__VariantProps,
