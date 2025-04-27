@@ -343,25 +343,46 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return setTimeout(function () {
-                              const urlParams = new URLSearchParams(
-                                window.location.search
-                              );
-                              const uri = decodeURIComponent(
-                                urlParams.get("uri") || ""
-                              );
-                              const provide = urlParams.get("provide");
-                              if (provide === "doctoreto") {
-                                const fullUrl = "https://doctoreto.com/" + uri;
-                                window.location.href = fullUrl;
-                              } else if (provide === "page") {
-                                window.location.href = uri;
-                              } else {
-                                console.error(
-                                  "Provide parameter is not recognized."
-                                );
-                              }
-                            }, 4000);
+                            return (() => {
+                              return setTimeout(function () {
+                                try {
+                                  const urlParams = new URLSearchParams(
+                                    window.location.search
+                                  );
+                                  const uri = decodeURIComponent(
+                                    urlParams.get("uri") || ""
+                                  );
+                                  const provide = urlParams.get("provide");
+                                  if (!uri || !provide) {
+                                    console.error(
+                                      "Missing URI or Provide parameter."
+                                    );
+                                    return;
+                                  }
+                                  let fullUrl = "";
+                                  if (provide === "doctoreto") {
+                                    fullUrl = "https://doctoreto.com/" + uri;
+                                  } else if (provide === "page") {
+                                    fullUrl = uri;
+                                  } else {
+                                    console.error(
+                                      "Provide parameter is not recognized."
+                                    );
+                                    return;
+                                  }
+                                  const a = document.createElement("a");
+                                  a.href = fullUrl;
+                                  a.rel = "noreferrer noopener";
+                                  a.style.display = "none";
+                                  a.target = "_self";
+                                  document.body.appendChild(a);
+                                  a.click();
+                                  document.body.removeChild(a);
+                                } catch (err) {
+                                  console.error("Redirection error:", err);
+                                }
+                              }, 4000);
+                            })();
                           }
                         };
                         return (({ customFunction }) => {

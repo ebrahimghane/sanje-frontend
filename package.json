@@ -18,6 +18,7 @@
     "@plasmicpkgs/plasmic-embed-css": "^0.1.196",
     "@plasmicpkgs/plasmic-query": "^0.0.230",
     "@plasmicpkgs/radix-ui": "^0.0.69",
+    "@plasmicpkgs/react-aria": "^0.0.133",
     "@plasmicpkgs/react-chartjs-2": "^1.0.121",
     "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-select": "^2.1.1",
