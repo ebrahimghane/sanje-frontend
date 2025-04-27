@@ -26,6 +26,92 @@
   max-width: 100%;
   min-width: 0;
 }
+.text__dhWo6 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-right: 5px;
+  font-weight: 600;
+  font-size: var(--token-difl48YsAvZT);
+  text-align: center;
+  min-width: 0;
+}
+.text__p4Om {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-right: 5px;
+  font-weight: 400;
+  font-size: var(--token-difl48YsAvZT);
+  text-align: right;
+  min-width: 0;
+}
+.freeBox__ttqw {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+}
+.freeBox__hurGf {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  padding-right: 5px;
+  min-width: 0;
+  margin: var(--token-fhaz6q6bl-fW);
+  border-width: 1px;
+  border-style: solid;
+}
+.freeBox__hurGf > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: calc(0px - var(--token-_c276Gs_1FIE));
+  width: calc(100% + var(--token-_c276Gs_1FIE));
+}
+.freeBox__hurGf > :global(.__wab_flex-container) > *,
+.freeBox__hurGf > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__hurGf > :global(.__wab_flex-container) > picture > img,
+.freeBox__hurGf
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: var(--token-_c276Gs_1FIE);
+}
+.text__f9Gsd {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-right: 5px;
+  font-weight: 600;
+  font-size: var(--token-difl48YsAvZT);
+  text-align: center;
+  min-width: 0;
+}
+.text__tg8L3 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-right: 5px;
+  font-weight: 600;
+  font-size: var(--token-difl48YsAvZT);
+  text-align: center;
+  min-width: 0;
+}
 .freeBox__ahQ3 {
   display: flex;
   flex-direction: column;
@@ -108,9 +194,9 @@
   position: relative;
   width: 100%;
   height: auto;
-  max-width: 100%;
   margin-top: 5px;
   margin-bottom: 5px;
+  max-width: 9rem;
   min-width: 0;
 }
 .freeBox__xm3Mf > :global(.__wab_flex-container) {
@@ -147,6 +233,7 @@
 }
 .text___9Y6H5 {
   white-space: pre-wrap;
+  font-weight: 400;
 }
 .svg__zmHoy {
   position: relative;
@@ -170,6 +257,7 @@
 }
 .text__ev8X {
   white-space: pre-wrap;
+  font-weight: 400;
 }
 .svg__nG2Zr {
   position: relative;

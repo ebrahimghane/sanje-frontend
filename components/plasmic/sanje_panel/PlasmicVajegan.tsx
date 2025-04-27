@@ -273,6 +273,54 @@ function PlasmicVajegan__RenderFunc(props: {
           "https://apigw.paziresh24.com/v1/n8n-search/webhook/vajegan/keywords"
         }
       >
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__dhWo6
+          )}
+        >
+          {
+            "\u0645\u062f\u06cc\u0631\u06cc\u062a \u0627\u0648\u0644\u0648\u06cc\u062a\u200c \u06a9\u0644\u06cc\u062f\u0648\u0627\u0698\u0647\u200c\u0647\u0627\u06cc \u062c\u0633\u062a\u062c\u0648"
+          }
+        </div>
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__p4Om
+          )}
+        >
+          {
+            "\u0628\u0627 \u0627\u0648\u0644\u0648\u06cc\u062a\u200c\u0628\u0646\u062f\u06cc \u06a9\u0644\u06cc\u062f\u0648\u0627\u0698\u0647\u200c\u0647\u0627\u06cc \u0645\u0631\u062a\u0628\u0637\u060c \u0634\u0627\u0646\u0633 \u062f\u06cc\u062f\u0647\u200c\u0634\u062f\u0646 \u062e\u0648\u062f \u0631\u0627 \u0627\u0641\u0632\u0627\u06cc\u0634 \u062f\u0647\u06cc\u062f.\n\n\u2022 \u062a\u0648\u062c\u0647: \u0638\u0631\u0641\u06cc\u062a \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0644\u06cc\u062f\u0648\u0627\u0698\u0647 \u0628\u0627 \u0627\u0648\u0644\u0648\u06cc\u062a \u0628\u0627\u0644\u0627 \u0645\u062d\u062f\u0648\u062f \u0627\u0633\u062a.\n\u2022 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0644\u06cc\u062f\u0648\u0627\u0698\u0647 \u062a\u0636\u0645\u06cc\u0646\u06cc \u0628\u0631\u0627\u06cc \u0646\u0645\u0627\u06cc\u0634 \u062f\u0631 \u062c\u0627\u06cc\u06af\u0627\u0647 \u0628\u0627\u0644\u0627\u062a\u0631 \u0646\u062a\u0627\u06cc\u062c \u062c\u0633\u062a\u062c\u0648 \u0646\u06cc\u0633\u062a.\n"
+          }
+        </div>
+        <div className={classNames(projectcss.all, sty.freeBox__ttqw)}>
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__hurGf)}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__f9Gsd
+              )}
+            >
+              {"\u06a9\u0644\u06cc\u062f\u0648\u0627\u0698\u0647"}
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__tg8L3
+              )}
+            >
+              {"\u0627\u0648\u0644\u0648\u06cc\u062a"}
+            </div>
+          </Stack__>
+        </div>
         {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
           (() => {
             try {
