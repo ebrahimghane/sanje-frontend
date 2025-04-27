@@ -1229,6 +1229,20 @@
           "cssFilePath": "plasmic/sanje_panel/PlasmicTextField.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "inlyH9E0KabP",
+          "name": "VajeganPage",
+          "type": "managed",
+          "projectId": "aU6fPsMDSmKqgHWpAbdgs",
+          "renderModuleFilePath": "plasmic/sanje_panel/PlasmicVajeganPage.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/vajegan-page.tsx"
+          },
+          "cssFilePath": "plasmic/sanje_panel/PlasmicVajeganPage.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/vajegan-page"
         }
       ],
       "icons": [
@@ -1311,6 +1325,16 @@
           "id": "pi4ajG1MDyq3",
           "name": "CircleIcon",
           "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Circle.tsx"
+        },
+        {
+          "id": "ZM-4UGI2MwF2",
+          "name": "Icon16Icon",
+          "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon16.tsx"
+        },
+        {
+          "id": "cT_T23sld5Ow",
+          "name": "Icon17Icon",
+          "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon17.tsx"
         }
       ],
       "images": [
@@ -1683,7 +1707,8 @@
           "componentImportPath": "@plasmicpkgs/react-aria/skinny/registerDialog"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     }
   ],
   "globalVariants": {
