@@ -26,6 +26,19 @@
   max-width: 100%;
   min-width: 0;
 }
+.freeBox__puCo5 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  padding-right: 7px;
+  padding-left: 7px;
+  min-width: 0;
+}
 .text__dhWo6 {
   position: relative;
   width: 100%;
@@ -35,6 +48,7 @@
   font-weight: 600;
   font-size: var(--token-difl48YsAvZT);
   text-align: center;
+  margin-top: 20px;
   min-width: 0;
 }
 .text__p4Om {
@@ -42,10 +56,12 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  margin-right: 5px;
+  margin-right: 7px;
   font-weight: 400;
   font-size: var(--token-difl48YsAvZT);
   text-align: right;
+  margin-bottom: 17px;
+  margin-left: 7px;
   min-width: 0;
 }
 .freeBox__ttqw {
@@ -130,7 +146,8 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  padding-right: 5px;
+  padding-right: 8px;
+  padding-left: 8px;
   min-width: 0;
   margin: var(--token-fhaz6q6bl-fW);
   border-width: 1px;
@@ -159,7 +176,6 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  margin-right: 5px;
   min-width: 0;
 }
 .priorityField {
