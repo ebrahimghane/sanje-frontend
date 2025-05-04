@@ -1335,6 +1335,16 @@
           "id": "cT_T23sld5Ow",
           "name": "Icon17Icon",
           "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon17.tsx"
+        },
+        {
+          "id": "HutF-e5f3sLb",
+          "name": "Icon18Icon",
+          "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon18.tsx"
+        },
+        {
+          "id": "os_k03ppp0Vl",
+          "name": "Icon19Icon",
+          "moduleFilePath": "plasmic/sanje_panel/icons/PlasmicIcon__Icon19.tsx"
         }
       ],
       "images": [

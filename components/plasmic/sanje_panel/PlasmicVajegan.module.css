@@ -47,7 +47,7 @@
   margin-right: 5px;
   font-weight: 600;
   font-size: var(--token-difl48YsAvZT);
-  text-align: center;
+  text-align: right;
   margin-top: 20px;
   min-width: 0;
 }
@@ -56,12 +56,19 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  margin-right: 7px;
   font-weight: 400;
   font-size: var(--token-difl48YsAvZT);
   text-align: right;
-  margin-bottom: 17px;
-  margin-left: 7px;
+  min-width: 0;
+  margin: 9px 7px 17px;
+}
+.text__ewlfc {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-size: var(--token-akgRSIZwiJ51);
+  margin-bottom: 16px;
   min-width: 0;
 }
 .freeBox__ttqw {
@@ -83,6 +90,7 @@
   height: auto;
   max-width: 100%;
   padding-right: 5px;
+  box-shadow: 0px 4px 16px 0px var(--token-ghEqmx7ZLVtu);
   min-width: 0;
   margin: var(--token-fhaz6q6bl-fW);
   border-width: 1px;
@@ -116,6 +124,8 @@
   font-size: var(--token-difl48YsAvZT);
   text-align: center;
   min-width: 0;
+  border-width: 1px;
+  border-style: solid;
 }
 .text__tg8L3 {
   position: relative;
@@ -126,7 +136,9 @@
   font-weight: 600;
   font-size: var(--token-difl48YsAvZT);
   text-align: center;
-  min-width: 0;
+  min-width: 55%;
+  border-width: 1px;
+  border-style: solid;
 }
 .freeBox__ahQ3 {
   display: flex;
@@ -149,7 +161,8 @@
   padding-right: 8px;
   padding-left: 8px;
   min-width: 0;
-  margin: var(--token-fhaz6q6bl-fW);
+  margin: var(--token-fhaz6q6bl-fW) 0.25rem var(--token-fhaz6q6bl-fW)
+    var(--token-fhaz6q6bl-fW);
   border-width: 1px;
   border-style: solid;
 }
@@ -184,8 +197,9 @@
   height: auto;
   max-width: var(--token-BCWljTOyDNmw);
   text-align: center;
+  white-space: pre;
   min-width: 0;
-  border-width: var(--token-fhaz6q6bl-fW);
+  border-radius: var(--token-_c276Gs_1FIE);
 }
 .button__uJHyg:global(.__wab_instance) {
   max-width: 100%;
@@ -238,6 +252,7 @@
   flex-shrink: 1;
   margin-right: 0px;
   width: 100%;
+  flex-grow: 0;
   min-width: 0;
 }
 .svg__u4Fwi {
@@ -250,6 +265,7 @@
 .text___9Y6H5 {
   white-space: pre-wrap;
   font-weight: 400;
+  text-align: center;
 }
 .svg__zmHoy {
   position: relative;
@@ -274,6 +290,7 @@
 .text__ev8X {
   white-space: pre-wrap;
   font-weight: 400;
+  text-align: center;
 }
 .svg__nG2Zr {
   position: relative;

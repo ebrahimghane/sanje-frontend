@@ -72,8 +72,8 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: aU6fPsMDSmKqgH
 import sty from "./PlasmicVajegan.module.css"; // plasmic-import: RM0X42We8_T_/css
 
 import Icon14Icon from "./icons/PlasmicIcon__Icon14"; // plasmic-import: yaBBaS6PnbWa/icon
-import Icon16Icon from "./icons/PlasmicIcon__Icon16"; // plasmic-import: ZM-4UGI2MwF2/icon
-import Icon17Icon from "./icons/PlasmicIcon__Icon17"; // plasmic-import: cT_T23sld5Ow/icon
+import Icon19Icon from "./icons/PlasmicIcon__Icon19"; // plasmic-import: os_k03ppp0Vl/icon
+import Icon18Icon from "./icons/PlasmicIcon__Icon18"; // plasmic-import: HutF-e5f3sLb/icon
 import Icon15Icon from "./icons/PlasmicIcon__Icon15"; // plasmic-import: eCYtXCdflNl8/icon
 import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
 import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
@@ -92,7 +92,8 @@ export const PlasmicVajegan__ArgProps = new Array<ArgPropType>();
 export type PlasmicVajegan__OverridesType = {
   root?: Flex__<"div">;
   apiRequest?: Flex__<typeof ApiRequest>;
-  priorityField?: Flex__<"div">;
+  h6?: Flex__<"h6">;
+  priorityField?: Flex__<"label">;
   insertBox?: Flex__<"div">;
   input?: Flex__<typeof Input>;
   select?: Flex__<typeof Select>;
@@ -282,7 +283,7 @@ function PlasmicVajegan__RenderFunc(props: {
             )}
           >
             {
-              "\u0645\u062f\u06cc\u0631\u06cc\u062a \u0627\u0648\u0644\u0648\u06cc\u062a\u200c \u06a9\u0644\u06cc\u062f\u0648\u0627\u0698\u0647\u200c\u0647\u0627\u06cc \u062c\u0633\u062a\u062c\u0648"
+              "\u06a9\u0644\u06cc\u062f\u0648\u0627\u0698\u0647\u200c\u0647\u0627\u06cc \u062c\u0633\u062a\u062c\u0648"
             }
           </div>
           <div
@@ -292,8 +293,36 @@ function PlasmicVajegan__RenderFunc(props: {
               sty.text__p4Om
             )}
           >
+            <React.Fragment>
+              <React.Fragment>{""}</React.Fragment>
+              {
+                <h6
+                  data-plasmic-name={"h6"}
+                  data-plasmic-override={overrides.h6}
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.h6,
+                    projectcss.__wab_text,
+                    sty.h6
+                  )}
+                >
+                  {
+                    "\u0628\u0627 \u0627\u0648\u0644\u0648\u06cc\u062a\u200c\u0628\u0646\u062f\u06cc \u06a9\u0644\u06cc\u062f\u0648\u0627\u0698\u0647\u200c\u0647\u0627\u06cc \u0645\u0631\u062a\u0628\u0637\u060c \u0634\u0627\u0646\u0633 \u062f\u06cc\u062f\u0647\u200c\u0634\u062f\u0646 \u062e\u0648\u062f \u0631\u0627 \u0627\u0641\u0632\u0627\u06cc\u0634 \u062f\u0647\u06cc\u062f."
+                  }
+                </h6>
+              }
+              <React.Fragment>{""}</React.Fragment>
+            </React.Fragment>
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__ewlfc
+            )}
+          >
             {
-              "\u0628\u0627 \u0627\u0648\u0644\u0648\u06cc\u062a\u200c\u0628\u0646\u062f\u06cc \u06a9\u0644\u06cc\u062f\u0648\u0627\u0698\u0647\u200c\u0647\u0627\u06cc \u0645\u0631\u062a\u0628\u0637\u060c \u0634\u0627\u0646\u0633 \u062f\u06cc\u062f\u0647\u200c\u0634\u062f\u0646 \u062e\u0648\u062f \u0631\u0627 \u0627\u0641\u0632\u0627\u06cc\u0634 \u062f\u0647\u06cc\u062f.\n\n\u062a\u0648\u062c\u0647:\n\u2022 \u0638\u0631\u0641\u06cc\u062a \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0644\u06cc\u062f\u0648\u0627\u0698\u0647 \u0628\u0627 \u0627\u0648\u0644\u0648\u06cc\u062a \u0628\u0627\u0644\u0627 \u0645\u062d\u062f\u0648\u062f \u0627\u0633\u062a.\n\u2022 \u0627\u0646\u062a\u062e\u0627\u0628 \u06cc\u06a9 \u06a9\u0644\u06cc\u062f\u0648\u0627\u0698\u0647 \u062a\u0636\u0645\u06cc\u0646\u06cc \u0628\u0631\u0627\u06cc \u0646\u0645\u0627\u06cc\u0634 \u0634\u0645\u0627 \u062f\u0631 \u062c\u0627\u06cc\u06af\u0627\u0647 \u0628\u0627\u0644\u0627\u062a\u0631 \u0646\u062a\u0627\u06cc\u062c \u062c\u0633\u062a\u062c\u0648\u06cc \u0622\u0646 \u0639\u0628\u0627\u0631\u062a \u0646\u06cc\u0633\u062a.\n"
+              "\u062a\u0648\u062c\u0647:\u00a0\u00a0\n\n\r\n\u0627\u0646\u062a\u062e\u0627\u0628 \u06cc\u06a9 \u06a9\u0644\u06cc\u062f\u0648\u0627\u0698\u0647\u060c \u062a\u0636\u0645\u06cc\u0646\u06cc \u0628\u0631\u0627\u06cc \u0646\u0645\u0627\u06cc\u0634 \u0634\u0645\u0627 \u062f\u0631 \u062c\u0627\u06cc\u06af\u0627\u0647 \u0628\u0627\u0644\u0627\u062a\u0631 \u0646\u062a\u0627\u06cc\u062c \u062c\u0633\u062a\u062c\u0648\u06cc \u0622\u0646 \u0639\u0628\u0627\u0631\u062a \u0646\u06cc\u0633\u062a \u0648\u0644\u06cc \u0628\u0647 \u0646\u0645\u0627\u06cc\u0634 \u0634\u0645\u0627 \u062f\u0631 \u0622\u0646 \u0639\u0628\u0627\u0631\u062a \u06a9\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u062f.\u00a0\u00a0\n\n\u0639\u062f\u062f \u0627\u0648\u0644\u0648\u06cc\u062a \u06a9\u0645\u062a\u0631 \u0628\u0647 \u0645\u0639\u0646\u06cc \u0645\u0647\u0645\u062a\u0631 \u0628\u0648\u062f\u0646 \u0622\u0646 \u0627\u0632 \u0646\u0638\u0631 \u0634\u0645\u0627\u0633\u062a."
             }
           </div>
         </div>
@@ -373,7 +402,7 @@ function PlasmicVajegan__RenderFunc(props: {
                     })()}
                   </React.Fragment>
                 </div>
-                <div
+                <label
                   data-plasmic-name={"priorityField"}
                   data-plasmic-override={overrides.priorityField}
                   className={classNames(
@@ -382,22 +411,71 @@ function PlasmicVajegan__RenderFunc(props: {
                     sty.priorityField
                   )}
                 >
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return keywordcurrentItem.priority;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "";
+                  <div
+                    className={projectcss.__wab_expr_html_text}
+                    dangerouslySetInnerHTML={{
+                      __html: (() => {
+                        try {
+                          return (() => {
+                            function hslToRgb(h, s, l) {
+                              let r, g, b;
+                              if (s === 0) {
+                                r = g = b = l;
+                              } else {
+                                const hue2rgb = (p, q, t) => {
+                                  if (t < 0) t += 1;
+                                  if (t > 1) t -= 1;
+                                  if (t < 1 / 6) return p + (q - p) * 6 * t;
+                                  if (t < 1 / 2) return q;
+                                  if (t < 2 / 3)
+                                    return p + (q - p) * (2 / 3 - t) * 6;
+                                  return p;
+                                };
+                                const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+                                const p = 2 * l - q;
+                                r = hue2rgb(p, q, h + 1 / 3);
+                                g = hue2rgb(p, q, h);
+                                b = hue2rgb(p, q, h - 1 / 3);
+                              }
+                              return [r, g, b];
+                            }
+                            function pickContrastText([r, g, b]) {
+                              const R = r * 255,
+                                G = g * 255,
+                                B = b * 255;
+                              const yiq = (R * 299 + G * 587 + B * 114) / 1000;
+                              return yiq >= 128 ? "black" : "white";
+                            }
+                            const p = keywordcurrentItem.priority;
+                            const hue = 120 - ((p - 1) / 5) * 120;
+                            const bgH = hue / 360;
+                            const bgS = 1;
+                            const bgL = p < 3 ? 0.5 : p > 4 ? 0.6 : 0.55;
+                            const rgb = hslToRgb(bgH, bgS, bgL);
+                            const textColor = pickContrastText(rgb);
+                            const output = `<span style="
+    display: block;
+    width: 100%;
+    padding: 0.2em;
+    color: ${textColor};
+    background-color: hsl(${hue},100%,${bgL * 100}%);
+    border-radius: 7px;
+">${p}</span>`;
+                            return output;
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()}
-                  </React.Fragment>
-                </div>
+                      })()
+                    }}
+                  />
+                </label>
                 <Button
                   children2={"\u0648\u06cc\u0631\u0627\u06cc\u0634"}
                   className={classNames("__wab_instance", sty.button__uJHyg)}
@@ -425,73 +503,353 @@ function PlasmicVajegan__RenderFunc(props: {
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__xm3Mf)}
                 >
-                  <Button
-                    children2={
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___9Y6H5
-                        )}
-                      >
-                        {
-                          "\u0627\u0641\u0632\u0627\u06cc\u0634 \u0627\u0648\u0644\u0648\u06cc\u062a"
-                        }
-                      </div>
+                  {(() => {
+                    try {
+                      return keywordcurrentItem.priority != 1;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
                     }
-                    className={classNames("__wab_instance", sty.button___3Icvg)}
-                    color={"clear"}
-                    endIcon={
-                      <Icon16Icon
-                        className={classNames(projectcss.all, sty.svg__zmHoy)}
-                        role={"img"}
-                      />
-                    }
-                    outline={true}
-                    shape={"rounded"}
-                    showEndIcon={true}
-                    size={"minimal"}
-                    startIcon={
-                      <Icon14Icon
-                        className={classNames(projectcss.all, sty.svg__u4Fwi)}
-                        role={"img"}
-                      />
-                    }
-                  />
+                  })() ? (
+                    <Button
+                      children2={
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___9Y6H5
+                          )}
+                        >
+                          {
+                            "\u0627\u0641\u0632\u0627\u06cc\u0634 \u0627\u0648\u0644\u0648\u06cc\u062a"
+                          }
+                        </div>
+                      }
+                      className={classNames(
+                        "__wab_instance",
+                        sty.button___3Icvg
+                      )}
+                      color={"clear"}
+                      endIcon={
+                        <Icon19Icon
+                          className={classNames(projectcss.all, sty.svg__zmHoy)}
+                          role={"img"}
+                        />
+                      }
+                      onClick={async event => {
+                        const $steps = {};
 
-                  <Button
-                    children2={
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__ev8X
-                        )}
-                      >
-                        {
-                          "\u06a9\u0627\u0647\u0634 \u0627\u0648\u0644\u0648\u06cc\u062a"
+                        $steps["moveApiRequest"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  (() => {
+                                    try {
+                                      return (
+                                        "https://apigw.paziresh24.com/v1/n8n-search/webhook/d4d563fa-d0ad-4b86-bfd4-3e801fa8af00/vajegan/keywords/" +
+                                        keywordcurrentItem.id +
+                                        "/move"
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  undefined,
+                                  { direction: "up", by: 1 }
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["moveApiRequest"] != null &&
+                          typeof $steps["moveApiRequest"] === "object" &&
+                          typeof $steps["moveApiRequest"].then === "function"
+                        ) {
+                          $steps["moveApiRequest"] = await $steps[
+                            "moveApiRequest"
+                          ];
                         }
-                      </div>
+
+                        $steps["showToast"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  (() => {
+                                    try {
+                                      return $steps.moveApiRequest.status ===
+                                        200
+                                        ? "success"
+                                        : "error";
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  (() => {
+                                    try {
+                                      return $steps.moveApiRequest.status ===
+                                        200
+                                        ? "تغییر اولویت کلیدواژه انجام شد"
+                                        : "تغییر اولویت کلیدواژه با خطا مواجه شد";
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["showToast"] != null &&
+                          typeof $steps["showToast"] === "object" &&
+                          typeof $steps["showToast"].then === "function"
+                        ) {
+                          $steps["showToast"] = await $steps["showToast"];
+                        }
+
+                        $steps["runActionOnApiRequest"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                tplRef: "apiRequest",
+                                action: "refresh"
+                              };
+                              return (({ tplRef, action, args }) => {
+                                return $refs?.[tplRef]?.[action]?.(
+                                  ...(args ?? [])
+                                );
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runActionOnApiRequest"] != null &&
+                          typeof $steps["runActionOnApiRequest"] === "object" &&
+                          typeof $steps["runActionOnApiRequest"].then ===
+                            "function"
+                        ) {
+                          $steps["runActionOnApiRequest"] = await $steps[
+                            "runActionOnApiRequest"
+                          ];
+                        }
+                      }}
+                      outline={true}
+                      shape={"rounded"}
+                      showEndIcon={true}
+                      size={"minimal"}
+                      startIcon={
+                        <Icon14Icon
+                          className={classNames(projectcss.all, sty.svg__u4Fwi)}
+                          role={"img"}
+                        />
+                      }
+                    />
+                  ) : null}
+                  {(() => {
+                    try {
+                      return keywordcurrentIndex != 5;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
                     }
-                    className={classNames("__wab_instance", sty.button__mJ68V)}
-                    color={"clear"}
-                    endIcon={
-                      <Icon17Icon
-                        className={classNames(projectcss.all, sty.svg__nG2Zr)}
-                        role={"img"}
-                      />
-                    }
-                    outline={true}
-                    shape={"rounded"}
-                    showEndIcon={true}
-                    size={"minimal"}
-                    startIcon={
-                      <Icon14Icon
-                        className={classNames(projectcss.all, sty.svg__kK2Hd)}
-                        role={"img"}
-                      />
-                    }
-                  />
+                  })() ? (
+                    <Button
+                      children2={
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__ev8X
+                          )}
+                        >
+                          {
+                            "\u06a9\u0627\u0647\u0634 \u0627\u0648\u0644\u0648\u06cc\u062a"
+                          }
+                        </div>
+                      }
+                      className={classNames(
+                        "__wab_instance",
+                        sty.button__mJ68V
+                      )}
+                      color={"clear"}
+                      endIcon={
+                        <Icon18Icon
+                          className={classNames(projectcss.all, sty.svg__nG2Zr)}
+                          role={"img"}
+                        />
+                      }
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["moveApiRequest"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  (() => {
+                                    try {
+                                      return (
+                                        "https://apigw.paziresh24.com/v1/n8n-search/webhook/d4d563fa-d0ad-4b86-bfd4-3e801fa8af00/vajegan/keywords/" +
+                                        keywordcurrentItem.id +
+                                        "/move"
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  undefined,
+                                  { direction: "down", by: 1 }
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["moveApiRequest"] != null &&
+                          typeof $steps["moveApiRequest"] === "object" &&
+                          typeof $steps["moveApiRequest"].then === "function"
+                        ) {
+                          $steps["moveApiRequest"] = await $steps[
+                            "moveApiRequest"
+                          ];
+                        }
+
+                        $steps["invokeGlobalAction"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  (() => {
+                                    try {
+                                      return $steps.moveApiRequest.status ===
+                                        200
+                                        ? "success"
+                                        : "error";
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  (() => {
+                                    try {
+                                      return $steps.moveApiRequest.status ===
+                                        200
+                                        ? "تغییر اولویت کلیدواژه انجام شد"
+                                        : "تغییر اولویت کلیدواژه با خطا مواجه شد";
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
+
+                        $steps["runActionOnApiRequest"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                tplRef: "apiRequest",
+                                action: "refresh"
+                              };
+                              return (({ tplRef, action, args }) => {
+                                return $refs?.[tplRef]?.[action]?.(
+                                  ...(args ?? [])
+                                );
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runActionOnApiRequest"] != null &&
+                          typeof $steps["runActionOnApiRequest"] === "object" &&
+                          typeof $steps["runActionOnApiRequest"].then ===
+                            "function"
+                        ) {
+                          $steps["runActionOnApiRequest"] = await $steps[
+                            "runActionOnApiRequest"
+                          ];
+                        }
+                      }}
+                      outline={true}
+                      shape={"rounded"}
+                      showEndIcon={true}
+                      size={"minimal"}
+                      startIcon={
+                        <Icon14Icon
+                          className={classNames(projectcss.all, sty.svg__kK2Hd)}
+                          role={"img"}
+                        />
+                      }
+                    />
+                  ) : null}
                 </Stack__>
                 <Button
                   children2={"\u062d\u0630\u0641"}
@@ -545,7 +903,7 @@ function PlasmicVajegan__RenderFunc(props: {
                       ];
                     }
 
-                    $steps["invokeGlobalAction"] = true
+                    $steps["showTast"] = true
                       ? (() => {
                           const actionArgs = {
                             args: [
@@ -560,13 +918,11 @@ function PlasmicVajegan__RenderFunc(props: {
                         })()
                       : undefined;
                     if (
-                      $steps["invokeGlobalAction"] != null &&
-                      typeof $steps["invokeGlobalAction"] === "object" &&
-                      typeof $steps["invokeGlobalAction"].then === "function"
+                      $steps["showTast"] != null &&
+                      typeof $steps["showTast"] === "object" &&
+                      typeof $steps["showTast"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["showTast"] = await $steps["showTast"];
                     }
 
                     $steps["refreshDataApiRequest"] = true
@@ -621,7 +977,7 @@ function PlasmicVajegan__RenderFunc(props: {
               );
             }}
             placeholder={
-              "\u0639\u0628\u0627\u0631\u062a \u06a9\u0644\u06cc\u062f\u06cc \u0645\u0648\u0631\u062f \u0646\u0638\u0631 \u062e\u0648\u062f \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f"
+              "\u06a9\u0644\u06cc\u062f\u0648\u0627\u0698\u0647 \u0645\u0648\u0631\u062f \u0646\u0638\u0631 \u0634\u0645\u0627"
             }
             type={"text"}
             value={generateStateValueProp($state, ["input", "value"])}
@@ -950,8 +1306,24 @@ function PlasmicVajegan__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "apiRequest", "priorityField", "insertBox", "input", "select"],
-  apiRequest: ["apiRequest", "priorityField", "insertBox", "input", "select"],
+  root: [
+    "root",
+    "apiRequest",
+    "h6",
+    "priorityField",
+    "insertBox",
+    "input",
+    "select"
+  ],
+  apiRequest: [
+    "apiRequest",
+    "h6",
+    "priorityField",
+    "insertBox",
+    "input",
+    "select"
+  ],
+  h6: ["h6"],
   priorityField: ["priorityField"],
   insertBox: ["insertBox", "input", "select"],
   input: ["input"],
@@ -963,7 +1335,8 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   apiRequest: typeof ApiRequest;
-  priorityField: "div";
+  h6: "h6";
+  priorityField: "label";
   insertBox: "div";
   input: typeof Input;
   select: typeof Select;
@@ -1030,6 +1403,7 @@ export const PlasmicVajegan = Object.assign(
   {
     // Helper components rendering sub-elements
     apiRequest: makeNodeComponent("apiRequest"),
+    h6: makeNodeComponent("h6"),
     priorityField: makeNodeComponent("priorityField"),
     insertBox: makeNodeComponent("insertBox"),
     input: makeNodeComponent("input"),

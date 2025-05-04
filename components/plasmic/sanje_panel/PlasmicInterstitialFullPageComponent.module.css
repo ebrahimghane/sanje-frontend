@@ -267,7 +267,7 @@
 .img__gd4Ci {
   object-fit: fill;
   max-width: 100%;
-  display: none !important;
+  display: none;
 }
 .img__gd4Ci > picture > img {
   object-fit: fill;
