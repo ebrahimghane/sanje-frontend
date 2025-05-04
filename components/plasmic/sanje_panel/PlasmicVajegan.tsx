@@ -373,6 +373,21 @@ function PlasmicVajegan__RenderFunc(props: {
             <div
               className={classNames(projectcss.all, sty.freeBox__ahQ3)}
               key={keywordcurrentIndex}
+              style={(() => {
+                try {
+                  return keywordcurrentIndex % 2 === 0
+                    ? { "background-color": "#f0f0f0" }
+                    : {};
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return { "background-color": "#f0f0f0" };
+                  }
+                  throw e;
+                }
+              })()}
             >
               <Stack__
                 as={"div"}
@@ -677,7 +692,7 @@ function PlasmicVajegan__RenderFunc(props: {
                   ) : null}
                   {(() => {
                     try {
-                      return keywordcurrentIndex != 5;
+                      return keywordcurrentItem.priority < 5;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
