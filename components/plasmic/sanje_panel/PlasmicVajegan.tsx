@@ -232,7 +232,21 @@ function PlasmicVajegan__RenderFunc(props: {
               sty.text__rtK7
             )}
           >
-            {"Error fetching data"}
+            <React.Fragment>
+              {(() => {
+                try {
+                  return "خطا:" + $state.apiRequest.error.message;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "Error fetching data";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
           </div>
         }
         loadingDisplay={
