@@ -343,46 +343,44 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return (() => {
-                              return setTimeout(function () {
-                                try {
-                                  const urlParams = new URLSearchParams(
-                                    window.location.search
+                            return setTimeout(function () {
+                              try {
+                                const urlParams = new URLSearchParams(
+                                  window.location.search
+                                );
+                                const uri = decodeURIComponent(
+                                  urlParams.get("uri") || ""
+                                );
+                                const provide = urlParams.get("provide");
+                                if (!uri || !provide) {
+                                  console.error(
+                                    "Missing URI or Provide parameter."
                                   );
-                                  const uri = decodeURIComponent(
-                                    urlParams.get("uri") || ""
-                                  );
-                                  const provide = urlParams.get("provide");
-                                  if (!uri || !provide) {
-                                    console.error(
-                                      "Missing URI or Provide parameter."
-                                    );
-                                    return;
-                                  }
-                                  let fullUrl = "";
-                                  if (provide === "doctoreto") {
-                                    fullUrl = "https://doctoreto.com/" + uri;
-                                  } else if (provide === "page") {
-                                    fullUrl = uri;
-                                  } else {
-                                    console.error(
-                                      "Provide parameter is not recognized."
-                                    );
-                                    return;
-                                  }
-                                  const a = document.createElement("a");
-                                  a.href = fullUrl;
-                                  a.rel = "noreferrer noopener";
-                                  a.style.display = "none";
-                                  a.target = "_self";
-                                  document.body.appendChild(a);
-                                  a.click();
-                                  document.body.removeChild(a);
-                                } catch (err) {
-                                  console.error("Redirection error:", err);
+                                  return;
                                 }
-                              }, 4000);
-                            })();
+                                let fullUrl = "";
+                                if (provide === "doctoreto") {
+                                  fullUrl = "https://doctoreto.com/" + uri;
+                                } else if (provide === "page") {
+                                  fullUrl = uri;
+                                } else {
+                                  console.error(
+                                    "Provide parameter is not recognized."
+                                  );
+                                  return;
+                                }
+                                const a = document.createElement("a");
+                                a.href = fullUrl;
+                                a.rel = "noreferrer noopener";
+                                a.style.display = "none";
+                                a.target = "_self";
+                                document.body.appendChild(a);
+                                a.click();
+                                document.body.removeChild(a);
+                              } catch (err) {
+                                console.error("Redirection error:", err);
+                              }
+                            }, 4000);
                           }
                         };
                         return (({ customFunction }) => {
@@ -396,6 +394,52 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                     typeof $steps["runCode"].then === "function"
                   ) {
                     $steps["runCode"] = await $steps["runCode"];
+                  }
+
+                  $steps["loadMetrica"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              function loadMetrika() {
+                                var metrikaScript =
+                                  document.createElement("script");
+                                metrikaScript.innerHTML = `(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(98010713, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+    });`;
+                                document.head.appendChild(metrikaScript);
+                                var metrikaNoScript =
+                                  document.createElement("noscript");
+                                metrikaNoScript.innerHTML = `<div><img src="https://mc.yandex.ru/watch/98010713" style="position:absolute; left:-9999px;" alt="" /></div>`;
+                                document.body.insertBefore(
+                                  metrikaNoScript,
+                                  document.body.firstChild
+                                );
+                              }
+                              return loadMetrika();
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["loadMetrica"] != null &&
+                    typeof $steps["loadMetrica"] === "object" &&
+                    typeof $steps["loadMetrica"].then === "function"
+                  ) {
+                    $steps["loadMetrica"] = await $steps["loadMetrica"];
                   }
                 }}
               />
