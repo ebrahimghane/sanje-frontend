@@ -419,7 +419,7 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                                 document.head.appendChild(metrikaScript);
                                 var metrikaNoScript =
                                   document.createElement("noscript");
-                                metrikaNoScript.innerHTML = `<div><img src="https://mc.yandex.ru/watch/98010713" style="position:absolute; left:-9999px;" alt="" /></div>`;
+                                metrikaNoScript.innerHTML = `<div><img src="https://mc.yandex.ru/watch/97948198" style="position:absolute; left:-9999px;" alt="" /></div>`;
                                 document.body.insertBefore(
                                   metrikaNoScript,
                                   document.body.firstChild
