@@ -137,6 +137,7 @@ function PlasmicVajegan__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -476,7 +477,22 @@ function PlasmicVajegan__RenderFunc(props: {
                               return yiq >= 128 ? "black" : "white";
                             }
                             const p = keywordcurrentItem.priority;
-                            const hue = 120 - ((p - 1) / 5) * 120;
+                            const maxPriorityItem =
+                              $state.apiRequest.data.list.reduce(
+                                (acc, curr) =>
+                                  curr.priority > acc.priority ? curr : acc,
+                                { priority: 1 }
+                              );
+                            const maxPriority = maxPriorityItem.priority;
+                            const minPriority = Math.min(
+                              ...$state.apiRequest.data.list.map(
+                                item => item.priority
+                              )
+                            );
+                            const hue =
+                              ((maxPriority - p) /
+                                (maxPriority - minPriority)) *
+                              120;
                             const bgH = hue / 360;
                             const bgS = 1;
                             const bgL = p < 3 ? 0.5 : p > 4 ? 0.6 : 0.55;
@@ -704,181 +720,163 @@ function PlasmicVajegan__RenderFunc(props: {
                       }
                     />
                   ) : null}
-                  {(() => {
-                    try {
-                      return keywordcurrentItem.priority < 5;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return true;
-                      }
-                      throw e;
+                  <Button
+                    children2={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__ev8X
+                        )}
+                      >
+                        {
+                          "\u06a9\u0627\u0647\u0634 \u0627\u0648\u0644\u0648\u06cc\u062a"
+                        }
+                      </div>
                     }
-                  })() ? (
-                    <Button
-                      children2={
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__ev8X
-                          )}
-                        >
-                          {
-                            "\u06a9\u0627\u0647\u0634 \u0627\u0648\u0644\u0648\u06cc\u062a"
-                          }
-                        </div>
-                      }
-                      className={classNames(
-                        "__wab_instance",
-                        sty.button__mJ68V
-                      )}
-                      color={"clear"}
-                      endIcon={
-                        <Icon18Icon
-                          className={classNames(projectcss.all, sty.svg__nG2Zr)}
-                          role={"img"}
-                        />
-                      }
-                      onClick={async event => {
-                        const $steps = {};
+                    className={classNames("__wab_instance", sty.button__mJ68V)}
+                    color={"clear"}
+                    endIcon={
+                      <Icon18Icon
+                        className={classNames(projectcss.all, sty.svg__nG2Zr)}
+                        role={"img"}
+                      />
+                    }
+                    onClick={async event => {
+                      const $steps = {};
 
-                        $steps["moveApiRequest"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  (() => {
-                                    try {
-                                      return (
-                                        "https://apigw.paziresh24.com/v1/n8n-search/webhook/d4d563fa-d0ad-4b86-bfd4-3e801fa8af00/vajegan/keywords/" +
-                                        keywordcurrentItem.id +
-                                        "/move"
-                                      );
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
+                      $steps["moveApiRequest"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                (() => {
+                                  try {
+                                    return (
+                                      "https://apigw.paziresh24.com/v1/n8n-search/webhook/d4d563fa-d0ad-4b86-bfd4-3e801fa8af00/vajegan/keywords/" +
+                                      keywordcurrentItem.id +
+                                      "/move"
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
                                     }
-                                  })(),
-                                  undefined,
-                                  { direction: "down", by: 1 }
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["moveApiRequest"] != null &&
-                          typeof $steps["moveApiRequest"] === "object" &&
-                          typeof $steps["moveApiRequest"].then === "function"
-                        ) {
-                          $steps["moveApiRequest"] = await $steps[
-                            "moveApiRequest"
-                          ];
-                        }
-
-                        $steps["invokeGlobalAction"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  (() => {
-                                    try {
-                                      return $steps.moveApiRequest.status ===
-                                        200
-                                        ? "success"
-                                        : "error";
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })(),
-                                  (() => {
-                                    try {
-                                      return $steps.moveApiRequest.status ===
-                                        200
-                                        ? "تغییر اولویت کلیدواژه انجام شد"
-                                        : "تغییر اولویت کلیدواژه با خطا مواجه شد";
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.showToast"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["invokeGlobalAction"] != null &&
-                          typeof $steps["invokeGlobalAction"] === "object" &&
-                          typeof $steps["invokeGlobalAction"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
-                        }
-
-                        $steps["runActionOnApiRequest"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                tplRef: "apiRequest",
-                                action: "refresh"
-                              };
-                              return (({ tplRef, action, args }) => {
-                                return $refs?.[tplRef]?.[action]?.(
-                                  ...(args ?? [])
-                                );
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["runActionOnApiRequest"] != null &&
-                          typeof $steps["runActionOnApiRequest"] === "object" &&
-                          typeof $steps["runActionOnApiRequest"].then ===
-                            "function"
-                        ) {
-                          $steps["runActionOnApiRequest"] = await $steps[
-                            "runActionOnApiRequest"
-                          ];
-                        }
-                      }}
-                      outline={true}
-                      shape={"rounded"}
-                      showEndIcon={true}
-                      size={"minimal"}
-                      startIcon={
-                        <Icon14Icon
-                          className={classNames(projectcss.all, sty.svg__kK2Hd)}
-                          role={"img"}
-                        />
+                                    throw e;
+                                  }
+                                })(),
+                                undefined,
+                                { direction: "down", by: 1 }
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["moveApiRequest"] != null &&
+                        typeof $steps["moveApiRequest"] === "object" &&
+                        typeof $steps["moveApiRequest"].then === "function"
+                      ) {
+                        $steps["moveApiRequest"] = await $steps[
+                          "moveApiRequest"
+                        ];
                       }
-                    />
-                  ) : null}
+
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                (() => {
+                                  try {
+                                    return $steps.moveApiRequest.status === 200
+                                      ? "success"
+                                      : "error";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                (() => {
+                                  try {
+                                    return $steps.moveApiRequest.status === 200
+                                      ? "تغییر اولویت کلیدواژه انجام شد"
+                                      : "تغییر اولویت کلیدواژه با خطا مواجه شد";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.showToast"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["runActionOnApiRequest"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              tplRef: "apiRequest",
+                              action: "refresh"
+                            };
+                            return (({ tplRef, action, args }) => {
+                              return $refs?.[tplRef]?.[action]?.(
+                                ...(args ?? [])
+                              );
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runActionOnApiRequest"] != null &&
+                        typeof $steps["runActionOnApiRequest"] === "object" &&
+                        typeof $steps["runActionOnApiRequest"].then ===
+                          "function"
+                      ) {
+                        $steps["runActionOnApiRequest"] = await $steps[
+                          "runActionOnApiRequest"
+                        ];
+                      }
+                    }}
+                    outline={true}
+                    shape={"rounded"}
+                    showEndIcon={true}
+                    size={"minimal"}
+                    startIcon={
+                      <Icon14Icon
+                        className={classNames(projectcss.all, sty.svg__kK2Hd)}
+                        role={"img"}
+                      />
+                    }
+                  />
                 </Stack__>
                 <Button
                   children2={"\u062d\u0630\u0641"}
