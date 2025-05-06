@@ -1010,54 +1010,55 @@ function PlasmicVajegan__RenderFunc(props: {
             value={generateStateValueProp($state, ["input", "value"])}
           />
 
-          <Select
-            data-plasmic-name={"select"}
-            data-plasmic-override={overrides.select}
-            onChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["select", "value"]).apply(
-                null,
-                eventArgs
-              );
-            }}
-            onOpenChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["select", "open"]).apply(
-                null,
-                eventArgs
-              );
-            }}
-            open={generateStateValueProp($state, ["select", "open"])}
-            options={(() => {
-              const __composite = [
-                { label: null, value: null },
-                { label: null, value: null },
-                { label: null, value: null },
-                { label: null, value: null },
-                { label: null, value: null }
-              ];
-              __composite["0"]["label"] =
-                "\u0627\u0648\u0644\u0648\u06cc\u062a 1";
-              __composite["0"]["value"] = "1";
-              __composite["1"]["label"] =
-                "\u0627\u0648\u0644\u0648\u06cc\u062a 2";
-              __composite["1"]["value"] = "2";
-              __composite["2"]["label"] =
-                "\u0627\u0648\u0644\u0648\u06cc\u062a 3";
-              __composite["2"]["value"] = "3";
-              __composite["3"]["label"] =
-                "\u0627\u0648\u0644\u0648\u06cc\u062a 4";
-              __composite["3"]["value"] = "4";
-              __composite["4"]["label"] =
-                "\u0627\u0648\u0644\u0648\u06cc\u062a 5";
-              __composite["4"]["value"] = "5";
-              return __composite;
-            })()}
-            placeholder={
-              "\u0627\u0648\u0644\u0648\u06cc\u062a \u0648\u0627\u0698\u0647 \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f"
-            }
-            triggerClassName={classNames("__wab_instance", sty.select)}
-            value={generateStateValueProp($state, ["select", "value"])}
-          />
-
+          {false ? (
+            <Select
+              data-plasmic-name={"select"}
+              data-plasmic-override={overrides.select}
+              onChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["select", "value"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              onOpenChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["select", "open"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              open={generateStateValueProp($state, ["select", "open"])}
+              options={(() => {
+                const __composite = [
+                  { label: null, value: null },
+                  { label: null, value: null },
+                  { label: null, value: null },
+                  { label: null, value: null },
+                  { label: null, value: null }
+                ];
+                __composite["0"]["label"] =
+                  "\u0627\u0648\u0644\u0648\u06cc\u062a 1";
+                __composite["0"]["value"] = "1";
+                __composite["1"]["label"] =
+                  "\u0627\u0648\u0644\u0648\u06cc\u062a 2";
+                __composite["1"]["value"] = "2";
+                __composite["2"]["label"] =
+                  "\u0627\u0648\u0644\u0648\u06cc\u062a 3";
+                __composite["2"]["value"] = "3";
+                __composite["3"]["label"] =
+                  "\u0627\u0648\u0644\u0648\u06cc\u062a 4";
+                __composite["3"]["value"] = "4";
+                __composite["4"]["label"] =
+                  "\u0627\u0648\u0644\u0648\u06cc\u062a 5";
+                __composite["4"]["value"] = "5";
+                return __composite;
+              })()}
+              placeholder={
+                "\u0627\u0648\u0644\u0648\u06cc\u062a \u0648\u0627\u0698\u0647 \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f"
+              }
+              triggerClassName={classNames("__wab_instance", sty.select)}
+              value={generateStateValueProp($state, ["select", "value"])}
+            />
+          ) : null}
           <Button
             children2={"\u0627\u0641\u0632\u0648\u062f\u0646"}
             className={classNames("__wab_instance", sty.button___6WM2)}
