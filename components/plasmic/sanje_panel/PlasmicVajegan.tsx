@@ -1065,7 +1065,7 @@ function PlasmicVajegan__RenderFunc(props: {
             onClick={async event => {
               const $steps = {};
 
-              $steps["invokeGlobalAction"] = true
+              $steps["addApiRequest"] = true
                 ? (() => {
                     const actionArgs = {
                       args: [
@@ -1098,13 +1098,11 @@ function PlasmicVajegan__RenderFunc(props: {
                   })()
                 : undefined;
               if (
-                $steps["invokeGlobalAction"] != null &&
-                typeof $steps["invokeGlobalAction"] === "object" &&
-                typeof $steps["invokeGlobalAction"].then === "function"
+                $steps["addApiRequest"] != null &&
+                typeof $steps["addApiRequest"] === "object" &&
+                typeof $steps["addApiRequest"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["addApiRequest"] = await $steps["addApiRequest"];
               }
 
               $steps["invokeGlobalAction2"] = true
@@ -1114,7 +1112,9 @@ function PlasmicVajegan__RenderFunc(props: {
                         undefined,
                         (() => {
                           try {
-                            return "asdasd";
+                            return $steps.addApiRequest.status === 200
+                              ? "افزودن کلیدواژه انجام شد"
+                              : "افزودن کلیدواژه با خطا مواجه شد";
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
