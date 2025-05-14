@@ -62,6 +62,7 @@ import {
 import { AntdAccordion } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { accordionHelpers as AntdAccordion_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { AntdAccordionItem } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -96,6 +97,7 @@ export const PlasmicTaskCardItem__ArgProps = new Array<ArgPropType>(
 export type PlasmicTaskCardItem__OverridesType = {
   root?: Flex__<"div">;
   accordion?: Flex__<typeof AntdAccordion>;
+  embeddedHtmlDescription?: Flex__<typeof Embed>;
 };
 
 export interface DefaultTaskCardItemProps {
@@ -326,6 +328,27 @@ function PlasmicTaskCardItem__RenderFunc(props: {
                     }}
                   />
                 </div>
+                <Embed
+                  data-plasmic-name={"embeddedHtmlDescription"}
+                  data-plasmic-override={overrides.embeddedHtmlDescription}
+                  className={classNames(
+                    "__wab_instance",
+                    sty.embeddedHtmlDescription
+                  )}
+                  code={(() => {
+                    try {
+                      return $props.description;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "";
+                      }
+                      throw e;
+                    }
+                  })()}
+                />
               </AntdAccordionItem>
               <AntdAccordionItem
                 className={classNames(
@@ -395,8 +418,9 @@ function PlasmicTaskCardItem__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "accordion"],
-  accordion: ["accordion"]
+  root: ["root", "accordion", "embeddedHtmlDescription"],
+  accordion: ["accordion", "embeddedHtmlDescription"],
+  embeddedHtmlDescription: ["embeddedHtmlDescription"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -404,6 +428,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   accordion: typeof AntdAccordion;
+  embeddedHtmlDescription: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -467,6 +492,7 @@ export const PlasmicTaskCardItem = Object.assign(
   {
     // Helper components rendering sub-elements
     accordion: makeNodeComponent("accordion"),
+    embeddedHtmlDescription: makeNodeComponent("embeddedHtmlDescription"),
 
     // Metadata about props expected for PlasmicTaskCardItem
     internalVariantProps: PlasmicTaskCardItem__VariantProps,
