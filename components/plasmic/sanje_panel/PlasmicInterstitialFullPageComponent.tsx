@@ -321,11 +321,33 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
                 {(() => {
                   try {
                     return $props.uri.includes("doctoreto")
-                      ? "دکتـــرِتو"
+                      ? "دکترتو"
                       : $props.uri.includes("drdr")
                       ? "دکتر دکتر"
-                      : $props.uri.includes("nobat724")
+                      : $props.uri.includes("nobat.tums.ac")
                       ? "علوم پزشکی تهران"
+                      : $props.uri.includes("iranghalb")
+                      ? "ایران قلب"
+                      : $props.uri.includes("boghrat")
+                      ? "بقراط"
+                      : $props.uri.includes("drmyco")
+                      ? "دکترمایکو"
+                      : $props.uri.includes("personal")
+                      ? "سایت پزشک"
+                      : $props.uri.includes("ghalbiran")
+                      ? "قلب ایران"
+                      : $props.uri.includes("telegram")
+                      ? "تلگرام"
+                      : $props.uri.includes("novinvisit")
+                      ? "نوین ویزیت"
+                      : $props.uri.includes("nobat")
+                      ? "نوبت دات‌آی‌آر"
+                      : $props.uri.includes("monshi724")
+                      ? "منشی۷۲۴"
+                      : $props.uri.includes("axon")
+                      ? "اکسون"
+                      : $props.uri.includes("shafadoc")
+                      ? "شفاداک"
                       : $props.displayName;
                   } catch (e) {
                     if (
