@@ -17,16 +17,13 @@ export interface GlobalContextsProviderProps {
   fragmentProps?: Partial<
     Omit<React.ComponentProps<typeof Fragment>, "children">
   >;
-
   growthBookProps?: Partial<
     Omit<React.ComponentProps<typeof GrowthBook>, "children">
   >;
-
   splunkProps?: Partial<Omit<React.ComponentProps<typeof Splunk>, "children">>;
   antdConfigProviderProps?: Partial<
     Omit<React.ComponentProps<typeof AntdConfigProvider>, "children">
   >;
-
   embedCssProps?: Partial<
     Omit<React.ComponentProps<typeof EmbedCss>, "children">
   >;
@@ -182,11 +179,11 @@ export default function GlobalContextsProvider(
                 ? antdConfigProviderProps.themeStyles!
                 : true
                 ? {
-                    fontFamily: "initial",
-                    fontSize: "1rem",
+                    fontFamily: "var(--iran-sans-x)",
+                    fontSize: "16px",
                     fontWeight: "400",
                     lineHeight: "1.5",
-                    color: "#2B2F33",
+                    color: "#535353",
                     letterSpacing: "normal"
                   }
                 : undefined
