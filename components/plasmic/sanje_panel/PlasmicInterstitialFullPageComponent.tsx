@@ -348,6 +348,8 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
                       ? "اکسون"
                       : $props.uri.includes("shafadoc")
                       ? "شفاداک"
+                      : $props.uri.includes("doctorkhaneh")
+                      ? "دکترخانه"
                       : $props.displayName;
                   } catch (e) {
                     if (
