@@ -62,11 +62,13 @@ import {
 import Header from "../../Header"; // plasmic-import: OuJG8ggWPxG0/component
 import DynamicPagePageSection from "../../DynamicPagePageSection"; // plasmic-import: w-k8SPtgF7fV/component
 import ScriptsAndGeneralTags from "../../ScriptsAndGeneralTags"; // plasmic-import: zZNx54MRT-Br/component
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_fragment_design_system } from "../fragment_design_system/PlasmicStyleTokensProvider"; // plasmic-import: h9Dbk9ygddw7UVEq1NNhKi/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_fragment_design_system_css from "../fragment_design_system/plasmic.module.css"; // plasmic-import: h9Dbk9ygddw7UVEq1NNhKi/projectcss
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectcss
 import sty from "./PlasmicBookingOptions.module.css"; // plasmic-import: oqH1E7yoY1w4/css
 
@@ -130,6 +132,12 @@ function PlasmicBookingOptions__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const styleTokensClassNames = _useStyleTokens();
+  const styleTokensClassNames_fragment_design_system =
+    useStyleTokens_fragment_design_system();
+  const styleTokensClassNames_antd_5_hostless =
+    useStyleTokens_antd_5_hostless();
+
   return (
     <React.Fragment>
       <Head></Head>
@@ -151,9 +159,9 @@ function PlasmicBookingOptions__RenderFunc(props: {
             projectcss.root_reset,
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
-            projectcss.plasmic_tokens,
-            plasmic_fragment_design_system_css.plasmic_tokens,
-            plasmic_antd_5_hostless_css.plasmic_tokens,
+            styleTokensClassNames,
+            styleTokensClassNames_fragment_design_system,
+            styleTokensClassNames_antd_5_hostless,
             sty.root
           )}
         >

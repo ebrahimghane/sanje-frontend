@@ -70,11 +70,13 @@ import Button from "../../Button"; // plasmic-import: oVzoHzMf1TLl/component
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_fragment_design_system } from "../fragment_design_system/PlasmicStyleTokensProvider"; // plasmic-import: h9Dbk9ygddw7UVEq1NNhKi/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_fragment_design_system_css from "../fragment_design_system/plasmic.module.css"; // plasmic-import: h9Dbk9ygddw7UVEq1NNhKi/projectcss
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectcss
 import sty from "./PlasmicMyPerformance.module.css"; // plasmic-import: qMyNx4KEh22M/css
 
@@ -111,6 +113,7 @@ export type PlasmicMyPerformance__OverridesType = {
   crawlMeButton?: Flex__<typeof Button>;
   runGtmAndMetricaSideEffect?: Flex__<typeof SideEffect>;
   gtm?: Flex__<typeof Embed>;
+  fontStyleSet?: Flex__<typeof Embed>;
 };
 
 export interface DefaultMyPerformanceProps {}
@@ -313,6 +316,12 @@ function PlasmicMyPerformance__RenderFunc(props: {
     $refs
   });
 
+  const styleTokensClassNames = _useStyleTokens();
+  const styleTokensClassNames_fragment_design_system =
+    useStyleTokens_fragment_design_system();
+  const styleTokensClassNames_antd_5_hostless =
+    useStyleTokens_antd_5_hostless();
+
   return (
     <React.Fragment>
       <Head>
@@ -347,9 +356,9 @@ function PlasmicMyPerformance__RenderFunc(props: {
             projectcss.root_reset,
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
-            projectcss.plasmic_tokens,
-            plasmic_fragment_design_system_css.plasmic_tokens,
-            plasmic_antd_5_hostless_css.plasmic_tokens,
+            styleTokensClassNames,
+            styleTokensClassNames_fragment_design_system,
+            styleTokensClassNames_antd_5_hostless,
             sty.root
           )}
           dir={"RTL"}
@@ -2401,6 +2410,15 @@ function PlasmicMyPerformance__RenderFunc(props: {
               '<!-- Google Tag Manager (noscript) -->\r\n<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5RPLDP"\r\nheight="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>\r\n<!-- End Google Tag Manager (noscript) -->\r\n\r\n<!-- Yandex.Metrika counter -->\r\n<script type="text/javascript" >\r\n   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};\r\n   m[i].l=1*new Date();\r\n   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}\r\n   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})\r\n   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");\r\n\r\n   ym(98010713, "init", {\r\n        clickmap:true,\r\n        trackLinks:true,\r\n        accurateTrackBounce:true,\r\n        webvisor:true\r\n   });\r\n</script>\r\n<noscript><div><img src="https://mc.yandex.ru/watch/98010713" style="position:absolute; left:-9999px;" alt="" /></div></noscript>\r\n<!-- /Yandex.Metrika counter -->'
             }
           />
+
+          <Embed
+            data-plasmic-name={"fontStyleSet"}
+            data-plasmic-override={overrides.fontStyleSet}
+            className={classNames("__wab_instance", sty.fontStyleSet)}
+            code={
+              '<link href="https://fonts.paziresh24.com/iran-sans-x.css" rel="stylesheet">\r\n\r\n<style>\r\n*{\r\n -moz-font-feature-settings: "ss02";\r\n  -webkit-font-feature-settings: "ss02";\r\n  font-feature-settings: "ss02";\r\n  font-family: \'iran-sans-x\' !important;\r\n}\r\n</style>\r\n'
+            }
+          />
         </div>
       </div>
     </React.Fragment>
@@ -2425,7 +2443,8 @@ const PlasmicDescendants = {
     "supportLink",
     "crawlMeButton",
     "runGtmAndMetricaSideEffect",
-    "gtm"
+    "gtm",
+    "fontStyleSet"
   ],
   newsUpdatesFragmentApiRequest: ["newsUpdatesFragmentApiRequest"],
   h4: ["h4"],
@@ -2453,7 +2472,8 @@ const PlasmicDescendants = {
   supportLink: ["supportLink"],
   crawlMeButton: ["crawlMeButton"],
   runGtmAndMetricaSideEffect: ["runGtmAndMetricaSideEffect"],
-  gtm: ["gtm"]
+  gtm: ["gtm"],
+  fontStyleSet: ["fontStyleSet"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -2476,6 +2496,7 @@ type NodeDefaultElementType = {
   crawlMeButton: typeof Button;
   runGtmAndMetricaSideEffect: typeof SideEffect;
   gtm: typeof Embed;
+  fontStyleSet: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2564,6 +2585,7 @@ export const PlasmicMyPerformance = Object.assign(
     crawlMeButton: makeNodeComponent("crawlMeButton"),
     runGtmAndMetricaSideEffect: makeNodeComponent("runGtmAndMetricaSideEffect"),
     gtm: makeNodeComponent("gtm"),
+    fontStyleSet: makeNodeComponent("fontStyleSet"),
 
     // Metadata about props expected for PlasmicMyPerformance
     internalVariantProps: PlasmicMyPerformance__VariantProps,

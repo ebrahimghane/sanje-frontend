@@ -5,7 +5,8 @@
 // Plasmic Project: aU6fPsMDSmKqgHWpAbdgs
 
 import * as React from "react";
-import { hasVariant, ensureGlobalVariants } from "@plasmicapp/react-web";
+
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectModule
 import { Fragment } from "@/fragment/fragment"; // plasmic-import: aoWuS25X94s0/codeComponent
 import { GrowthBook } from "@/fragment/growthbook"; // plasmic-import: DbAR2bd9pX5P/codeComponent
 import { Splunk } from "@/fragment/splunk"; // plasmic-import: Iqj9wqmRKfGb/codeComponent
@@ -17,16 +18,13 @@ export interface GlobalContextsProviderProps {
   fragmentProps?: Partial<
     Omit<React.ComponentProps<typeof Fragment>, "children">
   >;
-
   growthBookProps?: Partial<
     Omit<React.ComponentProps<typeof GrowthBook>, "children">
   >;
-
   splunkProps?: Partial<Omit<React.ComponentProps<typeof Splunk>, "children">>;
   antdConfigProviderProps?: Partial<
     Omit<React.ComponentProps<typeof AntdConfigProvider>, "children">
   >;
-
   embedCssProps?: Partial<
     Omit<React.ComponentProps<typeof EmbedCss>, "children">
   >;
@@ -202,7 +200,7 @@ export default function GlobalContextsProvider(
               css={
                 embedCssProps && "css" in embedCssProps
                   ? embedCssProps.css!
-                  : '/* Import IRANSansXV */\r\n@font-face {\r\n  font-family: "IRANSansXV";\r\n  src: url("https://www.paziresh24.com/_next/static/media/IRANSansXV.1fb34ecf.woff2") format("woff2");\r\n  font-weight: normal;\r\n  font-style: normal;\r\n}\r\n\r\n/* Import IRANSansXFaNum Regular */\r\n/* Here, both URLs are provided as potential sources */\r\n@font-face {\r\n  font-family: "IRANSansXFaNum";\r\n  src: url("https://www.paziresh24.com/blog/wp-content/uploads/2022/08/IRANSansXFaNum-Regular.woff2") format("woff2"),\r\n       url("https://www.paziresh24.com/home/wp-content/uploads/avia_fonts/type_fonts/iransansxfanum-regular/iransansxfanum-regular.woff2") format("woff2");\r\n  font-weight: normal;\r\n  font-style: normal;\r\n}\r\n\r\n/* Import IRANSansXFaNum Black */\r\n/* Both URLs are provided as fallback sources */\r\n@font-face {\r\n  font-family: "IRANSansXFaNum";\r\n  src: url("https://www.paziresh24.com/blog/wp-content/uploads/2022/08/IRANSansXFaNum-Black.woff2") format("woff2"),\r\n       url("https://www.paziresh24.com/home/wp-content/uploads/avia_fonts/type_fonts/iransansxfanum-black/iransansxfanum-black.woff2") format("woff2");\r\n  font-weight: bold;\r\n  font-style: normal;\r\n}\r\n\r\n/* Your global embedded CSS */\r\n* {\r\n  direction: rtl !important;\r\n  /* Using the font families as fallbacks */\r\n  font-family: "IRANSansXFaNum", "IRANSansXV", "iran-sans-x";\r\n}\r\n\r\n.pl__z-50 {\r\n  z-index: 9999 !important;\r\n}\r\n'
+                  : "\r\n.pl__z-50 {\r\n  z-index: 9999 !important;\r\n}\r\n"
               }
             >
               {children}

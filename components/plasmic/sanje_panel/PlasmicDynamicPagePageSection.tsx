@@ -62,11 +62,13 @@ import {
 import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 import Avatar from "../../Avatar"; // plasmic-import: 3i84rYjQRrs4/component
 import DynamicPageCardList from "../../DynamicPageCardList"; // plasmic-import: Pbd98u3TbJTJ/component
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_fragment_design_system } from "../fragment_design_system/PlasmicStyleTokensProvider"; // plasmic-import: h9Dbk9ygddw7UVEq1NNhKi/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_fragment_design_system_css from "../fragment_design_system/plasmic.module.css"; // plasmic-import: h9Dbk9ygddw7UVEq1NNhKi/projectcss
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectcss
 import sty from "./PlasmicDynamicPagePageSection.module.css"; // plasmic-import: w-k8SPtgF7fV/css
 
@@ -138,22 +140,26 @@ function PlasmicDynamicPagePageSection__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const styleTokensClassNames = _useStyleTokens();
+  const styleTokensClassNames_fragment_design_system =
+    useStyleTokens_fragment_design_system();
+  const styleTokensClassNames_antd_5_hostless =
+    useStyleTokens_antd_5_hostless();
+
   return (
-    <Stack__
-      as={"div"}
+    <div
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      hasGap={true}
       className={classNames(
         projectcss.all,
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_fragment_design_system_css.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
+        styleTokensClassNames,
+        styleTokensClassNames_fragment_design_system,
+        styleTokensClassNames_antd_5_hostless,
         sty.root
       )}
     >
@@ -228,16 +234,8 @@ function PlasmicDynamicPagePageSection__RenderFunc(props: {
       >
         <DataCtxReader__>
           {$ctx => (
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__oR5Fm)}
-            >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___2EO3Y)}
-              >
+            <div className={classNames(projectcss.all, sty.freeBox__oR5Fm)}>
+              <div className={classNames(projectcss.all, sty.freeBox___2EO3Y)}>
                 <Avatar
                   data-plasmic-name={"avatar"}
                   data-plasmic-override={overrides.avatar}
@@ -285,7 +283,7 @@ function PlasmicDynamicPagePageSection__RenderFunc(props: {
                     }}
                   />
                 </div>
-              </Stack__>
+              </div>
               <DynamicPageCardList
                 data-plasmic-name={"dynamicPageCardList"}
                 data-plasmic-override={overrides.dynamicPageCardList}
@@ -308,11 +306,11 @@ function PlasmicDynamicPagePageSection__RenderFunc(props: {
                   sty.dynamicPageCardList
                 )}
               />
-            </Stack__>
+            </div>
           )}
         </DataCtxReader__>
       </DataFetcher>
-    </Stack__>
+    </div>
   ) as React.ReactElement | null;
 }
 

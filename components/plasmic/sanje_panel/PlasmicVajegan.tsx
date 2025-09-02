@@ -63,11 +63,13 @@ import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-impor
 import Button from "../../Button"; // plasmic-import: oVzoHzMf1TLl/component
 import { Input } from "@/fragment/components/input"; // plasmic-import: zLPWSKiKTX83/codeComponent
 import { Select } from "@/fragment/components/select"; // plasmic-import: Y7OelJAhX1bB/codeComponent
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_fragment_design_system } from "../fragment_design_system/PlasmicStyleTokensProvider"; // plasmic-import: h9Dbk9ygddw7UVEq1NNhKi/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_fragment_design_system_css from "../fragment_design_system/plasmic.module.css"; // plasmic-import: h9Dbk9ygddw7UVEq1NNhKi/projectcss
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectcss
 import sty from "./PlasmicVajegan.module.css"; // plasmic-import: RM0X42We8_T_/css
 
@@ -204,6 +206,12 @@ function PlasmicVajegan__RenderFunc(props: {
     $refs
   });
 
+  const styleTokensClassNames = _useStyleTokens();
+  const styleTokensClassNames_fragment_design_system =
+    useStyleTokens_fragment_design_system();
+  const styleTokensClassNames_antd_5_hostless =
+    useStyleTokens_antd_5_hostless();
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -215,9 +223,9 @@ function PlasmicVajegan__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_fragment_design_system_css.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
+        styleTokensClassNames,
+        styleTokensClassNames_fragment_design_system,
+        styleTokensClassNames_antd_5_hostless,
         sty.root
       )}
     >
@@ -342,11 +350,7 @@ function PlasmicVajegan__RenderFunc(props: {
           </div>
         </div>
         <div className={classNames(projectcss.all, sty.freeBox__ttqw)}>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__hurGf)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__hurGf)}>
             <div
               className={classNames(
                 projectcss.all,
@@ -365,7 +369,7 @@ function PlasmicVajegan__RenderFunc(props: {
             >
               {"\u0627\u0648\u0644\u0648\u06cc\u062a"}
             </div>
-          </Stack__>
+          </div>
         </div>
         {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
           (() => {
@@ -404,11 +408,7 @@ function PlasmicVajegan__RenderFunc(props: {
                 }
               })()}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__thoqj)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__thoqj)}>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -543,11 +543,7 @@ function PlasmicVajegan__RenderFunc(props: {
                   }
                 />
 
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__xm3Mf)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__xm3Mf)}>
                   {(() => {
                     try {
                       return keywordcurrentItem.priority != 1;
@@ -877,7 +873,7 @@ function PlasmicVajegan__RenderFunc(props: {
                       />
                     }
                   />
-                </Stack__>
+                </div>
                 <Button
                   children2={"\u062d\u0630\u0641"}
                   className={classNames("__wab_instance", sty.button__shj7D)}
@@ -982,15 +978,13 @@ function PlasmicVajegan__RenderFunc(props: {
                     />
                   }
                 />
-              </Stack__>
+              </div>
             </div>
           );
         })}
-        <Stack__
-          as={"div"}
+        <div
           data-plasmic-name={"insertBox"}
           data-plasmic-override={overrides.insertBox}
-          hasGap={true}
           className={classNames(projectcss.all, sty.insertBox)}
         >
           <Input
@@ -1327,7 +1321,7 @@ function PlasmicVajegan__RenderFunc(props: {
             }}
             outline={true}
           />
-        </Stack__>
+        </div>
       </ApiRequest>
     </div>
   ) as React.ReactElement | null;
