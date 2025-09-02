@@ -40,7 +40,6 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
-  padding: 8px;
 }
 .text__ySjrf {
   position: relative;
@@ -109,17 +108,19 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  padding-top: 32px;
   min-width: 0;
 }
-.text__b0E5I {
-  width: 100%;
-  height: auto;
+.svg__zkGax {
+  object-fit: cover;
   max-width: 100%;
-  font-family: "Cute Font";
-  font-size: var(--token-NlYKUzS5DGTT);
-  font-weight: 400;
-  text-align: center;
-  align-self: center;
-  min-width: 0;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.svg___4Tz1L {
+  object-fit: cover;
+  max-width: 100%;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
 }

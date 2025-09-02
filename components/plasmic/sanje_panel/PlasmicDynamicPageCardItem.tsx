@@ -59,10 +59,13 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_fragment_design_system } from "../fragment_design_system/PlasmicStyleTokensProvider"; // plasmic-import: h9Dbk9ygddw7UVEq1NNhKi/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_fragment_design_system_css from "../fragment_design_system/plasmic.module.css"; // plasmic-import: h9Dbk9ygddw7UVEq1NNhKi/projectcss
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectcss
 import sty from "./PlasmicDynamicPageCardItem.module.css"; // plasmic-import: 0UcJTMqEEn6u/css
 
@@ -179,6 +182,12 @@ function PlasmicDynamicPageCardItem__RenderFunc(props: {
     $refs
   });
 
+  const styleTokensClassNames = _useStyleTokens();
+  const styleTokensClassNames_fragment_design_system =
+    useStyleTokens_fragment_design_system();
+  const styleTokensClassNames_antd_5_hostless =
+    useStyleTokens_antd_5_hostless();
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -190,9 +199,9 @@ function PlasmicDynamicPageCardItem__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_fragment_design_system_css.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
+        styleTokensClassNames,
+        styleTokensClassNames_fragment_design_system,
+        styleTokensClassNames_antd_5_hostless,
         sty.root
       )}
     >
@@ -268,11 +277,9 @@ function PlasmicDynamicPageCardItem__RenderFunc(props: {
           role={"img"}
         />
       </div>
-      <Stack__
-        as={PlasmicLink__}
+      <PlasmicLink__
         data-plasmic-name={"header"}
         data-plasmic-override={overrides.header}
-        hasGap={true}
         className={classNames(projectcss.all, projectcss.a, sty.header, {
           [sty.headernoTitle]: hasVariant($state, "noTitle", "noTitle")
         })}
@@ -292,11 +299,7 @@ function PlasmicDynamicPageCardItem__RenderFunc(props: {
         })()}
         platform={"nextjs"}
       >
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__wHmgr)}
-        >
+        <div className={classNames(projectcss.all, sty.freeBox__wHmgr)}>
           <PlasmicImg__
             data-plasmic-name={"img"}
             data-plasmic-override={overrides.img}
@@ -349,12 +352,8 @@ function PlasmicDynamicPageCardItem__RenderFunc(props: {
               })()}
             </React.Fragment>
           </div>
-        </Stack__>
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__sWitC)}
-        >
+        </div>
+        <div className={classNames(projectcss.all, sty.freeBox__sWitC)}>
           <div
             data-plasmic-name={"subtitleText"}
             data-plasmic-override={overrides.subtitleText}
@@ -380,8 +379,8 @@ function PlasmicDynamicPageCardItem__RenderFunc(props: {
               })()}
             </React.Fragment>
           </div>
-        </Stack__>
-      </Stack__>
+        </div>
+      </PlasmicLink__>
       <div
         data-plasmic-name={"body"}
         data-plasmic-override={overrides.body}
