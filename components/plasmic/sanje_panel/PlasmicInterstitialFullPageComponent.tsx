@@ -228,48 +228,6 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
           </div>
         </div>
         <div className={classNames(projectcss.all, sty.freeBox__laggs)}>
-          <div className={classNames(projectcss.all, sty.freeBox__sDsLk)}>
-            <PlasmicImg__
-              alt={""}
-              className={classNames(sty.img___29ZsY)}
-              displayHeight={"40px"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={"35px"}
-              loading={"lazy"}
-              src={
-                "https://www.paziresh24.com/_next/static/media/logo.5e03fe79.svg"
-              }
-            />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___1S3F8
-              )}
-            >
-              {"\u067e\u0630\u06cc\u0631\u0634\u06f2\u06f4"}
-            </div>
-          </div>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__vbKAv
-            )}
-          >
-            {" >>>"}
-          </div>
-          <Icon11Icon
-            data-plasmic-name={"svg"}
-            data-plasmic-override={overrides.svg}
-            className={classNames(projectcss.all, sty.svg)}
-            role={"img"}
-          />
-
           <div className={classNames(projectcss.all, sty.freeBox__zLftn)}>
             <PlasmicImg__
               alt={""}
@@ -366,6 +324,48 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
                   }
                 })()}
               </React.Fragment>
+            </div>
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__vbKAv
+            )}
+          >
+            {" >>>"}
+          </div>
+          <Icon11Icon
+            data-plasmic-name={"svg"}
+            data-plasmic-override={overrides.svg}
+            className={classNames(projectcss.all, sty.svg)}
+            role={"img"}
+          />
+
+          <div className={classNames(projectcss.all, sty.freeBox__sDsLk)}>
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img___29ZsY)}
+              displayHeight={"40px"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={"35px"}
+              loading={"lazy"}
+              src={
+                "https://www.paziresh24.com/_next/static/media/logo.5e03fe79.svg"
+              }
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___1S3F8
+              )}
+            >
+              {"\u067e\u0630\u06cc\u0631\u0634\u06f2\u06f4"}
             </div>
           </div>
         </div>
