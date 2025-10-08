@@ -276,78 +276,76 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
               <React.Fragment>
                 {(() => {
                   try {
-                    return (() => {
-                      const displayValue =
-                        $props.platform ||
-                        ($props.uri.includes("doctoreto")
-                          ? "دکترتو"
-                          : $props.uri.includes("drdr")
-                            ? "دکتر دکتر"
-                            : $props.uri.includes("nobat.tums.ac")
-                              ? "علوم پزشکی تهران"
-                              : $props.uri.includes("iranghalb")
-                                ? "ایران قلب"
-                                : $props.uri.includes("boghrat")
-                                  ? "بقراط"
-                                  : $props.uri.includes("drmyco")
-                                    ? "دکترمایکو"
-                                    : $props.uri.includes("personal")
-                                      ? "سایت پزشک"
-                                      : $props.uri.includes("ghalbiran")
-                                        ? "قلب ایران"
-                                        : $props.uri.includes("telegram")
-                                          ? "تلگرام"
-                                          : $props.uri.includes("novinvisit")
-                                            ? "نوین ویزیت"
-                                            : $props.uri.includes("nobat")
-                                              ? "نوبت دات‌آی‌آر"
-                                              : $props.uri.includes("monshi724")
-                                                ? "منشی۷۲۴"
-                                                : $props.uri.includes("axon")
-                                                  ? "اکسون"
+                    return (
+                      $props.platform ||
+                      ($props.uri.includes("doctoreto")
+                        ? "دکترتو"
+                        : $props.uri.includes("drdr")
+                          ? "دکتر دکتر"
+                          : $props.uri.includes("nobat.tums.ac")
+                            ? "علوم پزشکی تهران"
+                            : $props.uri.includes("iranghalb")
+                              ? "ایران قلب"
+                              : $props.uri.includes("boghrat")
+                                ? "بقراط"
+                                : $props.uri.includes("drmyco")
+                                  ? "دکترمایکو"
+                                  : $props.uri.includes("personal")
+                                    ? "سایت پزشک"
+                                    : $props.uri.includes("ghalbiran")
+                                      ? "قلب ایران"
+                                      : $props.uri.includes("telegram")
+                                        ? "تلگرام"
+                                        : $props.uri.includes("novinvisit")
+                                          ? "نوین ویزیت"
+                                          : $props.uri.includes("nobat")
+                                            ? "نوبت دات‌آی‌آر"
+                                            : $props.uri.includes("monshi724")
+                                              ? "منشی۷۲۴"
+                                              : $props.uri.includes("axon")
+                                                ? "اکسون"
+                                                : $props.uri.includes(
+                                                      "shafadoc"
+                                                    )
+                                                  ? "شفاداک"
                                                   : $props.uri.includes(
-                                                        "shafadoc"
+                                                        "doctorkhaneh"
                                                       )
-                                                    ? "شفاداک"
+                                                    ? "دکترخانه"
                                                     : $props.uri.includes(
-                                                          "doctorkhaneh"
+                                                          "dadehavaran"
                                                         )
-                                                      ? "دکترخانه"
+                                                      ? "دانشگاه علوم پزشکی"
                                                       : $props.uri.includes(
-                                                            "dadehavaran"
+                                                            "darmankade"
                                                           )
-                                                        ? "دانشگاه علوم پزشکی"
+                                                        ? "درمانکده"
                                                         : $props.uri.includes(
-                                                              "darmankade"
+                                                              "doctoryab"
                                                             )
-                                                          ? "درمانکده"
+                                                          ? "دکتریاب"
                                                           : $props.uri.includes(
-                                                                "doctoryab"
+                                                                "arenap"
                                                               )
-                                                            ? "دکتریاب"
+                                                            ? "آرناپ"
                                                             : $props.uri.includes(
-                                                                  "arenap"
+                                                                  "mihanpezeshk"
                                                                 )
-                                                              ? "آرناپ"
+                                                              ? "میهن پزشک"
                                                               : $props.uri.includes(
-                                                                    "mihanpezeshk"
+                                                                    "nobatbama"
                                                                   )
-                                                                ? "میهن پزشک"
+                                                                ? "نوبت با ما"
                                                                 : $props.uri.includes(
-                                                                      "nobatbama"
+                                                                      "nobatall"
                                                                     )
-                                                                  ? "نوبت با ما"
+                                                                  ? "نوبت آل"
                                                                   : $props.uri.includes(
-                                                                        "nobatall"
+                                                                        "hormozteb"
                                                                       )
-                                                                    ? "نوبت آل"
-                                                                    : $props.uri.includes(
-                                                                          "hormozteb"
-                                                                        )
-                                                                      ? "هرمز طب"
-                                                                      : $props.displayName);
-                      return displayValue;
-                    })();
+                                                                    ? "هرمز طب"
+                                                                    : $props.displayName)
+                    );
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
