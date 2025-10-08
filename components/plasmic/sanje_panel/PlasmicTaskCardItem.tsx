@@ -65,8 +65,6 @@ import { AntdAccordionItem } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_fragment_design_system } from "../fragment_design_system/PlasmicStyleTokensProvider"; // plasmic-import: h9Dbk9ygddw7UVEq1NNhKi/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -177,10 +175,6 @@ function PlasmicTaskCardItem__RenderFunc(props: {
   });
 
   const styleTokensClassNames = _useStyleTokens();
-  const styleTokensClassNames_fragment_design_system =
-    useStyleTokens_fragment_design_system();
-  const styleTokensClassNames_antd_5_hostless =
-    useStyleTokens_antd_5_hostless();
 
   return (
     <div
@@ -194,8 +188,6 @@ function PlasmicTaskCardItem__RenderFunc(props: {
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
         styleTokensClassNames,
-        styleTokensClassNames_fragment_design_system,
-        styleTokensClassNames_antd_5_hostless,
         sty.root
       )}
       dir={"rtl"}
@@ -481,7 +473,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicTaskCardItem__VariantsArgs;
     args?: PlasmicTaskCardItem__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicTaskCardItem__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicTaskCardItem__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicTaskCardItem__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

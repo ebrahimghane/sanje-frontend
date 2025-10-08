@@ -62,8 +62,6 @@ import {
 import { BaseLabel } from "@plasmicpkgs/react-aria/skinny/registerLabel";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_fragment_design_system } from "../fragment_design_system/PlasmicStyleTokensProvider"; // plasmic-import: h9Dbk9ygddw7UVEq1NNhKi/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -168,10 +166,6 @@ function PlasmicLabel__RenderFunc(props: {
   });
 
   const styleTokensClassNames = _useStyleTokens();
-  const styleTokensClassNames_fragment_design_system =
-    useStyleTokens_fragment_design_system();
-  const styleTokensClassNames_antd_5_hostless =
-    useStyleTokens_antd_5_hostless();
 
   return (
     <BaseLabel
@@ -185,8 +179,6 @@ function PlasmicLabel__RenderFunc(props: {
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
         styleTokensClassNames,
-        styleTokensClassNames_fragment_design_system,
-        styleTokensClassNames_antd_5_hostless,
         sty.root,
         {
           [sty.rootrequirementIndicator_optional]: hasVariant(
@@ -290,7 +282,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicLabel__VariantsArgs;
     args?: PlasmicLabel__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicLabel__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicLabel__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicLabel__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

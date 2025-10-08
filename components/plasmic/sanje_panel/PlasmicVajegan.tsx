@@ -65,8 +65,6 @@ import { Input } from "@/fragment/components/input"; // plasmic-import: zLPWSKiK
 import { Select } from "@/fragment/components/select"; // plasmic-import: Y7OelJAhX1bB/codeComponent
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_fragment_design_system } from "../fragment_design_system/PlasmicStyleTokensProvider"; // plasmic-import: h9Dbk9ygddw7UVEq1NNhKi/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -207,10 +205,6 @@ function PlasmicVajegan__RenderFunc(props: {
   });
 
   const styleTokensClassNames = _useStyleTokens();
-  const styleTokensClassNames_fragment_design_system =
-    useStyleTokens_fragment_design_system();
-  const styleTokensClassNames_antd_5_hostless =
-    useStyleTokens_antd_5_hostless();
 
   return (
     <div
@@ -224,8 +218,6 @@ function PlasmicVajegan__RenderFunc(props: {
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
         styleTokensClassNames,
-        styleTokensClassNames_fragment_design_system,
-        styleTokensClassNames_antd_5_hostless,
         sty.root
       )}
     >
@@ -622,9 +614,8 @@ function PlasmicVajegan__RenderFunc(props: {
                           typeof $steps["moveApiRequest"] === "object" &&
                           typeof $steps["moveApiRequest"].then === "function"
                         ) {
-                          $steps["moveApiRequest"] = await $steps[
-                            "moveApiRequest"
-                          ];
+                          $steps["moveApiRequest"] =
+                            await $steps["moveApiRequest"];
                         }
 
                         $steps["showToast"] = true
@@ -699,9 +690,8 @@ function PlasmicVajegan__RenderFunc(props: {
                           typeof $steps["runActionOnApiRequest"].then ===
                             "function"
                         ) {
-                          $steps["runActionOnApiRequest"] = await $steps[
-                            "runActionOnApiRequest"
-                          ];
+                          $steps["runActionOnApiRequest"] =
+                            await $steps["runActionOnApiRequest"];
                         }
                       }}
                       outline={true}
@@ -779,9 +769,8 @@ function PlasmicVajegan__RenderFunc(props: {
                         typeof $steps["moveApiRequest"] === "object" &&
                         typeof $steps["moveApiRequest"].then === "function"
                       ) {
-                        $steps["moveApiRequest"] = await $steps[
-                          "moveApiRequest"
-                        ];
+                        $steps["moveApiRequest"] =
+                          await $steps["moveApiRequest"];
                       }
 
                       $steps["invokeGlobalAction"] = true
@@ -833,9 +822,8 @@ function PlasmicVajegan__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["runActionOnApiRequest"] = true
@@ -857,9 +845,8 @@ function PlasmicVajegan__RenderFunc(props: {
                         typeof $steps["runActionOnApiRequest"].then ===
                           "function"
                       ) {
-                        $steps["runActionOnApiRequest"] = await $steps[
-                          "runActionOnApiRequest"
-                        ];
+                        $steps["runActionOnApiRequest"] =
+                          await $steps["runActionOnApiRequest"];
                       }
                     }}
                     outline={true}
@@ -921,9 +908,8 @@ function PlasmicVajegan__RenderFunc(props: {
                       typeof $steps["deleteKeywordRequest"] === "object" &&
                       typeof $steps["deleteKeywordRequest"].then === "function"
                     ) {
-                      $steps["deleteKeywordRequest"] = await $steps[
-                        "deleteKeywordRequest"
-                      ];
+                      $steps["deleteKeywordRequest"] =
+                        await $steps["deleteKeywordRequest"];
                     }
 
                     $steps["showTast"] = true
@@ -964,9 +950,8 @@ function PlasmicVajegan__RenderFunc(props: {
                       typeof $steps["refreshDataApiRequest"] === "object" &&
                       typeof $steps["refreshDataApiRequest"].then === "function"
                     ) {
-                      $steps["refreshDataApiRequest"] = await $steps[
-                        "refreshDataApiRequest"
-                      ];
+                      $steps["refreshDataApiRequest"] =
+                        await $steps["refreshDataApiRequest"];
                     }
                   }}
                   outline={true}
@@ -1131,9 +1116,8 @@ function PlasmicVajegan__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction2"] === "object" &&
                 typeof $steps["invokeGlobalAction2"].then === "function"
               ) {
-                $steps["invokeGlobalAction2"] = await $steps[
-                  "invokeGlobalAction2"
-                ];
+                $steps["invokeGlobalAction2"] =
+                  await $steps["invokeGlobalAction2"];
               }
 
               $steps["runActionOnApiRequest"] = true
@@ -1152,9 +1136,8 @@ function PlasmicVajegan__RenderFunc(props: {
                 typeof $steps["runActionOnApiRequest"] === "object" &&
                 typeof $steps["runActionOnApiRequest"].then === "function"
               ) {
-                $steps["runActionOnApiRequest"] = await $steps[
-                  "runActionOnApiRequest"
-                ];
+                $steps["runActionOnApiRequest"] =
+                  await $steps["runActionOnApiRequest"];
               }
 
               $steps["updateInputValue"] = true
@@ -1230,9 +1213,8 @@ function PlasmicVajegan__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction"] === "object" &&
                 typeof $steps["invokeGlobalAction"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
               }
 
               $steps["invokeGlobalAction2"] = true
@@ -1265,9 +1247,8 @@ function PlasmicVajegan__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction2"] === "object" &&
                 typeof $steps["invokeGlobalAction2"].then === "function"
               ) {
-                $steps["invokeGlobalAction2"] = await $steps[
-                  "invokeGlobalAction2"
-                ];
+                $steps["invokeGlobalAction2"] =
+                  await $steps["invokeGlobalAction2"];
               }
 
               $steps["runActionOnApiRequest"] = true
@@ -1286,9 +1267,8 @@ function PlasmicVajegan__RenderFunc(props: {
                 typeof $steps["runActionOnApiRequest"] === "object" &&
                 typeof $steps["runActionOnApiRequest"].then === "function"
               ) {
-                $steps["runActionOnApiRequest"] = await $steps[
-                  "runActionOnApiRequest"
-                ];
+                $steps["runActionOnApiRequest"] =
+                  await $steps["runActionOnApiRequest"];
               }
 
               $steps["updateInputValue"] = true
@@ -1375,7 +1355,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicVajegan__VariantsArgs;
     args?: PlasmicVajegan__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicVajegan__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicVajegan__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicVajegan__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

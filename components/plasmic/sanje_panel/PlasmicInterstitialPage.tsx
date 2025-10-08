@@ -65,8 +65,6 @@ import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: MhkncRKg2Phv/codeComponent
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_fragment_design_system } from "../fragment_design_system/PlasmicStyleTokensProvider"; // plasmic-import: h9Dbk9ygddw7UVEq1NNhKi/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -174,10 +172,6 @@ function PlasmicInterstitialPage__RenderFunc(props: {
   });
 
   const styleTokensClassNames = _useStyleTokens();
-  const styleTokensClassNames_fragment_design_system =
-    useStyleTokens_fragment_design_system();
-  const styleTokensClassNames_antd_5_hostless =
-    useStyleTokens_antd_5_hostless();
 
   return (
     <React.Fragment>
@@ -227,8 +221,6 @@ function PlasmicInterstitialPage__RenderFunc(props: {
               projectcss.plasmic_default_styles,
               projectcss.plasmic_mixins,
               styleTokensClassNames,
-              styleTokensClassNames_fragment_design_system,
-              styleTokensClassNames_antd_5_hostless,
               sty.root
             )}
           >
@@ -243,6 +235,19 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                 displayName={(() => {
                   try {
                     return $ctx.query.display_name;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                platform={(() => {
+                  try {
+                    return $ctx.query.platform;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -343,9 +348,8 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                     typeof $steps["rismanSendSplunkLog"] === "object" &&
                     typeof $steps["rismanSendSplunkLog"].then === "function"
                   ) {
-                    $steps["rismanSendSplunkLog"] = await $steps[
-                      "rismanSendSplunkLog"
-                    ];
+                    $steps["rismanSendSplunkLog"] =
+                      await $steps["rismanSendSplunkLog"];
                   }
 
                   $steps["runCode"] = true
@@ -475,9 +479,7 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                           const actionArgs = {
                             destination: (() => {
                               try {
-                                return `https://www.paziresh24.com/login/?redirect_url=${globalThis.encodeURIComponent(
-                                  globalThis.location.href
-                                )}`;
+                                return `https://www.paziresh24.com/login/?redirect_url=${globalThis.encodeURIComponent(globalThis.location.href)}`;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -585,7 +587,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicInterstitialPage__VariantsArgs;
     args?: PlasmicInterstitialPage__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicInterstitialPage__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicInterstitialPage__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicInterstitialPage__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
