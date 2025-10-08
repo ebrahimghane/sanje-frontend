@@ -62,8 +62,6 @@ import {
 import DynamicPageCardItem from "../../DynamicPageCardItem"; // plasmic-import: 0UcJTMqEEn6u/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_fragment_design_system } from "../fragment_design_system/PlasmicStyleTokensProvider"; // plasmic-import: h9Dbk9ygddw7UVEq1NNhKi/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -135,10 +133,6 @@ function PlasmicDynamicPageCardList__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const styleTokensClassNames = _useStyleTokens();
-  const styleTokensClassNames_fragment_design_system =
-    useStyleTokens_fragment_design_system();
-  const styleTokensClassNames_antd_5_hostless =
-    useStyleTokens_antd_5_hostless();
 
   return (
     <div
@@ -152,8 +146,6 @@ function PlasmicDynamicPageCardList__RenderFunc(props: {
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
         styleTokensClassNames,
-        styleTokensClassNames_fragment_design_system,
-        styleTokensClassNames_antd_5_hostless,
         sty.root
       )}
     >
@@ -296,7 +288,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicDynamicPageCardList__VariantsArgs;
     args?: PlasmicDynamicPageCardList__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicDynamicPageCardList__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicDynamicPageCardList__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicDynamicPageCardList__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

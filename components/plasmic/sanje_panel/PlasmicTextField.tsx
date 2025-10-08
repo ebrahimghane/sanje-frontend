@@ -66,8 +66,6 @@ import TextAreaInput from "../../TextAreaInput"; // plasmic-import: 6lTsbja7hqTc
 import Description from "../../Description"; // plasmic-import: 1eYhtagHUPjz/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_fragment_design_system } from "../fragment_design_system/PlasmicStyleTokensProvider"; // plasmic-import: h9Dbk9ygddw7UVEq1NNhKi/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -393,10 +391,6 @@ function PlasmicTextField__RenderFunc(props: {
   });
 
   const styleTokensClassNames = _useStyleTokens();
-  const styleTokensClassNames_fragment_design_system =
-    useStyleTokens_fragment_design_system();
-  const styleTokensClassNames_antd_5_hostless =
-    useStyleTokens_antd_5_hostless();
 
   const [$ccVariants, setDollarCcVariants] = React.useState<
     Record<string, boolean>
@@ -431,8 +425,6 @@ function PlasmicTextField__RenderFunc(props: {
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
         styleTokensClassNames,
-        styleTokensClassNames_fragment_design_system,
-        styleTokensClassNames_antd_5_hostless,
         sty.ariaTextField,
         {
           [sty.ariaTextFieldiconEnd]: hasVariant($state, "iconEnd", "iconEnd"),
@@ -553,10 +545,10 @@ function PlasmicTextField__RenderFunc(props: {
               hasVariant($state, "iconEnd", "iconEnd")
                 ? ["right", "left"]
                 : hasVariant($state, "iconEnd", "iconEnd")
-                ? ["right"]
-                : hasVariant($state, "iconStart", "iconStart")
-                ? ["left"]
-                : undefined
+                  ? ["right"]
+                  : hasVariant($state, "iconStart", "iconStart")
+                    ? ["left"]
+                    : undefined
             }
             placeholder={args.placeholder}
             value={generateStateValueProp($state, ["textInput", "value"])}
@@ -592,10 +584,10 @@ function PlasmicTextField__RenderFunc(props: {
               hasVariant($state, "iconEnd", "iconEnd")
                 ? ["right", "left"]
                 : hasVariant($state, "iconEnd", "iconEnd")
-                ? ["right"]
-                : hasVariant($state, "iconStart", "iconStart")
-                ? ["left"]
-                : undefined
+                  ? ["right"]
+                  : hasVariant($state, "iconStart", "iconStart")
+                    ? ["left"]
+                    : undefined
             }
             placeholder={args.placeholder}
             value={generateStateValueProp($state, ["textAreaInput", "value"])}
@@ -679,7 +671,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicTextField__VariantsArgs;
     args?: PlasmicTextField__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicTextField__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicTextField__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicTextField__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

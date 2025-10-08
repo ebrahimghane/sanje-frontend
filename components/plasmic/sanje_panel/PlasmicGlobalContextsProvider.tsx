@@ -182,15 +182,15 @@ export default function GlobalContextsProvider(
               "themeStyles" in antdConfigProviderProps
                 ? antdConfigProviderProps.themeStyles!
                 : true
-                ? {
-                    fontFamily: "var(--iran-sans-x)",
-                    fontSize: "16px",
-                    fontWeight: "400",
-                    lineHeight: "1.5",
-                    color: "#535353",
-                    letterSpacing: "normal"
-                  }
-                : undefined
+                  ? {
+                      fontFamily: "var(--iran-sans-x)",
+                      fontSize: "16px",
+                      fontWeight: "400",
+                      lineHeight: "1.5",
+                      color: "#535353",
+                      letterSpacing: "normal"
+                    }
+                  : undefined
             }
             wireframe={
               antdConfigProviderProps && "wireframe" in antdConfigProviderProps

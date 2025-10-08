@@ -63,8 +63,6 @@ import Button from "../../Button"; // plasmic-import: oVzoHzMf1TLl/component
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_fragment_design_system } from "../fragment_design_system/PlasmicStyleTokensProvider"; // plasmic-import: h9Dbk9ygddw7UVEq1NNhKi/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -88,10 +86,11 @@ export type PlasmicInterstitialFullPageComponent__ArgsType = {
   provider?: string;
   uri?: string;
   displayName?: string;
+  platform?: string;
 };
 type ArgPropType = keyof PlasmicInterstitialFullPageComponent__ArgsType;
 export const PlasmicInterstitialFullPageComponent__ArgProps =
-  new Array<ArgPropType>("provider", "uri", "displayName");
+  new Array<ArgPropType>("provider", "uri", "displayName", "platform");
 
 export type PlasmicInterstitialFullPageComponent__OverridesType = {
   root?: Flex__<"div">;
@@ -105,6 +104,7 @@ export interface DefaultInterstitialFullPageComponentProps {
   provider?: string;
   uri?: string;
   displayName?: string;
+  platform?: string;
   className?: string;
 }
 
@@ -150,10 +150,6 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
   const $globalActions = useGlobalActions?.();
 
   const styleTokensClassNames = _useStyleTokens();
-  const styleTokensClassNames_fragment_design_system =
-    useStyleTokens_fragment_design_system();
-  const styleTokensClassNames_antd_5_hostless =
-    useStyleTokens_antd_5_hostless();
 
   return (
     <div
@@ -167,8 +163,6 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
         styleTokensClassNames,
-        styleTokensClassNames_fragment_design_system,
-        styleTokensClassNames_antd_5_hostless,
         sty.root
       )}
     >
@@ -282,37 +276,78 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
               <React.Fragment>
                 {(() => {
                   try {
-                    return $props.uri.includes("doctoreto")
-                      ? "دکترتو"
-                      : $props.uri.includes("drdr")
-                      ? "دکتر دکتر"
-                      : $props.uri.includes("nobat.tums.ac")
-                      ? "علوم پزشکی تهران"
-                      : $props.uri.includes("iranghalb")
-                      ? "ایران قلب"
-                      : $props.uri.includes("boghrat")
-                      ? "بقراط"
-                      : $props.uri.includes("drmyco")
-                      ? "دکترمایکو"
-                      : $props.uri.includes("personal")
-                      ? "سایت پزشک"
-                      : $props.uri.includes("ghalbiran")
-                      ? "قلب ایران"
-                      : $props.uri.includes("telegram")
-                      ? "تلگرام"
-                      : $props.uri.includes("novinvisit")
-                      ? "نوین ویزیت"
-                      : $props.uri.includes("nobat")
-                      ? "نوبت دات‌آی‌آر"
-                      : $props.uri.includes("monshi724")
-                      ? "منشی۷۲۴"
-                      : $props.uri.includes("axon")
-                      ? "اکسون"
-                      : $props.uri.includes("shafadoc")
-                      ? "شفاداک"
-                      : $props.uri.includes("doctorkhaneh")
-                      ? "دکترخانه"
-                      : $props.displayName;
+                    return (() => {
+                      const displayValue =
+                        $props.platform ||
+                        ($props.uri.includes("doctoreto")
+                          ? "دکترتو"
+                          : $props.uri.includes("drdr")
+                            ? "دکتر دکتر"
+                            : $props.uri.includes("nobat.tums.ac")
+                              ? "علوم پزشکی تهران"
+                              : $props.uri.includes("iranghalb")
+                                ? "ایران قلب"
+                                : $props.uri.includes("boghrat")
+                                  ? "بقراط"
+                                  : $props.uri.includes("drmyco")
+                                    ? "دکترمایکو"
+                                    : $props.uri.includes("personal")
+                                      ? "سایت پزشک"
+                                      : $props.uri.includes("ghalbiran")
+                                        ? "قلب ایران"
+                                        : $props.uri.includes("telegram")
+                                          ? "تلگرام"
+                                          : $props.uri.includes("novinvisit")
+                                            ? "نوین ویزیت"
+                                            : $props.uri.includes("nobat")
+                                              ? "نوبت دات‌آی‌آر"
+                                              : $props.uri.includes("monshi724")
+                                                ? "منشی۷۲۴"
+                                                : $props.uri.includes("axon")
+                                                  ? "اکسون"
+                                                  : $props.uri.includes(
+                                                        "shafadoc"
+                                                      )
+                                                    ? "شفاداک"
+                                                    : $props.uri.includes(
+                                                          "doctorkhaneh"
+                                                        )
+                                                      ? "دکترخانه"
+                                                      : $props.uri.includes(
+                                                            "dadehavaran"
+                                                          )
+                                                        ? "دانشگاه علوم پزشکی"
+                                                        : $props.uri.includes(
+                                                              "darmankade"
+                                                            )
+                                                          ? "درمانکده"
+                                                          : $props.uri.includes(
+                                                                "doctoryab"
+                                                              )
+                                                            ? "دکتریاب"
+                                                            : $props.uri.includes(
+                                                                  "arenap"
+                                                                )
+                                                              ? "آرناپ"
+                                                              : $props.uri.includes(
+                                                                    "mihanpezeshk"
+                                                                  )
+                                                                ? "میهن پزشک"
+                                                                : $props.uri.includes(
+                                                                      "nobatbama"
+                                                                    )
+                                                                  ? "نوبت با ما"
+                                                                  : $props.uri.includes(
+                                                                        "nobatall"
+                                                                      )
+                                                                    ? "نوبت آل"
+                                                                    : $props.uri.includes(
+                                                                          "hormozteb"
+                                                                        )
+                                                                      ? "هرمز طب"
+                                                                      : $props.displayName);
+                      return displayValue;
+                    })();
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -645,9 +680,8 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
             typeof $steps["sendSplunkEventOfLoadPage"] === "object" &&
             typeof $steps["sendSplunkEventOfLoadPage"].then === "function"
           ) {
-            $steps["sendSplunkEventOfLoadPage"] = await $steps[
-              "sendSplunkEventOfLoadPage"
-            ];
+            $steps["sendSplunkEventOfLoadPage"] =
+              await $steps["sendSplunkEventOfLoadPage"];
           }
 
           $steps["updateStateVariable"] = true
@@ -816,10 +850,12 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicInterstitialFullPageComponent__VariantsArgs;
     args?: PlasmicInterstitialFullPageComponent__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit< // Specify variants directly as props
-    PlasmicInterstitialFullPageComponent__VariantsArgs,
-    ReservedPropsType
-  > &
+  } &
+    // Specify variants directly as props
+    Omit<
+      PlasmicInterstitialFullPageComponent__VariantsArgs,
+      ReservedPropsType
+    > &
     // Specify args directly as props
     Omit<PlasmicInterstitialFullPageComponent__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
