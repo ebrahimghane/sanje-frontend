@@ -96,6 +96,7 @@ export type PlasmicInterstitialFullPageComponent__OverridesType = {
   root?: Flex__<"div">;
   svg?: Flex__<"svg">;
   loading?: Flex__<"svg">;
+  button?: Flex__<typeof Button>;
   splunkEventRedirect?: Flex__<typeof SideEffect>;
   writeTransitionDataCookie?: Flex__<typeof SideEffect>;
 };
@@ -168,32 +169,116 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
     >
       <div className={classNames(projectcss.all, sty.freeBox__zvQgp)}>
         <div className={classNames(projectcss.all, sty.freeBox___4Coll)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__poNvi
-            )}
-          >
-            <React.Fragment>
-              <React.Fragment>{""}</React.Fragment>
-              {
-                <h6
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.h6,
-                    projectcss.__wab_text,
-                    sty.h6__eBtE2
-                  )}
-                >
-                  {
-                    "\u062a\u0627 \u0686\u0646\u062f \u062b\u0627\u0646\u06cc\u0647 \u062f\u06cc\u06af\u0631 \u0627\u0632 \u067e\u0630\u06cc\u0631\u063424 \u0628\u0647 \u0633\u0627\u06cc\u062a \u0646\u0648\u0628\u062a\u200c\u062f\u0647\u06cc \u0641\u0639\u0627\u0644 \u067e\u0632\u0634\u06a9 \u0645\u0646\u062a\u0642\u0644 \u0645\u06cc\u200c\u0634\u0648\u06cc\u062f."
-                  }
-                </h6>
+          {(() => {
+            try {
+              return $props.platform === "نوبت دهی تلفنی مطب" ? true : false;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
               }
-              <React.Fragment>{""}</React.Fragment>
-            </React.Fragment>
-          </div>
+              throw e;
+            }
+          })() ? (
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__poNvi
+              )}
+            >
+              <React.Fragment>
+                <React.Fragment>{""}</React.Fragment>
+                {
+                  <h6
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h6,
+                      projectcss.__wab_text,
+                      sty.h6__eBtE2
+                    )}
+                  >
+                    <React.Fragment>
+                      <React.Fragment>
+                        {
+                          "\u062a\u0627 \u0686\u0646\u062f \u062b\u0627\u0646\u06cc\u0647 \u062f\u06cc\u06af\u0631 \u0627\u0632 "
+                        }
+                      </React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ fontWeight: 700 }}
+                      >
+                        {"\u067e\u0630\u06cc\u0631\u0634\u06f2\u06f4"}
+                      </span>
+                      <React.Fragment>
+                        {
+                          " \u0628\u0647 \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u062a\u0644\u0641\u0646 \u0645\u0646\u062a\u0642\u0644 \u0645\u06cc\u200c\u0634\u0648\u06cc\u062f."
+                        }
+                      </React.Fragment>
+                    </React.Fragment>
+                  </h6>
+                }
+                <React.Fragment>{""}</React.Fragment>
+              </React.Fragment>
+            </div>
+          ) : null}
+          {(() => {
+            try {
+              return $props.platform === "نوبت دهی تلفنی مطب" ? false : true;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__xAgRx
+              )}
+            >
+              <React.Fragment>
+                <React.Fragment>{""}</React.Fragment>
+                {
+                  <h6
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h6,
+                      projectcss.__wab_text,
+                      sty.h6__ggKjy
+                    )}
+                  >
+                    <React.Fragment>
+                      <React.Fragment>
+                        {
+                          "\u062a\u0627 \u0686\u0646\u062f \u062b\u0627\u0646\u06cc\u0647 \u062f\u06cc\u06af\u0631 \u0627\u0632 "
+                        }
+                      </React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ fontWeight: 700 }}
+                      >
+                        {"\u067e\u0630\u06cc\u0631\u0634\u06f2\u06f4"}
+                      </span>
+                      <React.Fragment>
+                        {
+                          " \u0628\u0647 \u0633\u0627\u06cc\u062a \u0646\u0648\u0628\u062a\u200c\u062f\u0647\u06cc \u0641\u0639\u0627\u0644 \u067e\u0632\u0634\u06a9 \u0645\u0646\u062a\u0642\u0644 \u0645\u06cc\u200c\u0634\u0648\u06cc\u062f."
+                        }
+                      </React.Fragment>
+                    </React.Fragment>
+                  </h6>
+                }
+                <React.Fragment>{""}</React.Fragment>
+              </React.Fragment>
+            </div>
+          ) : null}
           <div
             className={classNames(
               projectcss.all,
@@ -472,112 +557,227 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
         }}
       />
 
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__tasqH
-        )}
-      >
-        <React.Fragment>
-          <React.Fragment>{""}</React.Fragment>
-          {
-            <h6
-              className={classNames(
-                projectcss.all,
-                projectcss.h6,
-                projectcss.__wab_text,
-                sty.h6__a1Uvo
-              )}
-            >
-              <React.Fragment>
-                <React.Fragment>{""}</React.Fragment>
-                {
-                  <h6
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h6,
-                      projectcss.__wab_text,
-                      sty.h6__iPoxf
-                    )}
-                  >
-                    {
-                      "\u067e\u0633 \u0627\u0632 \u0645\u0634\u0627\u0647\u062f\u0647 \u0633\u0627\u06cc\u062a \u067e\u0632\u0634\u06a9\u060c \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0646\u0648\u0628\u062a \u062e\u0648\u062f \u0631\u0627 \u062b\u0628\u062a \u06a9\u0646\u06cc\u062f."
-                    }
-                  </h6>
-                }
-                <React.Fragment>{""}</React.Fragment>
-              </React.Fragment>
-            </h6>
+      {(() => {
+        try {
+          return $props.platform === "نوبت دهی تلفنی مطب" ? true : false;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
           }
-          <React.Fragment>{""}</React.Fragment>
-        </React.Fragment>
-      </div>
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__uXg5H
-        )}
-      >
-        <React.Fragment>
-          <React.Fragment>{""}</React.Fragment>
-          {
-            <h6
-              className={classNames(
-                projectcss.all,
-                projectcss.h6,
-                projectcss.__wab_text,
-                sty.h6__n09Sf
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return `نوبت‌دهی ${$props.displayName} در پذیرش24 فعال نبود. بجای آن نوبت دهی ایشان در سایت دیگری برای شما پیدا کردیم.`;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "\n\ud83d\udd0d \u067e\u0632\u0634\u06a9 \u0634\u0645\u0627 \u062f\u0631 \u067e\u0630\u06cc\u0631\u0634\u06f2\u06f4 \u062d\u0636\u0648\u0631 \u0646\u062f\u0627\u0634\u062a\u060c \u0627\u0645\u0627 \u0646\u0648\u0628\u062a\u200c\u062f\u0647\u06cc \u0622\u0646 \u0631\u0627 \u062f\u0631 \u0633\u0627\u06cc\u062a\u06cc \u062f\u06cc\u06af\u0631 \u0628\u0631\u0627\u06cc \u0634\u0645\u0627 \u067e\u06cc\u062f\u0627 \u06a9\u0631\u062f\u06cc\u0645.\n\n\u062a\u0627 \u0686\u0646\u062f \u062b\u0627\u0646\u06cc\u0647 \u062f\u06cc\u06af\u0631 \u0622\u0646 \u0631\u0627 \u0645\u0634\u0627\u0647\u062f\u0647 \u062e\u0648\u0627\u0647\u06cc\u062f \u06a9\u0631\u062f.\n";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </h6>
-          }
-          <React.Fragment>{""}</React.Fragment>
-        </React.Fragment>
-      </div>
-      <Button
-        children2={
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__dL3T
-            )}
-          >
-            {
-              "\u062f\u0631 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0645\u0648\u062a\u0648\u0631 \u062c\u0633\u062a\u062c\u0648 \u0645\u0634\u06a9\u0644\u06cc \u062f\u0627\u0631\u06cc\u062f\u061f"
-            }
-          </div>
+          throw e;
         }
-        className={classNames("__wab_instance", sty.button__qMxJ4)}
-        color={"clear"}
-        link={"https://survey.porsline.ir/s/NeySKF1?terminal_id=xxxx&url=xxxx"}
-        outline={true}
-        size={"compact"}
-        target={true}
-      />
-
+      })() ? (
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__tasqH
+          )}
+        >
+          <React.Fragment>
+            <React.Fragment>{""}</React.Fragment>
+            {
+              <h6
+                className={classNames(
+                  projectcss.all,
+                  projectcss.h6,
+                  projectcss.__wab_text,
+                  sty.h6__a1Uvo
+                )}
+              >
+                <React.Fragment>
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__iPoxf
+                      )}
+                    >
+                      {
+                        "\u067e\u0633 \u0627\u0632 \u062a\u0645\u0627\u0633 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0646\u0648\u0628\u062a \u062e\u0648\u062f \u0631\u0627 \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0646\u06cc\u062f."
+                      }
+                    </h6>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                </React.Fragment>
+              </h6>
+            }
+            <React.Fragment>{""}</React.Fragment>
+          </React.Fragment>
+        </div>
+      ) : null}
+      {(() => {
+        try {
+          return $props.platform === "نوبت دهی تلفنی مطب" ? false : true;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
+        }
+      })() ? (
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__gan8V
+          )}
+        >
+          <React.Fragment>
+            <React.Fragment>{""}</React.Fragment>
+            {
+              <h6
+                className={classNames(
+                  projectcss.all,
+                  projectcss.h6,
+                  projectcss.__wab_text,
+                  sty.h6__w5Mxr
+                )}
+              >
+                <React.Fragment>
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6___2Z7Wx
+                      )}
+                    >
+                      {
+                        "\u067e\u0633 \u0627\u0632 \u0645\u0634\u0627\u0647\u062f\u0647 \u0633\u0627\u06cc\u062a \u067e\u0632\u0634\u06a9\u060c \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0646\u0648\u0628\u062a \u062e\u0648\u062f \u0631\u0627 \u062b\u0628\u062a \u06a9\u0646\u06cc\u062f."
+                      }
+                    </h6>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                </React.Fragment>
+              </h6>
+            }
+            <React.Fragment>{""}</React.Fragment>
+          </React.Fragment>
+        </div>
+      ) : null}
+      {(() => {
+        try {
+          return $props.platform === "نوبت دهی تلفنی مطب" ? true : false;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
+        }
+      })() ? (
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__uXg5H
+          )}
+        >
+          <React.Fragment>
+            <React.Fragment>{""}</React.Fragment>
+            {
+              <h6
+                className={classNames(
+                  projectcss.all,
+                  projectcss.h6,
+                  projectcss.__wab_text,
+                  sty.h6__n09Sf
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return `نوبت‌دهی ${$props.displayName} در پذیرش۲۴ فعال نبود. نوبت دهی تلفنی را برای شما پیدا کردیم.`;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "\n\ud83d\udd0d \u067e\u0632\u0634\u06a9 \u0634\u0645\u0627 \u062f\u0631 \u067e\u0630\u06cc\u0631\u0634\u06f2\u06f4 \u062d\u0636\u0648\u0631 \u0646\u062f\u0627\u0634\u062a\u060c \u0627\u0645\u0627 \u0646\u0648\u0628\u062a\u200c\u062f\u0647\u06cc \u0622\u0646 \u0631\u0627 \u062f\u0631 \u0633\u0627\u06cc\u062a\u06cc \u062f\u06cc\u06af\u0631 \u0628\u0631\u0627\u06cc \u0634\u0645\u0627 \u067e\u06cc\u062f\u0627 \u06a9\u0631\u062f\u06cc\u0645.\n\n\u062a\u0627 \u0686\u0646\u062f \u062b\u0627\u0646\u06cc\u0647 \u062f\u06cc\u06af\u0631 \u0622\u0646 \u0631\u0627 \u0645\u0634\u0627\u0647\u062f\u0647 \u062e\u0648\u0627\u0647\u06cc\u062f \u06a9\u0631\u062f.\n";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </h6>
+            }
+            <React.Fragment>{""}</React.Fragment>
+          </React.Fragment>
+        </div>
+      ) : null}
+      {(() => {
+        try {
+          return $props.platform === "نوبت دهی تلفنی مطب" ? false : true;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
+        }
+      })() ? (
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__wRmh
+          )}
+        >
+          <React.Fragment>
+            <React.Fragment>{""}</React.Fragment>
+            {
+              <h6
+                className={classNames(
+                  projectcss.all,
+                  projectcss.h6,
+                  projectcss.__wab_text,
+                  sty.h6__rcCr
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return `نوبت‌دهی ${$props.displayName} در پذیرش۲۴ فعال نبود. بجای آن نوبت دهی ایشان در سایت دیگری برای شما پیدا کردیم.`;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "\n\ud83d\udd0d \u067e\u0632\u0634\u06a9 \u0634\u0645\u0627 \u062f\u0631 \u067e\u0630\u06cc\u0631\u0634\u06f2\u06f4 \u062d\u0636\u0648\u0631 \u0646\u062f\u0627\u0634\u062a\u060c \u0627\u0645\u0627 \u0646\u0648\u0628\u062a\u200c\u062f\u0647\u06cc \u0622\u0646 \u0631\u0627 \u062f\u0631 \u0633\u0627\u06cc\u062a\u06cc \u062f\u06cc\u06af\u0631 \u0628\u0631\u0627\u06cc \u0634\u0645\u0627 \u067e\u06cc\u062f\u0627 \u06a9\u0631\u062f\u06cc\u0645.\n\n\u062a\u0627 \u0686\u0646\u062f \u062b\u0627\u0646\u06cc\u0647 \u062f\u06cc\u06af\u0631 \u0622\u0646 \u0631\u0627 \u0645\u0634\u0627\u0647\u062f\u0647 \u062e\u0648\u0627\u0647\u06cc\u062f \u06a9\u0631\u062f.\n";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </h6>
+            }
+            <React.Fragment>{""}</React.Fragment>
+          </React.Fragment>
+        </div>
+      ) : null}
       <Button
+        data-plasmic-name={"button"}
+        data-plasmic-override={overrides.button}
         children2={
           "\u0628\u0627\u0632\u06af\u0634\u062a \u0628\u0647 \u0646\u062a\u0627\u06cc\u062c \u062c\u0633\u062a\u062c\u0648"
         }
-        className={classNames("__wab_instance", sty.button___6V6Qq)}
+        className={classNames("__wab_instance", sty.button)}
         color={"sand"}
         link={""}
         onClick={async event => {
@@ -818,11 +1018,13 @@ const PlasmicDescendants = {
     "root",
     "svg",
     "loading",
+    "button",
     "splunkEventRedirect",
     "writeTransitionDataCookie"
   ],
   svg: ["svg"],
   loading: ["loading"],
+  button: ["button"],
   splunkEventRedirect: ["splunkEventRedirect"],
   writeTransitionDataCookie: ["writeTransitionDataCookie"]
 } as const;
@@ -833,6 +1035,7 @@ type NodeDefaultElementType = {
   root: "div";
   svg: "svg";
   loading: "svg";
+  button: typeof Button;
   splunkEventRedirect: typeof SideEffect;
   writeTransitionDataCookie: typeof SideEffect;
 };
@@ -905,6 +1108,7 @@ export const PlasmicInterstitialFullPageComponent = Object.assign(
     // Helper components rendering sub-elements
     svg: makeNodeComponent("svg"),
     loading: makeNodeComponent("loading"),
+    button: makeNodeComponent("button"),
     splunkEventRedirect: makeNodeComponent("splunkEventRedirect"),
     writeTransitionDataCookie: makeNodeComponent("writeTransitionDataCookie"),
 
