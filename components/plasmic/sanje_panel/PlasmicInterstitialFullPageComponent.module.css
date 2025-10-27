@@ -54,6 +54,25 @@
   font-family: var(--iran-sans-x);
   padding: 15px 5px 0px 1px;
 }
+.text__xAgRx {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: #535353;
+  left: auto;
+  top: auto;
+  flex-shrink: 0;
+  font-size: 56px;
+  font-weight: 600;
+  text-align: center;
+  white-space: pre-wrap;
+}
+.h6__ggKjy {
+  text-align: right;
+  font-family: var(--iran-sans-x);
+  padding: 15px 5px 0px 1px;
+}
 .text__yw6Jt {
   position: relative;
   width: auto;
@@ -290,6 +309,28 @@
   margin-top: var(--token-QcxRWQfhgyJI);
   font-family: var(--iran-sans-x);
 }
+.text__gan8V {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: #535353;
+  left: auto;
+  top: auto;
+  flex-shrink: 0;
+  font-size: 56px;
+  font-weight: 600;
+  text-align: center;
+  white-space: pre-wrap;
+}
+.h6__w5Mxr {
+  text-align: right;
+  padding: 0px 5px 0px 1px;
+}
+.h6___2Z7Wx {
+  margin-top: var(--token-QcxRWQfhgyJI);
+  font-family: var(--iran-sans-x);
+}
 .text__uXg5H {
   position: relative;
   width: auto;
@@ -304,6 +345,7 @@
   text-align: right;
   white-space: pre-wrap;
   margin-top: 9px;
+  padding-bottom: 0px;
 }
 .h6__n09Sf {
   font-weight: 400;
@@ -312,26 +354,29 @@
   font-family: var(--iran-sans-x);
   padding: 0px 5px 0px 2px;
 }
-.button__qMxJ4:global(.__wab_instance) {
+.text__wRmh {
+  position: relative;
+  width: auto;
+  height: auto;
   max-width: 100%;
-  margin: 460px 0px 17px;
+  color: #535353;
+  left: auto;
+  top: auto;
+  flex-shrink: 0;
+  font-size: 56px;
+  font-weight: 400;
+  text-align: right;
+  white-space: pre-wrap;
+  margin-top: 9px;
 }
-.svg__fPlNr {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
+.h6__rcCr {
+  font-weight: 400;
+  text-align: right;
+  margin-top: var(--token-BCWljTOyDNmw);
+  font-family: var(--iran-sans-x);
+  padding: 0px 5px 0px 2px;
 }
-.text__dL3T {
-  color: var(--token-Le07ngBUPl2h);
-}
-.svg__jPhby {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
-}
-.button___6V6Qq:global(.__wab_instance) {
+.button:global(.__wab_instance) {
   max-width: 100%;
   margin-bottom: 17px;
   margin-top: 10px;
