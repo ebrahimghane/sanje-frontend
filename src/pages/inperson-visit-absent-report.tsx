@@ -104,7 +104,7 @@ const InpersonVisitAbsentReport: React.FC = () => {
           // Don't throw error for penalty, just set it to null
           setPenalty(null);
         } else {
-          let searchDocData: SearchDocumentResponse | SearchDocumentResponse[];
+          let searchDocData: SearchDocumentResponse | SearchDocumentResponse[] | null = null;
           try {
             searchDocData = await searchDocResponse.json();
           } catch (jsonError) {
