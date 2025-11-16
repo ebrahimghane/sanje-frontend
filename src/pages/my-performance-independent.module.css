@@ -1,0 +1,428 @@
+.pageWrapper {
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+.root {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  direction: rtl;
+}
+
+.header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.loadingContainer,
+.errorContainer {
+  padding: 20px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.errorContainer {
+  color: #d32f2f;
+}
+
+.newsContainer {
+  margin-bottom: 32px;
+}
+
+.taskCard {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  background: #fff;
+}
+
+.taskCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.taskCardTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.taskCardContent {
+  padding: 0 16px 16px;
+  border-top: 1px solid #f0f0f0;
+  margin-top: 8px;
+  padding-top: 16px;
+}
+
+.taskCardSubtitle {
+  margin-bottom: 12px;
+  color: #666;
+}
+
+.taskCardDescription {
+  color: #555;
+  line-height: 1.6;
+}
+
+.growthOpportunitiesContainer {
+  margin-bottom: 32px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.growthHeader {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.growthSubtitle {
+  margin-bottom: 20px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.pricingSection {
+  margin-bottom: 32px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.pricingHeader {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.pricingGroup {
+  margin-bottom: 32px;
+  padding: 16px;
+  background: #fafafa;
+  border-radius: 8px;
+}
+
+.groupName {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.linearChart2 {
+  margin-bottom: 24px;
+}
+
+.chartTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.chartBars {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chartBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background: #f5f5f5;
+  border-radius: 4px;
+}
+
+.barLabel {
+  font-weight: 500;
+}
+
+.barValue {
+  font-weight: bold;
+  color: #1976d2;
+}
+
+.areaChart {
+  margin-bottom: 24px;
+}
+
+.chartContainer {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 200px;
+  padding: 16px;
+  background: #fafafa;
+  border-radius: 4px;
+}
+
+.areaBar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.areaFill {
+  width: 100%;
+  background: linear-gradient(to top, #1976d2, #42a5f5);
+  border-radius: 4px 4px 0 0;
+  min-height: 20px;
+}
+
+.areaLabel {
+  margin-top: 8px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.averageCostInfo {
+  margin: 16px 0;
+  padding: 12px;
+  background: #e3f2fd;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.linearChart {
+  margin-top: 24px;
+}
+
+.scaleContainer {
+  position: relative;
+  height: 60px;
+  margin-bottom: 8px;
+}
+
+.scaleIndicator {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.indicatorLabel {
+  background: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.scaleLabels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.scaleLabel {
+  flex: 1;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.scaleBar {
+  display: flex;
+  height: 24px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.scaleSegment {
+  transition: all 0.3s ease;
+}
+
+.scaleValues {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+.scaleValue {
+  flex: 1;
+  text-align: center;
+}
+
+.pricingNote {
+  margin: 16px 0;
+  padding: 12px;
+  background: #fff3e0;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #666;
+}
+
+.pricingInfo {
+  margin: 16px 0;
+  padding: 12px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.pricingAdvice {
+  margin: 16px 0;
+  padding: 12px;
+  background: #f5f5f5;
+  border-radius: 4px;
+  line-height: 1.8;
+  font-size: 14px;
+  color: #555;
+}
+
+.searchStatsSection {
+  margin-bottom: 32px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.searchStatsHeader {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.metricContainer {
+  margin-bottom: 32px;
+}
+
+.metricTitle {
+  font-size: 16px;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: #f5f5f5;
+  border-radius: 4px;
+}
+
+.barChart {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.barChartItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.barChartLabel {
+  min-width: 150px;
+  font-size: 14px;
+  text-align: right;
+}
+
+.barChartBarContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.barChartBar {
+  height: 24px;
+  background: #1976d2;
+  border-radius: 4px;
+  min-width: 4px;
+}
+
+.barChartValue {
+  font-weight: bold;
+  min-width: 40px;
+  text-align: left;
+}
+
+.footerSection {
+  margin-top: 48px;
+  padding: 32px 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.footerNote {
+  margin-bottom: 24px;
+  font-size: 16px;
+  color: #666;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button {
+  padding: 12px 24px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+.button:hover {
+  background: #f5f5f5;
+  border-color: #bdbdbd;
+}
+
+.footerText {
+  margin-top: 24px;
+  font-size: 14px;
+  color: #999;
+  line-height: 1.6;
+}
+
+.footerCredit {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .root {
+    padding: 12px;
+  }
+
+  .buttonsContainer {
+    max-width: 100%;
+  }
+
+  .chartContainer {
+    height: 150px;
+  }
+
+  .scaleLabels,
+  .scaleValues {
+    font-size: 11px;
+  }
+}
+
