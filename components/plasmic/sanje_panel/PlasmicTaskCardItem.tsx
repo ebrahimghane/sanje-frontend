@@ -421,7 +421,7 @@ function PlasmicTaskCardItem__RenderFunc(props: {
             ).apply(null, eventArgs);
           },
           rotateCustomExpandIcon: false,
-          size: "middle"
+          size: "small"
         };
         initializeCodeComponentStates(
           $state,
