@@ -107,6 +107,7 @@ export const Chart = (props: ChartType) => {
           right: 16,
           left: 16,
           top: 16,
+          bottom: xAxis?.angle ? 80 : 16,
         }}
       >
         {type !== "pie" && cartesianGrid?.length > 0 && (
@@ -122,6 +123,9 @@ export const Chart = (props: ChartType) => {
             tickMargin={xAxis?.tickMargin ?? 10}
             axisLine={xAxis?.axisLine ?? false}
             {...(xAxis.key !== "auto" && { type: xAxis.type })}
+            {...(xAxis.angle !== undefined && { angle: xAxis.angle })}
+            {...(xAxis.textAnchor && { textAnchor: xAxis.textAnchor })}
+            {...(xAxis.height && { height: xAxis.height })}
           />
         )}
         {type !== "pie" && yAxis?.enabled && (

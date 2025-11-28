@@ -53,9 +53,9 @@ interface PricingStatsResponse {
   };
   1: {
     group_name?: string;
-    min: number;
-    max: number;
-    avg: number;
+    minCost: number;
+    maxCost: number;
+    averageCost: number;
     factorCosts: Array<{
       count: number;
       range: string;
@@ -63,8 +63,13 @@ interface PricingStatsResponse {
   };
 }
 
+interface MetricDataItem {
+  time: string;
+  value: number;
+}
+
 interface MetricData {
-  data: Array<Record<string, any>>;
+  data: Array<MetricDataItem>;
 }
 
 import { Chart } from "@/fragment/components/chart";
@@ -193,7 +198,7 @@ const MyPerformanceIndependent: React.FC = () => {
       // The API returns an array, convert it to object format
       const formattedData: PricingStatsResponse = {
         0: data[0] || { group_expertise: { name: "" } },
-        1: data[1] || { min: 0, max: 0, avg: 0, factorCosts: [] },
+        1: data[1] || { minCost: 0, maxCost: 0, averageCost: 0, factorCosts: [] },
       };
       setPricingStats((prev) => ({ ...prev, [groupExpertiseId]: formattedData }));
     } catch (error) {
@@ -560,34 +565,34 @@ const MyPerformanceIndependent: React.FC = () => {
                       {
                         key: "value",
                         label: "تعداد مشاهده",
-                        color: "#000000",
+                        color: "#3b82f6",
                         type: "natural",
                         dot: false,
                       },
                     ]}
                     className={styles.fragmentChart}
-                    data={searchCardViewData.data.map((item) => {
-                      const keys = Object.keys(item);
-                      return {
-                        label: keys[0],
-                        value: item[keys[1]],
-                      };
-                    })}
+                    data={searchCardViewData.data.map((item) => ({
+                      time: item.time,
+                      value: item.value,
+                    }))}
                     dataKey={{ key: "value" }}
                     label={false}
                     layout="horizontal"
                     legend={true}
-                    nameKey={{ key: "label", label: "" }}
+                    nameKey={{ key: "time", label: "" }}
                     stack={false}
                     tooltip={{ enabled: true, indicator: "dashed" }}
-                    type="area"
+                    type="bar"
                     xAxis={{
                       enabled: true,
-                      key: "label",
+                      key: "time",
                       type: "category",
                       tickLine: false,
                       axisLine: false,
                       tickMargin: 10,
+                      angle: -45,
+                      textAnchor: "end",
+                      height: 80,
                     }}
                     yAxis={{
                       enabled: true,
@@ -616,34 +621,34 @@ const MyPerformanceIndependent: React.FC = () => {
                       {
                         key: "value",
                         label: "تعداد کلیک",
-                        color: "#000000",
+                        color: "#3b82f6",
                         type: "natural",
                         dot: false,
                       },
                     ]}
                     className={styles.fragmentChart}
-                    data={searchClickPositionData.data.map((item) => {
-                      const keys = Object.keys(item);
-                      return {
-                        label: keys[0],
-                        value: item[keys[1]],
-                      };
-                    })}
+                    data={searchClickPositionData.data.map((item) => ({
+                      time: item.time,
+                      value: item.value,
+                    }))}
                     dataKey={{ key: "value" }}
                     label={false}
                     layout="horizontal"
                     legend={true}
-                    nameKey={{ key: "label", label: "" }}
+                    nameKey={{ key: "time", label: "" }}
                     stack={false}
                     tooltip={{ enabled: true, indicator: "dashed" }}
-                    type="area"
+                    type="bar"
                     xAxis={{
                       enabled: true,
-                      key: "label",
+                      key: "time",
                       type: "category",
                       tickLine: false,
                       axisLine: false,
                       tickMargin: 10,
+                      angle: -45,
+                      textAnchor: "end",
+                      height: 80,
                     }}
                     yAxis={{
                       enabled: true,
@@ -740,40 +745,7 @@ interface PricingStatsGroupProps {
 const PricingStatsGroup: React.FC<PricingStatsGroupProps> = ({ stats, doctorPrice }) => {
   const statsData = stats[1];
   const groupInfo = stats[0];
-  const averageCost = statsData?.avg || 0;
-  const minCost = statsData?.min || 0;
-  const maxCost = statsData?.max || 0;
-
-  // Calculate color ranges
-  const colorRanges = [
-    {
-      minvalue: minCost / 10000,
-      "minvalue-lable": minCost / 10000 + " هزار تومان",
-      maxvalue: Math.round((averageCost - (maxCost - minCost) / 10) / 10000),
-      label: "خوش قیمت",
-      code: "#62B58F",
-    },
-    {
-      minvalue: Math.round((averageCost - (maxCost - minCost) / 10) / 10000),
-      "minvalue-lable":
-        Math.round((averageCost - (maxCost - minCost) / 10) / 10000) + " هزار تومان",
-      maxvalue: Math.round((averageCost + (maxCost - minCost) / 10) / 10000),
-      label: "مناسب",
-      code: "#FFC533",
-    },
-    {
-      minvalue: Math.round((averageCost + (maxCost - minCost) / 10) / 10000),
-      "minvalue-lable":
-        Math.round((averageCost + (maxCost - minCost) / 10) / 10000) + " هزار تومان",
-      maxvalue: maxCost / 10000,
-      "maxvalue-lable": maxCost / 10000 + " هزار تومان",
-      label: "گران",
-      code: "#F2726F",
-    },
-  ];
-
-  const doctorPriceInThousands = Math.round(doctorPrice / 10000);
-  const priceRange = (doctorPrice / maxCost) * 100;
+  const averageCost = statsData?.averageCost || 0;
 
   return (
     <div className={styles.pricingGroup}>
@@ -836,94 +808,9 @@ const PricingStatsGroup: React.FC<PricingStatsGroupProps> = ({ stats, doctorPric
           }}
         />
       </div>
-
-      {/* LinearScaleCustomChart */}
-      <LinearScaleCustomChart
-        label={`ویزیت شما ${doctorPriceInThousands} هزارتومان`}
-        range={priceRange}
-        colorrange={{ range: colorRanges }}
-      />
     </div>
   );
 };
-
-
-
-// LinearScaleCustomChart Component
-interface LinearScaleCustomChartProps {
-  label: string;
-  range: number;
-  colorrange: {
-    range: Array<{
-      minvalue: number;
-      maxvalue: number;
-      label: string;
-      code: string;
-      "minvalue-lable"?: string;
-      "maxvalue-lable"?: string;
-    }>;
-  };
-}
-
-const LinearScaleCustomChart: React.FC<LinearScaleCustomChartProps> = ({
-  label,
-  range,
-  colorrange,
-}) => {
-  return (
-    <div className={styles.linearChart}>
-      <div className={styles.scaleContainer}>
-        <div
-          className={styles.scaleIndicator}
-          style={{ right: `calc(${range}% - 12px)` }}
-        >
-          {label && <div className={styles.indicatorLabel}>{label}</div>}
-          <img
-            src="/plasmic/sanje_panel/images/downPng.png"
-            alt=""
-            style={{ width: "24px", height: "24px" }}
-          />
-        </div>
-      </div>
-      <div className={styles.scaleLabels}>
-        {colorrange.range.map((rangeItem, index) => (
-          <div key={index} className={styles.scaleLabel}>
-            {rangeItem.label}
-          </div>
-        ))}
-      </div>
-      <div className={styles.scaleBar}>
-        {colorrange.range.map((rangeItem, index) => (
-          <div
-            key={index}
-            className={styles.scaleSegment}
-            style={{
-              backgroundColor: rangeItem.code,
-              flex: 1,
-            }}
-          />
-        ))}
-      </div>
-      <div className={styles.scaleValues}>
-        <div className={styles.scaleValue}>
-          {colorrange.range[0]["minvalue-lable"] || ""}
-        </div>
-        <div className={styles.scaleValue}>
-          {colorrange.range[1]["minvalue-lable"] || ""}
-        </div>
-        <div className={styles.scaleValue}>
-          {colorrange.range[2]["minvalue-lable"] || colorrange.range[2]["maxvalue-lable"] || ""}
-        </div>
-        <div className={styles.scaleValue}>
-          {colorrange.range[2]["maxvalue-lable"] || ""}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-
-
 
 
 export default MyPerformanceIndependent;
