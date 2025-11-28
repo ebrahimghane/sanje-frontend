@@ -21,6 +21,7 @@ interface GrowthOpportunity {
 
 interface SearchDocument {
   entity: {
+    id: string;
     display_name: string;
     consult_services: Array<{
       free_price: number;
@@ -65,6 +66,8 @@ interface PricingStatsResponse {
 interface MetricData {
   data: Array<Record<string, any>>;
 }
+
+import { Chart } from "@/fragment/components/chart";
 
 const MyPerformanceIndependent: React.FC = () => {
   // State management
@@ -257,9 +260,10 @@ const MyPerformanceIndependent: React.FC = () => {
 
   // Fetch pricing stats when search document is loaded
   useEffect(() => {
-    if (currentDoctorData?.entity?.group_expertise_id) {
+    if (currentDoctorData?.entity) {
       const groupIds =
-        currentDoctorData.entity.group_expertise_id.length > 0
+        currentDoctorData.entity.group_expertise_id &&
+          currentDoctorData.entity.group_expertise_id.length > 0
           ? currentDoctorData.entity.group_expertise_id
           : [35];
       groupIds.forEach((id) => {
@@ -272,10 +276,7 @@ const MyPerformanceIndependent: React.FC = () => {
 
   // Fetch search metrics when search document is loaded and has free_price
   useEffect(() => {
-    if (
-      currentDoctorData?.entity?.consult_services?.[0]?.free_price !== undefined &&
-      currentDoctorData?.entity?.consult_services?.[0]?.free_price !== null
-    ) {
+    if (currentDoctorData?.entity) {
       fetchSearchCardView();
       fetchSearchClickPosition();
     }
@@ -410,8 +411,6 @@ const MyPerformanceIndependent: React.FC = () => {
               "شاخص‌های عملکرد شما"
             )}
           </h4>
-
-          {/* News Updates */}
           {loadingNews ? (
             <div className={styles.loadingContainer}>
               <div>در حال دریافت اطلاعات</div>
@@ -448,8 +447,6 @@ const MyPerformanceIndependent: React.FC = () => {
           ) : null}
 
           {!loadingGrowth &&
-            currentDoctorData?.entity?.consult_services?.[0]?.free_price !== undefined &&
-            currentDoctorData?.entity?.consult_services?.[0]?.free_price !== null &&
             growthOpportunitiesHeader && (
               <div className={styles.growthOpportunitiesContainer}>
                 <h6 className={styles.growthHeader}>
@@ -485,7 +482,8 @@ const MyPerformanceIndependent: React.FC = () => {
             currentDoctorData?.entity?.consult_services?.[0]?.free_price !== null && (
               <div className={styles.pricingSection}>
                 <h6 className={styles.pricingHeader}>🏷️ قیمت‌گذاری ویزیت آنلاین</h6>
-                {(currentDoctorData.entity.group_expertise_id.length > 0
+                {(currentDoctorData.entity.group_expertise_id &&
+                  currentDoctorData.entity.group_expertise_id.length > 0
                   ? currentDoctorData.entity.group_expertise_id
                   : [35]
                 ).map((groupId, index) => {
@@ -542,69 +540,131 @@ const MyPerformanceIndependent: React.FC = () => {
             )}
 
           {/* Search Stats Section */}
-          {!loadingGrowth &&
-            currentDoctorData?.entity?.consult_services?.[0]?.free_price !== undefined &&
-            currentDoctorData?.entity?.consult_services?.[0]?.free_price !== null && (
-              <div className={styles.searchStatsSection}>
-                <h6 className={styles.searchStatsHeader}>📊 آمار جستجو</h6>
+          {!loadingGrowth && (
+            <div className={styles.searchStatsSection}>
+              <h6 className={styles.searchStatsHeader}>📊 آمار جستجو</h6>
 
-                {/* Search Card View */}
-                {loadingCardView ? (
-                  <div className={styles.loadingContainer}>در حال دریافت اطلاعات</div>
-                ) : errorCardView ? (
-                  <div className={styles.errorContainer}>خطا در دریافت اطلاعات</div>
-                ) : searchCardViewData?.data && searchCardViewData.data.length > 0 ? (
-                  <div className={styles.metricContainer}>
-                    <div className={styles.metricTitle}>
-                      <strong>مشاهده کارت شما در نتایج</strong>
-                    </div>
-                    <SimpleBarChart data={searchCardViewData.data} />
+              {/* Search Card View */}
+              {loadingCardView ? (
+                <div className={styles.loadingContainer}>در حال دریافت اطلاعات</div>
+              ) : errorCardView ? (
+                <div className={styles.errorContainer}>خطا در دریافت اطلاعات</div>
+              ) : searchCardViewData?.data && searchCardViewData.data.length > 0 ? (
+                <div className={styles.metricContainer}>
+                  <div className={styles.metricTitle}>
+                    <strong>مشاهده کارت شما در نتایج</strong>
                   </div>
-                ) : null}
+                  <Chart
+                    cartesianGrid={[]}
+                    chartConfig={[
+                      {
+                        key: "value",
+                        label: "تعداد مشاهده",
+                        color: "#000000",
+                        type: "natural",
+                        dot: false,
+                      },
+                    ]}
+                    className={styles.fragmentChart}
+                    data={searchCardViewData.data.map((item) => {
+                      const keys = Object.keys(item);
+                      return {
+                        label: keys[0],
+                        value: item[keys[1]],
+                      };
+                    })}
+                    dataKey={{ key: "value" }}
+                    label={false}
+                    layout="horizontal"
+                    legend={true}
+                    nameKey={{ key: "label", label: "" }}
+                    stack={false}
+                    tooltip={{ enabled: true, indicator: "dashed" }}
+                    type="area"
+                    xAxis={{
+                      enabled: true,
+                      key: "label",
+                      type: "category",
+                      tickLine: false,
+                      axisLine: false,
+                      tickMargin: 10,
+                    }}
+                    yAxis={{
+                      enabled: true,
+                      key: "value",
+                      type: "number",
+                      tickLine: false,
+                      axisLine: true,
+                    }}
+                  />
+                </div>
+              ) : null}
 
-                {/* Search Click Position */}
-                {loadingClickPosition ? (
-                  <div className={styles.loadingContainer}>در حال دریافت اطلاعات</div>
-                ) : errorClickPosition ? (
-                  <div className={styles.errorContainer}>خطا در دریافت اطلاعات</div>
-                ) : searchClickPositionData?.data && searchClickPositionData.data.length > 0 ? (
-                  <div className={styles.metricContainer}>
-                    <div className={styles.metricTitle}>
-                      <strong>کلیک روی کارت شما</strong>
-                    </div>
-                    <SimpleBarChart data={searchClickPositionData.data} />
+              {/* Search Click Position */}
+              {loadingClickPosition ? (
+                <div className={styles.loadingContainer}>در حال دریافت اطلاعات</div>
+              ) : errorClickPosition ? (
+                <div className={styles.errorContainer}>خطا در دریافت اطلاعات</div>
+              ) : searchClickPositionData?.data && searchClickPositionData.data.length > 0 ? (
+                <div className={styles.metricContainer}>
+                  <div className={styles.metricTitle}>
+                    <strong>کلیک روی کارت شما</strong>
                   </div>
-                ) : null}
-              </div>
-            )}
+                  <Chart
+                    cartesianGrid={[]}
+                    chartConfig={[
+                      {
+                        key: "value",
+                        label: "تعداد کلیک",
+                        color: "#000000",
+                        type: "natural",
+                        dot: false,
+                      },
+                    ]}
+                    className={styles.fragmentChart}
+                    data={searchClickPositionData.data.map((item) => {
+                      const keys = Object.keys(item);
+                      return {
+                        label: keys[0],
+                        value: item[keys[1]],
+                      };
+                    })}
+                    dataKey={{ key: "value" }}
+                    label={false}
+                    layout="horizontal"
+                    legend={true}
+                    nameKey={{ key: "label", label: "" }}
+                    stack={false}
+                    tooltip={{ enabled: true, indicator: "dashed" }}
+                    type="area"
+                    xAxis={{
+                      enabled: true,
+                      key: "label",
+                      type: "category",
+                      tickLine: false,
+                      axisLine: false,
+                      tickMargin: 10,
+                    }}
+                    yAxis={{
+                      enabled: true,
+                      key: "value",
+                      type: "number",
+                      tickLine: false,
+                      axisLine: true,
+                    }}
+                  />
+                </div>
+              ) : null}
+            </div>
+          )}
 
           {/* Footer Buttons */}
           {!loadingGrowth && (
             <div className={styles.footerSection}>
-              <div className={styles.footerNote}>
-                لطفاً با ثبت نظر خود به کاربردی‌تر شدن این صفحه کمک کنید. 🙏
-              </div>
-              <div className={styles.buttonsContainer}>
-                <a
-                  href="https://t.me/paziresh24_users"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.button}
-                >
-                  نظرات در مورد این صفحه چیست؟
-                </a>
-                <a
-                  href="https://support.paziresh24.com/new-ticket/?department=4&utm_source=sanjeMyperformancePage&utm_medium=p24&utm_campaign=footerBlock"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.button}
-                >
-                  ثبت درخواست پشتیبانی
-                </a>
-                <button onClick={handleCrawlMe} className={styles.button}>
-                  به‌روزرسانی در نتایج جستجو
-                </button>
-              </div>
+              <button onClick={handleCrawlMe} className={styles.button}>
+                به‌روزرسانی در نتایج جستجو
+              </button>
+
               <div className={styles.footerText}>
                 شما در حال مشاهده نسخه آزمایشی (رایگان) صفحه عملکرد پزشکان هستید. ممکن است در
                 آینده نیاز به خرید اشتراک برای مشاهده این اطلاعات باشد.
@@ -616,7 +676,7 @@ const MyPerformanceIndependent: React.FC = () => {
             </div>
           )}
         </div>
-      </div>
+      </div >
     </>
   );
 };
@@ -721,22 +781,47 @@ const PricingStatsGroup: React.FC<PricingStatsGroupProps> = ({ stats, doctorPric
         {statsData?.group_name ? `گروه ${statsData.group_name}` : "..."}
       </h6>
 
-      {/* LinearScaleCustomChart2 */}
-      <LinearScaleCustomChart2
-        chartTitle="فراوانی قیمت به نوبت"
-        rangeStatsArray={statsData?.factorCosts?.map((item) => ({
-          "تعداد نوبت": item.count,
-          range: item.range,
-        })) || []}
-      />
-
       {/* Chart (Area) */}
       {statsData?.factorCosts && (
-        <AreaChartComponent
+        <Chart
+          cartesianGrid={[]}
+          chartConfig={[
+            {
+              key: "تعداد نوبت",
+              label: "فراوانی نوبت‌ها بر حسب هزینه پرداختی",
+              color: "#000000",
+              type: "natural",
+              dot: false,
+            },
+          ]}
+          className={styles.fragmentChart}
           data={statsData.factorCosts.map((item) => ({
             "تعداد نوبت": item.count,
             range: item.range,
           }))}
+          dataKey={{ key: "تعداد نوبت" }}
+          label={false}
+          layout="horizontal"
+          legend={true}
+          nameKey={{ key: "range", label: "" }}
+          stack={false}
+          tooltip={{ enabled: true, indicator: "dashed" }}
+          type="area"
+          xAxis={{
+            enabled: true,
+            key: "range",
+            type: "category",
+            tickLine: false,
+            axisLine: false,
+            tickMargin: 10,
+          }}
+          yAxis={{
+            enabled: true,
+            key: "تعداد نوبت",
+            type: "number",
+            tickLine: false,
+            axisLine: true,
+          }}
         />
       )}
 
@@ -744,11 +829,10 @@ const PricingStatsGroup: React.FC<PricingStatsGroupProps> = ({ stats, doctorPric
       <div className={styles.averageCostInfo}>
         <span
           dangerouslySetInnerHTML={{
-            __html: `میانگین مبلغ ویزیت پرداختی دسته <b>${
-              groupInfo?.group_expertise?.name || ""
-            }: ${new Intl.NumberFormat("fa-IR").format(
-              Math.round(averageCost)
-            )} هزارتومان</b>`,
+            __html: `میانگین مبلغ ویزیت پرداختی دسته <b>${groupInfo?.group_expertise?.name || ""
+              }: ${new Intl.NumberFormat("fa-IR").format(
+                Math.round(averageCost)
+              )} هزارتومان</b>`,
           }}
         />
       </div>
@@ -763,30 +847,7 @@ const PricingStatsGroup: React.FC<PricingStatsGroupProps> = ({ stats, doctorPric
   );
 };
 
-// LinearScaleCustomChart2 Component
-interface LinearScaleCustomChart2Props {
-  chartTitle: string;
-  rangeStatsArray: Array<{ "تعداد نوبت": number; range: string }>;
-}
 
-const LinearScaleCustomChart2: React.FC<LinearScaleCustomChart2Props> = ({
-  chartTitle,
-  rangeStatsArray,
-}) => {
-  return (
-    <div className={styles.linearChart2}>
-      <h6 className={styles.chartTitle}>{chartTitle}</h6>
-      <div className={styles.chartBars}>
-        {rangeStatsArray.map((item, index) => (
-          <div key={index} className={styles.chartBar}>
-            <div className={styles.barLabel}>{item.range}</div>
-            <div className={styles.barValue}>{item["تعداد نوبت"]}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
 
 // LinearScaleCustomChart Component
 interface LinearScaleCustomChartProps {
@@ -861,64 +922,9 @@ const LinearScaleCustomChart: React.FC<LinearScaleCustomChartProps> = ({
   );
 };
 
-// AreaChartComponent
-interface AreaChartComponentProps {
-  data: Array<{ "تعداد نوبت": number; range: string }>;
-}
 
-const AreaChartComponent: React.FC<AreaChartComponentProps> = ({ data }) => {
-  // Simple area chart representation
-  return (
-    <div className={styles.areaChart}>
-      <div className={styles.chartContainer}>
-        {data.map((item, index) => (
-          <div key={index} className={styles.areaBar}>
-            <div
-              className={styles.areaFill}
-              style={{ height: `${(item["تعداد نوبت"] / Math.max(...data.map((d) => d["تعداد نوبت"]))) * 100}%` }}
-            />
-            <div className={styles.areaLabel}>{item.range}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
 
-// SimpleBarChart Component
-interface SimpleBarChartProps {
-  data: Array<Record<string, any>>;
-}
 
-const SimpleBarChart: React.FC<SimpleBarChartProps> = ({ data }) => {
-  if (!data || data.length === 0) return null;
-
-  const maxValue = Math.max(...data.map((item) => Object.values(item)[1] as number));
-
-  return (
-    <div className={styles.barChart}>
-      {data.map((item, index) => {
-        const keys = Object.keys(item);
-        const label = keys[0];
-        const value = item[keys[1]] as number;
-        const percentage = (value / maxValue) * 100;
-
-        return (
-          <div key={index} className={styles.barChartItem}>
-            <div className={styles.barChartLabel}>{label}</div>
-            <div className={styles.barChartBarContainer}>
-              <div
-                className={styles.barChartBar}
-                style={{ width: `${percentage}%` }}
-              />
-              <span className={styles.barChartValue}>{value}</span>
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-};
 
 export default MyPerformanceIndependent;
 
