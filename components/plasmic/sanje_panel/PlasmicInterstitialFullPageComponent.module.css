@@ -191,15 +191,11 @@
   object-fit: cover;
   width: 100%;
   color: var(--token-kpM4b4mG4f2d);
-  transform: rotateX(0deg) rotateY(119deg) rotateZ(0deg);
+  transform: rotate3d(0, 1, 0, 119deg);
   height: 100%;
   margin-left: 0px;
-  transform-style: preserve-3d;
   min-width: 0;
   min-height: 0;
-}
-.svg * {
-  transform-style: preserve-3d;
 }
 .freeBox__sDsLk {
   display: flex;
