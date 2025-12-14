@@ -918,30 +918,47 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
                     return (() => {
                       return (function () {
                         function getQueryParams() {
-                          let params = {};
-                          let queryString = window.location.search.substring(1);
-                          let vars = queryString.split("&");
-                          for (let i = 0; i < vars.length; i++) {
-                            let pair = vars[i].split("=");
-                            let key = decodeURIComponent(pair[0]);
-                            let value = decodeURIComponent(pair[1] || "");
+                          var params = {};
+                          var qs = window.location.search.substring(1);
+                          if (!qs) return params;
+                          var vars = qs.split("&");
+                          for (var i = 0; i < vars.length; i++) {
+                            var pair = vars[i].split("=");
+                            var key = decodeURIComponent(pair[0] || "");
+                            var value = decodeURIComponent(pair[1] || "");
                             params[key] = value;
                           }
                           return params;
                         }
                         function getCookie(name) {
-                          let match = document.cookie.match(
+                          var match = document.cookie.match(
                             new RegExp("(^|;\\s*)" + name + "=([^;]*)")
                           );
                           return match ? decodeURIComponent(match[2]) : null;
                         }
-                        let params = getQueryParams();
-                        let destinationURL = params["uri"] || "";
-                        let destinationHost = "";
+                        function smartDecodeURIComponent(v, maxTimes) {
+                          if (!v) return "";
+                          var out = v;
+                          for (var i = 0; i < (maxTimes || 2); i++) {
+                            try {
+                              var decoded = decodeURIComponent(out);
+                              if (decoded === out) break;
+                              out = decoded;
+                            } catch (e) {
+                              break;
+                            }
+                          }
+                          return out;
+                        }
+                        var params = getQueryParams();
+                        var destinationURL = smartDecodeURIComponent(
+                          params["uri"] || "",
+                          2
+                        );
+                        var destinationHost = "";
                         if (destinationURL) {
                           try {
-                            let urlObj = new URL(destinationURL);
-                            destinationHost = urlObj.hostname;
+                            destinationHost = new URL(destinationURL).hostname;
                           } catch (e) {
                             console.error(
                               "Invalid destination URL:",
@@ -949,48 +966,53 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
                             );
                           }
                         }
-                        let destinationDoctorName =
+                        var destinationDoctorName =
                           params["display_name"] || "";
-                        let surveyResponseStatus = "Not-displayed";
-                        let terminalId = getCookie("terminal_id") || "";
-                        let destinationSiteTitle = "";
-                        switch (destinationHost) {
-                          case "drdr.ir":
-                            destinationSiteTitle = "دکتردکتر";
-                            break;
-                          case "darmankade.com":
-                            destinationSiteTitle = "درمانکده";
-                            break;
-                          case "nobat.ir":
-                            destinationSiteTitle = "نوبت دات‌آی‌آر";
-                            break;
-                          case "doctoreto.com":
-                            destinationSiteTitle = "دکترتو";
-                            break;
-                          default:
-                            destinationSiteTitle = "سایت پزشک";
-                            break;
-                        }
-                        let cookieData = {
+                        var destinationDoctorNameEncoded = encodeURIComponent(
+                          destinationDoctorName
+                        );
+                        var terminalId = getCookie("terminal_id") || "";
+                        var source =
+                          params["source"] &&
+                          params["source"].toLowerCase() === "profile"
+                            ? "profile"
+                            : "search";
+                        var platform = params["platform"] || "";
+                        var destinationSiteTitle =
+                          platform || destinationHost || "سایت پزشک";
+                        var destinationSiteTitleEncoded =
+                          encodeURIComponent(destinationSiteTitle);
+                        var surveyResponseStatus = "Not-displayed";
+                        var cookieData = {
                           surveyResponseStatus: surveyResponseStatus,
                           destinationURL: destinationURL,
                           destinationHost: destinationHost,
                           destinationDoctorName: destinationDoctorName,
+                          destinationDoctorNameEncoded:
+                            destinationDoctorNameEncoded,
                           terminalId: terminalId,
-                          destinationSiteTitle: destinationSiteTitle
+                          destinationSiteTitle: destinationSiteTitle,
+                          destinationSiteTitleEncoded:
+                            destinationSiteTitleEncoded,
+                          source: source
                         };
-                        let now = new Date();
-                        let expireTime = new Date(
+                        var now = new Date();
+                        var expireTime = new Date(
                           now.getTime() + 24 * 60 * 60 * 1000
                         );
-                        let expires = "expires=" + expireTime.toUTCString();
-                        let cookieName = "transitionData";
-                        let cookieValue = encodeURIComponent(
+                        var expires = "expires=" + expireTime.toUTCString();
+                        var cookieName = "transitionData";
+                        var cookieValue = encodeURIComponent(
                           JSON.stringify(cookieData)
                         );
-                        let cookiePath = "path=/";
-                        let cookieDomain = "domain=.paziresh24.com";
-                        document.cookie = `${cookieName}=${cookieValue}; ${expires}; ${cookiePath}; ${cookieDomain}`;
+                        document.cookie =
+                          cookieName +
+                          "=" +
+                          cookieValue +
+                          "; " +
+                          expires +
+                          "; path=/" +
+                          "; domain=.paziresh24.com";
                       })();
                     })();
                   }
