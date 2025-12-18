@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import ErrorState, { ErrorDetails } from "../../components/ErrorState";
 import { InfoIcon } from "../../components/plasmic/fragment_icons/icons/PlasmicIcon__Info";
+import { ChevronLeftIcon } from "../../components/plasmic/fragment_icons/icons/PlasmicIcon__ChevronLeft";
 
 interface VisitDetail {
   Ravi_id: string;
@@ -322,6 +323,10 @@ const InpersonVisitAbsentReport: React.FC = () => {
     }
   };
 
+  const formatNumber = (num: number): string => {
+    return new Intl.NumberFormat("fa-IR").format(num);
+  };
+
   if (loading) {
     return (
       <>
@@ -399,7 +404,7 @@ const InpersonVisitAbsentReport: React.FC = () => {
           crossOrigin="anonymous"
         />
       </Head>
-      <div className="min-h-screen bg-gray-50 py-5 px-4" dir="rtl">
+      <div className="min-h-screen bg-gray-50 py-4" dir="rtl">
         <style jsx global>{`
           @font-face {
             font-family: "IRANSansX";
@@ -413,37 +418,39 @@ const InpersonVisitAbsentReport: React.FC = () => {
             font-family: "IRANSansX", "Tahoma", "sans-serif";
           }
         `}</style>
-        <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-sm p-6">
+        <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-sm p-4 px-2">
           <div className="flex items-center justify-between mb-8">
-            <h1 className="text-lg font-medium text-gray-800">
+            <h1 className="text-xl font-semibold text-gray-900">
               گزارش ویزیت حضوری ناموفق
             </h1>
             <button
               onClick={() => setShowHelpModal(true)}
-              className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-800 transition-colors"
+              className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-500 text-white hover:bg-blue-600 transition-colors"
               aria-label="راهنما"
             >
-              <InfoIcon className="w-5 h-5" />
-              <span>راهنما</span>
+              <InfoIcon className="w-4 h-4" />
             </button>
           </div>
 
-          {/* KPI Dashboard Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-            <div className="bg-gray-50 rounded-lg p-6">
+          {/* KPI Row */}
+          <div className="flex items-center justify-center gap-8 mb-8 py-6">
+            <div className="flex-1 text-center">
               <div className="text-sm text-gray-600 mb-2">تعداد گزارش‌های ویزیت ناموفق</div>
-              <div className="text-4xl font-bold text-gray-900">{visitDetails.length}</div>
-            </div>
-            <div className="bg-gray-50 rounded-lg p-6">
-              <div className="text-sm text-gray-600 mb-2">نمره منفی</div>
-              <div className="text-4xl font-bold text-red-600" dir="ltr">
-                {penalty !== null ? penalty : "ثبت نشده"}
+              <div className="text-4xl font-bold text-gray-900" style={{ fontFamily: "IRANSansX" }}>
+                {formatNumber(visitDetails.length)}
               </div>
-              <div className="text-xs text-gray-500 mt-1">از منفی پنج</div>
+            </div>
+            <div className="w-px h-16 bg-gray-200"></div>
+            <div className="flex-1 text-center">
+              <div className="text-sm text-gray-600 mb-2">نمره منفی</div>
+              <div className="text-4xl font-bold text-red-600" style={{ fontFamily: "IRANSansX" }}>
+                {penalty !== null ? formatNumber(penalty) : "ثبت نشده"}
+              </div>
+              <div className="text-sm text-gray-500 mt-1">از منفی پنج</div>
             </div>
           </div>
 
-          {/* Patient List */}
+          {/* Patient List - Grouped Table View */}
           <div className="mb-8">
             <h2 className="text-base font-medium text-gray-800 mb-4">
               جزئیات گزارش‌های ویزیت ناموفق
@@ -453,66 +460,40 @@ const InpersonVisitAbsentReport: React.FC = () => {
                 داده‌ای برای نمایش وجود ندارد.
               </div>
             ) : (
-              <div className="space-y-3">
+              <div className="bg-gray-50 rounded-lg overflow-hidden">
                 {visitDetails.map((item, index) => (
-                  <div
+                  <button
                     key={index}
-                    className="flex items-center justify-between py-4 px-4 hover:bg-gray-50 rounded-lg transition-colors"
+                    onClick={() => item.patient_cell && setShowPhoneModal(item.patient_cell)}
+                    className="w-full flex items-center justify-between py-4 px-4 bg-white border-b border-gray-200 last:border-b-0 hover:bg-gray-50 transition-colors text-right"
+                    disabled={!item.patient_cell}
                   >
-                    <div className="flex-1">
-                      <div className="font-bold text-gray-900 text-right mb-1">
+                    <ChevronLeftIcon className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                    <div className="flex-1 mr-3">
+                      <div className="font-medium text-gray-900 mb-1">
                         {item.patient_name || "ثبت نشده"}
                       </div>
-                      <div className="text-sm text-gray-500 text-right">
+                      <div className="text-sm text-gray-500">
                         {formatDate(item.book_date)}
                       </div>
                     </div>
-                    {item.patient_cell && (
-                      <button
-                        onClick={() => setShowPhoneModal(item.patient_cell)}
-                        className="flex items-center justify-center w-10 h-10 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
-                        aria-label="مشاهده شماره موبایل"
-                      >
-                        <svg
-                          className="w-5 h-5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                          />
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                          />
-                        </svg>
-                      </button>
-                    )}
-                  </div>
+                  </button>
                 ))}
               </div>
             )}
           </div>
 
-          <p className="text-center mt-8 text-xs text-gray-500 pt-6">
-            برای ارتباط با پشتیبانی در مورد اطلاعات این شاخص با{" "}
+          <div className="mt-8 pt-6 text-center">
+            <p className="text-sm text-gray-600 mb-3">نیاز به راهنمایی دارید؟</p>
             <a
               href="https://support.paziresh24.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 no-underline hover:text-blue-400"
+              className="inline-block text-blue-600 hover:text-blue-700 font-medium transition-colors"
             >
-              پشتیبانی درمانگران پذیرش24
-            </a>{" "}
-            در تلگرام در ارتباط باشید.
-          </p>
+              ارتباط با پشتیبانی
+            </a>
+          </div>
         </div>
 
         {/* Help Modal */}
