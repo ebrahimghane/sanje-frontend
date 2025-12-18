@@ -14,7 +14,16 @@ import {
   LineChart,
   Pie,
   PieChart,
+  ReferenceLine,
 } from "recharts";
+
+type ReferenceLineConfig = {
+  x?: string | number;
+  y?: string | number;
+  label?: string;
+  color?: string;
+  strokeDasharray?: string;
+};
 
 type ChartType = {
   cartesianGrid: any[];
@@ -31,6 +40,12 @@ type ChartType = {
   nameKey?: Record<string, any>;
   legend?: boolean;
   className?: string;
+  referenceLineX?: string | number;
+  referenceLineY?: string | number;
+  referenceLineLabel?: string;
+  referenceLineColor?: string;
+  referenceLineStrokeDasharray?: string;
+  referenceLines?: ReferenceLineConfig[];
 };
 
 import { type ChartConfig } from "@/components/ui/chart";
@@ -53,6 +68,12 @@ export const Chart = (props: ChartType) => {
     nameKey,
     legend,
     className,
+    referenceLineX,
+    referenceLineY,
+    referenceLineLabel,
+    referenceLineColor = "#ef4444",
+    referenceLineStrokeDasharray,
+    referenceLines,
   } = props;
 
   const reformmatedConfig = ([dataKey ?? {}, ...chartConfig]?.reduce?.(
@@ -107,7 +128,7 @@ export const Chart = (props: ChartType) => {
           right: 16,
           left: 16,
           top: 16,
-          bottom: xAxis?.angle ? 80 : 16,
+          bottom: xAxis?.angle ? (xAxis.height || 80) : 16,
         }}
       >
         {type !== "pie" && cartesianGrid?.length > 0 && (
@@ -126,6 +147,9 @@ export const Chart = (props: ChartType) => {
             {...(xAxis.angle !== undefined && { angle: xAxis.angle })}
             {...(xAxis.textAnchor && { textAnchor: xAxis.textAnchor })}
             {...(xAxis.height && { height: xAxis.height })}
+            {...(xAxis.interval !== undefined && { interval: xAxis.interval })}
+            {...(xAxis.tick !== undefined && { tick: xAxis.tick })}
+            {...(xAxis.fontSize !== undefined && { fontSize: xAxis.fontSize })}
           />
         )}
         {type !== "pie" && yAxis?.enabled && (
@@ -135,11 +159,70 @@ export const Chart = (props: ChartType) => {
             tickMargin={yAxis?.tickMargin ?? 10}
             axisLine={yAxis?.axisLine ?? false}
             {...(yAxis.key !== "auto" && { type: yAxis.type })}
+            {...(yAxis.fontSize !== undefined && { fontSize: yAxis.fontSize })}
           />
         )}
         {tooltip?.enabled && (
           <ChartPrimitive.ChartTooltip
             content={<ChartPrimitive.ChartTooltipContent {...tooltip} />}
+          />
+        )}
+        {type !== "pie" &&
+          // پشتیبانی از referenceLines array
+          referenceLines?.map((refLine, index) => (
+            <ReferenceLine
+              key={`ref-line-${index}`}
+              {...(refLine.x !== undefined && { x: refLine.x })}
+              {...(refLine.y !== undefined && { y: refLine.y })}
+              stroke={refLine.color || referenceLineColor}
+              strokeDasharray={refLine.strokeDasharray || referenceLineStrokeDasharray}
+              label={
+                refLine.label
+                  ? {
+                      value: refLine.label,
+                      position: refLine.x !== undefined ? "top" : "right",
+                      fill: refLine.color || referenceLineColor,
+                      fontSize: 12,
+                      fontWeight: "bold",
+                    }
+                  : undefined
+              }
+            />
+          ))}
+        {type !== "pie" && referenceLineX !== undefined && !referenceLines && (
+          <ReferenceLine
+            x={referenceLineX}
+            stroke={referenceLineColor}
+            strokeDasharray={referenceLineStrokeDasharray}
+            label={
+              referenceLineLabel
+                ? {
+                    value: referenceLineLabel,
+                    position: "top",
+                    fill: referenceLineColor,
+                    fontSize: 12,
+                    fontWeight: "bold",
+                  }
+                : undefined
+            }
+          />
+        )}
+        {type !== "pie" && referenceLineY !== undefined && !referenceLines && (
+          <ReferenceLine
+            y={referenceLineY}
+            stroke={referenceLineColor}
+            strokeDasharray={referenceLineStrokeDasharray}
+            label={
+              referenceLineLabel
+                ? {
+                    value: referenceLineLabel,
+                    position: "right",
+                    fill: referenceLineColor,
+                    fontSize: 12,
+                    fontWeight: "bold",
+                  }
+                : undefined
+            }
           />
         )}
         {type === "pie" && (

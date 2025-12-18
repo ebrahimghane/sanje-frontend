@@ -74,6 +74,17 @@ interface MetricData {
 
 import { Chart } from "@/fragment/components/chart";
 
+// Helper function to calculate interval based on data length and screen width
+const calculateInterval = (dataLength: number, windowWidth: number): number => {
+  if (dataLength <= 7) return 0; // Show all labels if data is small
+  if (windowWidth < 768) {
+    // Mobile: show every 2nd or 3rd label
+    return dataLength > 14 ? 2 : 1;
+  }
+  // Desktop: show every other label if data is large
+  return dataLength > 10 ? 1 : 0;
+};
+
 const MyPerformanceIndependent: React.FC = () => {
   // State management
   const [currentDoctorData, setCurrentDoctorData] = useState<SearchDocument | null>(null);
@@ -87,6 +98,7 @@ const MyPerformanceIndependent: React.FC = () => {
   const [pricingStats, setPricingStats] = useState<Record<number, PricingStatsResponse>>({});
   const [searchCardViewData, setSearchCardViewData] = useState<MetricData | null>(null);
   const [searchClickPositionData, setSearchClickPositionData] = useState<MetricData | null>(null);
+  const [windowWidth, setWindowWidth] = useState<number>(typeof window !== "undefined" ? window.innerWidth : 1200);
 
   // Loading states
   const [loadingNews, setLoadingNews] = useState(true);
@@ -255,6 +267,18 @@ const MyPerformanceIndependent: React.FC = () => {
       setLoadingClickPosition(false);
     }
   };
+
+  // Handle window resize for responsive charts
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Initial data fetch
   useEffect(() => {
@@ -590,9 +614,10 @@ const MyPerformanceIndependent: React.FC = () => {
                       tickLine: false,
                       axisLine: false,
                       tickMargin: 10,
-                      angle: -45,
+                      angle: windowWidth < 768 ? -60 : -45,
                       textAnchor: "end",
-                      height: 80,
+                      height: windowWidth < 768 ? 100 : 80,
+                      interval: calculateInterval(searchCardViewData.data.length, windowWidth),
                     }}
                     yAxis={{
                       enabled: true,
@@ -646,9 +671,12 @@ const MyPerformanceIndependent: React.FC = () => {
                       tickLine: false,
                       axisLine: false,
                       tickMargin: 10,
-                      angle: -45,
+                      angle: windowWidth < 768 ? -60 : -45,
                       textAnchor: "end",
-                      height: 80,
+                      height: windowWidth < 768 ? 100 : 80,
+                      interval: searchClickPositionData?.data 
+                        ? calculateInterval(searchClickPositionData.data.length, windowWidth)
+                        : 0,
                     }}
                     yAxis={{
                       enabled: true,
@@ -743,9 +771,120 @@ interface PricingStatsGroupProps {
 }
 
 const PricingStatsGroup: React.FC<PricingStatsGroupProps> = ({ stats, doctorPrice }) => {
+  const [windowWidth, setWindowWidth] = useState<number>(typeof window !== "undefined" ? window.innerWidth : 1200);
+  
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const statsData = stats[1];
   const groupInfo = stats[0];
   const averageCost = statsData?.averageCost || 0;
+
+  // تابع عمومی برای پیدا کردن range مربوط به یک مقدار
+  const findRangeForValue = (value: number, factorCosts: Array<{ count: number; range: string }>): string | null => {
+    if (!factorCosts || factorCosts.length === 0) return null;
+    
+    // تبدیل value به هزارتومان (اگر لازم باشد)
+    const valueInThousands = value;
+    
+    // تلاش برای parse کردن range و پیدا کردن range مربوط به value
+    for (const item of factorCosts) {
+      const rangeStr = item.range;
+      // تلاش برای parse کردن فرمت‌های مختلف: "min-max", "min- max", "min-max هزارتومان", etc.
+      const match = rangeStr.match(/(\d+(?:\.\d+)?)\s*[-–—]\s*(\d+(?:\.\d+)?)/);
+      if (match) {
+        const min = parseFloat(match[1]);
+        const max = parseFloat(match[2]);
+        // بررسی می‌کنیم که آیا value در این range قرار دارد
+        if (valueInThousands >= min && valueInThousands <= max) {
+          return rangeStr;
+        }
+      }
+    }
+    
+    // اگر range دقیق پیدا نشد، نزدیک‌ترین range را برمی‌گردانیم
+    let closestRange: string | null = null;
+    let minDistance = Infinity;
+    
+    for (const item of factorCosts) {
+      const rangeStr = item.range;
+      const match = rangeStr.match(/(\d+(?:\.\d+)?)\s*[-–—]\s*(\d+(?:\.\d+)?)/);
+      if (match) {
+        const min = parseFloat(match[1]);
+        const max = parseFloat(match[2]);
+        const mid = (min + max) / 2;
+        const distance = Math.abs(valueInThousands - mid);
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestRange = rangeStr;
+        }
+      }
+    }
+    
+    return closestRange;
+  };
+
+  // تبدیل مبلغ ویزیت پزشک به هزارتومان
+  const doctorPriceInThousands = doctorPrice ? Math.round(doctorPrice / 10000) : 0;
+  
+  const averageRange = statsData?.factorCosts ? findRangeForValue(averageCost, statsData.factorCosts) : null;
+  const doctorPriceRange = statsData?.factorCosts && doctorPriceInThousands > 0 
+    ? findRangeForValue(doctorPriceInThousands, statsData.factorCosts) 
+    : null;
+
+  // محاسبه مقادیر برای Linear Range Slider
+  // استخراج min و max از factorCosts در صورت نبودن در statsData
+  let minCost = statsData?.minCost || 0;
+  let maxCost = statsData?.maxCost || 0;
+  
+  if ((!minCost || !maxCost) && statsData?.factorCosts && statsData.factorCosts.length > 0) {
+    const ranges = statsData.factorCosts
+      .map((item) => {
+        const match = item.range.match(/(\d+(?:\.\d+)?)\s*[-–—]\s*(\d+(?:\.\d+)?)/);
+        if (match) {
+          return { min: parseFloat(match[1]), max: parseFloat(match[2]) };
+        }
+        return null;
+      })
+      .filter((r): r is { min: number; max: number } => r !== null);
+    
+    if (ranges.length > 0) {
+      const allMins = ranges.map((r) => r.min);
+      const allMaxs = ranges.map((r) => r.max);
+      minCost = minCost || Math.min(...allMins);
+      maxCost = maxCost || Math.max(...allMaxs);
+    }
+  }
+
+  const avgCost = statsData?.averageCost || 0;
+  const doctorPriceValue = doctorPriceInThousands;
+
+  // محاسبه موقعیت‌ها بر اساس درصد (0-100)
+  const calculatePosition = (value: number, min: number, max: number): number => {
+    if (max === min) return 50; // اگر min و max برابر باشند، وسط قرار بده
+    const position = ((value - min) / (max - min)) * 100;
+    // محدود کردن موقعیت بین 0 تا 100
+    return Math.max(0, Math.min(100, position));
+  };
+
+  const averagePosition = calculatePosition(avgCost, minCost, maxCost);
+  const doctorPosition = calculatePosition(doctorPriceValue, minCost, maxCost);
+
+  // تعیین رنگ بر اساس مقایسه قیمت پزشک با میانگین
+  const isDoctorPriceHigher = doctorPriceValue > avgCost;
+  const doctorColor = isDoctorPriceHigher ? "#ef4444" : "#10b981"; // قرمز برای بالاتر، سبز برای پایین‌تر
+
+  // بررسی فاصله بین قیمت پزشک و میانگین برای جلوگیری از تداخل لیبل‌ها
+  const positionDifference = Math.abs(doctorPosition - averagePosition);
+  const shouldAvoidCollision = positionDifference < 15; // اگر فاصله کمتر از 15% باشد
 
   return (
     <div className={styles.pricingGroup}>
@@ -786,6 +925,12 @@ const PricingStatsGroup: React.FC<PricingStatsGroupProps> = ({ stats, doctorPric
             tickLine: false,
             axisLine: false,
             tickMargin: 10,
+            angle: windowWidth < 768 ? -60 : -45,
+            textAnchor: "end",
+            height: windowWidth < 768 ? 100 : 80,
+            interval: statsData?.factorCosts 
+              ? calculateInterval(statsData.factorCosts.length, windowWidth)
+              : 0,
           }}
           yAxis={{
             enabled: true,
@@ -794,6 +939,28 @@ const PricingStatsGroup: React.FC<PricingStatsGroupProps> = ({ stats, doctorPric
             tickLine: false,
             axisLine: true,
           }}
+          referenceLines={[
+            ...(averageRange
+              ? [
+                  {
+                    x: averageRange,
+                    label: `میانگین: ${new Intl.NumberFormat("fa-IR").format(Math.round(averageCost))} هزارتومان`,
+                    color: "#ef4444",
+                    strokeDasharray: "5 5",
+                  },
+                ]
+              : []),
+            ...(doctorPriceRange && doctorPriceInThousands > 0
+              ? [
+                  {
+                    x: doctorPriceRange,
+                    label: `مبلغ شما: ${new Intl.NumberFormat("fa-IR").format(doctorPriceInThousands)} هزارتومان`,
+                    color: "#3b82f6",
+                    strokeDasharray: "3 3",
+                  },
+                ]
+              : []),
+          ]}
         />
       )}
 
@@ -808,6 +975,51 @@ const PricingStatsGroup: React.FC<PricingStatsGroupProps> = ({ stats, doctorPric
           }}
         />
       </div>
+
+      {/* Linear Range Slider */}
+      {minCost > 0 && maxCost > 0 && doctorPriceValue > 0 && (
+        <div className={styles.priceRangeSlider}>
+          <div className={styles.priceRangeBar}>
+            {/* نشانگر میانگین بازار */}
+            <div
+              className={`${styles.marketAverageMarker} ${shouldAvoidCollision ? styles.marketAverageMarkerBottom : ''}`}
+              style={{ left: `${averagePosition}%` }}
+            >
+              <div className={styles.markerLine} />
+              <div className={`${styles.markerLabel} ${shouldAvoidCollision ? styles.markerLabelBottom : ''} ${styles.averageLabel}`}>
+                میانگین: {new Intl.NumberFormat("fa-IR").format(Math.round(avgCost))} هزارتومان
+              </div>
+            </div>
+
+            {/* نشانگر قیمت پزشک */}
+            <div
+              className={styles.doctorPriceMarker}
+              style={{ left: `${doctorPosition}%` }}
+            >
+              <div
+                className={styles.doctorPriceDot}
+                style={{ backgroundColor: doctorColor }}
+              />
+              <div className={`${styles.markerLabel} ${styles.doctorLabel}`} style={{ color: doctorColor }}>
+                شما: {new Intl.NumberFormat("fa-IR").format(doctorPriceValue)} هزارتومان
+              </div>
+            </div>
+
+            {/* نوار پس‌زمینه */}
+            <div className={styles.rangeBarBackground} />
+          </div>
+
+          {/* برچسب‌های Min و Max - زیر نوار */}
+          <div className={styles.rangeLabels}>
+            <span className={styles.rangeLabelMin}>
+              کمترین: {new Intl.NumberFormat("fa-IR").format(Math.round(minCost))} هزارتومان
+            </span>
+            <span className={styles.rangeLabelMax}>
+              بیشترین: {new Intl.NumberFormat("fa-IR").format(Math.round(maxCost))} هزارتومان
+            </span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
