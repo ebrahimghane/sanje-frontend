@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import ErrorState, { ErrorDetails } from "../../components/ErrorState";
+import { InfoIcon } from "../../components/plasmic/fragment_icons/icons/PlasmicIcon__Info";
 
 interface VisitDetail {
   Ravi_id: string;
@@ -27,6 +28,8 @@ const InpersonVisitAbsentReport: React.FC = () => {
   const [visitDetails, setVisitDetails] = useState<VisitDetail[]>([]);
   const [penalty, setPenalty] = useState<number | null>(null);
   const [slug, setSlug] = useState<string | null>(null);
+  const [showHelpModal, setShowHelpModal] = useState(false);
+  const [showPhoneModal, setShowPhoneModal] = useState<string | null>(null);
 
   // Helper function to extract error details from Response
   const extractErrorDetails = (
@@ -410,126 +413,95 @@ const InpersonVisitAbsentReport: React.FC = () => {
             font-family: "IRANSansX", "Tahoma", "sans-serif";
           }
         `}</style>
-        <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-sm border border-gray-200 p-4">
-          <h1 className="text-lg font-medium text-gray-800 border-b border-gray-200 pb-2 mb-4 mt-0">
-            📊 گزارش ویزیت حضوری ناموفق
-          </h1>
+        <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-sm p-6">
+          <div className="flex items-center justify-between mb-8">
+            <h1 className="text-lg font-medium text-gray-800">
+              گزارش ویزیت حضوری ناموفق
+            </h1>
+            <button
+              onClick={() => setShowHelpModal(true)}
+              className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-800 transition-colors"
+              aria-label="راهنما"
+            >
+              <InfoIcon className="w-5 h-5" />
+              <span>راهنما</span>
+            </button>
+          </div>
 
-          <h2 className="text-base font-medium text-gray-800 mt-5 mb-2.5">
-            📈 خلاصه گزارش‌ها:
-          </h2>
-          <ul className="list-none pr-0 m-0">
-            <li className="text-sm text-gray-800 mb-2 pr-4 relative">
-              <span className="absolute right-0 top-0 text-blue-600 text-base leading-tight">
-                •
-              </span>
-              <strong>تعداد گزارش‌های ویزیت ناموفق:</strong> {visitDetails.length}
-            </li>
-            <li className="text-sm text-gray-800 mb-2 pr-4 relative">
-              <span className="absolute right-0 top-0 text-blue-600 text-base leading-tight">
-                •
-              </span>
-              <strong>نمره منفی:</strong>{" "}
-              <span dir="ltr">
+          {/* KPI Dashboard Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <div className="bg-gray-50 rounded-lg p-6">
+              <div className="text-sm text-gray-600 mb-2">تعداد گزارش‌های ویزیت ناموفق</div>
+              <div className="text-4xl font-bold text-gray-900">{visitDetails.length}</div>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-6">
+              <div className="text-sm text-gray-600 mb-2">نمره منفی</div>
+              <div className="text-4xl font-bold text-red-600" dir="ltr">
                 {penalty !== null ? penalty : "ثبت نشده"}
-              </span>{" "}
-              از منفی پنج
-            </li>
-            <li className="text-sm text-gray-800 mb-2 pr-4 relative">
-              <span className="absolute right-0 top-0 text-blue-600 text-base leading-tight">
-                •
-              </span>
-              <strong>نمره منفی موثر در رتبه بندی:</strong> 0 (این شاخص موقتاً فقط
-              جهت اطلاع شما اینجا نمایش داده شده. تاثیر این شاخص در آینده در رتبه
-              بندی نتایج جستجو هم خواهد بود.)
-            </li>
-          </ul>
-
-          <h2 className="text-base font-medium text-gray-800 mt-5 mb-2.5">
-            📜 جزئیات گزارش‌های ویزیت ناموفق:
-          </h2>
-          {visitDetails.length === 0 ? (
-            <ul className="list-none pr-0 m-0">
-              <li className="text-sm text-gray-800 mb-2 pr-4 relative">
-                <span className="absolute right-0 top-0 text-blue-600 text-base leading-tight">
-                  •
-                </span>
-                داده‌ای برای نمایش وجود ندارد.
-              </li>
-            </ul>
-          ) : (
-            <ul className="list-none pr-0 m-0">
-              {visitDetails.map((item, index) => (
-                <li
-                  key={index}
-                  className="text-sm text-gray-800 mb-2 pr-4 relative"
-                >
-                  <span className="absolute right-0 top-0 text-blue-600 text-base leading-tight">
-                    •
-                  </span>
-                  <strong>بیمار:</strong> {item.patient_name || "ثبت نشده"} |{" "}
-                  <strong>موبایل:</strong> {item.patient_cell || "ثبت نشده"} |{" "}
-                  <strong>تاریخ نوبت:</strong> {formatDate(item.book_date)}
-                </li>
-              ))}
-            </ul>
-          )}
-
-          <h2 className="text-base font-medium text-gray-800 mt-5 mb-2.5">
-            توضیحات:
-          </h2>
-          <div className="bg-gray-50 border-r-4 border-yellow-500 p-3 my-4 rounded-lg">
-            <ul className="list-none pr-4 m-0">
-              <li className="text-sm text-gray-800 mb-2 pr-4 relative">
-                <span className="absolute right-0 top-0 text-yellow-500 text-base leading-tight">
-                  •
-                </span>
-                <strong>تعداد گزارش‌ها،</strong> مجموع کل گزارش‌های "ویزیت ناموفق"
-                (مانند عدم حضور) ثبت‌شده برای شما است.
-              </li>
-              <li className="text-sm text-gray-800 mb-2 pr-4 relative">
-                <span className="absolute right-0 top-0 text-yellow-500 text-base leading-tight">
-                  •
-                </span>
-                <strong>امتیاز منفی</strong> با استفاده از یک فرمول رشد نمایی
-                محاسبه شده است:
-                <ul className="list-none pr-4 mt-2">
-                  <li className="text-sm text-gray-800 mb-2 pr-4 relative">
-                    <span className="absolute right-0 top-0 text-yellow-500 text-base leading-tight">
-                      •
-                    </span>
-                    با افزایش تعداد گزارش‌ها، این امتیاز به‌سرعت افزایش یافته و
-                    نهایتاً به حداکثر <strong>5- (منفی پنج)</strong> می‌رسد.
-                  </li>
-                  <li className="text-sm text-gray-800 mb-2 pr-4 relative">
-                    <span className="absolute right-0 top-0 text-yellow-500 text-base leading-tight">
-                      •
-                    </span>
-                    با عدم ثبت گزارش جدید، به مرور و طی 30 روز، این امتیاز منفی
-                    کاهش یافته و نهایتاً <strong>0 (صفر)</strong> می‌شود.
-                  </li>
-                </ul>
-              </li>
-            </ul>
+              </div>
+              <div className="text-xs text-gray-500 mt-1">از منفی پنج</div>
+            </div>
           </div>
 
-          <div className="bg-blue-50 border-r-4 border-blue-600 p-3 rounded-lg mt-4">
-            <h2 className="text-base font-medium text-gray-800 mt-0 mb-2.5">
-              💡 چرا این گزارش اهمیت دارد؟
+          {/* Patient List */}
+          <div className="mb-8">
+            <h2 className="text-base font-medium text-gray-800 mb-4">
+              جزئیات گزارش‌های ویزیت ناموفق
             </h2>
-            <p className="text-sm text-gray-800 leading-relaxed mb-2.5">
-              این شاخص، مواردی را اندازه‌گیری می‌کند که بیمار، ویزیت حضوری خود
-              را «ناموفق» (معمولاً به دلیل عدم حضور در نوبت) علامت‌گذاری کرده است.
-            </p>
-            <p className="text-sm text-gray-800 leading-relaxed mb-0">
-              از آنجایی که «عدم حضور» یکی از جدی‌ترین عوامل نارضایتی بیماران
-              و کاهش اعتماد آن‌ها به خدمات حضوری است، این گزارش به شما کمک
-              می‌کند تا این موارد خاص را شناسایی کرده، علت آن را بررسی کنید و
-              امتیاز عملکرد خود را بهبود بخشید.
-            </p>
+            {visitDetails.length === 0 ? (
+              <div className="text-sm text-gray-500 py-8 text-center">
+                داده‌ای برای نمایش وجود ندارد.
+              </div>
+            ) : (
+              <div className="space-y-3">
+                {visitDetails.map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between py-4 px-4 hover:bg-gray-50 rounded-lg transition-colors"
+                  >
+                    <div className="flex-1">
+                      <div className="font-bold text-gray-900 text-right mb-1">
+                        {item.patient_name || "ثبت نشده"}
+                      </div>
+                      <div className="text-sm text-gray-500 text-right">
+                        {formatDate(item.book_date)}
+                      </div>
+                    </div>
+                    {item.patient_cell && (
+                      <button
+                        onClick={() => setShowPhoneModal(item.patient_cell)}
+                        className="flex items-center justify-center w-10 h-10 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
+                        aria-label="مشاهده شماره موبایل"
+                      >
+                        <svg
+                          className="w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                          />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                          />
+                        </svg>
+                      </button>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
-          <p className="text-center mt-6 text-xs text-gray-600 border-t border-gray-200 pt-4">
+          <p className="text-center mt-8 text-xs text-gray-500 pt-6">
             برای ارتباط با پشتیبانی در مورد اطلاعات این شاخص با{" "}
             <a
               href="https://support.paziresh24.com"
@@ -542,6 +514,82 @@ const InpersonVisitAbsentReport: React.FC = () => {
             در تلگرام در ارتباط باشید.
           </p>
         </div>
+
+        {/* Help Modal */}
+        {showHelpModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" dir="rtl">
+            <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+              <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+                <h2 className="text-lg font-medium text-gray-800">راهنما</h2>
+                <button
+                  onClick={() => setShowHelpModal(false)}
+                  className="text-gray-400 hover:text-gray-600 transition-colors"
+                  aria-label="بستن"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <div className="px-6 py-4 space-y-4">
+                <div>
+                  <h3 className="text-base font-medium text-gray-800 mb-2">تعداد گزارش‌ها</h3>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    تعداد گزارش‌ها، مجموع کل گزارش‌های "ویزیت ناموفق" (مانند عدم حضور) ثبت‌شده برای شما است.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-base font-medium text-gray-800 mb-2">امتیاز منفی</h3>
+                  <p className="text-sm text-gray-700 leading-relaxed mb-2">
+                    امتیاز منفی با استفاده از یک فرمول رشد نمایی محاسبه شده است:
+                  </p>
+                  <ul className="list-disc list-inside text-sm text-gray-700 space-y-1 pr-4">
+                    <li>
+                      با افزایش تعداد گزارش‌ها، این امتیاز به‌سرعت افزایش یافته و نهایتاً به حداکثر <strong>5- (منفی پنج)</strong> می‌رسد.
+                    </li>
+                    <li>
+                      با عدم ثبت گزارش جدید، به مرور و طی 30 روز، این امتیاز منفی کاهش یافته و نهایتاً <strong>0 (صفر)</strong> می‌شود.
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-base font-medium text-gray-800 mb-2">چرا این گزارش اهمیت دارد؟</h3>
+                  <p className="text-sm text-gray-700 leading-relaxed mb-2">
+                    این شاخص، مواردی را اندازه‌گیری می‌کند که بیمار، ویزیت حضوری خود را «ناموفق» (معمولاً به دلیل عدم حضور در نوبت) علامت‌گذاری کرده است.
+                  </p>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    از آنجایی که «عدم حضور» یکی از جدی‌ترین عوامل نارضایتی بیماران و کاهش اعتماد آن‌ها به خدمات حضوری است، این گزارش به شما کمک می‌کند تا این موارد خاص را شناسایی کرده، علت آن را بررسی کنید و امتیاز عملکرد خود را بهبود بخشید.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Phone Modal */}
+        {showPhoneModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" dir="rtl">
+            <div className="bg-white rounded-lg max-w-sm w-full">
+              <div className="px-6 py-4 border-b border-gray-200 flex items-center justify-between">
+                <h2 className="text-lg font-medium text-gray-800">شماره موبایل</h2>
+                <button
+                  onClick={() => setShowPhoneModal(null)}
+                  className="text-gray-400 hover:text-gray-600 transition-colors"
+                  aria-label="بستن"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <div className="px-6 py-6">
+                <p className="text-lg font-medium text-gray-900 text-center" dir="ltr">
+                  {showPhoneModal}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
