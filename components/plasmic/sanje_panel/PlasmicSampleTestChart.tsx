@@ -476,7 +476,8 @@ function PlasmicSampleTestChart__RenderFunc(props: {
               ["accordion", "activePanelId"],
               AntdAccordion_Helpers
             ).apply(null, eventArgs);
-          }
+          },
+          rotationAngle: 90
         };
         initializeCodeComponentStates(
           $state,

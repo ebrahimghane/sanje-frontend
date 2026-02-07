@@ -915,105 +915,109 @@ function PlasmicInterstitialFullPageComponent__RenderFunc(props: {
             ? (() => {
                 const actionArgs = {
                   customFunction: async () => {
-                    return (() => {
-                      return (function () {
-                        function getQueryParams() {
-                          var params = {};
-                          var qs = window.location.search.substring(1);
-                          if (!qs) return params;
-                          var vars = qs.split("&");
-                          for (var i = 0; i < vars.length; i++) {
-                            var pair = vars[i].split("=");
-                            var key = decodeURIComponent(pair[0] || "");
-                            var value = decodeURIComponent(pair[1] || "");
-                            params[key] = value;
-                          }
-                          return params;
+                    return (function () {
+                      function getQueryParams() {
+                        var params = {};
+                        var qs = window.location.search.substring(1);
+                        if (!qs) return params;
+                        var vars = qs.split("&");
+                        for (var i = 0; i < vars.length; i++) {
+                          var pair = vars[i].split("=");
+                          var key = decodeURIComponent(pair[0] || "");
+                          var value = decodeURIComponent(pair[1] || "");
+                          params[key] = value;
                         }
-                        function getCookie(name) {
-                          var match = document.cookie.match(
-                            new RegExp("(^|;\\s*)" + name + "=([^;]*)")
-                          );
-                          return match ? decodeURIComponent(match[2]) : null;
-                        }
-                        function smartDecodeURIComponent(v, maxTimes) {
-                          if (!v) return "";
-                          var out = v;
-                          for (var i = 0; i < (maxTimes || 2); i++) {
-                            try {
-                              var decoded = decodeURIComponent(out);
-                              if (decoded === out) break;
-                              out = decoded;
-                            } catch (e) {
-                              break;
-                            }
-                          }
-                          return out;
-                        }
-                        var params = getQueryParams();
-                        var destinationURL = smartDecodeURIComponent(
-                          params["uri"] || "",
-                          2
+                        return params;
+                      }
+                      function getCookie(name) {
+                        var match = document.cookie.match(
+                          new RegExp("(^|;\\s*)" + name + "=([^;]*)")
                         );
-                        var destinationHost = "";
-                        if (destinationURL) {
+                        return match ? decodeURIComponent(match[2]) : null;
+                      }
+                      function smartDecodeURIComponent(v, maxTimes) {
+                        if (!v) return "";
+                        var out = v;
+                        for (var i = 0; i < (maxTimes || 2); i++) {
                           try {
-                            destinationHost = new URL(destinationURL).hostname;
+                            var decoded = decodeURIComponent(out);
+                            if (decoded === out) break;
+                            out = decoded;
                           } catch (e) {
-                            console.error(
-                              "Invalid destination URL:",
-                              destinationURL
-                            );
+                            break;
                           }
                         }
-                        var destinationDoctorName =
-                          params["display_name"] || "";
-                        var destinationDoctorNameEncoded = encodeURIComponent(
-                          destinationDoctorName
-                        );
-                        var terminalId = getCookie("terminal_id") || "";
-                        var source =
-                          params["source"] &&
-                          params["source"].toLowerCase() === "profile"
-                            ? "profile"
-                            : "search";
-                        var platform = params["platform"] || "";
-                        var destinationSiteTitle =
-                          platform || destinationHost || "سایت پزشک";
-                        var destinationSiteTitleEncoded =
-                          encodeURIComponent(destinationSiteTitle);
-                        var surveyResponseStatus = "Not-displayed";
-                        var cookieData = {
-                          surveyResponseStatus: surveyResponseStatus,
-                          destinationURL: destinationURL,
-                          destinationHost: destinationHost,
-                          destinationDoctorName: destinationDoctorName,
-                          destinationDoctorNameEncoded:
-                            destinationDoctorNameEncoded,
-                          terminalId: terminalId,
-                          destinationSiteTitle: destinationSiteTitle,
-                          destinationSiteTitleEncoded:
-                            destinationSiteTitleEncoded,
-                          source: source
-                        };
-                        var now = new Date();
-                        var expireTime = new Date(
-                          now.getTime() + 24 * 60 * 60 * 1000
-                        );
-                        var expires = "expires=" + expireTime.toUTCString();
-                        var cookieName = "transitionData";
-                        var cookieValue = encodeURIComponent(
-                          JSON.stringify(cookieData)
-                        );
-                        document.cookie =
-                          cookieName +
-                          "=" +
-                          cookieValue +
-                          "; " +
-                          expires +
-                          "; path=/" +
-                          "; domain=.paziresh24.com";
-                      })();
+                        return out;
+                      }
+                      var params = getQueryParams();
+                      var destinationURL = smartDecodeURIComponent(
+                        params["uri"] || "",
+                        2
+                      );
+                      var destinationHost = "";
+                      if (destinationURL) {
+                        try {
+                          destinationHost = new URL(destinationURL).hostname;
+                        } catch (e) {
+                          console.error(
+                            "Invalid destination URL:",
+                            destinationURL
+                          );
+                        }
+                      }
+                      var destinationDoctorName = params["display_name"] || "";
+                      var destinationDoctorNameEncoded = encodeURIComponent(
+                        destinationDoctorName
+                      );
+                      var destinationSlug = smartDecodeURIComponent(
+                        params["slug"] || "",
+                        1
+                      );
+                      var terminalId = getCookie("terminal_id") || "";
+                      var source =
+                        params["source"] &&
+                        params["source"].toLowerCase() === "profile"
+                          ? "profile"
+                          : "search";
+                      var platform = params["platform"] || "";
+                      var destinationSiteTitle =
+                        platform || destinationHost || "سایت پزشک";
+                      var destinationSiteTitleEncoded =
+                        encodeURIComponent(destinationSiteTitle);
+                      var surveyResponseStatus = "Not-displayed";
+                      var cookieData = {
+                        surveyResponseStatus: surveyResponseStatus,
+                        destinationURL: destinationURL,
+                        destinationHost: destinationHost,
+                        destinationDoctorName: destinationDoctorName,
+                        destinationDoctorNameEncoded:
+                          destinationDoctorNameEncoded,
+                        terminalId: terminalId,
+                        destinationSiteTitle: destinationSiteTitle,
+                        destinationSiteTitleEncoded:
+                          destinationSiteTitleEncoded,
+                        source: source
+                      };
+                      if (destinationSlug && destinationSlug.trim()) {
+                        cookieData.slug = destinationSlug;
+                        cookieData.slugEncoded =
+                          encodeURIComponent(destinationSlug);
+                      }
+                      var now = new Date();
+                      var expireTime = new Date(now.getTime() + 15 * 60 * 1000);
+                      var expires = "expires=" + expireTime.toUTCString();
+                      var cookieName = "transitionData";
+                      var cookieValue = encodeURIComponent(
+                        JSON.stringify(cookieData)
+                      );
+                      document.cookie =
+                        cookieName +
+                        "=" +
+                        cookieValue +
+                        "; " +
+                        expires +
+                        "; path=/" +
+                        "; domain=.paziresh24.com";
                     })();
                   }
                 };

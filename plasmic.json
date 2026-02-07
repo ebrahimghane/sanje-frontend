@@ -783,7 +783,8 @@
       ],
       "customFunctions": [],
       "styleTokensProviderFilePath": "plasmic/antd_5_hostless/PlasmicStyleTokensProvider.tsx",
-      "projectModuleFilePath": "plasmic/antd_5_hostless/plasmic.tsx"
+      "projectModuleFilePath": "plasmic/antd_5_hostless/plasmic.tsx",
+      "dataTokensFilePath": ""
     },
     {
       "projectId": "kS7YGZfVr6mU43XDQjXELc",
@@ -1521,7 +1522,8 @@
       ],
       "customFunctions": [],
       "styleTokensProviderFilePath": "plasmic/sanje_panel/PlasmicStyleTokensProvider.tsx",
-      "projectModuleFilePath": "plasmic/sanje_panel/plasmic.tsx"
+      "projectModuleFilePath": "plasmic/sanje_panel/plasmic.tsx",
+      "dataTokensFilePath": ""
     },
     {
       "projectId": "gmeH6XgPaBtkt51HunAo4g",
@@ -1761,6 +1763,6 @@
   "nextjsConfig": {
     "pagesDir": "../src/pages"
   },
-  "cliVersion": "0.1.348",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.348/dist/plasmic.schema.json"
+  "cliVersion": "0.1.356",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.356/dist/plasmic.schema.json"
 }

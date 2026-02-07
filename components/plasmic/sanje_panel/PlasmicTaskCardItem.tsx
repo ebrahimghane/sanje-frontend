@@ -421,6 +421,7 @@ function PlasmicTaskCardItem__RenderFunc(props: {
             ).apply(null, eventArgs);
           },
           rotateCustomExpandIcon: false,
+          rotationAngle: 90,
           size: "small"
         };
         initializeCodeComponentStates(
