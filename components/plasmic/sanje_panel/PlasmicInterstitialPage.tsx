@@ -355,7 +355,8 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                                     )
                                     ?.split?.("=")?.[1],
                                   source: $ctx.query.source,
-                                  doctor_id: $ctx.query.doctor_id
+                                  doctor_id: $ctx.query.doctor_id,
+                                  platform: $ctx.query.platform
                                 };
                               } catch (e) {
                                 if (
