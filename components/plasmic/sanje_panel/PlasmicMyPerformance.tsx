@@ -82,6 +82,35 @@ import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: 8AcWHALIfat
 import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
 import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
 
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    title: "شاخص های عملکردی من",
+
+    openGraph: {
+      title: "شاخص های عملکردی من"
+    },
+    twitter: {
+      card: "summary",
+      title: "شاخص های عملکردی من"
+    }
+  };
+}
+
 createPlasmicElementProxy;
 
 export type PlasmicMyPerformance__VariantMembers = {};
@@ -163,7 +192,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
         path: "currentDoctorData",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return {};
@@ -182,13 +211,13 @@ function PlasmicMyPerformance__RenderFunc(props: {
         path: "currentDoctorGroupExpertiseOnlineVisitsPricingStats",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       },
       {
         path: "getMySearchDocument.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         refName: "getMySearchDocument"
       },
@@ -196,7 +225,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
         path: "getMySearchDocument.error",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         refName: "getMySearchDocument"
       },
@@ -204,7 +233,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
         path: "getMySearchDocument.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         refName: "getMySearchDocument"
       },
@@ -212,7 +241,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
         path: "sanjeSearchCardViewFragmentApiRequest2.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         refName: "sanjeSearchCardViewFragmentApiRequest2"
       },
@@ -220,7 +249,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
         path: "sanjeSearchCardViewFragmentApiRequest2.error",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         refName: "sanjeSearchCardViewFragmentApiRequest2"
       },
@@ -228,7 +257,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
         path: "sanjeSearchCardViewFragmentApiRequest2.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         refName: "sanjeSearchCardViewFragmentApiRequest2"
       },
@@ -236,7 +265,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
         path: "sanjeSearchClickPositionFragmentApiRequest3.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         refName: "sanjeSearchClickPositionFragmentApiRequest3"
       },
@@ -244,7 +273,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
         path: "sanjeSearchClickPositionFragmentApiRequest3.error",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         refName: "sanjeSearchClickPositionFragmentApiRequest3"
       },
@@ -252,7 +281,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
         path: "sanjeSearchClickPositionFragmentApiRequest3.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         refName: "sanjeSearchClickPositionFragmentApiRequest3"
       },
@@ -260,7 +289,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
         path: "growthOpportunitiesFragmentApiRequest.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         refName: "growthOpportunitiesFragmentApiRequest"
       },
@@ -268,7 +297,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
         path: "growthOpportunitiesFragmentApiRequest.error",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         refName: "growthOpportunitiesFragmentApiRequest"
       },
@@ -276,7 +305,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
         path: "growthOpportunitiesFragmentApiRequest.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         refName: "growthOpportunitiesFragmentApiRequest"
       },
@@ -284,7 +313,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
         path: "newsUpdatesFragmentApiRequest.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         refName: "newsUpdatesFragmentApiRequest"
       },
@@ -292,7 +321,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
         path: "newsUpdatesFragmentApiRequest.error",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         refName: "newsUpdatesFragmentApiRequest"
       },
@@ -300,7 +329,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
         path: "newsUpdatesFragmentApiRequest.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         refName: "newsUpdatesFragmentApiRequest"
       }
@@ -311,8 +340,14 @@ function PlasmicMyPerformance__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
 
   const styleTokensClassNames = _useStyleTokens();
 
@@ -320,16 +355,12 @@ function PlasmicMyPerformance__RenderFunc(props: {
     <React.Fragment>
       <Head>
         <meta name="twitter:card" content="summary" />
-        <title key="title">{PlasmicMyPerformance.pageMetadata.title}</title>
-        <meta
-          key="og:title"
-          property="og:title"
-          content={PlasmicMyPerformance.pageMetadata.title}
-        />
+        <title key="title">{pageMetadata.title}</title>
+        <meta key="og:title" property="og:title" content={pageMetadata.title} />
         <meta
           key="twitter:title"
           property="twitter:title"
-          content={PlasmicMyPerformance.pageMetadata.title}
+          content={pageMetadata.title}
         />
       </Head>
 
@@ -1523,6 +1554,7 @@ function PlasmicMyPerformance__RenderFunc(props: {
                                           href={
                                             "https://dr.paziresh24.com/setting/payment"
                                           }
+                                          legacyBehavior={false}
                                           platform={"nextjs"}
                                         >
                                           {
@@ -2582,13 +2614,11 @@ export const PlasmicMyPerformance = Object.assign(
     internalVariantProps: PlasmicMyPerformance__VariantProps,
     internalArgProps: PlasmicMyPerformance__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "شاخص های عملکردی من",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/my-performance",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 
