@@ -157,6 +157,7 @@ function PlasmicHeader__RenderFunc(props: {
           className={classNames(projectcss.all, projectcss.a, sty.link)}
           component={Link}
           href={"/"}
+          legacyBehavior={false}
           platform={"nextjs"}
         >
           <PlasmicImg__

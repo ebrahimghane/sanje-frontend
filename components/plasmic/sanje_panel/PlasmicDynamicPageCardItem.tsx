@@ -168,7 +168,7 @@ function PlasmicDynamicPageCardItem__RenderFunc(props: {
         path: "noTitle",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.noTitle
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.noTitle
       }
     ],
     [$props, $ctx, $refs]
@@ -177,6 +177,7 @@ function PlasmicDynamicPageCardItem__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 
@@ -289,6 +290,7 @@ function PlasmicDynamicPageCardItem__RenderFunc(props: {
             throw e;
           }
         })()}
+        legacyBehavior={false}
         platform={"nextjs"}
       >
         <div className={classNames(projectcss.all, sty.freeBox__wHmgr)}>

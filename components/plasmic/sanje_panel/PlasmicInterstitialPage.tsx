@@ -71,6 +71,35 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: aU6fPsMDSmKqgHWpAbdgs/projectcss
 import sty from "./PlasmicInterstitialPage.module.css"; // plasmic-import: GV1KOlx_b_Xo/css
 
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    title: "هدایت به وب سایت نوبت دهی",
+
+    openGraph: {
+      title: "هدایت به وب سایت نوبت دهی"
+    },
+    twitter: {
+      card: "summary",
+      title: "هدایت به وب سایت نوبت دهی"
+    }
+  };
+}
+
 createPlasmicElementProxy;
 
 export type PlasmicInterstitialPage__VariantMembers = {};
@@ -141,7 +170,7 @@ function PlasmicInterstitialPage__RenderFunc(props: {
         path: "apiRequest.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         refName: "apiRequest"
       },
@@ -149,7 +178,7 @@ function PlasmicInterstitialPage__RenderFunc(props: {
         path: "apiRequest.error",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         refName: "apiRequest"
       },
@@ -157,7 +186,7 @@ function PlasmicInterstitialPage__RenderFunc(props: {
         path: "apiRequest.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         refName: "apiRequest"
       }
@@ -168,8 +197,14 @@ function PlasmicInterstitialPage__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
 
   const styleTokensClassNames = _useStyleTokens();
 
@@ -177,16 +212,12 @@ function PlasmicInterstitialPage__RenderFunc(props: {
     <React.Fragment>
       <Head>
         <meta name="twitter:card" content="summary" />
-        <title key="title">{PlasmicInterstitialPage.pageMetadata.title}</title>
-        <meta
-          key="og:title"
-          property="og:title"
-          content={PlasmicInterstitialPage.pageMetadata.title}
-        />
+        <title key="title">{pageMetadata.title}</title>
+        <meta key="og:title" property="og:title" content={pageMetadata.title} />
         <meta
           key="twitter:title"
           property="twitter:title"
-          content={PlasmicInterstitialPage.pageMetadata.title}
+          content={pageMetadata.title}
         />
       </Head>
 
@@ -322,7 +353,9 @@ function PlasmicInterstitialPage__RenderFunc(props: {
                                     ?.find?.(row =>
                                       row.startsWith("terminal_id=")
                                     )
-                                    ?.split?.("=")?.[1]
+                                    ?.split?.("=")?.[1],
+                                  source: $ctx.query.source,
+                                  doctor_id: $ctx.query.doctor_id
                                 };
                               } catch (e) {
                                 if (
@@ -650,13 +683,11 @@ export const PlasmicInterstitialPage = Object.assign(
     internalVariantProps: PlasmicInterstitialPage__VariantProps,
     internalArgProps: PlasmicInterstitialPage__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "هدایت به وب سایت نوبت دهی",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/interstitial_page",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 
